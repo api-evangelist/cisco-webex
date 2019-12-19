@@ -1,0 +1,451 @@
+{
+    "id": "0894f8ff414a4bfc03ccbc42e313023f",
+    "name": "Webex Teams Admin API",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "bee94d6b7e53849dab038a7648880de1",
+            "name": "Get Person Details1",
+            "url": "httpsapi.ciscospark.com\/v1\/people\/{_person}",
+            "description": "Shows details for a person, by ID.\nSpecify the person ID in the personId parameter in the URI.\n\nhttps:\/\/developer.webex.com\/endpoint-people-personId-get.html",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "_person",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "0894f8ff414a4bfc03ccbc42e313023f",
+            "rawModeData": ""
+        },
+        {
+            "id": "63f1e3d14143e8342686729312ae8813",
+            "name": "Update a Person",
+            "url": "httpsapi.ciscospark.com\/v1\/people\/{_person}",
+            "description": "Update details for a person, by ID.\r\n\r\nSpecify the person ID in the personId parameter in the URI. Only an admin can update a person details.\r\n\r\nhttps:\/\/developer.webex.com\/endpoint-people-personId-put.html\r\n\r\nExample Request:\r\n``` json\r\n{\r\n  'emails\" : [ 'johnny.chang@foomail.com', 'jchang@barmail.com' ],\r\n  'displayName' : 'John Andersen',\r\n  'firstName' : 'John',\r\n  'lastName' : 'Andersen',\r\n  'avatar' : 'https:\/\/1efa7a94ed21783e352-c62266528714497a17239ececf39e9e2.ssl.cf1.rackcdn.com\/V1~54c8",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Body",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Content",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "_person",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "0894f8ff414a4bfc03ccbc42e313023f",
+            "rawModeData": ""
+        },
+        {
+            "id": "42683dd2315f448af0e96ebe4993bfc0",
+            "name": "Delete a Person",
+            "url": "httpsapi.ciscospark.com\/v1\/people\/{_person}",
+            "description": "Remove a person from the system. Only an admin can remove a person.\n\nSpecify the person ID in the personId parameter in the URI.\n\nhttps:\/\/developer.webex.com\/endpoint-people-personId-delete.html",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "_person",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "0894f8ff414a4bfc03ccbc42e313023f",
+            "rawModeData": ""
+        },
+        {
+            "id": "ccafaa0fc44ca90afa5c9e829ad5d183",
+            "name": "Get roles (to fetch a role id)",
+            "url": "httpsapi.ciscospark.com\/v1\/roles",
+            "description": "List all roles.\n\nhttps:\/\/developer.webex.com\/endpoint-roles-get.html\n\nExample Response:\n``` json\n{\n  'items' : [ {\n    'id' : 'OTZhYmMyYWEtM2RjYy0xMWU1LWExNTItZmUzNDgxOWNkYzlh',\n    'displayName' : 'Full Administrator'\n  } ]\n}\n```",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "0894f8ff414a4bfc03ccbc42e313023f",
+            "rawModeData": ""
+        },
+        {
+            "id": "53176b086577dae84a7bd0cc4dfb6fdd",
+            "name": "Get License Details",
+            "url": "httpsapi.ciscospark.com\/v1\/licenses\/{_license}",
+            "description": "Shows details for a license, by ID.\r\n\r\nSpecify the license ID in the licenseId parameter in the URI.\r\n\r\nhttps:\/\/developer.webex.com\/endpoint-licenses-licenseId-get.html\r\n\r\nExample Response:\r\n``` json\r\n{\r\n  'id' : 'OTZhYmMyYWEtM2RjYy0xMWU1LWExNTItZmUzNDgxOWNkYzlh',\r\n  'displayName' : 'Spark Calling',\r\n  'totalUnits' : '42',\r\n  'consumedUnits' : \"8'\r\n}\r\n```",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "_license",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "0894f8ff414a4bfc03ccbc42e313023f",
+            "rawModeData": ""
+        },
+        {
+            "id": "55160cea1ecb47a8845f59454b999f97",
+            "name": "Get Role Details",
+            "url": "httpsapi.ciscospark.com\/v1\/roles\/{_role}",
+            "description": "Shows details for a role, by ID.\n\nSpecify the role ID in the roleId parameter in the URI.\n\nhttps:\/\/developer.webex.com\/endpoint-roles-roleId-get.html\n\nExample Response:\n``` json\n{\n  'id' : 'OTZhYmMyYWEtM2RjYy0xMWU1LWExNTItZmUzNDgxOWNkYzlh',\n  'displayName' : 'Full Administrator'\n}\n```",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "_role",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "0894f8ff414a4bfc03ccbc42e313023f",
+            "rawModeData": ""
+        },
+        {
+            "id": "4fad255bbfc953bb74279f01011fd5ee",
+            "name": "Get Person Details (me)",
+            "url": "httpsapi.ciscospark.com\/v1\/people\/me",
+            "description": "Show the profile for the authenticated user.\n\nhttps:\/\/developer.webex.com\/endpoint-people-me-get.html",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Content",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "0894f8ff414a4bfc03ccbc42e313023f",
+            "rawModeData": ""
+        },
+        {
+            "id": "97a710f3ddf66d5bbaa849ab2b42580b",
+            "name": "List Events (new messages)",
+            "url": "httpsapi.ciscospark.com\/v1\/events",
+            "description": "List events in your organization. Several query parameters are available to filter the response.\nLong result sets will be split into pages.\n\nhttps:\/\/developer.webex.com\/endpoint-events-get.html",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "resource",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "type",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "0894f8ff414a4bfc03ccbc42e313023f",
+            "rawModeData": ""
+        },
+        {
+            "id": "95d23ea0308fd5bfc601a97b9ea0d186",
+            "name": "List Licenses",
+            "url": "httpsapi.ciscospark.com\/v1\/licenses",
+            "description": "List all licenses for a given organization. If no orgId is specified, the default is the organization of the authenticated user.\n\nhttps:\/\/developer.webex.com\/endpoint-licenses-get.html\n\nExample of a response:\n``` json\n{\n  'items' : [ {\n    'id' : 'OTZhYmMyYWEtM2RjYy0xMWU1LWExNTItZmUzNDgxOWNkYzlh',\n    'displayName' : 'Spark Calling',\n    'totalUnits' : '42',\n    'consumedUnits' : '8'\n  } ]\n}\n```",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "0894f8ff414a4bfc03ccbc42e313023f",
+            "rawModeData": ""
+        },
+        {
+            "id": "e025ad162b106939a2b543afe48ceec1",
+            "name": "Get Events Details",
+            "url": "httpsapi.ciscospark.com\/v1\/events\/{_event}",
+            "description": "Shows details for an event, by event ID.\r\nSpecify the event ID in the eventId parameter in the URI.\r\n\r\nhttps:\/\/developer.webex.com\/endpoint-events-eventId-get.html",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "_event",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "0894f8ff414a4bfc03ccbc42e313023f",
+            "rawModeData": ""
+        },
+        {
+            "id": "1baab194655b2b9bafc1ab4976c8c433",
+            "name": "List Organizations",
+            "url": "httpsapi.ciscospark.com\/v1\/organizations",
+            "description": "List all organizations visible by your account.\n\nhttps:\/\/developer.webex.com\/endpoint-organizations-get.html\n\nExample Response:\n``` json\n{\n  'items' : [ {\n    'id' : 'OTZhYmMyYWEtM2RjYy0xMWU1LWExNTItZmUzNDgxOWNkYzlh',\n    'displayName' : 'Acme, Inc.',\n    'created' : '2015-10-18T14:26:16+00:00'\n  } ]\n}\n```",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "0894f8ff414a4bfc03ccbc42e313023f",
+            "rawModeData": ""
+        },
+        {
+            "id": "3dc06eccbf33dd6c79acebc605c4f94a",
+            "name": "List people (with exact email)",
+            "url": "httpsapi.ciscospark.com\/v1\/people",
+            "description": "List people in your organization.\n\nhttps:\/\/developer.webex.com\/endpoint-people-get.html",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "email",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "0894f8ff414a4bfc03ccbc42e313023f",
+            "rawModeData": ""
+        },
+        {
+            "id": "f0acf95ee0dca185b44ea418c466553d",
+            "name": "Create a Person (random)",
+            "url": "httpsapi.ciscospark.com\/v1\/people",
+            "description": "Create a new user account for a given organization. Only an admin can create a new user account.\n\nhttps:\/\/developer.webex.com\/endpoint-people-post.html\n\nExample Request:\n``` json\n{\n  'emails' : [ 'johnny.chang@foomail.com', 'jchang@barmail.com' ],\n  'displayName' : 'John Andersen',\n  'firstName' : 'John',\n  'lastName' : 'Andersen',\n  'avatar' : 'https:\/\/1efa7a94ed21783e352-c62266528714497a17239ececf39e9e2.ssl.cf1.rackcdn.com\/V1~54c844c89e678e5a7b16a306bc2897b9~wx29yGtlTpilEFlYzqPKag==~1600',\n  '",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Body",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Content",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "0894f8ff414a4bfc03ccbc42e313023f",
+            "rawModeData": ""
+        },
+        {
+            "id": "d814f38af2c86cc3c1ab05e1a201fbe1",
+            "name": "Get Organization Details",
+            "url": "httpsapi.ciscospark.com\/v1\/organizations\/{_organization}",
+            "description": "Shows details for an organization, by ID.\r\n\r\nSpecify the org ID in the orgId parameter in the URI.\r\n\r\nhttps:\/\/developer.webex.com\/endpoint-organizations-orgId-get.html\r\n\r\nExample Response:\r\n``` json\r\n{\r\n  'id' : 'OTZhYmMyYWEtM2RjYy0xMWU1LWExNTItZmUzNDgxOWNkYzlh',\r\n  'displayName' : 'Acme, Inc.',\r\n  'created' : '2015-10-18T14:26:16+00:00'\r\n}\r\n```",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "_organization",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "0894f8ff414a4bfc03ccbc42e313023f",
+            "rawModeData": ""
+        }
+    ]
+}
