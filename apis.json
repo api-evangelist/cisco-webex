@@ -11,8 +11,8 @@
         "telecommunications",
         "webhook implementations"
     ],
-    "created": "2019-12-19",
-    "modified": "2019-12-19",
+    "created": "2019-12-20",
+    "modified": "2019-12-20",
     "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/cisco-webex\/master\/apis.json",
     "specificationVersion": "0.14",
     "apis": [
@@ -26,15 +26,11 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/webex-teams-admin-api-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/cisco-webex\/master\/webex-teams-admin-api-openapi.json"
                 },
                 {
                     "type": "x-openapi",
                     "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/webex-teams-admin-api.json"
-                },
-                {
-                    "type": "x-postman-collecction",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/webex-teams-admin-api-postman-collection.json"
                 }
             ]
         },
@@ -48,21 +44,21 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/webex-teams-api-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/cisco-webex\/master\/webex-teams-api-openapi.json"
                 },
                 {
                     "type": "x-openapi",
                     "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/webex-teams-api.json"
-                },
-                {
-                    "type": "x-postman-collecction",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/webex-teams-api-postman-collection.json"
                 }
             ]
         }
     ],
     "include": [],
     "x-common": [
+        {
+            "type": "APIs.json",
+            "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/apis.json"
+        },
         {
             "type": "Blog",
             "url": "http:\/\/blogs.webex.com\/"
