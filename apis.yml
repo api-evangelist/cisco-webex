@@ -1,0 +1,144 @@
+name: Cisco Webex
+description: Cisco Webex is a comprehensive collaboration platform that provides video conferencing, team messaging, file sharing, and calling capabilities for businesses and teams.
+image: https://www.webex.com/content/dam/wbx/us/images/webex-logo.svg
+url: https://developer.webex.com
+created: '2024'
+modified: '2024'
+specificationVersion: '0.18'
+tags:
+- collaboration
+- video conferencing
+- messaging
+- communications
+- meetings
+- teams
+apis:
+- name: Webex Meetings API
+  description: Create, manage, and control Webex meetings programmatically
+  image: https://www.webex.com/content/dam/wbx/us/images/webex-logo.svg
+  humanURL: https://developer.webex.com/docs/meetings
+  baseURL: https://webexapis.com/v1
+  tags:
+  - meetings
+  - video
+  - conferencing
+  properties:
+  - type: OpenAPI
+    url: https://developer.webex.com/docs/api/v1/meetings
+  - type: Documentation
+    url: https://developer.webex.com/docs/meetings
+  - type: Authentication
+    url: https://developer.webex.com/docs/getting-started#authentication
+- name: Webex Messaging API
+  description: Send and receive messages, manage spaces and teams
+  image: https://www.webex.com/content/dam/wbx/us/images/webex-logo.svg
+  humanURL: https://developer.webex.com/docs/messaging
+  baseURL: https://webexapis.com/v1
+  tags:
+  - messaging
+  - chat
+  - teams
+  - spaces
+  properties:
+  - type: OpenAPI
+    url: https://developer.webex.com/docs/api/v1/messages
+  - type: Documentation
+    url: https://developer.webex.com/docs/messaging
+  - type: Webhooks
+    url: https://developer.webex.com/docs/webhooks
+- name: Webex People API
+  description: Access user profile information and manage contacts
+  image: https://www.webex.com/content/dam/wbx/us/images/webex-logo.svg
+  humanURL: https://developer.webex.com/docs/api/v1/people
+  baseURL: https://webexapis.com/v1
+  tags:
+  - people
+  - users
+  - profiles
+  - contacts
+  properties:
+  - type: OpenAPI
+    url: https://developer.webex.com/docs/api/v1/people
+  - type: Documentation
+    url: https://developer.webex.com/docs/api/v1/people
+- name: Webex Teams API
+  description: Create and manage teams and team memberships
+  image: https://www.webex.com/content/dam/wbx/us/images/webex-logo.svg
+  humanURL: https://developer.webex.com/docs/api/v1/teams
+  baseURL: https://webexapis.com/v1
+  tags:
+  - teams
+  - collaboration
+  - membership
+  properties:
+  - type: OpenAPI
+    url: https://developer.webex.com/docs/api/v1/teams
+  - type: Documentation
+    url: https://developer.webex.com/docs/api/v1/teams
+- name: Webex Rooms API
+  description: Create and manage Webex spaces (rooms) for collaboration
+  image: https://www.webex.com/content/dam/wbx/us/images/webex-logo.svg
+  humanURL: https://developer.webex.com/docs/api/v1/rooms
+  baseURL: https://webexapis.com/v1
+  tags:
+  - rooms
+  - spaces
+  - collaboration
+  properties:
+  - type: OpenAPI
+    url: https://developer.webex.com/docs/api/v1/rooms
+  - type: Documentation
+    url: https://developer.webex.com/docs/api/v1/rooms
+- name: Webex Webhooks API
+  description: Register webhooks to receive real-time notifications
+  image: https://www.webex.com/content/dam/wbx/us/images/webex-logo.svg
+  humanURL: https://developer.webex.com/docs/webhooks
+  baseURL: https://webexapis.com/v1
+  tags:
+  - webhooks
+  - events
+  - notifications
+  - real-time
+  properties:
+  - type: OpenAPI
+    url: https://developer.webex.com/docs/api/v1/webhooks
+  - type: Documentation
+    url: https://developer.webex.com/docs/webhooks
+- name: Webex Devices API
+  description: Manage and control Webex devices and room systems
+  image: https://www.webex.com/content/dam/wbx/us/images/webex-logo.svg
+  humanURL: https://developer.webex.com/docs/api/v1/devices
+  baseURL: https://webexapis.com/v1
+  tags:
+  - devices
+  - hardware
+  - room systems
+  properties:
+  - type: OpenAPI
+    url: https://developer.webex.com/docs/api/v1/devices
+  - type: Documentation
+    url: https://developer.webex.com/docs/api/v1/devices
+common:
+- type: Getting Started
+  url: https://developer.webex.com/docs/getting-started
+- type: SDKs
+  url: https://developer.webex.com/docs/sdks
+- type: Blog
+  url: https://developer.webex.com/blog
+- type: Support
+  url: https://developer.webex.com/support
+- type: Status
+  url: https://status.webex.com
+- type: Terms of Service
+  url: https://www.cisco.com/c/en/us/about/legal/cloud-and-software/end-user-license-agreement.html
+- type: Authentication
+  url: https://developer.webex.com/docs/getting-started#authentication
+- type: Rate Limits
+  url: https://developer.webex.com/docs/api-rate-limits
+- type: Community
+  url: https://community.cisco.com/t5/webex-developers/bd-p/4416j-disc-dev-webex
+maintainers:
+- FN: Cisco Webex Developer Support
+  email: devsupport@webex.com
+  url: https://developer.webex.com
+include: []
