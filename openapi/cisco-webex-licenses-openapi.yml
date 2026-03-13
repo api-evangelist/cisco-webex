@@ -1,0 +1,266 @@
+openapi: 3.1.0
+info:
+  title: Cisco Webex Licenses API
+  description: >-
+    Manage and retrieve Webex licenses for an organization. Provides
+    endpoints to list available licenses, view license details, and assign
+    or modify license allocations for users.
+  version: 1.0.0
+  contact:
+    name: Cisco Webex Developer Support
+    url: https://developer.webex.com/support
+  license:
+    name: Cisco Webex API Terms of Service
+    url: https://developer.webex.com/terms-of-service
+servers:
+  - url: https://webexapis.com/v1
+    description: Webex Production API
+security:
+  - bearerAuth: []
+tags:
+  - name: Licenses
+    description: Operations for managing Webex licenses
+paths:
+  /licenses:
+    get:
+      operationId: listLicenses
+      summary: List Licenses
+      description: >-
+        Lists all licenses for the organization. Returns license name,
+        total units, consumed units, and subscription details.
+      tags:
+        - Licenses
+      parameters:
+        - name: orgId
+          in: query
+          description: Filter by organization ID.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with list of licenses.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/License'
+        '401':
+          description: Unauthorized - invalid or missing access token.
+  /licenses/{licenseId}:
+    get:
+      operationId: getLicenseDetails
+      summary: Get License Details
+      description: >-
+        Shows details for a license by ID. Includes unit consumption,
+        subscription details, and optionally the list of users assigned
+        to the license.
+      tags:
+        - Licenses
+      parameters:
+        - name: licenseId
+          in: path
+          required: true
+          description: Unique identifier for the license.
+          schema:
+            type: string
+        - name: includeAssignedTo
+          in: query
+          description: Set to 'user' to include the list of users assigned to this license.
+          schema:
+            type: string
+            enum:
+              - user
+        - name: next
+          in: query
+          description: Pagination token for retrieving additional assigned users.
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: Maximum number of assigned users to return (default 300, max 300).
+          schema:
+            type: integer
+            default: 300
+            maximum: 300
+      responses:
+        '200':
+          description: Successful response with license details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LicenseDetail'
+        '404':
+          description: License not found.
+  /licenses/users:
+    patch:
+      operationId: assignLicensesToUsers
+      summary: Assign Licenses to Users
+      description: >-
+        Assigns licenses and attendee site URLs to existing users. Supports
+        bulk operations and partial success scenarios with 206 response
+        codes.
+      tags:
+        - Licenses
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/LicenseAssignment'
+      responses:
+        '200':
+          description: All license assignments completed successfully.
+        '206':
+          description: Partial success - some assignments failed.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                    personId:
+                      type: string
+                    error:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                        message:
+                          type: string
+        '400':
+          description: Bad request - invalid input parameters.
+        '401':
+          description: Unauthorized - invalid or missing access token.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: >-
+        Webex API access token. Obtain via OAuth 2.0 authorization flow.
+        Requires spark-admin:licenses_read scope.
+  schemas:
+    License:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the license.
+        name:
+          type: string
+          description: Name of the license.
+        totalUnits:
+          type: integer
+          description: Total number of license units.
+        consumedUnits:
+          type: integer
+          description: Number of consumed license units.
+        consumedByUsers:
+          type: integer
+          description: Units consumed by users.
+        consumedByWorkspaces:
+          type: integer
+          description: Units consumed by workspaces.
+        subscriptionId:
+          type: string
+          description: Subscription ID associated with the license.
+        siteUrl:
+          type: string
+          description: Webex site URL for the license.
+        siteType:
+          type: string
+          description: Type of the Webex site.
+    LicenseDetail:
+      allOf:
+        - $ref: '#/components/schemas/License'
+        - type: object
+          properties:
+            users:
+              type: array
+              description: Users assigned to this license.
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: Person ID.
+                  type:
+                    type: string
+                    description: User type.
+                    enum:
+                      - INTERNAL
+                      - EXTERNAL
+                  displayName:
+                    type: string
+                    description: Display name of the user.
+                  email:
+                    type: string
+                    format: email
+                    description: Email address of the user.
+    LicenseAssignment:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          description: Email address of the user.
+        personId:
+          type: string
+          description: Person ID of the user.
+        orgId:
+          type: string
+          description: Organization ID.
+        licenses:
+          type: array
+          description: Licenses to assign or remove.
+          items:
+            type: object
+            required:
+              - id
+            properties:
+              id:
+                type: string
+                description: License ID.
+              operation:
+                type: string
+                description: Operation to perform.
+                enum:
+                  - add
+                  - remove
+                default: add
+              properties:
+                type: object
+                description: Optional license properties.
+                properties:
+                  locationId:
+                    type: string
+                  phoneNumber:
+                    type: string
+                  extension:
+                    type: string
+        siteUrls:
+          type: array
+          description: Site URLs to assign.
+          items:
+            type: object
+            properties:
+              siteUrl:
+                type: string
+              accountType:
+                type: string
+                enum:
+                  - attendee
+              operation:
+                type: string
+                enum:
+                  - add
+                  - remove

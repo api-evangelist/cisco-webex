@@ -1,0 +1,207 @@
+openapi: 3.1.0
+info:
+  title: Cisco Webex Teams API
+  description: >-
+    Create and manage teams and team memberships within Webex. Teams group
+    people and spaces together for organized collaboration across projects
+    and departments.
+  version: 1.0.0
+  contact:
+    name: Cisco Webex Developer Support
+    url: https://developer.webex.com/support
+  license:
+    name: Cisco Webex API Terms of Service
+    url: https://developer.webex.com/terms-of-service
+servers:
+  - url: https://webexapis.com/v1
+    description: Webex Production API
+security:
+  - bearerAuth: []
+tags:
+  - name: Teams
+    description: Operations for managing Webex teams
+paths:
+  /teams:
+    get:
+      operationId: listTeams
+      summary: List Teams
+      description: >-
+        Lists teams to which the authenticated user belongs. Results are
+        paginated and sorted by the most recent activity.
+      tags:
+        - Teams
+      parameters:
+        - name: max
+          in: query
+          description: Maximum number of teams to return (default 100).
+          schema:
+            type: integer
+            default: 100
+      responses:
+        '200':
+          description: Successful response with list of teams.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Team'
+        '401':
+          description: Unauthorized - invalid or missing access token.
+    post:
+      operationId: createTeam
+      summary: Create a Team
+      description: >-
+        Creates a new team. The authenticated user is automatically added as
+        a member and moderator of the team. A General space is also created
+        for the team.
+      tags:
+        - Teams
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTeamRequest'
+      responses:
+        '200':
+          description: Team created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+        '400':
+          description: Bad request - invalid input parameters.
+        '401':
+          description: Unauthorized - invalid or missing access token.
+  /teams/{teamId}:
+    get:
+      operationId: getTeamDetails
+      summary: Get Team Details
+      description: >-
+        Shows details for a team by ID. Only members of the team can view
+        team details.
+      tags:
+        - Teams
+      parameters:
+        - name: teamId
+          in: path
+          required: true
+          description: Unique identifier for the team.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with team details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+        '404':
+          description: Team not found.
+    put:
+      operationId: updateTeam
+      summary: Update a Team
+      description: >-
+        Updates details for a team by ID. Only team moderators can update
+        team properties such as name and description.
+      tags:
+        - Teams
+      parameters:
+        - name: teamId
+          in: path
+          required: true
+          description: Unique identifier for the team.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTeamRequest'
+      responses:
+        '200':
+          description: Team updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+        '400':
+          description: Bad request - invalid input parameters.
+        '404':
+          description: Team not found.
+    delete:
+      operationId: deleteTeam
+      summary: Delete a Team
+      description: >-
+        Deletes a team by ID. Deleting a team also deletes all team
+        memberships and associated spaces. Only team moderators can delete
+        a team.
+      tags:
+        - Teams
+      parameters:
+        - name: teamId
+          in: path
+          required: true
+          description: Unique identifier for the team.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Team deleted successfully.
+        '404':
+          description: Team not found.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: >-
+        Webex API access token. Obtain via OAuth 2.0 authorization flow or
+        personal access token from developer.webex.com.
+  schemas:
+    Team:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the team.
+        name:
+          type: string
+          description: A user-friendly name for the team.
+        description:
+          type: string
+          description: The team's description.
+        creatorId:
+          type: string
+          description: The ID of the person who created the team.
+        created:
+          type: string
+          format: date-time
+          description: The date and time the team was created.
+    CreateTeamRequest:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          description: A user-friendly name for the team.
+        description:
+          type: string
+          description: The team's description.
+    UpdateTeamRequest:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          description: A user-friendly name for the team.
+        description:
+          type: string
+          description: The team's description.

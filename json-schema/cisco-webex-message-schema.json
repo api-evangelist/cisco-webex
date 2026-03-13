@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://developer.webex.com/schemas/message.json",
+  "title": "Cisco Webex Message",
+  "description": "Represents a message posted in a Webex room, including text, markdown, files, and adaptive card attachments.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the message."
+    },
+    "parentId": {
+      "type": "string",
+      "description": "The parent message ID if this is a threaded reply."
+    },
+    "roomId": {
+      "type": "string",
+      "description": "The room ID where the message was posted."
+    },
+    "roomType": {
+      "type": "string",
+      "description": "The type of room.",
+      "enum": ["direct", "group"]
+    },
+    "text": {
+      "type": "string",
+      "description": "The plain text content of the message.",
+      "maxLength": 7439
+    },
+    "markdown": {
+      "type": "string",
+      "description": "The message content in markdown format.",
+      "maxLength": 7439
+    },
+    "html": {
+      "type": "string",
+      "description": "The rendered HTML content of the message."
+    },
+    "files": {
+      "type": "array",
+      "description": "Public URLs for files attached to the message.",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "personId": {
+      "type": "string",
+      "description": "The person ID of the message author."
+    },
+    "personEmail": {
+      "type": "string",
+      "format": "email",
+      "description": "The email address of the message author."
+    },
+    "mentionedPeople": {
+      "type": "array",
+      "description": "Person IDs of those mentioned in the message.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mentionedGroups": {
+      "type": "array",
+      "description": "Group names mentioned in the message.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "attachments": {
+      "type": "array",
+      "description": "Adaptive card attachments on the message.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "contentType": {
+            "type": "string",
+            "description": "The content type of the attachment."
+          },
+          "content": {
+            "type": "object",
+            "description": "Adaptive card content object."
+          }
+        }
+      }
+    },
+    "isVoiceClip": {
+      "type": "boolean",
+      "description": "Whether the message is a voice clip."
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the message was created."
+    },
+    "updated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the message was last updated."
+    }
+  },
+  "required": ["id", "roomId", "personId", "created"]
+}

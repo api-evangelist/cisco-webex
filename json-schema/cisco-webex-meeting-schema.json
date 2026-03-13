@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://developer.webex.com/schemas/meeting.json",
+  "title": "Cisco Webex Meeting",
+  "description": "Represents a Webex meeting including meeting series, scheduled meetings, and meeting instances.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the meeting."
+    },
+    "meetingNumber": {
+      "type": "string",
+      "description": "Meeting number used to join the meeting."
+    },
+    "title": {
+      "type": "string",
+      "description": "Title of the meeting."
+    },
+    "password": {
+      "type": "string",
+      "description": "Password required to join the meeting."
+    },
+    "meetingType": {
+      "type": "string",
+      "description": "Type of meeting.",
+      "enum": ["meetingSeries", "scheduledMeeting", "meeting"]
+    },
+    "state": {
+      "type": "string",
+      "description": "Current state of the meeting."
+    },
+    "timezone": {
+      "type": "string",
+      "description": "Time zone for the meeting in IANA format."
+    },
+    "start": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Start time of the meeting in ISO 8601 format."
+    },
+    "end": {
+      "type": "string",
+      "format": "date-time",
+      "description": "End time of the meeting in ISO 8601 format."
+    },
+    "hostUserId": {
+      "type": "string",
+      "description": "Unique identifier for the meeting host."
+    },
+    "hostDisplayName": {
+      "type": "string",
+      "description": "Display name of the meeting host."
+    },
+    "hostEmail": {
+      "type": "string",
+      "format": "email",
+      "description": "Email address of the meeting host."
+    },
+    "webLink": {
+      "type": "string",
+      "format": "uri",
+      "description": "Link to join the meeting from a web browser."
+    },
+    "sipAddress": {
+      "type": "string",
+      "description": "SIP address for joining via video system."
+    },
+    "dialInIpAddress": {
+      "type": "string",
+      "description": "IP address for dial-in access."
+    },
+    "scheduledType": {
+      "type": "string",
+      "description": "Scheduled type of the meeting.",
+      "enum": ["meeting", "webinar", "personalRoomMeeting"]
+    },
+    "recurrence": {
+      "type": "string",
+      "description": "Recurrence rule in iCalendar format for recurring meetings."
+    },
+    "telephony": {
+      "type": "object",
+      "description": "Telephony information for the meeting.",
+      "properties": {
+        "accessCode": {
+          "type": "string",
+          "description": "Access code for telephony."
+        },
+        "callInNumbers": {
+          "type": "array",
+          "description": "List of call-in numbers.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "callInNumber": {
+                "type": "string"
+              },
+              "tollType": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "registrationEnabled": {
+      "type": "boolean",
+      "description": "Whether registration is enabled for the meeting."
+    }
+  },
+  "required": ["id", "title"]
+}

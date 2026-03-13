@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://developer.webex.com/schemas/device.json",
+  "title": "Cisco Webex Device",
+  "description": "Represents a Webex device or room system, including its configuration, connection status, and workspace assignment.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the device."
+    },
+    "displayName": {
+      "type": "string",
+      "description": "Display name of the device."
+    },
+    "workspaceId": {
+      "type": "string",
+      "description": "Workspace ID the device is assigned to."
+    },
+    "personId": {
+      "type": "string",
+      "description": "Person ID the device is assigned to."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "Organization ID the device belongs to."
+    },
+    "capabilities": {
+      "type": "array",
+      "description": "List of device capabilities.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "permissions": {
+      "type": "array",
+      "description": "List of device permissions.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "connectionStatus": {
+      "type": "string",
+      "description": "Current connection status of the device.",
+      "enum": ["connected", "disconnected", "connected_with_issues"]
+    },
+    "product": {
+      "type": "string",
+      "description": "Product name of the device."
+    },
+    "type": {
+      "type": "string",
+      "description": "Device type."
+    },
+    "tags": {
+      "type": "array",
+      "description": "Tags assigned to the device.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ip": {
+      "type": "string",
+      "description": "IP address of the device."
+    },
+    "mac": {
+      "type": "string",
+      "description": "MAC address of the device."
+    },
+    "serial": {
+      "type": "string",
+      "description": "Serial number of the device."
+    },
+    "software": {
+      "type": "string",
+      "description": "Software version running on the device."
+    },
+    "upgradeChannel": {
+      "type": "string",
+      "description": "Upgrade channel for the device."
+    },
+    "primarySipUrl": {
+      "type": "string",
+      "description": "Primary SIP URL of the device."
+    },
+    "sipUrls": {
+      "type": "array",
+      "description": "SIP URLs assigned to the device.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "errorCodes": {
+      "type": "array",
+      "description": "Error codes reported by the device.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the device was created."
+    },
+    "firstSeen": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the device was first seen."
+    },
+    "lastSeen": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the device was last seen."
+    }
+  },
+  "required": ["id"]
+}

@@ -1,0 +1,279 @@
+{
+  "@context": {
+    "@vocab": "https://developer.webex.com/ns/",
+    "schema": "https://schema.org/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "sioc": "http://rdfs.org/sioc/ns#",
+    "ical": "http://www.w3.org/2002/12/cal/icaltzd#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Meeting": {
+      "@id": "schema:Event",
+      "@context": {
+        "id": "@id",
+        "title": "schema:name",
+        "description": "schema:description",
+        "start": {
+          "@id": "schema:startDate",
+          "@type": "xsd:dateTime"
+        },
+        "end": {
+          "@id": "schema:endDate",
+          "@type": "xsd:dateTime"
+        },
+        "hostEmail": "schema:organizer",
+        "hostDisplayName": "schema:organizer",
+        "webLink": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "meetingNumber": "schema:identifier",
+        "password": "schema:accessCode",
+        "timezone": "schema:timeZone",
+        "recurrence": "ical:rrule",
+        "sipAddress": "schema:telephone",
+        "scheduledType": "schema:eventAttendanceMode"
+      }
+    },
+
+    "Person": {
+      "@id": "schema:Person",
+      "@context": {
+        "id": "@id",
+        "displayName": "schema:name",
+        "firstName": "schema:givenName",
+        "lastName": "schema:familyName",
+        "nickName": "foaf:nick",
+        "emails": "schema:email",
+        "phoneNumbers": "schema:telephone",
+        "avatar": {
+          "@id": "schema:image",
+          "@type": "@id"
+        },
+        "title": "schema:jobTitle",
+        "department": "schema:department",
+        "manager": "schema:colleague",
+        "orgId": "schema:memberOf",
+        "addresses": "schema:address",
+        "timezone": "schema:timeZone",
+        "created": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "lastModified": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        },
+        "status": "schema:status"
+      }
+    },
+
+    "Message": {
+      "@id": "sioc:Post",
+      "@context": {
+        "id": "@id",
+        "text": "sioc:content",
+        "html": "sioc:content",
+        "markdown": "sioc:content",
+        "personId": "sioc:has_creator",
+        "personEmail": "schema:author",
+        "roomId": "sioc:has_container",
+        "parentId": "sioc:reply_of",
+        "files": {
+          "@id": "sioc:attachment",
+          "@type": "@id"
+        },
+        "mentionedPeople": "schema:mentions",
+        "created": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updated": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Room": {
+      "@id": "sioc:Space",
+      "@context": {
+        "id": "@id",
+        "title": "schema:name",
+        "description": "schema:description",
+        "type": "dcterms:type",
+        "teamId": "schema:partOf",
+        "creatorId": "dcterms:creator",
+        "ownerId": "schema:maintainer",
+        "lastActivity": {
+          "@id": "schema:dateModified",
+          "@type": "xsd:dateTime"
+        },
+        "created": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "isLocked": "schema:accessMode",
+        "isPublic": "schema:isAccessibleForFree"
+      }
+    },
+
+    "Team": {
+      "@id": "schema:Organization",
+      "@context": {
+        "id": "@id",
+        "name": "schema:name",
+        "description": "schema:description",
+        "creatorId": "dcterms:creator",
+        "created": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Membership": {
+      "@id": "schema:OrganizationRole",
+      "@context": {
+        "id": "@id",
+        "roomId": "schema:memberOf",
+        "personId": "schema:member",
+        "personEmail": "schema:email",
+        "personDisplayName": "schema:name",
+        "isModerator": "schema:roleName",
+        "created": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Webhook": {
+      "@id": "schema:WebAPI",
+      "@context": {
+        "id": "@id",
+        "name": "schema:name",
+        "targetUrl": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "resource": "schema:about",
+        "event": "schema:potentialAction",
+        "status": "schema:status",
+        "created": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Device": {
+      "@id": "schema:Product",
+      "@context": {
+        "id": "@id",
+        "displayName": "schema:name",
+        "product": "schema:model",
+        "serial": "schema:serialNumber",
+        "mac": "schema:identifier",
+        "ip": "schema:identifier",
+        "software": "schema:softwareVersion",
+        "connectionStatus": "schema:status",
+        "workspaceId": "schema:location",
+        "created": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Recording": {
+      "@id": "schema:MediaObject",
+      "@context": {
+        "id": "@id",
+        "topic": "schema:name",
+        "downloadUrl": {
+          "@id": "schema:contentUrl",
+          "@type": "@id"
+        },
+        "playbackUrl": {
+          "@id": "schema:embedUrl",
+          "@type": "@id"
+        },
+        "format": "schema:encodingFormat",
+        "durationSeconds": "schema:duration",
+        "sizeBytes": "schema:contentSize",
+        "status": "schema:status",
+        "createTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Organization": {
+      "@id": "schema:Organization",
+      "@context": {
+        "id": "@id",
+        "displayName": "schema:name",
+        "created": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Workspace": {
+      "@id": "schema:Place",
+      "@context": {
+        "id": "@id",
+        "displayName": "schema:name",
+        "capacity": "schema:maximumAttendeeCapacity",
+        "type": "dcterms:type",
+        "notes": "schema:description",
+        "created": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "lastModified": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "License": {
+      "@id": "schema:Offer",
+      "@context": {
+        "id": "@id",
+        "name": "schema:name",
+        "totalUnits": "schema:inventoryLevel",
+        "subscriptionId": "schema:identifier"
+      }
+    },
+
+    "Event": {
+      "@id": "schema:Action",
+      "@context": {
+        "id": "@id",
+        "resource": "schema:object",
+        "type": "schema:actionStatus",
+        "actorId": "schema:agent",
+        "orgId": "schema:participant",
+        "created": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Role": {
+      "@id": "schema:Role",
+      "@context": {
+        "id": "@id",
+        "name": "schema:roleName"
+      }
+    }
+  }
+}

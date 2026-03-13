@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://developer.webex.com/schemas/recording.json",
+  "title": "Cisco Webex Recording",
+  "description": "Represents a Webex meeting recording including metadata, download links, and playback information.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the recording."
+    },
+    "meetingId": {
+      "type": "string",
+      "description": "The meeting ID associated with the recording."
+    },
+    "topic": {
+      "type": "string",
+      "description": "The topic or title of the recording."
+    },
+    "createTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the recording was created."
+    },
+    "timeRecorded": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the recording was made."
+    },
+    "downloadUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to download the recording."
+    },
+    "playbackUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to play back the recording."
+    },
+    "password": {
+      "type": "string",
+      "description": "Password required to access the recording."
+    },
+    "format": {
+      "type": "string",
+      "description": "Format of the recording file.",
+      "enum": ["MP4", "ARF", "UPLOADED"]
+    },
+    "serviceType": {
+      "type": "string",
+      "description": "Webex service type the recording originated from.",
+      "enum": ["MeetingCenter", "EventCenter", "TrainingCenter", "SupportCenter"]
+    },
+    "durationSeconds": {
+      "type": "integer",
+      "description": "Duration of the recording in seconds."
+    },
+    "sizeBytes": {
+      "type": "integer",
+      "description": "Size of the recording file in bytes."
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status of the recording.",
+      "enum": ["available", "deleted", "purged"]
+    },
+    "temporaryDirectDownloadLinks": {
+      "type": "object",
+      "description": "Temporary download links with expiration timestamps.",
+      "properties": {
+        "recordingDownloadLink": {
+          "type": "string",
+          "format": "uri"
+        },
+        "audioDownloadLink": {
+          "type": "string",
+          "format": "uri"
+        },
+        "transcriptDownloadLink": {
+          "type": "string",
+          "format": "uri"
+        },
+        "expiration": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  },
+  "required": ["id"]
+}

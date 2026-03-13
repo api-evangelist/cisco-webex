@@ -1,0 +1,89 @@
+openapi: 3.1.0
+info:
+  title: Cisco Webex Roles API
+  description: >-
+    Retrieve roles available within a Webex organization. Roles define the
+    level of access and permissions granted to users, such as full
+    administrator or read-only administrator.
+  version: 1.0.0
+  contact:
+    name: Cisco Webex Developer Support
+    url: https://developer.webex.com/support
+  license:
+    name: Cisco Webex API Terms of Service
+    url: https://developer.webex.com/terms-of-service
+servers:
+  - url: https://webexapis.com/v1
+    description: Webex Production API
+security:
+  - bearerAuth: []
+tags:
+  - name: Roles
+    description: Operations for retrieving organizational roles
+paths:
+  /roles:
+    get:
+      operationId: listRoles
+      summary: List Roles
+      description: >-
+        Lists all roles available in the organization. Must be called by
+        an admin user. Returns role names and unique identifiers.
+      tags:
+        - Roles
+      responses:
+        '200':
+          description: Successful response with list of roles.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Role'
+        '401':
+          description: Unauthorized - invalid or missing access token.
+  /roles/{roleId}:
+    get:
+      operationId: getRoleDetails
+      summary: Get Role Details
+      description: >-
+        Shows details for a role by ID. Returns the role name and unique
+        identifier. Must be called by an admin user.
+      tags:
+        - Roles
+      parameters:
+        - name: roleId
+          in: path
+          required: true
+          description: Unique identifier for the role.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with role details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Role'
+        '404':
+          description: Role not found.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: >-
+        Webex API access token. Obtain via OAuth 2.0 authorization flow.
+        Requires spark-admin:roles_read scope.
+  schemas:
+    Role:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the role.
+        name:
+          type: string
+          description: The name of the role.

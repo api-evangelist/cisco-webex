@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://developer.webex.com/schemas/webhook.json",
+  "title": "Cisco Webex Webhook",
+  "description": "Represents a webhook registration that receives real-time HTTP callbacks when specific events occur in Webex.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the webhook."
+    },
+    "name": {
+      "type": "string",
+      "description": "A user-friendly name for the webhook."
+    },
+    "targetUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "The URL that receives webhook POST requests."
+    },
+    "resource": {
+      "type": "string",
+      "description": "The resource type monitored by the webhook.",
+      "enum": ["messages", "rooms", "memberships", "meetings", "recordings", "meetingParticipants", "meetingTranscripts", "attachmentActions", "telephony_calls"]
+    },
+    "event": {
+      "type": "string",
+      "description": "The event type monitored by the webhook.",
+      "enum": ["created", "updated", "deleted", "started", "ended", "joined", "left", "migrated", "read"]
+    },
+    "filter": {
+      "type": "string",
+      "description": "The filter expression for narrowing webhook scope."
+    },
+    "secret": {
+      "type": "string",
+      "description": "Secret used for generating payload signatures for verification."
+    },
+    "status": {
+      "type": "string",
+      "description": "The current status of the webhook.",
+      "enum": ["active", "inactive"]
+    },
+    "ownedBy": {
+      "type": "string",
+      "description": "Webhook ownership type."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "Organization ID of the webhook owner."
+    },
+    "createdBy": {
+      "type": "string",
+      "description": "Person ID of the webhook creator."
+    },
+    "appId": {
+      "type": "string",
+      "description": "Application ID associated with the webhook."
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the webhook was created."
+    }
+  },
+  "required": ["id", "name", "targetUrl", "resource", "event"]
+}

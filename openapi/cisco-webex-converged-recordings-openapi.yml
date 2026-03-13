@@ -1,0 +1,229 @@
+openapi: 3.1.0
+info:
+  title: Cisco Webex Converged Recordings API
+  description: >-
+    Access converged recording capabilities across Webex Meetings and Webex
+    Calling. Provides unified endpoints for listing, retrieving, and managing
+    recordings from multiple Webex services.
+  version: 1.0.0
+  contact:
+    name: Cisco Webex Developer Support
+    url: https://developer.webex.com/support
+  license:
+    name: Cisco Webex API Terms of Service
+    url: https://developer.webex.com/terms-of-service
+servers:
+  - url: https://webexapis.com/v1
+    description: Webex Production API
+security:
+  - bearerAuth: []
+tags:
+  - name: Converged Recordings
+    description: Operations for managing converged recordings
+paths:
+  /convergedRecordings:
+    get:
+      operationId: listConvergedRecordings
+      summary: List Converged Recordings
+      description: >-
+        Lists converged recordings from Webex Meetings and Webex Calling.
+        Provides a unified view of recordings across multiple services.
+        Supports filtering by date range, status, and service type.
+      tags:
+        - Converged Recordings
+      parameters:
+        - name: from
+          in: query
+          description: List recordings after this date and time in ISO 8601 format.
+          schema:
+            type: string
+            format: date-time
+        - name: to
+          in: query
+          description: List recordings before this date and time in ISO 8601 format.
+          schema:
+            type: string
+            format: date-time
+        - name: status
+          in: query
+          description: Filter by recording status.
+          schema:
+            type: string
+            enum:
+              - available
+              - deleted
+              - purged
+        - name: serviceType
+          in: query
+          description: Filter by Webex service type.
+          schema:
+            type: string
+            enum:
+              - calling
+              - meeting
+              - all
+        - name: max
+          in: query
+          description: Maximum number of recordings to return (default 10, max 100).
+          schema:
+            type: integer
+            default: 10
+            minimum: 1
+            maximum: 100
+      responses:
+        '200':
+          description: Successful response with list of converged recordings.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ConvergedRecording'
+        '401':
+          description: Unauthorized - invalid or missing access token.
+  /convergedRecordings/{recordingId}:
+    get:
+      operationId: getConvergedRecordingDetails
+      summary: Get Converged Recording Details
+      description: >-
+        Shows details for a converged recording by ID. Returns the recording
+        metadata, download links, and service-specific details.
+      tags:
+        - Converged Recordings
+      parameters:
+        - name: recordingId
+          in: path
+          required: true
+          description: Unique identifier for the recording.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with recording details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConvergedRecording'
+        '404':
+          description: Recording not found.
+    delete:
+      operationId: deleteConvergedRecording
+      summary: Delete a Converged Recording
+      description: >-
+        Deletes a converged recording by ID. The recording is soft-deleted
+        and can be recovered within a retention period.
+      tags:
+        - Converged Recordings
+      parameters:
+        - name: recordingId
+          in: path
+          required: true
+          description: Unique identifier for the recording.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reason:
+                  type: string
+                  description: Reason for deletion (required for compliance officers).
+                comment:
+                  type: string
+                  description: Additional comment.
+                  maxLength: 255
+      responses:
+        '204':
+          description: Recording deleted successfully.
+        '404':
+          description: Recording not found.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: >-
+        Webex API access token. Obtain via OAuth 2.0 authorization flow or
+        personal access token from developer.webex.com.
+  schemas:
+    ConvergedRecording:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the recording.
+        topic:
+          type: string
+          description: Topic or title of the recording.
+        createTime:
+          type: string
+          format: date-time
+          description: Date and time the recording was created.
+        timeRecorded:
+          type: string
+          format: date-time
+          description: Date and time the recording was made.
+        format:
+          type: string
+          description: Format of the recording.
+          enum:
+            - MP4
+            - MP3
+        serviceType:
+          type: string
+          description: The Webex service type.
+          enum:
+            - calling
+            - meeting
+        status:
+          type: string
+          description: Current status of the recording.
+          enum:
+            - available
+            - deleted
+            - purged
+        durationSeconds:
+          type: integer
+          description: Duration of the recording in seconds.
+        sizeBytes:
+          type: integer
+          description: Size of the recording in bytes.
+        downloadUrl:
+          type: string
+          format: uri
+          description: URL to download the recording.
+        playbackUrl:
+          type: string
+          format: uri
+          description: URL to play back the recording.
+        temporaryDirectDownloadLinks:
+          type: object
+          description: Temporary download links with expiration.
+          properties:
+            recordingDownloadLink:
+              type: string
+              format: uri
+            audioDownloadLink:
+              type: string
+              format: uri
+            transcriptDownloadLink:
+              type: string
+              format: uri
+            expiration:
+              type: string
+              format: date-time
+        meetingId:
+          type: string
+          description: The meeting ID associated with the recording, if applicable.
+        hostEmail:
+          type: string
+          format: email
+          description: Email of the host.
+        hostDisplayName:
+          type: string
+          description: Display name of the host.

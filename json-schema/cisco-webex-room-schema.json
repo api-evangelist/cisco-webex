@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://developer.webex.com/schemas/room.json",
+  "title": "Cisco Webex Room",
+  "description": "Represents a Webex room (space) where people post messages and collaborate. Rooms can be direct (1:1) or group conversations, and can be organized within teams.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the room."
+    },
+    "title": {
+      "type": "string",
+      "description": "A user-friendly name for the room."
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of room.",
+      "enum": ["direct", "group"]
+    },
+    "isLocked": {
+      "type": "boolean",
+      "description": "Whether the room is moderated."
+    },
+    "isPublic": {
+      "type": "boolean",
+      "description": "Whether the room is public and discoverable within the organization."
+    },
+    "isAnnouncementOnly": {
+      "type": "boolean",
+      "description": "Whether only moderators can post messages."
+    },
+    "isReadOnly": {
+      "type": "boolean",
+      "description": "Whether the room is read-only."
+    },
+    "teamId": {
+      "type": "string",
+      "description": "The team ID associated with the room."
+    },
+    "lastActivity": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time of the last activity in the room."
+    },
+    "creatorId": {
+      "type": "string",
+      "description": "The person ID of the room creator."
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "The person ID of the room owner."
+    },
+    "classificationId": {
+      "type": "string",
+      "description": "The classification ID of the room."
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of the room."
+    },
+    "madePublic": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the room was made public."
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the room was created."
+    }
+  },
+  "required": ["id", "title", "type"]
+}

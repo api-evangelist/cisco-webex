@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://developer.webex.com/schemas/team.json",
+  "title": "Cisco Webex Team",
+  "description": "Represents a Webex team that groups people and spaces together for organized collaboration across projects and departments.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the team."
+    },
+    "name": {
+      "type": "string",
+      "description": "A user-friendly name for the team."
+    },
+    "description": {
+      "type": "string",
+      "description": "The team's description."
+    },
+    "creatorId": {
+      "type": "string",
+      "description": "The person ID of the team creator."
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the team was created."
+    }
+  },
+  "required": ["id", "name"]
+}

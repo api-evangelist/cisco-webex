@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://developer.webex.com/schemas/license.json",
+  "title": "Cisco Webex License",
+  "description": "Represents a Webex license for an organization, including total and consumed units and subscription details.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the license."
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the license."
+    },
+    "totalUnits": {
+      "type": "integer",
+      "description": "Total number of license units available."
+    },
+    "consumedUnits": {
+      "type": "integer",
+      "description": "Number of license units consumed."
+    },
+    "consumedByUsers": {
+      "type": "integer",
+      "description": "Number of units consumed by users."
+    },
+    "consumedByWorkspaces": {
+      "type": "integer",
+      "description": "Number of units consumed by workspaces."
+    },
+    "subscriptionId": {
+      "type": "string",
+      "description": "Subscription ID associated with the license."
+    },
+    "siteUrl": {
+      "type": "string",
+      "description": "Webex site URL for the license."
+    },
+    "siteType": {
+      "type": "string",
+      "description": "Type of the Webex site."
+    }
+  },
+  "required": ["id", "name"]
+}

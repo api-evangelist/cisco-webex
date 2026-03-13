@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://developer.webex.com/schemas/workspace.json",
+  "title": "Cisco Webex Workspace",
+  "description": "Represents a physical workspace location with Webex devices, including capacity, type, calling, and calendar configurations.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the workspace."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "Organization ID the workspace belongs to."
+    },
+    "displayName": {
+      "type": "string",
+      "description": "Display name of the workspace."
+    },
+    "workspaceLocationId": {
+      "type": "string",
+      "description": "Location ID of the workspace."
+    },
+    "floorId": {
+      "type": "string",
+      "description": "Floor ID within the location."
+    },
+    "capacity": {
+      "type": "integer",
+      "description": "Number of people the workspace can accommodate."
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of workspace.",
+      "enum": ["notSet", "focus", "huddle", "meetingRoom", "open", "desk", "other"]
+    },
+    "sipAddress": {
+      "type": "string",
+      "description": "SIP address assigned to the workspace."
+    },
+    "calling": {
+      "type": "object",
+      "description": "Calling configuration for the workspace.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["freeCalling", "hybridCalling", "webexCalling", "webexEdgeForDevices", "none"]
+        },
+        "hybridCalling": {
+          "type": "object",
+          "properties": {
+            "emailAddress": {
+              "type": "string",
+              "format": "email"
+            }
+          }
+        }
+      }
+    },
+    "calendar": {
+      "type": "object",
+      "description": "Calendar configuration for the workspace.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["none", "google", "microsoft"]
+        },
+        "emailAddress": {
+          "type": "string",
+          "format": "email"
+        }
+      }
+    },
+    "notes": {
+      "type": "string",
+      "description": "Notes or description for the workspace."
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the workspace was created."
+    },
+    "lastModified": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the workspace was last modified."
+    }
+  },
+  "required": ["id", "displayName"]
+}

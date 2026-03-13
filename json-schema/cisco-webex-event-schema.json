@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://developer.webex.com/schemas/event.json",
+  "title": "Cisco Webex Event",
+  "description": "Represents an activity event within a Webex organization, used for compliance and auditing purposes.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the event."
+    },
+    "resource": {
+      "type": "string",
+      "description": "The resource type affected by the event.",
+      "enum": ["attachmentActions", "files", "meetings", "meetingMessages", "meetingTranscripts", "memberships", "messages", "rooms", "tabs"]
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of event that occurred.",
+      "enum": ["created", "updated", "deleted", "ended"]
+    },
+    "appId": {
+      "type": "string",
+      "description": "The application ID that triggered the event."
+    },
+    "actorId": {
+      "type": "string",
+      "description": "The person ID who performed the action."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "The organization ID where the event occurred."
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the event occurred."
+    },
+    "data": {
+      "type": "object",
+      "description": "The resource data at the time of the event."
+    }
+  },
+  "required": ["id", "resource", "type", "created"]
+}

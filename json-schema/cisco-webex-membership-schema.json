@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://developer.webex.com/schemas/membership.json",
+  "title": "Cisco Webex Membership",
+  "description": "Represents a person's relationship to a Webex room, including their role and access permissions.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the membership."
+    },
+    "roomId": {
+      "type": "string",
+      "description": "The room ID for the membership."
+    },
+    "personId": {
+      "type": "string",
+      "description": "The person ID for the membership."
+    },
+    "personEmail": {
+      "type": "string",
+      "format": "email",
+      "description": "The email address of the person."
+    },
+    "personDisplayName": {
+      "type": "string",
+      "description": "The display name of the person."
+    },
+    "personOrgId": {
+      "type": "string",
+      "description": "The organization ID of the person."
+    },
+    "isModerator": {
+      "type": "boolean",
+      "description": "Whether the person is a room moderator."
+    },
+    "isRoomHidden": {
+      "type": "boolean",
+      "description": "Whether the direct space is hidden for this member."
+    },
+    "roomType": {
+      "type": "string",
+      "description": "The type of room.",
+      "enum": ["direct", "group"]
+    },
+    "isMonitor": {
+      "type": "boolean",
+      "description": "Whether the member is a monitoring bot."
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the membership was created."
+    }
+  },
+  "required": ["id", "roomId", "personId"]
+}

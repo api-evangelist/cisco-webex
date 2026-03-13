@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://developer.webex.com/schemas/organization.json",
+  "title": "Cisco Webex Organization",
+  "description": "Represents a Webex organization containing users, devices, licenses, and configuration settings.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the organization."
+    },
+    "displayName": {
+      "type": "string",
+      "description": "Full display name of the organization."
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the organization was created."
+    }
+  },
+  "required": ["id", "displayName"]
+}

@@ -1,0 +1,116 @@
+openapi: 3.1.0
+info:
+  title: Cisco Webex Organizations API
+  description: >-
+    Retrieve organization details for Webex administration. Provides access
+    to organization-level information and settings, available only to
+    organization administrators.
+  version: 1.0.0
+  contact:
+    name: Cisco Webex Developer Support
+    url: https://developer.webex.com/support
+  license:
+    name: Cisco Webex API Terms of Service
+    url: https://developer.webex.com/terms-of-service
+servers:
+  - url: https://webexapis.com/v1
+    description: Webex Production API
+security:
+  - bearerAuth: []
+tags:
+  - name: Organizations
+    description: Operations for managing organizations
+paths:
+  /organizations:
+    get:
+      operationId: listOrganizations
+      summary: List Organizations
+      description: >-
+        Lists organizations associated with the authenticated user.
+        Typically returns a single organization unless the user belongs to
+        multiple organizations.
+      tags:
+        - Organizations
+      responses:
+        '200':
+          description: Successful response with list of organizations.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Organization'
+        '401':
+          description: Unauthorized - invalid or missing access token.
+  /organizations/{orgId}:
+    get:
+      operationId: getOrganizationDetails
+      summary: Get Organization Details
+      description: >-
+        Shows details for an organization by ID. Returns organization name,
+        creation date, and other metadata. Only available to organization
+        administrators.
+      tags:
+        - Organizations
+      parameters:
+        - name: orgId
+          in: path
+          required: true
+          description: Unique identifier for the organization.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with organization details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+        '404':
+          description: Organization not found.
+    delete:
+      operationId: deleteOrganization
+      summary: Delete Organization
+      description: >-
+        Deletes an organization by ID. This action permanently removes the
+        organization and all associated data. Only available to full
+        administrators.
+      tags:
+        - Organizations
+      parameters:
+        - name: orgId
+          in: path
+          required: true
+          description: Unique identifier for the organization.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Organization deleted successfully.
+        '404':
+          description: Organization not found.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: >-
+        Webex API access token. Obtain via OAuth 2.0 authorization flow.
+        Requires spark-admin:organizations_read scope.
+  schemas:
+    Organization:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the organization.
+        displayName:
+          type: string
+          description: Full name of the organization.
+        created:
+          type: string
+          format: date-time
+          description: Date and time the organization was created.

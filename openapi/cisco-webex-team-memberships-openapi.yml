@@ -1,0 +1,228 @@
+openapi: 3.1.0
+info:
+  title: Cisco Webex Team Memberships API
+  description: >-
+    Manage team memberships representing a person's relationship to a team.
+    Use this API to add and remove people from teams and manage team
+    membership roles.
+  version: 1.0.0
+  contact:
+    name: Cisco Webex Developer Support
+    url: https://developer.webex.com/support
+  license:
+    name: Cisco Webex API Terms of Service
+    url: https://developer.webex.com/terms-of-service
+servers:
+  - url: https://webexapis.com/v1
+    description: Webex Production API
+security:
+  - bearerAuth: []
+tags:
+  - name: Team Memberships
+    description: Operations for managing team memberships
+paths:
+  /team/memberships:
+    get:
+      operationId: listTeamMemberships
+      summary: List Team Memberships
+      description: >-
+        Lists memberships for a team by team ID. Results include person
+        details, role, and creation timestamp. Results are paginated.
+      tags:
+        - Team Memberships
+      parameters:
+        - name: teamId
+          in: query
+          required: true
+          description: The team ID to list memberships for.
+          schema:
+            type: string
+        - name: max
+          in: query
+          description: Maximum number of memberships to return (default 100).
+          schema:
+            type: integer
+            default: 100
+      responses:
+        '200':
+          description: Successful response with list of team memberships.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TeamMembership'
+        '401':
+          description: Unauthorized - invalid or missing access token.
+    post:
+      operationId: createTeamMembership
+      summary: Create a Team Membership
+      description: >-
+        Adds a person to a team. The person can be specified by person ID
+        or email address. Optionally set the person as a team moderator.
+      tags:
+        - Team Memberships
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTeamMembershipRequest'
+      responses:
+        '200':
+          description: Team membership created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamMembership'
+        '400':
+          description: Bad request - invalid input parameters.
+        '401':
+          description: Unauthorized - invalid or missing access token.
+  /team/memberships/{membershipId}:
+    get:
+      operationId: getTeamMembershipDetails
+      summary: Get Team Membership Details
+      description: >-
+        Shows details for a team membership by ID. Returns the team
+        membership configuration including person details and moderator
+        status.
+      tags:
+        - Team Memberships
+      parameters:
+        - name: membershipId
+          in: path
+          required: true
+          description: Unique identifier for the team membership.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with team membership details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamMembership'
+        '404':
+          description: Team membership not found.
+    put:
+      operationId: updateTeamMembership
+      summary: Update a Team Membership
+      description: >-
+        Updates a team membership by ID. Allows changing the moderator
+        status of the team member.
+      tags:
+        - Team Memberships
+      parameters:
+        - name: membershipId
+          in: path
+          required: true
+          description: Unique identifier for the team membership.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTeamMembershipRequest'
+      responses:
+        '200':
+          description: Team membership updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamMembership'
+        '400':
+          description: Bad request - invalid input parameters.
+        '404':
+          description: Team membership not found.
+    delete:
+      operationId: deleteTeamMembership
+      summary: Delete a Team Membership
+      description: >-
+        Deletes a team membership by ID. The person is removed from the
+        team and loses access to all team spaces.
+      tags:
+        - Team Memberships
+      parameters:
+        - name: membershipId
+          in: path
+          required: true
+          description: Unique identifier for the team membership.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Team membership deleted successfully.
+        '404':
+          description: Team membership not found.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: >-
+        Webex API access token. Obtain via OAuth 2.0 authorization flow or
+        personal access token from developer.webex.com.
+  schemas:
+    TeamMembership:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the team membership.
+        teamId:
+          type: string
+          description: The team ID.
+        personId:
+          type: string
+          description: The person ID.
+        personEmail:
+          type: string
+          format: email
+          description: The email address of the person.
+        personDisplayName:
+          type: string
+          description: The display name of the person.
+        personOrgId:
+          type: string
+          description: The organization ID of the person.
+        isModerator:
+          type: boolean
+          description: Whether the person is a team moderator.
+        created:
+          type: string
+          format: date-time
+          description: Date and time the team membership was created.
+    CreateTeamMembershipRequest:
+      type: object
+      required:
+        - teamId
+      properties:
+        teamId:
+          type: string
+          description: The team ID to add the person to.
+        personId:
+          type: string
+          description: The person ID to add. Either personId or personEmail is required.
+        personEmail:
+          type: string
+          format: email
+          description: >-
+            The email address of the person. Either personId or personEmail
+            is required.
+        isModerator:
+          type: boolean
+          description: Whether the person is a team moderator.
+    UpdateTeamMembershipRequest:
+      type: object
+      required:
+        - isModerator
+      properties:
+        isModerator:
+          type: boolean
+          description: Whether the person is a team moderator.
