@@ -24,7 +24,7 @@ paths:
   /people:
     get:
       operationId: listPeople
-      summary: List People
+      summary: Cisco Webex List People
       description: >-
         Lists people in the organization. Supports filtering by email, display
         name, ID, and organization. Results are paginated. Admin users can
@@ -87,7 +87,7 @@ paths:
           description: Unauthorized - invalid or missing access token.
     post:
       operationId: createPerson
-      summary: Create a Person
+      summary: Cisco Webex Create a Person
       description: >-
         Creates a new user account for the organization. Only admins can create
         people. Newly created accounts require valid email addresses and can be
@@ -127,7 +127,7 @@ paths:
   /people/me:
     get:
       operationId: getMyOwnDetails
-      summary: Get My Own Details
+      summary: Cisco Webex Get My Own Details
       description: >-
         Shows the profile for the authenticated user. Use this to confirm
         identity and retrieve your own person details.
@@ -150,7 +150,7 @@ paths:
   /people/{personId}:
     get:
       operationId: getPersonDetails
-      summary: Get Person Details
+      summary: Cisco Webex Get Person Details
       description: >-
         Shows details for a person by ID. Certain fields may not be available
         depending on the caller's relationship to the person and admin status.
@@ -180,7 +180,7 @@ paths:
           description: Person not found.
     put:
       operationId: updatePerson
-      summary: Update a Person
+      summary: Cisco Webex Update a Person
       description: >-
         Updates details for a person by ID. Only admins can update people.
         Include all desired fields in the request body as the update replaces
@@ -219,7 +219,7 @@ paths:
           description: Person not found.
     delete:
       operationId: deletePerson
-      summary: Delete a Person
+      summary: Cisco Webex Delete a Person
       description: >-
         Removes a person from the system. Only admins can delete people. The
         deleted person will lose access to Webex services.

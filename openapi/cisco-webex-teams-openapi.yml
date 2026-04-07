@@ -24,7 +24,7 @@ paths:
   /teams:
     get:
       operationId: listTeams
-      summary: List Teams
+      summary: Cisco Webex List Teams
       description: >-
         Lists teams to which the authenticated user belongs. Results are
         paginated and sorted by the most recent activity.
@@ -53,7 +53,7 @@ paths:
           description: Unauthorized - invalid or missing access token.
     post:
       operationId: createTeam
-      summary: Create a Team
+      summary: Cisco Webex Create a Team
       description: >-
         Creates a new team. The authenticated user is automatically added as
         a member and moderator of the team. A General space is also created
@@ -80,7 +80,7 @@ paths:
   /teams/{teamId}:
     get:
       operationId: getTeamDetails
-      summary: Get Team Details
+      summary: Cisco Webex Get Team Details
       description: >-
         Shows details for a team by ID. Only members of the team can view
         team details.
@@ -104,7 +104,7 @@ paths:
           description: Team not found.
     put:
       operationId: updateTeam
-      summary: Update a Team
+      summary: Cisco Webex Update a Team
       description: >-
         Updates details for a team by ID. Only team moderators can update
         team properties such as name and description.
@@ -136,7 +136,7 @@ paths:
           description: Team not found.
     delete:
       operationId: deleteTeam
-      summary: Delete a Team
+      summary: Cisco Webex Delete a Team
       description: >-
         Deletes a team by ID. Deleting a team also deletes all team
         memberships and associated spaces. Only team moderators can delete

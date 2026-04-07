@@ -24,7 +24,7 @@ paths:
   /messages:
     get:
       operationId: listMessages
-      summary: List Messages
+      summary: Cisco Webex List Messages
       description: >-
         Lists all messages in a room. Each message includes content and metadata
         about the message. The list sorts the messages in descending order by
@@ -84,7 +84,7 @@ paths:
           description: Unauthorized - invalid or missing access token.
     post:
       operationId: createMessage
-      summary: Create a Message
+      summary: Cisco Webex Create a Message
       description: >-
         Posts a plain text, rich text, or card message to a room. Messages can
         include file attachments and adaptive cards. The files parameter is
@@ -111,7 +111,7 @@ paths:
   /messages/direct:
     get:
       operationId: listDirectMessages
-      summary: List Direct Messages
+      summary: Cisco Webex List Direct Messages
       description: >-
         Lists all messages in a 1:1 (direct) room with another person. The
         authenticated user must be a member of the direct conversation.
@@ -144,7 +144,7 @@ paths:
   /messages/{messageId}:
     get:
       operationId: getMessageDetails
-      summary: Get Message Details
+      summary: Cisco Webex Get Message Details
       description: >-
         Shows details for a message by message ID. Specify the message ID in
         the URI. The returned message includes all content and metadata.
@@ -168,7 +168,7 @@ paths:
           description: Message not found.
     put:
       operationId: editMessage
-      summary: Edit a Message
+      summary: Cisco Webex Edit a Message
       description: >-
         Updates a message you have posted. Supports editing plain text and
         markdown content. Cannot edit messages with files or attachments.
@@ -201,7 +201,7 @@ paths:
           description: Message not found.
     delete:
       operationId: deleteMessage
-      summary: Delete a Message
+      summary: Cisco Webex Delete a Message
       description: >-
         Deletes a message by message ID. The deleted message will no longer be
         visible in the room. Moderators can delete any message; others can only

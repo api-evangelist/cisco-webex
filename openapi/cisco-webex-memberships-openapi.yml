@@ -24,7 +24,7 @@ paths:
   /memberships:
     get:
       operationId: listMemberships
-      summary: List Memberships
+      summary: Cisco Webex List Memberships
       description: >-
         Lists all room memberships. Filter by room ID, person ID, or person
         email. Results are paginated and include membership status and roles.
@@ -69,7 +69,7 @@ paths:
           description: Unauthorized - invalid or missing access token.
     post:
       operationId: createMembership
-      summary: Create a Membership
+      summary: Cisco Webex Create a Membership
       description: >-
         Adds a person to a room. The person can be specified by person ID
         or email address. Optionally set the person as a room moderator.
@@ -97,7 +97,7 @@ paths:
   /memberships/{membershipId}:
     get:
       operationId: getMembershipDetails
-      summary: Get Membership Details
+      summary: Cisco Webex Get Membership Details
       description: >-
         Shows details for a membership by ID. Returns the membership
         configuration including role and hidden status.
@@ -121,7 +121,7 @@ paths:
           description: Membership not found.
     put:
       operationId: updateMembership
-      summary: Update a Membership
+      summary: Cisco Webex Update a Membership
       description: >-
         Updates properties of a membership by ID. Allows changing the
         moderator status and visibility of direct spaces.
@@ -153,7 +153,7 @@ paths:
           description: Membership not found.
     delete:
       operationId: deleteMembership
-      summary: Delete a Membership
+      summary: Cisco Webex Delete a Membership
       description: >-
         Deletes a membership by ID. The person is removed from the room and
         can no longer access the room's content.

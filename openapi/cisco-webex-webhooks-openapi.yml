@@ -24,7 +24,7 @@ paths:
   /webhooks:
     get:
       operationId: listWebhooks
-      summary: List Webhooks
+      summary: Cisco Webex List Webhooks
       description: >-
         Lists all webhooks registered by the authenticated user. Results are
         paginated and include webhook status and configuration details.
@@ -60,7 +60,7 @@ paths:
           description: Unauthorized - invalid or missing access token.
     post:
       operationId: createWebhook
-      summary: Create a Webhook
+      summary: Cisco Webex Create a Webhook
       description: >-
         Creates a new webhook. Webhooks receive HTTP POST requests when the
         specified resource and event combination occurs. A secret can be
@@ -87,7 +87,7 @@ paths:
   /webhooks/{webhookId}:
     get:
       operationId: getWebhookDetails
-      summary: Get Webhook Details
+      summary: Cisco Webex Get Webhook Details
       description: >-
         Shows details for a webhook by ID. Returns the webhook configuration,
         status, and metadata.
@@ -111,7 +111,7 @@ paths:
           description: Webhook not found.
     put:
       operationId: updateWebhook
-      summary: Update a Webhook
+      summary: Cisco Webex Update a Webhook
       description: >-
         Updates a webhook by ID. Allows changing the name, target URL,
         secret, status, and ownership of the webhook.
@@ -143,7 +143,7 @@ paths:
           description: Webhook not found.
     delete:
       operationId: deleteWebhook
-      summary: Delete a Webhook
+      summary: Cisco Webex Delete a Webhook
       description: >-
         Deletes a webhook by ID. The webhook will no longer receive
         notifications for the configured resource and event.

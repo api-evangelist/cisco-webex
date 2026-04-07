@@ -24,7 +24,7 @@ paths:
   /workspaces:
     get:
       operationId: listWorkspaces
-      summary: List Workspaces
+      summary: Cisco Webex List Workspaces
       description: >-
         Lists workspaces in the organization. Supports filtering by display
         name, workspace location ID, floor ID, capacity, type, calling type,
@@ -117,7 +117,7 @@ paths:
           description: Unauthorized - invalid or missing access token.
     post:
       operationId: createWorkspace
-      summary: Create a Workspace
+      summary: Cisco Webex Create a Workspace
       description: >-
         Creates a new workspace representing a physical location with Webex
         devices. The workspace can be configured with capacity, type,
@@ -144,7 +144,7 @@ paths:
   /workspaces/{workspaceId}:
     get:
       operationId: getWorkspaceDetails
-      summary: Get Workspace Details
+      summary: Cisco Webex Get Workspace Details
       description: >-
         Shows details for a workspace by ID. Returns the workspace
         configuration, device assignments, and metadata.
@@ -168,7 +168,7 @@ paths:
           description: Workspace not found.
     put:
       operationId: updateWorkspace
-      summary: Update a Workspace
+      summary: Cisco Webex Update a Workspace
       description: >-
         Updates details for a workspace by ID. Allows modifying display
         name, capacity, type, calling, and calendar settings.
@@ -200,7 +200,7 @@ paths:
           description: Workspace not found.
     delete:
       operationId: deleteWorkspace
-      summary: Delete a Workspace
+      summary: Cisco Webex Delete a Workspace
       description: >-
         Deletes a workspace by ID. The workspace and its associated device
         configurations are removed. Devices remain but become unassigned.

@@ -24,7 +24,7 @@ paths:
   /licenses:
     get:
       operationId: listLicenses
-      summary: List Licenses
+      summary: Cisco Webex List Licenses
       description: >-
         Lists all licenses for the organization. Returns license name,
         total units, consumed units, and subscription details.
@@ -53,7 +53,7 @@ paths:
   /licenses/{licenseId}:
     get:
       operationId: getLicenseDetails
-      summary: Get License Details
+      summary: Cisco Webex Get License Details
       description: >-
         Shows details for a license by ID. Includes unit consumption,
         subscription details, and optionally the list of users assigned
@@ -98,7 +98,7 @@ paths:
   /licenses/users:
     patch:
       operationId: assignLicensesToUsers
-      summary: Assign Licenses to Users
+      summary: Cisco Webex Assign Licenses to Users
       description: >-
         Assigns licenses and attendee site URLs to existing users. Supports
         bulk operations and partial success scenarios with 206 response

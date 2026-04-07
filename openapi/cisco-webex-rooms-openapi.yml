@@ -24,7 +24,7 @@ paths:
   /rooms:
     get:
       operationId: listRooms
-      summary: List Rooms
+      summary: Cisco Webex List Rooms
       description: >-
         Lists rooms to which the authenticated user belongs. Supports
         filtering by team, room type, and sorting options. Results are
@@ -95,7 +95,7 @@ paths:
           description: Unauthorized - invalid or missing access token.
     post:
       operationId: createRoom
-      summary: Create a Room
+      summary: Cisco Webex Create a Room
       description: >-
         Creates a new room (space). The authenticated user is automatically
         added as a member of the room. Rooms can optionally be associated
@@ -122,7 +122,7 @@ paths:
   /rooms/{roomId}:
     get:
       operationId: getRoomDetails
-      summary: Get Room Details
+      summary: Cisco Webex Get Room Details
       description: >-
         Shows details for a room by ID. Only members of the room can view
         room details.
@@ -146,7 +146,7 @@ paths:
           description: Room not found.
     put:
       operationId: updateRoom
-      summary: Update a Room
+      summary: Cisco Webex Update a Room
       description: >-
         Updates details for a room by ID. Only moderators of the room or
         admins can update room properties.
@@ -178,7 +178,7 @@ paths:
           description: Room not found.
     delete:
       operationId: deleteRoom
-      summary: Delete a Room
+      summary: Cisco Webex Delete a Room
       description: >-
         Deletes a room by ID. Deleting a room also removes all messages,
         memberships, and content within the room. This action cannot be
@@ -200,7 +200,7 @@ paths:
   /rooms/{roomId}/meetingInfo:
     get:
       operationId: getRoomMeetingDetails
-      summary: Get Room Meeting Details
+      summary: Cisco Webex Get Room Meeting Details
       description: >-
         Shows meeting details for a room such as the SIP address, meeting
         URL, toll and toll-free dial-in numbers. Only available for group

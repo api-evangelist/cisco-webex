@@ -24,7 +24,7 @@ paths:
   /events:
     get:
       operationId: listEvents
-      summary: List Events
+      summary: Cisco Webex List Events
       description: >-
         Lists events in the organization. Events represent activities such
         as message creation, membership changes, and file shares. Only
@@ -100,7 +100,7 @@ paths:
   /events/{eventId}:
     get:
       operationId: getEventDetails
-      summary: Get Event Details
+      summary: Cisco Webex Get Event Details
       description: >-
         Shows details for an event by ID. Returns the event metadata and
         associated resource data at the time the event occurred.

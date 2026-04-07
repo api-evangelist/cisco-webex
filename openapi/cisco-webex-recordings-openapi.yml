@@ -26,7 +26,7 @@ paths:
   /recordings:
     get:
       operationId: listRecordings
-      summary: List Recordings
+      summary: Cisco Webex List Recordings
       description: >-
         Lists recordings for the authenticated user. Supports filtering by
         meeting ID, date range, format, service type, and status.
@@ -124,7 +124,7 @@ paths:
   /recordings/{recordingId}:
     get:
       operationId: getRecordingDetails
-      summary: Get Recording Details
+      summary: Cisco Webex Get Recording Details
       description: >-
         Shows details for a recording by ID. Includes download URLs,
         playback links, and temporary direct download links with expiration.
@@ -154,7 +154,7 @@ paths:
           description: Recording not found.
     delete:
       operationId: deleteRecording
-      summary: Delete a Recording
+      summary: Cisco Webex Delete a Recording
       description: >-
         Deletes a recording by ID. Compliance officers must provide a reason
         for the deletion. The recording is soft-deleted and can be purged
@@ -195,7 +195,7 @@ paths:
   /admin/recordings:
     get:
       operationId: listAdminRecordings
-      summary: List Recordings for Admin or Compliance Officer
+      summary: Cisco Webex List Recordings for Admin or Compliance Officer
       description: >-
         Lists recordings for admin or compliance officer access. Includes
         additional fields such as host display name and email. Supports
@@ -284,7 +284,7 @@ paths:
   /admin/recordings/{recordingId}:
     delete:
       operationId: deleteAdminRecording
-      summary: Delete a Recording By Admin
+      summary: Cisco Webex Delete a Recording By Admin
       description: >-
         Deletes a recording by admin using the recording ID. Available only
         to organization administrators.

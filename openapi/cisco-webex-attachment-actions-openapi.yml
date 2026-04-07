@@ -24,7 +24,7 @@ paths:
   /attachment/actions:
     post:
       operationId: createAttachmentAction
-      summary: Create an Attachment Action
+      summary: Cisco Webex Create an Attachment Action
       description: >-
         Creates an attachment action representing a user's interaction with
         an adaptive card. The action captures the user's input from the
@@ -51,7 +51,7 @@ paths:
   /attachment/actions/{id}:
     get:
       operationId: getAttachmentActionDetails
-      summary: Get Attachment Action Details
+      summary: Cisco Webex Get Attachment Action Details
       description: >-
         Shows details for an attachment action by ID. Returns the action
         metadata and user-provided input data from the adaptive card.

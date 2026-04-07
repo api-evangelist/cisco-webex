@@ -24,7 +24,7 @@ paths:
   /devices:
     get:
       operationId: listDevices
-      summary: List Devices
+      summary: Cisco Webex List Devices
       description: >-
         Lists all devices associated with the authenticated user or
         organization. Supports filtering by person, workspace, display name,
@@ -133,7 +133,7 @@ paths:
           description: Unauthorized - invalid or missing access token.
     post:
       operationId: createDevice
-      summary: Create a Device Activation Code
+      summary: Cisco Webex Create a Device Activation Code
       description: >-
         Creates a device activation code for onboarding a new device to a
         person or workspace. The activation code is used to register the
@@ -160,7 +160,7 @@ paths:
   /devices/{deviceId}:
     get:
       operationId: getDeviceDetails
-      summary: Get Device Details
+      summary: Cisco Webex Get Device Details
       description: >-
         Shows details for a device by ID. Returns configuration, status,
         and metadata for the device.
@@ -184,7 +184,7 @@ paths:
           description: Device not found.
     put:
       operationId: updateDevice
-      summary: Update a Device
+      summary: Cisco Webex Update a Device
       description: >-
         Updates details for a device by ID. Allows modifying display name,
         upgrade channel, and other device properties.
@@ -216,7 +216,7 @@ paths:
           description: Device not found.
     delete:
       operationId: deleteDevice
-      summary: Delete a Device
+      summary: Cisco Webex Delete a Device
       description: >-
         Deletes a device by ID. The device is removed from the organization
         and must be re-activated to rejoin.

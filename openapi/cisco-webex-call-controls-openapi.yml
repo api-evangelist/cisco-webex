@@ -24,7 +24,7 @@ paths:
   /telephony/calls/dial:
     post:
       operationId: dial
-      summary: Dial
+      summary: Cisco Webex Dial
       description: >-
         Initiates an outbound call from the authenticated user's device.
         The destination can be a phone number, SIP URI, or Webex person ID.
@@ -56,7 +56,7 @@ paths:
   /telephony/calls/answer:
     post:
       operationId: answer
-      summary: Answer
+      summary: Cisco Webex Answer
       description: >-
         Answers an incoming call on the authenticated user's device. The
         call ID must be provided to identify which call to answer.
@@ -82,7 +82,7 @@ paths:
   /telephony/calls/reject:
     post:
       operationId: reject
-      summary: Reject
+      summary: Cisco Webex Reject
       description: >-
         Rejects an incoming call. The caller will hear a busy tone or be
         redirected to voicemail depending on configuration.
@@ -108,7 +108,7 @@ paths:
   /telephony/calls/hangup:
     post:
       operationId: hangup
-      summary: Hangup
+      summary: Cisco Webex Hangup
       description: >-
         Ends an active call. Both parties are disconnected when the call
         is terminated.
@@ -134,7 +134,7 @@ paths:
   /telephony/calls/hold:
     post:
       operationId: hold
-      summary: Hold
+      summary: Cisco Webex Hold
       description: >-
         Places an active call on hold. The other party hears hold music
         while the call is held.
@@ -160,7 +160,7 @@ paths:
   /telephony/calls/resume:
     post:
       operationId: resume
-      summary: Resume
+      summary: Cisco Webex Resume
       description: >-
         Resumes a held call. The call returns to an active state with
         both parties connected.
@@ -186,7 +186,7 @@ paths:
   /telephony/calls/transfer:
     post:
       operationId: transfer
-      summary: Transfer
+      summary: Cisco Webex Transfer
       description: >-
         Transfers an active call to another destination. Supports blind
         transfer and consultative transfer when two calls are active.
@@ -218,7 +218,7 @@ paths:
   /telephony/calls/park:
     post:
       operationId: park
-      summary: Park
+      summary: Cisco Webex Park
       description: >-
         Parks an active call at a call park extension. The call can be
         retrieved from any device by dialing the park extension.
@@ -259,7 +259,7 @@ paths:
   /telephony/calls/retrieve:
     post:
       operationId: retrieve
-      summary: Retrieve
+      summary: Cisco Webex Retrieve
       description: >-
         Retrieves a parked call by providing the park destination. The call
         is connected to the authenticated user's device.
@@ -289,7 +289,7 @@ paths:
   /telephony/calls:
     get:
       operationId: listCalls
-      summary: List Calls
+      summary: Cisco Webex List Calls
       description: >-
         Lists all active calls for the authenticated user. Returns call
         details including state, direction, and connected parties.
@@ -312,7 +312,7 @@ paths:
   /telephony/calls/{callId}:
     get:
       operationId: getCallDetails
-      summary: Get Call Details
+      summary: Cisco Webex Get Call Details
       description: >-
         Shows details for an active call by call ID. Returns the current
         call state, parties, and duration.

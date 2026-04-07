@@ -24,7 +24,7 @@ paths:
   /team/memberships:
     get:
       operationId: listTeamMemberships
-      summary: List Team Memberships
+      summary: Cisco Webex List Team Memberships
       description: >-
         Lists memberships for a team by team ID. Results include person
         details, role, and creation timestamp. Results are paginated.
@@ -59,7 +59,7 @@ paths:
           description: Unauthorized - invalid or missing access token.
     post:
       operationId: createTeamMembership
-      summary: Create a Team Membership
+      summary: Cisco Webex Create a Team Membership
       description: >-
         Adds a person to a team. The person can be specified by person ID
         or email address. Optionally set the person as a team moderator.
@@ -85,7 +85,7 @@ paths:
   /team/memberships/{membershipId}:
     get:
       operationId: getTeamMembershipDetails
-      summary: Get Team Membership Details
+      summary: Cisco Webex Get Team Membership Details
       description: >-
         Shows details for a team membership by ID. Returns the team
         membership configuration including person details and moderator
@@ -110,7 +110,7 @@ paths:
           description: Team membership not found.
     put:
       operationId: updateTeamMembership
-      summary: Update a Team Membership
+      summary: Cisco Webex Update a Team Membership
       description: >-
         Updates a team membership by ID. Allows changing the moderator
         status of the team member.
@@ -142,7 +142,7 @@ paths:
           description: Team membership not found.
     delete:
       operationId: deleteTeamMembership
-      summary: Delete a Team Membership
+      summary: Cisco Webex Delete a Team Membership
       description: >-
         Deletes a team membership by ID. The person is removed from the
         team and loses access to all team spaces.

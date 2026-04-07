@@ -24,7 +24,7 @@ paths:
   /roles:
     get:
       operationId: listRoles
-      summary: List Roles
+      summary: Cisco Webex List Roles
       description: >-
         Lists all roles available in the organization. Must be called by
         an admin user. Returns role names and unique identifiers.
@@ -47,7 +47,7 @@ paths:
   /roles/{roleId}:
     get:
       operationId: getRoleDetails
-      summary: Get Role Details
+      summary: Cisco Webex Get Role Details
       description: >-
         Shows details for a role by ID. Returns the role name and unique
         identifier. Must be called by an admin user.

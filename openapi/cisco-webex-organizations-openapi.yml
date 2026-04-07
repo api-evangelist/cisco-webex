@@ -24,7 +24,7 @@ paths:
   /organizations:
     get:
       operationId: listOrganizations
-      summary: List Organizations
+      summary: Cisco Webex List Organizations
       description: >-
         Lists organizations associated with the authenticated user.
         Typically returns a single organization unless the user belongs to
@@ -48,7 +48,7 @@ paths:
   /organizations/{orgId}:
     get:
       operationId: getOrganizationDetails
-      summary: Get Organization Details
+      summary: Cisco Webex Get Organization Details
       description: >-
         Shows details for an organization by ID. Returns organization name,
         creation date, and other metadata. Only available to organization
@@ -73,7 +73,7 @@ paths:
           description: Organization not found.
     delete:
       operationId: deleteOrganization
-      summary: Delete Organization
+      summary: Cisco Webex Delete Organization
       description: >-
         Deletes an organization by ID. This action permanently removes the
         organization and all associated data. Only available to full

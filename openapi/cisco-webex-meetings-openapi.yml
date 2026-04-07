@@ -26,7 +26,7 @@ paths:
   /meetings:
     get:
       operationId: listMeetings
-      summary: List Meetings
+      summary: Cisco Webex List Meetings
       description: >-
         Lists meetings. You can specify a date range, meeting type, and other
         filters to narrow results. Long-running meeting series will only have
@@ -117,7 +117,7 @@ paths:
           description: Unauthorized - invalid or missing access token.
     post:
       operationId: createMeeting
-      summary: Create a Meeting
+      summary: Cisco Webex Create a Meeting
       description: >-
         Creates a new meeting. The authenticated user becomes the host of the
         meeting. Supports scheduling one-time, recurring, and personal room
@@ -144,7 +144,7 @@ paths:
   /meetings/{meetingId}:
     get:
       operationId: getMeetingDetails
-      summary: Get Meeting Details
+      summary: Cisco Webex Get Meeting Details
       description: >-
         Retrieves details for a meeting with a specified meeting ID. The
         meeting can be a meeting series, a scheduled meeting, or a meeting
@@ -181,7 +181,7 @@ paths:
           description: Meeting not found.
     put:
       operationId: updateMeeting
-      summary: Update a Meeting
+      summary: Cisco Webex Update a Meeting
       description: >-
         Updates details for a meeting with a specified meeting ID. Allows
         changing the title, password, start/end times, recurrence, and other
@@ -214,7 +214,7 @@ paths:
           description: Meeting not found.
     delete:
       operationId: deleteMeeting
-      summary: Delete a Meeting
+      summary: Cisco Webex Delete a Meeting
       description: >-
         Deletes a meeting with a specified meeting ID. The deleted meeting
         will no longer be accessible and all scheduled instances are cancelled.
@@ -241,7 +241,7 @@ paths:
   /meetings/{meetingId}/registrants:
     get:
       operationId: listMeetingRegistrants
-      summary: List Meeting Registrants
+      summary: Cisco Webex List Meeting Registrants
       description: >-
         Lists meeting registrants for a specified meeting. Only applies to
         meetings with registration enabled.
@@ -281,7 +281,7 @@ paths:
   /meetings/{meetingId}/registrants/approve:
     post:
       operationId: approveMeetingRegistrants
-      summary: Batch Approve Meeting Registrants
+      summary: Cisco Webex Batch Approve Meeting Registrants
       description: >-
         Approves one or more pending registrants for a meeting with
         registration enabled.
@@ -329,7 +329,7 @@ paths:
   /meetings/{meetingId}/registrants/reject:
     post:
       operationId: rejectMeetingRegistrants
-      summary: Batch Reject Meeting Registrants
+      summary: Cisco Webex Batch Reject Meeting Registrants
       description: >-
         Rejects one or more pending registrants for a meeting with
         registration enabled.
@@ -375,7 +375,7 @@ paths:
   /meetings/{meetingId}/registrants/cancel:
     post:
       operationId: cancelMeetingRegistrants
-      summary: Batch Cancel Meeting Registrants
+      summary: Cisco Webex Batch Cancel Meeting Registrants
       description: >-
         Cancels one or more approved registrants for a meeting with
         registration enabled.
@@ -421,7 +421,7 @@ paths:
   /meetings/{meetingId}/registrants/bulkInsert:
     post:
       operationId: batchRegisterMeetingRegistrants
-      summary: Batch Register Meeting Registrants
+      summary: Cisco Webex Batch Register Meeting Registrants
       description: >-
         Registers one or more people for a meeting with registration enabled.
         Supports bulk insertion of registrant details.
@@ -471,7 +471,7 @@ paths:
   /meetings/{meetingId}/registrants/bulkDelete:
     post:
       operationId: batchDeleteMeetingRegistrants
-      summary: Batch Delete Meeting Registrants
+      summary: Cisco Webex Batch Delete Meeting Registrants
       description: >-
         Deletes one or more registrants from a meeting with registration enabled.
       tags:
