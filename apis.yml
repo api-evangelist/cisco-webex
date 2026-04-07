@@ -11,11 +11,11 @@ modified: '2026-03-04'
 specificationVersion: '0.18'
 tags:
   - Collaboration
-  - Video Conferencing
-  - Messaging
   - Communications
   - Meetings
+  - Messaging
   - Teams
+  - Video Conferencing
 apis:
   - name: Webex Meetings API
     description: >-
@@ -26,11 +26,11 @@ apis:
     humanURL: https://developer.webex.com/docs/meetings
     baseURL: https://webexapis.com/v1
     tags:
-      - Meetings
-      - Video
-      - Conferencing
-      - Scheduling
       - Attendees
+      - Conferencing
+      - Meetings
+      - Scheduling
+      - Video
     properties:
       - type: Documentation
         url: https://developer.webex.com/docs/meetings
@@ -47,11 +47,11 @@ apis:
     humanURL: https://developer.webex.com/docs/messaging
     baseURL: https://webexapis.com/v1
     tags:
-      - Messaging
       - Chat
-      - Teams
-      - Spaces
       - Collaboration
+      - Messaging
+      - Spaces
+      - Teams
     properties:
       - type: Documentation
         url: https://developer.webex.com/docs/messaging
@@ -70,11 +70,11 @@ apis:
     humanURL: https://developer.webex.com/docs/api/v1/people
     baseURL: https://webexapis.com/v1
     tags:
-      - People
-      - Users
-      - Profiles
       - Contacts
       - Directory
+      - People
+      - Profiles
+      - Users
     properties:
       - type: Documentation
         url: https://developer.webex.com/docs/api/v1/people
@@ -89,11 +89,11 @@ apis:
     humanURL: https://developer.webex.com/docs/api/v1/teams
     baseURL: https://webexapis.com/v1
     tags:
-      - Teams
       - Collaboration
-      - Membership
       - Groups
+      - Membership
       - Organization
+      - Teams
     properties:
       - type: Documentation
         url: https://developer.webex.com/docs/api/v1/teams
@@ -108,11 +108,11 @@ apis:
     humanURL: https://developer.webex.com/docs/api/v1/rooms
     baseURL: https://webexapis.com/v1
     tags:
+      - Channels
+      - Collaboration
+      - Messaging
       - Rooms
       - Spaces
-      - Collaboration
-      - Channels
-      - Messaging
     properties:
       - type: Documentation
         url: https://developer.webex.com/docs/api/v1/rooms
@@ -127,11 +127,11 @@ apis:
     humanURL: https://developer.webex.com/docs/webhooks
     baseURL: https://webexapis.com/v1
     tags:
-      - Webhooks
+      - Callbacks
       - Events
       - Notifications
       - Real-Time
-      - Callbacks
+      - Webhooks
     properties:
       - type: Documentation
         url: https://developer.webex.com/docs/webhooks
@@ -148,9 +148,9 @@ apis:
     tags:
       - Devices
       - Hardware
+      - Management
       - Room Systems
       - Workspaces
-      - Management
     properties:
       - type: Documentation
         url: https://developer.webex.com/docs/api/v1/devices
@@ -165,11 +165,11 @@ apis:
     humanURL: https://developer.webex.com/docs/api/v1/memberships
     baseURL: https://webexapis.com/v1
     tags:
-      - Memberships
-      - Rooms
       - Access Control
-      - Users
+      - Memberships
       - Permissions
+      - Rooms
+      - Users
     properties:
       - type: Documentation
         url: https://developer.webex.com/docs/api/v1/memberships
@@ -184,11 +184,11 @@ apis:
     humanURL: https://developer.webex.com/docs/api/v1/team-memberships
     baseURL: https://webexapis.com/v1
     tags:
+      - Access Control
+      - Collaboration
+      - Roles
       - Team Memberships
       - Teams
-      - Access Control
-      - Roles
-      - Collaboration
     properties:
       - type: Documentation
         url: https://developer.webex.com/docs/api/v1/team-memberships
@@ -203,10 +203,10 @@ apis:
     humanURL: https://developer.webex.com/docs/api/v1/events
     baseURL: https://webexapis.com/v1
     tags:
-      - Events
       - Activity
-      - Compliance
       - Auditing
+      - Compliance
+      - Events
       - Monitoring
     properties:
       - type: Documentation
@@ -222,10 +222,10 @@ apis:
     humanURL: https://developer.webex.com/docs/api/v1/recordings
     baseURL: https://webexapis.com/v1
     tags:
-      - Recordings
-      - Meetings
-      - Media
       - Compliance
+      - Media
+      - Meetings
+      - Recordings
       - Storage
     properties:
       - type: Documentation
@@ -241,11 +241,11 @@ apis:
     humanURL: https://developer.webex.com/docs/api/v1/call-controls
     baseURL: https://webexapis.com/v1
     tags:
-      - Calling
       - Call Control
+      - Calling
+      - Communications
       - Telephony
       - Voice
-      - Communications
     properties:
       - type: Documentation
         url: https://developer.webex.com/docs/api/v1/call-controls
@@ -261,10 +261,10 @@ apis:
     baseURL: https://webexapis.com/v1
     tags:
       - Attachment Actions
+      - Buttons
       - Cards
       - Interactive
       - Messaging
-      - Buttons
     properties:
       - type: Documentation
         url: https://developer.webex.com/docs/api/v1/attachment-actions
@@ -279,11 +279,11 @@ apis:
     humanURL: https://developer.webex.com/docs/api/v1/organizations
     baseURL: https://webexapis.com/v1
     tags:
-      - Organizations
       - Administration
-      - Settings
-      - Management
       - Enterprise
+      - Management
+      - Organizations
+      - Settings
     properties:
       - type: Documentation
         url: https://developer.webex.com/docs/api/v1/organizations
@@ -298,11 +298,11 @@ apis:
     humanURL: https://developer.webex.com/docs/api/v1/licenses
     baseURL: https://webexapis.com/v1
     tags:
-      - Licenses
       - Administration
-      - Provisioning
       - Entitlements
+      - Licenses
       - Management
+      - Provisioning
     properties:
       - type: Documentation
         url: https://developer.webex.com/docs/api/v1/licenses
@@ -317,10 +317,10 @@ apis:
     humanURL: https://developer.webex.com/docs/api/v1/roles
     baseURL: https://webexapis.com/v1
     tags:
-      - Roles
-      - Permissions
-      - Administration
       - Access Control
+      - Administration
+      - Permissions
+      - Roles
       - Security
     properties:
       - type: Documentation
@@ -336,11 +336,11 @@ apis:
     humanURL: https://developer.webex.com/docs/api/v1/workspaces
     baseURL: https://webexapis.com/v1
     tags:
-      - Workspaces
-      - Locations
       - Devices
       - Facilities
+      - Locations
       - Management
+      - Workspaces
     properties:
       - type: Documentation
         url: https://developer.webex.com/docs/api/v1/workspaces
@@ -355,11 +355,11 @@ apis:
     humanURL: https://developer.webex.com/docs/api/v1/admin-audit-events
     baseURL: https://webexapis.com/v1
     tags:
-      - Audit
       - Administration
+      - Audit
       - Compliance
-      - Security
       - Events
+      - Security
     properties:
       - type: Documentation
         url: https://developer.webex.com/docs/api/v1/admin-audit-events
@@ -374,11 +374,11 @@ apis:
     humanURL: https://developer.webex.com/docs/api/v1/converged-recordings
     baseURL: https://webexapis.com/v1
     tags:
-      - Recordings
       - Calling
-      - Meetings
       - Compliance
       - Media
+      - Meetings
+      - Recordings
     properties:
       - type: Documentation
         url: https://developer.webex.com/docs/api/v1/converged-recordings

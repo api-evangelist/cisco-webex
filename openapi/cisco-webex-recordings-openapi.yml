@@ -18,10 +18,10 @@ servers:
 security:
   - bearerAuth: []
 tags:
-  - name: Recordings
-    description: Operations for managing meeting recordings
   - name: Admin Recordings
     description: Admin and compliance officer operations for recordings
+  - name: Recordings
+    description: Operations for managing meeting recordings
 paths:
   /recordings:
     get:
