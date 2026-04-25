@@ -1,0 +1,45 @@
+extends:
+  - spectral:oas
+rules:
+  webex-server-https:
+    description: All Webex API servers MUST use HTTPS.
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: '^https://'
+  webex-base-url:
+    description: Webex server URL SHOULD be webexapis.com/v1.
+    severity: warn
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: '^https://webexapis\.com/v1'
+  webex-operation-id:
+    description: Operations MUST have an operationId.
+    severity: error
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: operationId
+      function: truthy
+  webex-summary-required:
+    description: Operations MUST have a summary.
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: summary
+      function: truthy
+  webex-tag-required:
+    description: Operations MUST be tagged for Webex domain grouping.
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch].tags
+    then:
+      function: truthy
+  webex-oauth-security:
+    description: API SHOULD declare OAuth 2.0 security scheme.
+    severity: warn
+    given: $.components.securitySchemes
+    then:
+      function: truthy

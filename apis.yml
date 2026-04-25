@@ -1,14 +1,22 @@
+aid: cisco-webex
 name: Cisco Webex
 description: >-
   Cisco Webex is a comprehensive collaboration platform that provides video
   conferencing, team messaging, file sharing, and calling capabilities for
   businesses and teams. The Webex developer platform offers REST APIs, SDKs,
-  and integrations for extending and automating collaboration workflows.
+  and integrations for extending and automating collaboration workflows
+  across meetings, messaging, calling, devices, administration, and contact
+  center scenarios. Authentication uses OAuth 2.0 access tokens, personal
+  access tokens, or service apps and all endpoints are served from the
+  webexapis.com base.
 image: https://www.webex.com/content/dam/wbx/us/images/webex-logo.svg
-url: https://developer.webex.com
-created: '2024'
-modified: '2026-03-04'
-specificationVersion: '0.18'
+url: https://raw.githubusercontent.com/api-evangelist/cisco-webex/refs/heads/main/apis.yml
+type: Index
+access: 3rd-Party
+position: Consumer
+created: '2024-01-01'
+modified: '2026-04-23'
+specificationVersion: '0.19'
 tags:
   - Collaboration
   - Communications
@@ -17,7 +25,8 @@ tags:
   - Teams
   - Video Conferencing
 apis:
-  - name: Webex Meetings API
+  - aid: cisco-webex:webex-meetings-api
+    name: Webex Meetings API
     description: >-
       Enables scheduling, managing, and controlling Webex meetings
       programmatically. Provides endpoints for creating meetings, managing
@@ -38,7 +47,8 @@ apis:
         url: openapi/cisco-webex-meetings-openapi.yml
       - type: Authentication
         url: https://developer.webex.com/docs/getting-started#authentication
-  - name: Webex Messaging API
+  - aid: cisco-webex:webex-messaging-api
+    name: Webex Messaging API
     description: >-
       Send and receive messages, manage spaces and teams, and share files within
       the Webex messaging platform. Supports rich text, file attachments, and
@@ -61,7 +71,8 @@ apis:
         url: https://developer.webex.com/docs/webhooks
       - type: Getting Started
         url: https://developer.webex.com/messaging/docs/getting-started
-  - name: Webex People API
+  - aid: cisco-webex:webex-people-api
+    name: Webex People API
     description: >-
       Access user profile information, manage contacts, and administer user
       accounts within an organization. Supports listing, creating, updating,
@@ -80,7 +91,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/people
       - type: OpenAPI
         url: openapi/cisco-webex-people-openapi.yml
-  - name: Webex Teams API
+  - aid: cisco-webex:webex-teams-api
+    name: Webex Teams API
     description: >-
       Create and manage teams and team memberships within Webex. Teams group
       people and spaces together for organized collaboration across projects
@@ -99,7 +111,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/teams
       - type: OpenAPI
         url: openapi/cisco-webex-teams-openapi.yml
-  - name: Webex Rooms API
+  - aid: cisco-webex:webex-rooms-api
+    name: Webex Rooms API
     description: >-
       Create and manage Webex spaces (rooms) for collaboration. Rooms are
       virtual meeting places where people post messages and collaborate, and
@@ -118,7 +131,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/rooms
       - type: OpenAPI
         url: openapi/cisco-webex-rooms-openapi.yml
-  - name: Webex Webhooks API
+  - aid: cisco-webex:webex-webhooks-api
+    name: Webex Webhooks API
     description: >-
       Register webhooks to receive real-time HTTP callbacks when specific events
       occur in Webex. Supports filtering by resource type, event type, and
@@ -137,7 +151,8 @@ apis:
         url: https://developer.webex.com/docs/webhooks
       - type: OpenAPI
         url: openapi/cisco-webex-webhooks-openapi.yml
-  - name: Webex Devices API
+  - aid: cisco-webex:webex-devices-api
+    name: Webex Devices API
     description: >-
       Manage and control Webex devices and room systems. Provides endpoints
       for listing, creating, and managing device configurations, activations,
@@ -156,7 +171,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/devices
       - type: OpenAPI
         url: openapi/cisco-webex-devices-openapi.yml
-  - name: Webex Memberships API
+  - aid: cisco-webex:webex-memberships-api
+    name: Webex Memberships API
     description: >-
       Manage room memberships representing a person's relationship to a room.
       Use this API to list members of any room, create memberships to invite
@@ -175,7 +191,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/memberships
       - type: OpenAPI
         url: openapi/cisco-webex-memberships-openapi.yml
-  - name: Webex Team Memberships API
+  - aid: cisco-webex:webex-team-memberships-api
+    name: Webex Team Memberships API
     description: >-
       Manage team memberships representing a person's relationship to a team.
       Use this API to add and remove people from teams and manage team
@@ -194,7 +211,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/team-memberships
       - type: OpenAPI
         url: openapi/cisco-webex-team-memberships-openapi.yml
-  - name: Webex Events API
+  - aid: cisco-webex:webex-events-api
+    name: Webex Events API
     description: >-
       Access events representing activities within a Webex organization such
       as message posts, file shares, and membership changes. Provides a
@@ -213,7 +231,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/events
       - type: OpenAPI
         url: openapi/cisco-webex-events-openapi.yml
-  - name: Webex Recordings API
+  - aid: cisco-webex:webex-recordings-api
+    name: Webex Recordings API
     description: >-
       List and manage meeting recordings. Provides access to recording details,
       download links, and metadata. Includes separate endpoints for admin and
@@ -232,7 +251,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/recordings
       - type: OpenAPI
         url: openapi/cisco-webex-recordings-openapi.yml
-  - name: Webex Call Controls API
+  - aid: cisco-webex:webex-call-controls-api
+    name: Webex Call Controls API
     description: >-
       Control active calls in Webex Calling including dial, answer, hold,
       transfer, and pickup operations. Supports third-party call control for
@@ -251,7 +271,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/call-controls
       - type: OpenAPI
         url: openapi/cisco-webex-call-controls-openapi.yml
-  - name: Webex Attachment Actions API
+  - aid: cisco-webex:webex-attachment-actions-api
+    name: Webex Attachment Actions API
     description: >-
       Create and retrieve attachment actions for adaptive card interactions.
       Used with Buttons and Cards to capture user input from interactive card
@@ -270,7 +291,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/attachment-actions
       - type: OpenAPI
         url: openapi/cisco-webex-attachment-actions-openapi.yml
-  - name: Webex Organizations API
+  - aid: cisco-webex:webex-organizations-api
+    name: Webex Organizations API
     description: >-
       Retrieve organization details for Webex administration. Provides access
       to organization-level information and settings, available only to
@@ -289,7 +311,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/organizations
       - type: OpenAPI
         url: openapi/cisco-webex-organizations-openapi.yml
-  - name: Webex Licenses API
+  - aid: cisco-webex:webex-licenses-api
+    name: Webex Licenses API
     description: >-
       Manage and retrieve Webex licenses for an organization. Provides
       endpoints to list available licenses, view license details, and assign
@@ -308,7 +331,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/licenses
       - type: OpenAPI
         url: openapi/cisco-webex-licenses-openapi.yml
-  - name: Webex Roles API
+  - aid: cisco-webex:webex-roles-api
+    name: Webex Roles API
     description: >-
       Retrieve roles available within a Webex organization. Roles define the
       level of access and permissions granted to users, such as full
@@ -327,7 +351,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/roles
       - type: OpenAPI
         url: openapi/cisco-webex-roles-openapi.yml
-  - name: Webex Workspaces API
+  - aid: cisco-webex:webex-workspaces-api
+    name: Webex Workspaces API
     description: >-
       Manage workspaces representing physical locations with Webex devices.
       Provides endpoints to create, list, update, and delete workspaces and
@@ -346,7 +371,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/workspaces
       - type: OpenAPI
         url: openapi/cisco-webex-workspaces-openapi.yml
-  - name: Webex Admin Audit Events API
+  - aid: cisco-webex:webex-admin-audit-events-api
+    name: Webex Admin Audit Events API
     description: >-
       Access admin audit events for tracking administrative actions performed
       in Webex Control Hub. Available to full administrators for compliance
@@ -365,7 +391,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/admin-audit-events
       - type: OpenAPI
         url: openapi/cisco-webex-admin-audit-events-openapi.yml
-  - name: Webex Converged Recordings API
+  - aid: cisco-webex:webex-converged-recordings-api
+    name: Webex Converged Recordings API
     description: >-
       Access converged recording capabilities across Webex Meetings and Webex
       Calling. Provides unified endpoints for listing, retrieving, and managing
@@ -423,6 +450,10 @@ common:
     url: json-ld/cisco-webex-context.jsonld
   - type: JSON Schema
     url: json-schema/
+  - type: Spectral
+    url: spectral/cisco-webex-spectral.yml
+  - type: Naftiko Capabilities
+    url: naftiko/cisco-webex-capabilities.yml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
