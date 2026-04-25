@@ -451,9 +451,9 @@ common:
   - type: JSON Schema
     url: json-schema/
   - type: Spectral
-    url: spectral/cisco-webex-spectral.yml
+    url: rules/cisco-webex-rules.yml
   - type: Naftiko Capabilities
-    url: naftiko/cisco-webex-capabilities.yml
+    url: capabilities/cisco-webex-capabilities.yml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

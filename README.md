@@ -60,8 +60,8 @@ The Webex platform exposes the following REST APIs through the `https://webexapi
 - [Privacy Policy](https://www.cisco.com/c/en/us/about/legal/privacy-full.html)
 - [JSON-LD Context](json-ld/cisco-webex-context.jsonld)
 - [JSON Schemas](json-schema/)
-- [Spectral Ruleset](spectral/cisco-webex-spectral.yml)
-- [Naftiko Capabilities](naftiko/cisco-webex-capabilities.yml)
+- [Spectral Ruleset](rules/cisco-webex-rules.yml)
+- [Naftiko Capabilities](capabilities/cisco-webex-capabilities.yml)
 
 ## Maintainers
 
