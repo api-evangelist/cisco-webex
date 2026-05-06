@@ -4,190 +4,110 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Cisco Webex
 providerId: cisco-webex
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - Collaboration
-  - Communications
-  - Meetings
-  - Messaging
-  - Teams
   - Video Conferencing
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+  - Messaging
+  - Calling
+  - Unified Communications
+description: Webex offers a tiered SaaS subscription model centered on the Webex Suite (Meetings,
+  Messaging, Calling, Webinars). Plans range from a free tier through per-host SaaS subscriptions and
+  custom Webex Enterprise / Contact Center agreements. The Webex for Developers REST APIs are not
+  separately metered — API access is governed by the parent Webex subscription and the documented
+  rate-limit policy.
+notes: Webex pricing pages were not directly retrievable via WebFetch at reconciliation time; per-host
+  prices below reference the official pricing page rather than embedding numeric quotes that could go
+  stale. Verify against https://www.webex.com/pricing.html before publishing.
+sources:
+  - https://www.webex.com/pricing.html
+  - https://www.webex.com/buy.html
+  - https://developer.webex.com
 plans:
   - id: cisco-webex-free
-    name: Free
+    name: Webex Free
     type: freemium
-    description: Free entry tier for the Cisco Webex API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
+    description: Free tier for personal and small-team use. Bundled with developer access to the Webex
+      REST APIs.
     entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://webexapis.com/v1
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://webexapis.com/v1
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: Webex Meetings API
-      - name: Webex Messaging API
-      - name: Webex People API
-      - name: Webex Teams API
-      - name: Webex Rooms API
-      - name: Webex Webhooks API
-      - name: Webex Devices API
-      - name: Webex Memberships API
-  - id: cisco-webex-pro
-    name: Professional
-    type: paid
-    description: Production tier for Cisco Webex. Provides higher quotas, priority support, and access
-      to the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://webexapis.com/v1
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://webexapis.com/v1
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
+      - label: Per host
+        name: free
+        type: subscription
+        metric: month
         limit: -1
         timeFrame: month
         geo: global
-        domains:
-          - https://webexapis.com/v1
-        unit: 1000
-        price: TBD
-        userMultiplied: false
+        unit: 1
+        price: '0.00'
+        userMultiplied: true
     elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: Webex Meetings API
-      - name: Webex Messaging API
-      - name: Webex People API
-      - name: Webex Teams API
-      - name: Webex Rooms API
-      - name: Webex Webhooks API
-      - name: Webex Devices API
-      - name: Webex Memberships API
-      - name: Webex Team Memberships API
-      - name: Webex Events API
-      - name: Webex Recordings API
-      - name: Webex Call Controls API
-      - name: Webex Attachment Actions API
-      - name: Webex Organizations API
-      - name: Webex Licenses API
-      - name: Webex Roles API
-      - name: Webex Workspaces API
-      - name: Webex Admin Audit Events API
-      - name: Webex Converged Recordings API
+      - name: Meetings up to documented participant cap
+      - name: Messaging in spaces
+      - name: Whiteboarding
+      - name: Webex for Developers API access
+  - id: cisco-webex-meet
+    name: Webex Meet
+    type: subscription
+    description: Per-host meetings plan with extended meeting length, larger participant cap, and
+      cloud recording.
+    entries:
+      - label: Per host
+        name: meet
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: see https://www.webex.com/pricing.html
+        userMultiplied: true
+    elements:
+      - name: Extended meeting length
+      - name: Higher participant cap
+      - name: Cloud recording / transcripts
+      - name: Webex for Developers API access
+  - id: cisco-webex-suite
+    name: Webex Suite
+    type: subscription
+    description: Bundled meetings, messaging, calling, and webinars on a per-host monthly subscription.
+    entries:
+      - label: Per host
+        name: suite
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: see https://www.webex.com/pricing.html
+        userMultiplied: true
+    elements:
+      - name: Meetings + Messaging + Calling + Webinars
+      - name: PSTN add-ons available
+      - name: Webex for Developers API access
+      - name: Admin / Control Hub APIs
   - id: cisco-webex-enterprise
-    name: Enterprise
+    name: Webex Enterprise
     type: enterprise
-    description: Custom-negotiated tier for Cisco Webex. Includes dedicated capacity, contractual SLAs,
-      security review, data residency options, and named technical account management.
+    description: Custom-negotiated Webex Suite Enterprise agreement with volume discounts, advanced
+      compliance, and Contact Center add-ons.
     entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
+      - label: Custom contract
+        name: enterprise
+        type: subscription
+        metric: contract
         limit: -1
-        timeFrame: month
-        geo: configurable
-        domains:
-          - https://webexapis.com/v1
+        timeFrame: year
+        geo: global
         unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains:
-          - https://webexapis.com/v1
-        unit: 1
-        price: custom
+        price: contact sales
         userMultiplied: false
     elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: Webex Meetings API
-      - name: Webex Messaging API
-      - name: Webex People API
-      - name: Webex Teams API
-      - name: Webex Rooms API
-      - name: Webex Webhooks API
-      - name: Webex Devices API
-      - name: Webex Memberships API
-      - name: Webex Team Memberships API
-      - name: Webex Events API
-      - name: Webex Recordings API
-      - name: Webex Call Controls API
-      - name: Webex Attachment Actions API
-      - name: Webex Organizations API
-      - name: Webex Licenses API
-      - name: Webex Roles API
-      - name: Webex Workspaces API
-      - name: Webex Admin Audit Events API
-      - name: Webex Converged Recordings API
+      - name: Volume discount on hosts
+      - name: Advanced compliance / DLP / eDiscovery
+      - name: Webex Contact Center bundles
+      - name: Dedicated technical account management
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
-    url: https://developer.webex.com
