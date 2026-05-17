@@ -69,7 +69,7 @@ apis:
         url: openapi/cisco-webex-messaging-openapi.yml
       - type: Webhooks
         url: https://developer.webex.com/docs/webhooks
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developer.webex.com/messaging/docs/getting-started
   - aid: cisco-webex:webex-people-api
     name: Webex People API
@@ -416,35 +416,35 @@ common:
     url: https://developer.webex.com
   - type: Documentation
     url: https://developer.webex.com/docs/basics
-  - type: Getting Started
+  - type: GettingStarted
     url: https://developer.webex.com/docs/getting-started
   - type: Authentication
     url: https://developer.webex.com/docs/getting-started#authentication
   - type: SDKs
     url: https://developer.webex.com/docs/sdks
-  - type: Change Log
+  - type: ChangeLog
     url: https://developer.webex.com/docs/api/changelog
   - type: Blog
     url: https://developer.webex.com/blog
   - type: Support
     url: https://developer.webex.com/support
-  - type: Status
+  - type: StatusPage
     url: https://status.webex.com
-  - type: Rate Limits
+  - type: RateLimits
     url: https://developer.webex.com/docs/api-rate-limits
   - type: Community
     url: https://community.cisco.com/t5/webex-developers/bd-p/4416j-disc-dev-webex
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://developer.webex.com/terms-of-service
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://www.cisco.com/c/en/us/about/legal/privacy-full.html
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/webex
   - type: Website
     url: https://www.webex.com
   - type: Login
     url: https://developer.webex.com/login
-  - type: Sign Up
+  - type: SignUp
     url: https://developer.webex.com/signup
   - type: JSON-LD Context
     url: json-ld/cisco-webex-context.jsonld
