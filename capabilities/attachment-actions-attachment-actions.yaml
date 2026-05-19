@@ -1,0 +1,122 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Cisco Webex Attachment Actions API — Attachment Actions
+  description: 'Cisco Webex Attachment Actions API — Attachment Actions. 2 operations. Lead operation: Cisco Webex Create
+    an Attachment Action. Self-contained Naftiko capability covering one Cisco Webex business surface.'
+  tags:
+  - Cisco Webex
+  - Attachment Actions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CISCO_WEBEX_API_KEY: CISCO_WEBEX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: attachment-actions-attachment-actions
+    baseUri: https://webexapis.com/v1
+    description: Cisco Webex Attachment Actions API — Attachment Actions business capability. Self-contained, no shared references.
+    resources:
+    - name: attachment-actions
+      path: /attachment/actions
+      operations:
+      - name: createattachmentaction
+        method: POST
+        description: Cisco Webex Create an Attachment Action
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: attachment-actions-id
+      path: /attachment/actions/{id}
+      operations:
+      - name: getattachmentactiondetails
+        method: GET
+        description: Cisco Webex Get Attachment Action Details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Unique identifier for the attachment action.
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.CISCO_WEBEX_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: attachment-actions-attachment-actions-rest
+    port: 8080
+    description: REST adapter for Cisco Webex Attachment Actions API — Attachment Actions. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/attachment/actions
+      name: attachment-actions
+      description: REST surface for attachment-actions.
+      operations:
+      - method: POST
+        name: createattachmentaction
+        description: Cisco Webex Create an Attachment Action
+        call: attachment-actions-attachment-actions.createattachmentaction
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/attachment/actions/{id}
+      name: attachment-actions-id
+      description: REST surface for attachment-actions-id.
+      operations:
+      - method: GET
+        name: getattachmentactiondetails
+        description: Cisco Webex Get Attachment Action Details
+        call: attachment-actions-attachment-actions.getattachmentactiondetails
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: attachment-actions-attachment-actions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Cisco Webex Attachment Actions API — Attachment Actions. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: cisco-webex-create-attachment-action
+      description: Cisco Webex Create an Attachment Action
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: attachment-actions-attachment-actions.createattachmentaction
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cisco-webex-get-attachment-action
+      description: Cisco Webex Get Attachment Action Details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: attachment-actions-attachment-actions.getattachmentactiondetails
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

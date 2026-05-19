@@ -1,0 +1,175 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Cisco Webex Recordings API — Admin Recordings
+  description: 'Cisco Webex Recordings API — Admin Recordings. 2 operations. Lead operation: Cisco Webex List Recordings for
+    Admin or Compliance Officer. Self-contained Naftiko capability covering one Cisco Webex business surface.'
+  tags:
+  - Cisco Webex
+  - Admin Recordings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CISCO_WEBEX_API_KEY: CISCO_WEBEX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: recordings-admin-recordings
+    baseUri: https://webexapis.com/v1
+    description: Cisco Webex Recordings API — Admin Recordings business capability. Self-contained, no shared references.
+    resources:
+    - name: admin-recordings
+      path: /admin/recordings
+      operations:
+      - name: listadminrecordings
+        method: GET
+        description: Cisco Webex List Recordings for Admin or Compliance Officer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: meetingId
+          in: query
+          type: string
+          description: Filter recordings by meeting ID.
+        - name: from
+          in: query
+          type: string
+          description: List recordings after this date and time in ISO 8601 format.
+        - name: to
+          in: query
+          type: string
+          description: List recordings before this date and time in ISO 8601 format.
+        - name: hostEmail
+          in: query
+          type: string
+          description: Email of the meeting host.
+        - name: siteUrl
+          in: query
+          type: string
+          description: Webex site URL.
+        - name: topic
+          in: query
+          type: string
+          description: Filter by recording topic.
+        - name: format
+          in: query
+          type: string
+          description: Filter by recording format.
+        - name: serviceType
+          in: query
+          type: string
+          description: Filter by Webex service type.
+        - name: status
+          in: query
+          type: string
+          description: Filter by recording status.
+        - name: max
+          in: query
+          type: integer
+          description: Maximum number of recordings to return (default 10, max 100).
+    - name: admin-recordings-recordingId
+      path: /admin/recordings/{recordingId}
+      operations:
+      - name: deleteadminrecording
+        method: DELETE
+        description: Cisco Webex Delete a Recording By Admin
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: recordingId
+          in: path
+          type: string
+          description: Unique identifier for the recording.
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.CISCO_WEBEX_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: recordings-admin-recordings-rest
+    port: 8080
+    description: REST adapter for Cisco Webex Recordings API — Admin Recordings. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/admin/recordings
+      name: admin-recordings
+      description: REST surface for admin-recordings.
+      operations:
+      - method: GET
+        name: listadminrecordings
+        description: Cisco Webex List Recordings for Admin or Compliance Officer
+        call: recordings-admin-recordings.listadminrecordings
+        with:
+          meetingId: rest.meetingId
+          from: rest.from
+          to: rest.to
+          hostEmail: rest.hostEmail
+          siteUrl: rest.siteUrl
+          topic: rest.topic
+          format: rest.format
+          serviceType: rest.serviceType
+          status: rest.status
+          max: rest.max
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/admin/recordings/{recordingid}
+      name: admin-recordings-recordingid
+      description: REST surface for admin-recordings-recordingId.
+      operations:
+      - method: DELETE
+        name: deleteadminrecording
+        description: Cisco Webex Delete a Recording By Admin
+        call: recordings-admin-recordings.deleteadminrecording
+        with:
+          recordingId: rest.recordingId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: recordings-admin-recordings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Cisco Webex Recordings API — Admin Recordings. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: cisco-webex-list-recordings-admin
+      description: Cisco Webex List Recordings for Admin or Compliance Officer
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: recordings-admin-recordings.listadminrecordings
+      with:
+        meetingId: tools.meetingId
+        from: tools.from
+        to: tools.to
+        hostEmail: tools.hostEmail
+        siteUrl: tools.siteUrl
+        topic: tools.topic
+        format: tools.format
+        serviceType: tools.serviceType
+        status: tools.status
+        max: tools.max
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cisco-webex-delete-recording-admin
+      description: Cisco Webex Delete a Recording By Admin
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: recordings-admin-recordings.deleteadminrecording
+      with:
+        recordingId: tools.recordingId
+      outputParameters:
+      - type: object
+        mapping: $.

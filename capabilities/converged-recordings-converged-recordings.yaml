@@ -1,0 +1,188 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Cisco Webex Converged Recordings API — Converged Recordings
+  description: 'Cisco Webex Converged Recordings API — Converged Recordings. 3 operations. Lead operation: Cisco Webex List
+    Converged Recordings. Self-contained Naftiko capability covering one Cisco Webex business surface.'
+  tags:
+  - Cisco Webex
+  - Converged Recordings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CISCO_WEBEX_API_KEY: CISCO_WEBEX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: converged-recordings-converged-recordings
+    baseUri: https://webexapis.com/v1
+    description: Cisco Webex Converged Recordings API — Converged Recordings business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: convergedRecordings
+      path: /convergedRecordings
+      operations:
+      - name: listconvergedrecordings
+        method: GET
+        description: Cisco Webex List Converged Recordings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: from
+          in: query
+          type: string
+          description: List recordings after this date and time in ISO 8601 format.
+        - name: to
+          in: query
+          type: string
+          description: List recordings before this date and time in ISO 8601 format.
+        - name: status
+          in: query
+          type: string
+          description: Filter by recording status.
+        - name: serviceType
+          in: query
+          type: string
+          description: Filter by Webex service type.
+        - name: max
+          in: query
+          type: integer
+          description: Maximum number of recordings to return (default 10, max 100).
+    - name: convergedRecordings-recordingId
+      path: /convergedRecordings/{recordingId}
+      operations:
+      - name: getconvergedrecordingdetails
+        method: GET
+        description: Cisco Webex Get Converged Recording Details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: recordingId
+          in: path
+          type: string
+          description: Unique identifier for the recording.
+          required: true
+      - name: deleteconvergedrecording
+        method: DELETE
+        description: Cisco Webex Delete a Converged Recording
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: recordingId
+          in: path
+          type: string
+          description: Unique identifier for the recording.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.CISCO_WEBEX_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: converged-recordings-converged-recordings-rest
+    port: 8080
+    description: REST adapter for Cisco Webex Converged Recordings API — Converged Recordings. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/convergedrecordings
+      name: convergedrecordings
+      description: REST surface for convergedRecordings.
+      operations:
+      - method: GET
+        name: listconvergedrecordings
+        description: Cisco Webex List Converged Recordings
+        call: converged-recordings-converged-recordings.listconvergedrecordings
+        with:
+          from: rest.from
+          to: rest.to
+          status: rest.status
+          serviceType: rest.serviceType
+          max: rest.max
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/convergedrecordings/{recordingid}
+      name: convergedrecordings-recordingid
+      description: REST surface for convergedRecordings-recordingId.
+      operations:
+      - method: GET
+        name: getconvergedrecordingdetails
+        description: Cisco Webex Get Converged Recording Details
+        call: converged-recordings-converged-recordings.getconvergedrecordingdetails
+        with:
+          recordingId: rest.recordingId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteconvergedrecording
+        description: Cisco Webex Delete a Converged Recording
+        call: converged-recordings-converged-recordings.deleteconvergedrecording
+        with:
+          recordingId: rest.recordingId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: converged-recordings-converged-recordings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Cisco Webex Converged Recordings API — Converged Recordings. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: cisco-webex-list-converged-recordings
+      description: Cisco Webex List Converged Recordings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: converged-recordings-converged-recordings.listconvergedrecordings
+      with:
+        from: tools.from
+        to: tools.to
+        status: tools.status
+        serviceType: tools.serviceType
+        max: tools.max
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cisco-webex-get-converged-recording
+      description: Cisco Webex Get Converged Recording Details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: converged-recordings-converged-recordings.getconvergedrecordingdetails
+      with:
+        recordingId: tools.recordingId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cisco-webex-delete-converged-recording
+      description: Cisco Webex Delete a Converged Recording
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: converged-recordings-converged-recordings.deleteconvergedrecording
+      with:
+        recordingId: tools.recordingId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

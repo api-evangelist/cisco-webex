@@ -1,0 +1,306 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Cisco Webex Meetings API — Meetings
+  description: 'Cisco Webex Meetings API — Meetings. 5 operations. Lead operation: Cisco Webex List Meetings. Self-contained
+    Naftiko capability covering one Cisco Webex business surface.'
+  tags:
+  - Cisco Webex
+  - Meetings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CISCO_WEBEX_API_KEY: CISCO_WEBEX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: meetings-meetings
+    baseUri: https://webexapis.com/v1
+    description: Cisco Webex Meetings API — Meetings business capability. Self-contained, no shared references.
+    resources:
+    - name: meetings
+      path: /meetings
+      operations:
+      - name: listmeetings
+        method: GET
+        description: Cisco Webex List Meetings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: meetingNumber
+          in: query
+          type: string
+          description: Meeting number for the meeting.
+        - name: webLink
+          in: query
+          type: string
+          description: Meeting link for the meeting.
+        - name: roomId
+          in: query
+          type: string
+          description: Associated room ID for the meeting.
+        - name: meetingType
+          in: query
+          type: string
+          description: Meeting type to filter by. Possible values are meetingSeries, scheduledMeeting, or meeting.
+        - name: state
+          in: query
+          type: string
+          description: Meeting state to filter by. Possible values are active, scheduled, ready, lobby, connected, started,
+            expiring, expired, ended, missed, or cancelled.
+        - name: scheduledType
+          in: query
+          type: string
+          description: Scheduled type of the meeting. Possible values are meeting, webinar, or personalRoomMeeting.
+        - name: from
+          in: query
+          type: string
+          description: Start date and time in ISO 8601 format.
+        - name: to
+          in: query
+          type: string
+          description: End date and time in ISO 8601 format.
+        - name: hostEmail
+          in: query
+          type: string
+          description: Email address of the meeting host (admin use).
+        - name: max
+          in: query
+          type: integer
+          description: Maximum number of meetings to return (default 10, max 100).
+      - name: createmeeting
+        method: POST
+        description: Cisco Webex Create a Meeting
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: meetings-meetingId
+      path: /meetings/{meetingId}
+      operations:
+      - name: getmeetingdetails
+        method: GET
+        description: Cisco Webex Get Meeting Details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: meetingId
+          in: path
+          type: string
+          description: Unique identifier for the meeting.
+          required: true
+        - name: current
+          in: query
+          type: boolean
+          description: Whether to return the current scheduled meeting of a meeting series.
+        - name: hostEmail
+          in: query
+          type: string
+          description: Email address of the meeting host (admin use).
+      - name: updatemeeting
+        method: PUT
+        description: Cisco Webex Update a Meeting
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: meetingId
+          in: path
+          type: string
+          description: Unique identifier for the meeting.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletemeeting
+        method: DELETE
+        description: Cisco Webex Delete a Meeting
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: meetingId
+          in: path
+          type: string
+          description: Unique identifier for the meeting.
+          required: true
+        - name: hostEmail
+          in: query
+          type: string
+          description: Email address of the meeting host (admin use).
+    authentication:
+      type: bearer
+      token: '{{env.CISCO_WEBEX_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: meetings-meetings-rest
+    port: 8080
+    description: REST adapter for Cisco Webex Meetings API — Meetings. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/meetings
+      name: meetings
+      description: REST surface for meetings.
+      operations:
+      - method: GET
+        name: listmeetings
+        description: Cisco Webex List Meetings
+        call: meetings-meetings.listmeetings
+        with:
+          meetingNumber: rest.meetingNumber
+          webLink: rest.webLink
+          roomId: rest.roomId
+          meetingType: rest.meetingType
+          state: rest.state
+          scheduledType: rest.scheduledType
+          from: rest.from
+          to: rest.to
+          hostEmail: rest.hostEmail
+          max: rest.max
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createmeeting
+        description: Cisco Webex Create a Meeting
+        call: meetings-meetings.createmeeting
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/meetings/{meetingid}
+      name: meetings-meetingid
+      description: REST surface for meetings-meetingId.
+      operations:
+      - method: GET
+        name: getmeetingdetails
+        description: Cisco Webex Get Meeting Details
+        call: meetings-meetings.getmeetingdetails
+        with:
+          meetingId: rest.meetingId
+          current: rest.current
+          hostEmail: rest.hostEmail
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatemeeting
+        description: Cisco Webex Update a Meeting
+        call: meetings-meetings.updatemeeting
+        with:
+          meetingId: rest.meetingId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletemeeting
+        description: Cisco Webex Delete a Meeting
+        call: meetings-meetings.deletemeeting
+        with:
+          meetingId: rest.meetingId
+          hostEmail: rest.hostEmail
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: meetings-meetings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Cisco Webex Meetings API — Meetings. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: cisco-webex-list-meetings
+      description: Cisco Webex List Meetings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: meetings-meetings.listmeetings
+      with:
+        meetingNumber: tools.meetingNumber
+        webLink: tools.webLink
+        roomId: tools.roomId
+        meetingType: tools.meetingType
+        state: tools.state
+        scheduledType: tools.scheduledType
+        from: tools.from
+        to: tools.to
+        hostEmail: tools.hostEmail
+        max: tools.max
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cisco-webex-create-meeting
+      description: Cisco Webex Create a Meeting
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: meetings-meetings.createmeeting
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cisco-webex-get-meeting-details
+      description: Cisco Webex Get Meeting Details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: meetings-meetings.getmeetingdetails
+      with:
+        meetingId: tools.meetingId
+        current: tools.current
+        hostEmail: tools.hostEmail
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cisco-webex-update-meeting
+      description: Cisco Webex Update a Meeting
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: meetings-meetings.updatemeeting
+      with:
+        meetingId: tools.meetingId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cisco-webex-delete-meeting
+      description: Cisco Webex Delete a Meeting
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: meetings-meetings.deletemeeting
+      with:
+        meetingId: tools.meetingId
+        hostEmail: tools.hostEmail
+      outputParameters:
+      - type: object
+        mapping: $.

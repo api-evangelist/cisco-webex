@@ -1,0 +1,311 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Cisco Webex Messaging API — Messages
+  description: 'Cisco Webex Messaging API — Messages. 6 operations. Lead operation: Cisco Webex List Messages. Self-contained
+    Naftiko capability covering one Cisco Webex business surface.'
+  tags:
+  - Cisco Webex
+  - Messages
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    CISCO_WEBEX_API_KEY: CISCO_WEBEX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: messaging-messages
+    baseUri: https://webexapis.com/v1
+    description: Cisco Webex Messaging API — Messages business capability. Self-contained, no shared references.
+    resources:
+    - name: messages
+      path: /messages
+      operations:
+      - name: listmessages
+        method: GET
+        description: Cisco Webex List Messages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: roomId
+          in: query
+          type: string
+          description: Unique identifier for the room to list messages from.
+          required: true
+        - name: parentId
+          in: query
+          type: string
+          description: List messages that are replies to the specified parent message.
+        - name: mentionedPeople
+          in: query
+          type: string
+          description: List messages where the specified person is mentioned. Use 'me' for the authenticated user.
+        - name: before
+          in: query
+          type: string
+          description: List messages sent before a date and time in ISO 8601 format.
+        - name: beforeMessage
+          in: query
+          type: string
+          description: List messages sent before a specified message ID.
+        - name: max
+          in: query
+          type: integer
+          description: Maximum number of messages to return (default 50, max 1000).
+      - name: createmessage
+        method: POST
+        description: Cisco Webex Create a Message
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: messages-direct
+      path: /messages/direct
+      operations:
+      - name: listdirectmessages
+        method: GET
+        description: Cisco Webex List Direct Messages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: personId
+          in: query
+          type: string
+          description: Person ID of the other participant in the direct conversation.
+        - name: personEmail
+          in: query
+          type: string
+          description: Email address of the other participant in the direct conversation.
+    - name: messages-messageId
+      path: /messages/{messageId}
+      operations:
+      - name: getmessagedetails
+        method: GET
+        description: Cisco Webex Get Message Details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: messageId
+          in: path
+          type: string
+          description: Unique identifier for the message.
+          required: true
+      - name: editmessage
+        method: PUT
+        description: Cisco Webex Edit a Message
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: messageId
+          in: path
+          type: string
+          description: Unique identifier for the message.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletemessage
+        method: DELETE
+        description: Cisco Webex Delete a Message
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: messageId
+          in: path
+          type: string
+          description: Unique identifier for the message.
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.CISCO_WEBEX_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: messaging-messages-rest
+    port: 8080
+    description: REST adapter for Cisco Webex Messaging API — Messages. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/messages
+      name: messages
+      description: REST surface for messages.
+      operations:
+      - method: GET
+        name: listmessages
+        description: Cisco Webex List Messages
+        call: messaging-messages.listmessages
+        with:
+          roomId: rest.roomId
+          parentId: rest.parentId
+          mentionedPeople: rest.mentionedPeople
+          before: rest.before
+          beforeMessage: rest.beforeMessage
+          max: rest.max
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createmessage
+        description: Cisco Webex Create a Message
+        call: messaging-messages.createmessage
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/messages/direct
+      name: messages-direct
+      description: REST surface for messages-direct.
+      operations:
+      - method: GET
+        name: listdirectmessages
+        description: Cisco Webex List Direct Messages
+        call: messaging-messages.listdirectmessages
+        with:
+          personId: rest.personId
+          personEmail: rest.personEmail
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/messages/{messageid}
+      name: messages-messageid
+      description: REST surface for messages-messageId.
+      operations:
+      - method: GET
+        name: getmessagedetails
+        description: Cisco Webex Get Message Details
+        call: messaging-messages.getmessagedetails
+        with:
+          messageId: rest.messageId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: editmessage
+        description: Cisco Webex Edit a Message
+        call: messaging-messages.editmessage
+        with:
+          messageId: rest.messageId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletemessage
+        description: Cisco Webex Delete a Message
+        call: messaging-messages.deletemessage
+        with:
+          messageId: rest.messageId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: messaging-messages-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Cisco Webex Messaging API — Messages. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: cisco-webex-list-messages
+      description: Cisco Webex List Messages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: messaging-messages.listmessages
+      with:
+        roomId: tools.roomId
+        parentId: tools.parentId
+        mentionedPeople: tools.mentionedPeople
+        before: tools.before
+        beforeMessage: tools.beforeMessage
+        max: tools.max
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cisco-webex-create-message
+      description: Cisco Webex Create a Message
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: messaging-messages.createmessage
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cisco-webex-list-direct-messages
+      description: Cisco Webex List Direct Messages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: messaging-messages.listdirectmessages
+      with:
+        personId: tools.personId
+        personEmail: tools.personEmail
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cisco-webex-get-message-details
+      description: Cisco Webex Get Message Details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: messaging-messages.getmessagedetails
+      with:
+        messageId: tools.messageId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cisco-webex-edit-message
+      description: Cisco Webex Edit a Message
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: messaging-messages.editmessage
+      with:
+        messageId: tools.messageId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cisco-webex-delete-message
+      description: Cisco Webex Delete a Message
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: messaging-messages.deletemessage
+      with:
+        messageId: tools.messageId
+      outputParameters:
+      - type: object
+        mapping: $.
