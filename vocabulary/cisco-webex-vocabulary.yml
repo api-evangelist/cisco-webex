@@ -1,0 +1,9 @@
+name: Cisco Webex Domain Vocabulary
+provider: Cisco Webex
+providerId: cisco-webex
+description: Tag-derived vocabulary for the Cisco Webex API surface; sourced from openapi/ tags.
+terms:
+- term: Meetings
+  description: Operations for managing Webex meetings
+- term: Registrants
+  description: Operations for managing meeting registrants

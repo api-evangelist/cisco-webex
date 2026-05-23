@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateMembershipRequest",
+  "title": "CreateMembershipRequest",
+  "type": "object",
+  "required": [
+    "roomId"
+  ],
+  "properties": {
+    "roomId": {
+      "type": "string",
+      "description": "The room ID to add the person to."
+    },
+    "personId": {
+      "type": "string",
+      "description": "The person ID to add. Either personId or personEmail is required."
+    },
+    "personEmail": {
+      "type": "string",
+      "format": "email",
+      "description": "The email address of the person to add. Either personId or personEmail is required."
+    },
+    "isModerator": {
+      "type": "boolean",
+      "description": "Whether the person is a room moderator."
+    }
+  }
+}

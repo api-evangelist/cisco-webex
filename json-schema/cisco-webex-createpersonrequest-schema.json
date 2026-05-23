@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreatePersonRequest",
+  "title": "CreatePersonRequest",
+  "type": "object",
+  "required": [
+    "emails"
+  ],
+  "properties": {
+    "emails": {
+      "type": "array",
+      "description": "Email addresses for the person.",
+      "items": {
+        "type": "string",
+        "format": "email"
+      }
+    },
+    "phoneNumbers": {
+      "type": "array",
+      "description": "Phone numbers for the person.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "extension": {
+      "type": "string",
+      "description": "Webex Calling extension."
+    },
+    "locationId": {
+      "type": "string",
+      "description": "Location ID for Webex Calling."
+    },
+    "displayName": {
+      "type": "string",
+      "description": "Full name of the person."
+    },
+    "firstName": {
+      "type": "string",
+      "description": "First name."
+    },
+    "lastName": {
+      "type": "string",
+      "description": "Last name."
+    },
+    "avatar": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the avatar image."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "Organization ID."
+    },
+    "roles": {
+      "type": "array",
+      "description": "Roles to assign.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "licenses": {
+      "type": "array",
+      "description": "Licenses to assign.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "department": {
+      "type": "string",
+      "description": "Department."
+    },
+    "manager": {
+      "type": "string",
+      "description": "Manager name."
+    },
+    "managerId": {
+      "type": "string",
+      "description": "Person ID of the manager."
+    },
+    "title": {
+      "type": "string",
+      "description": "Job title."
+    },
+    "addresses": {
+      "type": "array",
+      "description": "Physical addresses.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "streetAddress": {
+            "type": "string"
+          },
+          "locality": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          },
+          "postalCode": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "siteUrls": {
+      "type": "array",
+      "description": "Webex site URLs.",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AdminRecording",
+  "title": "AdminRecording",
+  "allOf": [
+    {
+      "$ref": "#/components/schemas/Recording"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "hostDisplayName": {
+          "type": "string",
+          "description": "Display name of the meeting host."
+        },
+        "hostEmail": {
+          "type": "string",
+          "format": "email",
+          "description": "Email address of the meeting host."
+        }
+      }
+    }
+  ]
+}

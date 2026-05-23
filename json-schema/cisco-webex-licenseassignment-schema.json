@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/LicenseAssignment",
+  "title": "LicenseAssignment",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Email address of the user."
+    },
+    "personId": {
+      "type": "string",
+      "description": "Person ID of the user."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "Organization ID."
+    },
+    "licenses": {
+      "type": "array",
+      "description": "Licenses to assign or remove.",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "License ID."
+          },
+          "operation": {
+            "type": "string",
+            "description": "Operation to perform.",
+            "enum": [
+              "add",
+              "remove"
+            ],
+            "default": "add"
+          },
+          "properties": {
+            "type": "object",
+            "description": "Optional license properties.",
+            "properties": {
+              "locationId": {
+                "type": "string"
+              },
+              "phoneNumber": {
+                "type": "string"
+              },
+              "extension": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "siteUrls": {
+      "type": "array",
+      "description": "Site URLs to assign.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "siteUrl": {
+            "type": "string"
+          },
+          "accountType": {
+            "type": "string",
+            "enum": [
+              "attendee"
+            ]
+          },
+          "operation": {
+            "type": "string",
+            "enum": [
+              "add",
+              "remove"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

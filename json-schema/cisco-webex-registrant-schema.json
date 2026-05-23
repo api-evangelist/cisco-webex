@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Registrant",
+  "title": "Registrant",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the registrant."
+    },
+    "status": {
+      "type": "string",
+      "description": "Registration status.",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected",
+        "cancelled"
+      ]
+    },
+    "firstName": {
+      "type": "string",
+      "description": "First name of the registrant."
+    },
+    "lastName": {
+      "type": "string",
+      "description": "Last name of the registrant."
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Email address of the registrant."
+    },
+    "jobTitle": {
+      "type": "string",
+      "description": "Job title of the registrant."
+    },
+    "companyName": {
+      "type": "string",
+      "description": "Company name of the registrant."
+    },
+    "registrationTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time the registrant registered."
+    }
+  }
+}

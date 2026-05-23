@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CallSession",
+  "title": "CallSession",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the call."
+    },
+    "callId": {
+      "type": "string",
+      "description": "The call ID."
+    },
+    "state": {
+      "type": "string",
+      "description": "Current state of the call.",
+      "enum": [
+        "connecting",
+        "alerting",
+        "connected",
+        "held",
+        "remoteHeld",
+        "disconnected"
+      ]
+    },
+    "callType": {
+      "type": "string",
+      "description": "Type of call.",
+      "enum": [
+        "location",
+        "organization",
+        "external",
+        "emergency",
+        "repair",
+        "other"
+      ]
+    },
+    "personality": {
+      "type": "string",
+      "description": "The role of the authenticated user in the call.",
+      "enum": [
+        "originator",
+        "terminator",
+        "clickToDialOriginator"
+      ]
+    },
+    "appearance": {
+      "type": "integer",
+      "description": "The call appearance value."
+    },
+    "remoteParty": {
+      "type": "object",
+      "description": "Information about the remote party.",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "personId": {
+          "type": "string"
+        },
+        "sipAddress": {
+          "type": "string"
+        },
+        "callType": {
+          "type": "string"
+        }
+      }
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time the call started."
+    },
+    "answerTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time the call was answered."
+    },
+    "duration": {
+      "type": "integer",
+      "description": "Call duration in seconds."
+    }
+  }
+}

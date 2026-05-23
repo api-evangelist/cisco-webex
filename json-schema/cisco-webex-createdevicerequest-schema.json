@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateDeviceRequest",
+  "title": "CreateDeviceRequest",
+  "type": "object",
+  "properties": {
+    "personId": {
+      "type": "string",
+      "description": "Person ID to associate the device with."
+    },
+    "workspaceId": {
+      "type": "string",
+      "description": "Workspace ID to associate the device with."
+    },
+    "model": {
+      "type": "string",
+      "description": "Model of the device."
+    }
+  }
+}

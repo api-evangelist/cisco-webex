@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TeamMembership",
+  "title": "TeamMembership",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the team membership."
+    },
+    "teamId": {
+      "type": "string",
+      "description": "The team ID."
+    },
+    "personId": {
+      "type": "string",
+      "description": "The person ID."
+    },
+    "personEmail": {
+      "type": "string",
+      "format": "email",
+      "description": "The email address of the person."
+    },
+    "personDisplayName": {
+      "type": "string",
+      "description": "The display name of the person."
+    },
+    "personOrgId": {
+      "type": "string",
+      "description": "The organization ID of the person."
+    },
+    "isModerator": {
+      "type": "boolean",
+      "description": "Whether the person is a team moderator."
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the team membership was created."
+    }
+  }
+}

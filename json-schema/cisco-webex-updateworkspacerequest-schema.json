@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateWorkspaceRequest",
+  "title": "UpdateWorkspaceRequest",
+  "type": "object",
+  "properties": {
+    "displayName": {
+      "type": "string",
+      "description": "Updated display name."
+    },
+    "workspaceLocationId": {
+      "type": "string",
+      "description": "Updated location ID."
+    },
+    "floorId": {
+      "type": "string",
+      "description": "Updated floor ID."
+    },
+    "capacity": {
+      "type": "integer",
+      "description": "Updated capacity."
+    },
+    "type": {
+      "type": "string",
+      "description": "Updated workspace type.",
+      "enum": [
+        "notSet",
+        "focus",
+        "huddle",
+        "meetingRoom",
+        "open",
+        "desk",
+        "other"
+      ]
+    },
+    "calling": {
+      "type": "object",
+      "description": "Updated calling configuration.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "freeCalling",
+            "hybridCalling",
+            "webexCalling",
+            "webexEdgeForDevices",
+            "none"
+          ]
+        }
+      }
+    },
+    "calendar": {
+      "type": "object",
+      "description": "Updated calendar configuration.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "none",
+            "google",
+            "microsoft"
+          ]
+        },
+        "emailAddress": {
+          "type": "string",
+          "format": "email"
+        }
+      }
+    },
+    "notes": {
+      "type": "string",
+      "description": "Updated notes."
+    }
+  }
+}

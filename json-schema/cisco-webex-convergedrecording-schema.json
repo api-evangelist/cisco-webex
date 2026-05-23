@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ConvergedRecording",
+  "title": "ConvergedRecording",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the recording."
+    },
+    "topic": {
+      "type": "string",
+      "description": "Topic or title of the recording."
+    },
+    "createTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the recording was created."
+    },
+    "timeRecorded": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the recording was made."
+    },
+    "format": {
+      "type": "string",
+      "description": "Format of the recording.",
+      "enum": [
+        "MP4",
+        "MP3"
+      ]
+    },
+    "serviceType": {
+      "type": "string",
+      "description": "The Webex service type.",
+      "enum": [
+        "calling",
+        "meeting"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status of the recording.",
+      "enum": [
+        "available",
+        "deleted",
+        "purged"
+      ]
+    },
+    "durationSeconds": {
+      "type": "integer",
+      "description": "Duration of the recording in seconds."
+    },
+    "sizeBytes": {
+      "type": "integer",
+      "description": "Size of the recording in bytes."
+    },
+    "downloadUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to download the recording."
+    },
+    "playbackUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to play back the recording."
+    },
+    "temporaryDirectDownloadLinks": {
+      "type": "object",
+      "description": "Temporary download links with expiration.",
+      "properties": {
+        "recordingDownloadLink": {
+          "type": "string",
+          "format": "uri"
+        },
+        "audioDownloadLink": {
+          "type": "string",
+          "format": "uri"
+        },
+        "transcriptDownloadLink": {
+          "type": "string",
+          "format": "uri"
+        },
+        "expiration": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "meetingId": {
+      "type": "string",
+      "description": "The meeting ID associated with the recording, if applicable."
+    },
+    "hostEmail": {
+      "type": "string",
+      "format": "email",
+      "description": "Email of the host."
+    },
+    "hostDisplayName": {
+      "type": "string",
+      "description": "Display name of the host."
+    }
+  }
+}

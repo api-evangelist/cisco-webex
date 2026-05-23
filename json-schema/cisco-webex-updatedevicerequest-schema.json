@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateDeviceRequest",
+  "title": "UpdateDeviceRequest",
+  "type": "object",
+  "properties": {
+    "displayName": {
+      "type": "string",
+      "description": "Updated display name for the device."
+    },
+    "upgradeChannel": {
+      "type": "string",
+      "description": "Updated upgrade channel."
+    },
+    "tags": {
+      "type": "array",
+      "description": "Updated tags for the device.",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

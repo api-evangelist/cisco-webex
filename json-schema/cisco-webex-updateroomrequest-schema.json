@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateRoomRequest",
+  "title": "UpdateRoomRequest",
+  "type": "object",
+  "required": [
+    "title"
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "A user-friendly name for the room."
+    },
+    "teamId": {
+      "type": "string",
+      "description": "The team ID to assign the room to."
+    },
+    "classificationId": {
+      "type": "string",
+      "description": "The classification ID for the room."
+    },
+    "isLocked": {
+      "type": "boolean",
+      "description": "Whether to enable moderation."
+    },
+    "isPublic": {
+      "type": "boolean",
+      "description": "Whether the room is discoverable."
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of the room."
+    },
+    "isAnnouncementOnly": {
+      "type": "boolean",
+      "description": "Whether only moderators can post."
+    },
+    "isReadOnly": {
+      "type": "boolean",
+      "description": "Whether the room is read-only."
+    }
+  }
+}

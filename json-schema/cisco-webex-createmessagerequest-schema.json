@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateMessageRequest",
+  "title": "CreateMessageRequest",
+  "type": "object",
+  "properties": {
+    "roomId": {
+      "type": "string",
+      "description": "The room ID for the message."
+    },
+    "toPersonId": {
+      "type": "string",
+      "description": "Person ID to send a 1:1 message to."
+    },
+    "toPersonEmail": {
+      "type": "string",
+      "format": "email",
+      "description": "Email address to send a 1:1 message to."
+    },
+    "parentId": {
+      "type": "string",
+      "description": "The parent message ID to reply to."
+    },
+    "text": {
+      "type": "string",
+      "description": "Plain text message content (max 7439 bytes).",
+      "maxLength": 7439
+    },
+    "markdown": {
+      "type": "string",
+      "description": "Markdown-formatted message content (max 7439 bytes).",
+      "maxLength": 7439
+    },
+    "files": {
+      "type": "array",
+      "description": "Public URL to a file attachment (one per message).",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "maxItems": 1
+    },
+    "attachments": {
+      "type": "array",
+      "description": "Card attachments with adaptive card content.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "contentType": {
+            "type": "string"
+          },
+          "content": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

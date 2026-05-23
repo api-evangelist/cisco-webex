@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateAttachmentActionRequest",
+  "title": "CreateAttachmentActionRequest",
+  "type": "object",
+  "required": [
+    "type",
+    "messageId",
+    "inputs"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "The type of action. Currently only 'submit' is supported.",
+      "enum": [
+        "submit"
+      ]
+    },
+    "messageId": {
+      "type": "string",
+      "description": "The message ID containing the adaptive card."
+    },
+    "inputs": {
+      "type": "object",
+      "description": "User input data from the adaptive card fields.",
+      "additionalProperties": true
+    }
+  }
+}

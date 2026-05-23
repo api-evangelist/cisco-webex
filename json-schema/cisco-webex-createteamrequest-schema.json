@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateTeamRequest",
+  "title": "CreateTeamRequest",
+  "type": "object",
+  "required": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "A user-friendly name for the team."
+    },
+    "description": {
+      "type": "string",
+      "description": "The team's description."
+    }
+  }
+}

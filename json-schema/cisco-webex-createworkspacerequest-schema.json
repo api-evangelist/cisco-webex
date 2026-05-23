@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateWorkspaceRequest",
+  "title": "CreateWorkspaceRequest",
+  "type": "object",
+  "required": [
+    "displayName"
+  ],
+  "properties": {
+    "displayName": {
+      "type": "string",
+      "description": "Display name of the workspace."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "Organization ID."
+    },
+    "workspaceLocationId": {
+      "type": "string",
+      "description": "Location ID."
+    },
+    "floorId": {
+      "type": "string",
+      "description": "Floor ID."
+    },
+    "capacity": {
+      "type": "integer",
+      "description": "Workspace capacity."
+    },
+    "type": {
+      "type": "string",
+      "description": "Workspace type.",
+      "enum": [
+        "notSet",
+        "focus",
+        "huddle",
+        "meetingRoom",
+        "open",
+        "desk",
+        "other"
+      ]
+    },
+    "calling": {
+      "type": "object",
+      "description": "Calling configuration.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "freeCalling",
+            "hybridCalling",
+            "webexCalling",
+            "webexEdgeForDevices",
+            "none"
+          ]
+        }
+      }
+    },
+    "calendar": {
+      "type": "object",
+      "description": "Calendar configuration.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "none",
+            "google",
+            "microsoft"
+          ]
+        },
+        "emailAddress": {
+          "type": "string",
+          "format": "email"
+        }
+      }
+    },
+    "notes": {
+      "type": "string",
+      "description": "Notes for the workspace."
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateTeamMembershipRequest",
+  "title": "UpdateTeamMembershipRequest",
+  "type": "object",
+  "required": [
+    "isModerator"
+  ],
+  "properties": {
+    "isModerator": {
+      "type": "boolean",
+      "description": "Whether the person is a team moderator."
+    }
+  }
+}

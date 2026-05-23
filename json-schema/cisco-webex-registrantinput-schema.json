@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RegistrantInput",
+  "title": "RegistrantInput",
+  "type": "object",
+  "required": [
+    "firstName",
+    "lastName",
+    "email"
+  ],
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "description": "First name of the registrant."
+    },
+    "lastName": {
+      "type": "string",
+      "description": "Last name of the registrant."
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Email address of the registrant."
+    },
+    "jobTitle": {
+      "type": "string",
+      "description": "Job title of the registrant."
+    },
+    "companyName": {
+      "type": "string",
+      "description": "Company name of the registrant."
+    },
+    "address1": {
+      "type": "string",
+      "description": "Address line 1."
+    },
+    "city": {
+      "type": "string",
+      "description": "City."
+    },
+    "state": {
+      "type": "string",
+      "description": "State or province."
+    },
+    "zipCode": {
+      "type": "string",
+      "description": "Postal or zip code."
+    },
+    "countryRegion": {
+      "type": "string",
+      "description": "Country or region."
+    },
+    "phone": {
+      "type": "string",
+      "description": "Phone number."
+    }
+  }
+}

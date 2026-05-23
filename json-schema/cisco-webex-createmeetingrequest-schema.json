@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateMeetingRequest",
+  "title": "CreateMeetingRequest",
+  "type": "object",
+  "required": [
+    "title",
+    "start",
+    "end"
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Meeting title."
+    },
+    "password": {
+      "type": "string",
+      "description": "Meeting password."
+    },
+    "scheduledType": {
+      "type": "string",
+      "description": "Scheduled type of the meeting.",
+      "enum": [
+        "meeting",
+        "webinar",
+        "personalRoomMeeting"
+      ]
+    },
+    "start": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Start time in ISO 8601 format."
+    },
+    "end": {
+      "type": "string",
+      "format": "date-time",
+      "description": "End time in ISO 8601 format."
+    },
+    "timezone": {
+      "type": "string",
+      "description": "Time zone for the meeting."
+    },
+    "recurrence": {
+      "type": "string",
+      "description": "Recurrence rule in iCalendar format."
+    },
+    "enabledAutoRecordMeeting": {
+      "type": "boolean",
+      "description": "Whether auto-recording is enabled."
+    },
+    "allowAnyUserToBeCoHost": {
+      "type": "boolean",
+      "description": "Whether any user can be a co-host."
+    },
+    "hostEmail": {
+      "type": "string",
+      "format": "email",
+      "description": "Email of the meeting host (admin use)."
+    },
+    "invitees": {
+      "type": "array",
+      "description": "List of invitees.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "coHost": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "registrationEnabled": {
+      "type": "boolean",
+      "description": "Whether to enable registration."
+    }
+  }
+}

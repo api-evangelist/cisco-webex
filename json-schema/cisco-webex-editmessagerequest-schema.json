@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EditMessageRequest",
+  "title": "EditMessageRequest",
+  "type": "object",
+  "required": [
+    "roomId"
+  ],
+  "properties": {
+    "roomId": {
+      "type": "string",
+      "description": "The room ID of the message."
+    },
+    "text": {
+      "type": "string",
+      "description": "Updated plain text content (max 7439 bytes).",
+      "maxLength": 7439
+    },
+    "markdown": {
+      "type": "string",
+      "description": "Updated markdown content (max 7439 bytes).",
+      "maxLength": 7439
+    }
+  }
+}

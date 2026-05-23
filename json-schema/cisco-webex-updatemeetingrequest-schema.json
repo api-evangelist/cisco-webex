@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateMeetingRequest",
+  "title": "UpdateMeetingRequest",
+  "type": "object",
+  "required": [
+    "title",
+    "start",
+    "end"
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Meeting title."
+    },
+    "password": {
+      "type": "string",
+      "description": "Meeting password."
+    },
+    "start": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Start time in ISO 8601 format."
+    },
+    "end": {
+      "type": "string",
+      "format": "date-time",
+      "description": "End time in ISO 8601 format."
+    },
+    "timezone": {
+      "type": "string",
+      "description": "Time zone for the meeting."
+    },
+    "recurrence": {
+      "type": "string",
+      "description": "Recurrence rule in iCalendar format."
+    },
+    "enabledAutoRecordMeeting": {
+      "type": "boolean",
+      "description": "Whether auto-recording is enabled."
+    },
+    "allowAnyUserToBeCoHost": {
+      "type": "boolean",
+      "description": "Whether any user can be a co-host."
+    },
+    "hostEmail": {
+      "type": "string",
+      "format": "email",
+      "description": "Email of the meeting host (admin use)."
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateWebhookRequest",
+  "title": "CreateWebhookRequest",
+  "type": "object",
+  "required": [
+    "name",
+    "targetUrl",
+    "resource",
+    "event"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "A user-friendly name for the webhook."
+    },
+    "targetUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "The URL to receive webhook POST requests."
+    },
+    "resource": {
+      "type": "string",
+      "description": "The resource type to monitor.",
+      "enum": [
+        "messages",
+        "rooms",
+        "memberships",
+        "meetings",
+        "recordings",
+        "meetingParticipants",
+        "meetingTranscripts",
+        "attachmentActions",
+        "telephony_calls"
+      ]
+    },
+    "event": {
+      "type": "string",
+      "description": "The event type to monitor.",
+      "enum": [
+        "created",
+        "updated",
+        "deleted",
+        "started",
+        "ended",
+        "joined",
+        "left",
+        "migrated",
+        "read"
+      ]
+    },
+    "filter": {
+      "type": "string",
+      "description": "Filter expression to narrow webhook scope."
+    },
+    "secret": {
+      "type": "string",
+      "description": "Secret for payload signature verification."
+    },
+    "ownedBy": {
+      "type": "string",
+      "description": "Set to 'org' for organization-level webhooks."
+    }
+  }
+}

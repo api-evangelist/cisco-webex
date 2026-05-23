@@ -1,0 +1,153 @@
+{
+  "provider": "Cisco Webex",
+  "providerId": "cisco-webex",
+  "kind": "json-structure",
+  "description": "Structural overview of the Cisco Webex API surface; extracted from openapi/.",
+  "schemaCount": 5,
+  "operationCount": 11,
+  "schemas": [
+    {
+      "name": "Meeting",
+      "type": "object",
+      "propertyCount": 19,
+      "required": []
+    },
+    {
+      "name": "CreateMeetingRequest",
+      "type": "object",
+      "propertyCount": 12,
+      "required": [
+        "title",
+        "start",
+        "end"
+      ]
+    },
+    {
+      "name": "UpdateMeetingRequest",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "title",
+        "start",
+        "end"
+      ]
+    },
+    {
+      "name": "Registrant",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "RegistrantInput",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "firstName",
+        "lastName",
+        "email"
+      ]
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/meetings",
+      "operationId": "listMeetings",
+      "summary": "Cisco Webex List Meetings",
+      "tags": [
+        "Meetings"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/meetings",
+      "operationId": "createMeeting",
+      "summary": "Cisco Webex Create a Meeting",
+      "tags": [
+        "Meetings"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/meetings/{meetingId}",
+      "operationId": "getMeetingDetails",
+      "summary": "Cisco Webex Get Meeting Details",
+      "tags": [
+        "Meetings"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/meetings/{meetingId}",
+      "operationId": "updateMeeting",
+      "summary": "Cisco Webex Update a Meeting",
+      "tags": [
+        "Meetings"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/meetings/{meetingId}",
+      "operationId": "deleteMeeting",
+      "summary": "Cisco Webex Delete a Meeting",
+      "tags": [
+        "Meetings"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/meetings/{meetingId}/registrants",
+      "operationId": "listMeetingRegistrants",
+      "summary": "Cisco Webex List Meeting Registrants",
+      "tags": [
+        "Registrants"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/meetings/{meetingId}/registrants/approve",
+      "operationId": "approveMeetingRegistrants",
+      "summary": "Cisco Webex Batch Approve Meeting Registrants",
+      "tags": [
+        "Registrants"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/meetings/{meetingId}/registrants/reject",
+      "operationId": "rejectMeetingRegistrants",
+      "summary": "Cisco Webex Batch Reject Meeting Registrants",
+      "tags": [
+        "Registrants"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/meetings/{meetingId}/registrants/cancel",
+      "operationId": "cancelMeetingRegistrants",
+      "summary": "Cisco Webex Batch Cancel Meeting Registrants",
+      "tags": [
+        "Registrants"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/meetings/{meetingId}/registrants/bulkInsert",
+      "operationId": "batchRegisterMeetingRegistrants",
+      "summary": "Cisco Webex Batch Register Meeting Registrants",
+      "tags": [
+        "Registrants"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/meetings/{meetingId}/registrants/bulkDelete",
+      "operationId": "batchDeleteMeetingRegistrants",
+      "summary": "Cisco Webex Batch Delete Meeting Registrants",
+      "tags": [
+        "Registrants"
+      ]
+    }
+  ]
+}
