@@ -1,0 +1,120 @@
+arazzo: 1.0.1
+info:
+  title: Cisco Webex Add Person to Team and a Team Room
+  summary: Find a person by email, add them to a team, and add them to a team room.
+  description: >-
+    Onboards an existing person into a team and one of the team's rooms. The
+    workflow resolves the person by exact email, adds them as a team member,
+    then adds the same person to a specified team room as a room member. Every
+    step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: peopleApi
+  url: ../openapi/cisco-webex-people-openapi.yml
+  type: openapi
+- name: teamMembershipsApi
+  url: ../openapi/cisco-webex-team-memberships-openapi.yml
+  type: openapi
+- name: membershipsApi
+  url: ../openapi/cisco-webex-memberships-openapi.yml
+  type: openapi
+workflows:
+- workflowId: add-person-to-team-and-team-room
+  summary: Resolve a person, add to a team, then add to a team room.
+  description: >-
+    Looks up a person by exact email, adds them as a team member, and then
+    adds them to a specified room as a room member.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - email
+    - teamId
+    - roomId
+    properties:
+      accessToken:
+        type: string
+        description: Webex API bearer access token.
+      email:
+        type: string
+        description: Exact email address of the person to onboard.
+      teamId:
+        type: string
+        description: The team ID to add the person to.
+      roomId:
+        type: string
+        description: The team room ID to add the person to.
+      isModerator:
+        type: boolean
+        description: Whether the person should be a moderator of the team and room.
+  steps:
+  - stepId: findPerson
+    description: Resolve the person by exact email match.
+    operationId: listPeople
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    - name: email
+      in: query
+      value: $inputs.email
+    - name: max
+      in: query
+      value: 1
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      personId: $response.body#/items/0/id
+    onSuccess:
+    - name: personFound
+      type: goto
+      stepId: addTeamMember
+      criteria:
+      - context: $response.body
+        condition: $.items.length > 0
+        type: jsonpath
+    - name: personMissing
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.items.length == 0
+        type: jsonpath
+  - stepId: addTeamMember
+    description: Add the resolved person to the team as a team member.
+    operationId: createTeamMembership
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        teamId: $inputs.teamId
+        personId: $steps.findPerson.outputs.personId
+        isModerator: $inputs.isModerator
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      teamMembershipId: $response.body#/id
+  - stepId: addRoomMember
+    description: Add the same person to the specified team room as a room member.
+    operationId: createMembership
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        roomId: $inputs.roomId
+        personId: $steps.findPerson.outputs.personId
+        isModerator: $inputs.isModerator
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      membershipId: $response.body#/id
+  outputs:
+    personId: $steps.findPerson.outputs.personId
+    teamMembershipId: $steps.addTeamMember.outputs.teamMembershipId
+    membershipId: $steps.addRoomMember.outputs.membershipId

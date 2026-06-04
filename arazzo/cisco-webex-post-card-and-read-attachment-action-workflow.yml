@@ -1,0 +1,110 @@
+arazzo: 1.0.1
+info:
+  title: Cisco Webex Post an Adaptive Card and Read its Attachment Action
+  summary: Post a card message to a room, then submit and read an attachment action.
+  description: >-
+    Demonstrates the Buttons and Cards round trip. The workflow posts a message
+    carrying an adaptive card attachment into a room, then simulates a user
+    submitting the card by creating an attachment action against the posted
+    message, and finally reads the attachment action back to retrieve the
+    captured input data. Every step spells out its request inline so the flow
+    can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: messagingApi
+  url: ../openapi/cisco-webex-messaging-openapi.yml
+  type: openapi
+- name: attachmentActionsApi
+  url: ../openapi/cisco-webex-attachment-actions-openapi.yml
+  type: openapi
+workflows:
+- workflowId: post-card-and-read-attachment-action
+  summary: Post a card, submit an attachment action, then read it back.
+  description: >-
+    Posts a message with an adaptive card attachment, creates a submit
+    attachment action against it, and retrieves the action details.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - roomId
+    - cardContent
+    - inputs
+    properties:
+      accessToken:
+        type: string
+        description: Webex API bearer access token.
+      roomId:
+        type: string
+        description: The room ID to post the card message into.
+      text:
+        type: string
+        description: Fallback text shown by clients that cannot render the card.
+      cardContent:
+        type: object
+        description: The adaptive card content object for the attachment.
+      inputs:
+        type: object
+        description: The user input data submitted from the adaptive card fields.
+  steps:
+  - stepId: postCard
+    description: >-
+      Post a message carrying an adaptive card attachment into the room. The
+      contentType identifies the payload as an adaptive card.
+    operationId: createMessage
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        roomId: $inputs.roomId
+        text: $inputs.text
+        attachments:
+        - contentType: application/vnd.microsoft.card.adaptive
+          content: $inputs.cardContent
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      messageId: $response.body#/id
+  - stepId: submitAction
+    description: >-
+      Create a submit attachment action against the posted card message,
+      carrying the user-provided input data.
+    operationId: createAttachmentAction
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        type: submit
+        messageId: $steps.postCard.outputs.messageId
+        inputs: $inputs.inputs
+    successCriteria:
+    - condition: $statusCode == 202
+    outputs:
+      actionId: $response.body#/id
+  - stepId: readAction
+    description: Read the attachment action back to retrieve the captured inputs.
+    operationId: getAttachmentActionDetails
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    - name: id
+      in: path
+      value: $steps.submitAction.outputs.actionId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      actionId: $response.body#/id
+      capturedInputs: $response.body#/inputs
+      personId: $response.body#/personId
+  outputs:
+    messageId: $steps.postCard.outputs.messageId
+    actionId: $steps.readAction.outputs.actionId
+    capturedInputs: $steps.readAction.outputs.capturedInputs

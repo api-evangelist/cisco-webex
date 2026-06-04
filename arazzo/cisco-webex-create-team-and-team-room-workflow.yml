@@ -1,0 +1,107 @@
+arazzo: 1.0.1
+info:
+  title: Cisco Webex Create Team and Team Room
+  summary: Create a team and a room scoped to that team, then announce it.
+  description: >-
+    Stands up a new team and immediately creates a team-scoped room (space)
+    inside it, then posts an announcement message into the team room. The room
+    is associated with the team via the teamId returned from team creation.
+    Every step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: teamsApi
+  url: ../openapi/cisco-webex-teams-openapi.yml
+  type: openapi
+- name: roomsApi
+  url: ../openapi/cisco-webex-rooms-openapi.yml
+  type: openapi
+- name: messagingApi
+  url: ../openapi/cisco-webex-messaging-openapi.yml
+  type: openapi
+workflows:
+- workflowId: create-team-and-team-room
+  summary: Create a team, create a team-scoped room, and announce it.
+  description: >-
+    Creates a team, creates a room associated with that team, and posts an
+    announcement message into the team room.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - teamName
+    - roomTitle
+    - markdown
+    properties:
+      accessToken:
+        type: string
+        description: Webex API bearer access token.
+      teamName:
+        type: string
+        description: A user-friendly name for the new team.
+      teamDescription:
+        type: string
+        description: An optional description for the team.
+      roomTitle:
+        type: string
+        description: A user-friendly name for the team-scoped room.
+      markdown:
+        type: string
+        description: The markdown content of the announcement message.
+  steps:
+  - stepId: createTeam
+    description: Create a new team with the supplied name and description.
+    operationId: createTeam
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.teamName
+        description: $inputs.teamDescription
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      teamId: $response.body#/id
+      teamName: $response.body#/name
+  - stepId: createTeamRoom
+    description: >-
+      Create a room associated with the new team by passing its teamId, so the
+      room becomes part of the team.
+    operationId: createRoom
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        title: $inputs.roomTitle
+        teamId: $steps.createTeam.outputs.teamId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      roomId: $response.body#/id
+      roomTeamId: $response.body#/teamId
+  - stepId: announce
+    description: Post an announcement message into the new team room.
+    operationId: createMessage
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        roomId: $steps.createTeamRoom.outputs.roomId
+        markdown: $inputs.markdown
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      messageId: $response.body#/id
+  outputs:
+    teamId: $steps.createTeam.outputs.teamId
+    roomId: $steps.createTeamRoom.outputs.roomId
+    messageId: $steps.announce.outputs.messageId

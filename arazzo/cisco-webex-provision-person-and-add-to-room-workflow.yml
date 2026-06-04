@@ -1,0 +1,112 @@
+arazzo: 1.0.1
+info:
+  title: Cisco Webex Provision a Person and Add to a Room
+  summary: Create an organization user, then add them to a room and welcome them.
+  description: >-
+    An admin onboarding flow that creates a brand-new user account in the
+    organization, adds the new person to a room as a member, and posts a
+    welcome message into that room. The person ID returned from account
+    creation is reused to add the membership. Every step spells out its request
+    inline so the flow can be read and executed without opening the underlying
+    OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: peopleApi
+  url: ../openapi/cisco-webex-people-openapi.yml
+  type: openapi
+- name: membershipsApi
+  url: ../openapi/cisco-webex-memberships-openapi.yml
+  type: openapi
+- name: messagingApi
+  url: ../openapi/cisco-webex-messaging-openapi.yml
+  type: openapi
+workflows:
+- workflowId: provision-person-and-add-to-room
+  summary: Create a person, add them to a room, and welcome them.
+  description: >-
+    Creates a new organization user, adds the new person to a room as a
+    member, and posts a welcome message into that room.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - email
+    - displayName
+    - roomId
+    - welcomeMarkdown
+    properties:
+      accessToken:
+        type: string
+        description: Webex API bearer access token with admin scope.
+      email:
+        type: string
+        description: Email address for the new person account.
+      displayName:
+        type: string
+        description: Display name for the new person account.
+      orgId:
+        type: string
+        description: Organization ID the person belongs to.
+      roomId:
+        type: string
+        description: The room ID to add the new person to.
+      welcomeMarkdown:
+        type: string
+        description: The markdown content of the welcome message.
+  steps:
+  - stepId: createPerson
+    description: >-
+      Create a new user account in the organization with the supplied email
+      and display name.
+    operationId: createPerson
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        emails:
+        - $inputs.email
+        displayName: $inputs.displayName
+        orgId: $inputs.orgId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      personId: $response.body#/id
+  - stepId: addToRoom
+    description: Add the newly created person to the room as a member.
+    operationId: createMembership
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        roomId: $inputs.roomId
+        personId: $steps.createPerson.outputs.personId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      membershipId: $response.body#/id
+  - stepId: welcome
+    description: Post a welcome message into the room for the new person.
+    operationId: createMessage
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        roomId: $inputs.roomId
+        markdown: $inputs.welcomeMarkdown
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      messageId: $response.body#/id
+  outputs:
+    personId: $steps.createPerson.outputs.personId
+    membershipId: $steps.addToRoom.outputs.membershipId
+    messageId: $steps.welcome.outputs.messageId

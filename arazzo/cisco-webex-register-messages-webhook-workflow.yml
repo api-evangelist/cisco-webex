@@ -1,0 +1,90 @@
+arazzo: 1.0.1
+info:
+  title: Cisco Webex Register a Messages Webhook for a Room
+  summary: Create a room and register a messages-created webhook scoped to it.
+  description: >-
+    Sets up real-time message notifications for a new space. The workflow
+    creates a group room and then registers a webhook on the messages resource
+    with the created event, scoped to that room via a roomId filter, so the
+    target URL is notified whenever a message is posted. Every step spells out
+    its request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: roomsApi
+  url: ../openapi/cisco-webex-rooms-openapi.yml
+  type: openapi
+- name: webhooksApi
+  url: ../openapi/cisco-webex-webhooks-openapi.yml
+  type: openapi
+workflows:
+- workflowId: register-messages-webhook
+  summary: Create a room and register a messages webhook filtered to it.
+  description: >-
+    Creates a group room and registers a webhook for the messages resource
+    created event, filtered to that room.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - roomTitle
+    - webhookName
+    - targetUrl
+    properties:
+      accessToken:
+        type: string
+        description: Webex API bearer access token.
+      roomTitle:
+        type: string
+        description: A user-friendly name for the new room.
+      webhookName:
+        type: string
+        description: A user-friendly name for the webhook.
+      targetUrl:
+        type: string
+        description: The URL that will receive webhook POST requests.
+      secret:
+        type: string
+        description: Optional secret used to sign webhook payloads.
+  steps:
+  - stepId: createRoom
+    description: Create a new group room to monitor for new messages.
+    operationId: createRoom
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        title: $inputs.roomTitle
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      roomId: $response.body#/id
+  - stepId: registerWebhook
+    description: >-
+      Register a webhook on the messages resource for the created event,
+      filtered to the new room so only its messages trigger notifications.
+    operationId: createWebhook
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.webhookName
+        targetUrl: $inputs.targetUrl
+        resource: messages
+        event: created
+        filter: "roomId=$steps.createRoom.outputs.roomId"
+        secret: $inputs.secret
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      webhookId: $response.body#/id
+      webhookStatus: $response.body#/status
+  outputs:
+    roomId: $steps.createRoom.outputs.roomId
+    webhookId: $steps.registerWebhook.outputs.webhookId

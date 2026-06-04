@@ -1,0 +1,98 @@
+arazzo: 1.0.1
+info:
+  title: Cisco Webex Find Person and Send Direct Message
+  summary: Look up a person by email and send them a 1:1 direct message.
+  description: >-
+    Resolves a person in the organization by their exact email address, then
+    sends them a direct (1:1) message addressed by email. The lookup step
+    branches: when a matching person is found the flow proceeds to send the
+    direct message, and when no person matches it ends without sending. Every
+    step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: peopleApi
+  url: ../openapi/cisco-webex-people-openapi.yml
+  type: openapi
+- name: messagingApi
+  url: ../openapi/cisco-webex-messaging-openapi.yml
+  type: openapi
+workflows:
+- workflowId: find-person-direct-message
+  summary: Find a person by email and send them a direct message.
+  description: >-
+    Looks up a person by exact email match and, when found, sends them a 1:1
+    direct message addressed by email.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - email
+    - markdown
+    properties:
+      accessToken:
+        type: string
+        description: Webex API bearer access token.
+      email:
+        type: string
+        description: Exact email address of the person to message.
+      markdown:
+        type: string
+        description: The markdown content of the direct message.
+  steps:
+  - stepId: findPerson
+    description: >-
+      Look up the person by exact email match. Only exact matches are
+      returned, so at most one person is expected.
+    operationId: listPeople
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    - name: email
+      in: query
+      value: $inputs.email
+    - name: max
+      in: query
+      value: 1
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      personId: $response.body#/items/0/id
+    onSuccess:
+    - name: personFound
+      type: goto
+      stepId: sendDirectMessage
+      criteria:
+      - context: $response.body
+        condition: $.items.length > 0
+        type: jsonpath
+    - name: personMissing
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.items.length == 0
+        type: jsonpath
+  - stepId: sendDirectMessage
+    description: >-
+      Send a 1:1 direct message to the resolved person, addressed by email
+      via toPersonEmail.
+    operationId: createMessage
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        toPersonEmail: $inputs.email
+        markdown: $inputs.markdown
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      messageId: $response.body#/id
+      roomId: $response.body#/roomId
+      created: $response.body#/created
+  outputs:
+    personId: $steps.findPerson.outputs.personId
+    messageId: $steps.sendDirectMessage.outputs.messageId

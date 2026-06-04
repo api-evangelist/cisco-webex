@@ -1,0 +1,114 @@
+arazzo: 1.0.1
+info:
+  title: Cisco Webex Ensure Room Membership
+  summary: Add a person to a room only if they are not already a member.
+  description: >-
+    An idempotent membership flow. The workflow lists memberships for a room
+    filtered by the target person's email, then branches: when no membership
+    exists it creates one and posts a notice into the room, and when a
+    membership already exists it ends without creating a duplicate. Every step
+    spells out its request inline so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: membershipsApi
+  url: ../openapi/cisco-webex-memberships-openapi.yml
+  type: openapi
+- name: messagingApi
+  url: ../openapi/cisco-webex-messaging-openapi.yml
+  type: openapi
+workflows:
+- workflowId: ensure-room-membership
+  summary: Add a person to a room only when not already a member.
+  description: >-
+    Checks for an existing membership by room and person email, and only
+    creates a membership and posts a notice when none exists.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - roomId
+    - personEmail
+    properties:
+      accessToken:
+        type: string
+        description: Webex API bearer access token.
+      roomId:
+        type: string
+        description: The room ID to ensure membership in.
+      personEmail:
+        type: string
+        description: Email address of the person to ensure membership for.
+      noticeMarkdown:
+        type: string
+        description: Markdown message posted when a new membership is created.
+  steps:
+  - stepId: checkMembership
+    description: >-
+      List memberships for the room filtered by the person email to detect an
+      existing membership.
+    operationId: listMemberships
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    - name: roomId
+      in: query
+      value: $inputs.roomId
+    - name: personEmail
+      in: query
+      value: $inputs.personEmail
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      existingMembershipId: $response.body#/items/0/id
+    onSuccess:
+    - name: alreadyMember
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.items.length > 0
+        type: jsonpath
+    - name: notYetMember
+      type: goto
+      stepId: addMembership
+      criteria:
+      - context: $response.body
+        condition: $.items.length == 0
+        type: jsonpath
+  - stepId: addMembership
+    description: Create the membership since the person is not yet in the room.
+    operationId: createMembership
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        roomId: $inputs.roomId
+        personEmail: $inputs.personEmail
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      membershipId: $response.body#/id
+  - stepId: postNotice
+    description: Post a notice into the room announcing the new member.
+    operationId: createMessage
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        roomId: $inputs.roomId
+        markdown: $inputs.noticeMarkdown
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      messageId: $response.body#/id
+  outputs:
+    existingMembershipId: $steps.checkMembership.outputs.existingMembershipId
+    membershipId: $steps.addMembership.outputs.membershipId
+    messageId: $steps.postNotice.outputs.messageId

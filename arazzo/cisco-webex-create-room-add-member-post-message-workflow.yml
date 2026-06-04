@@ -1,0 +1,109 @@
+arazzo: 1.0.1
+info:
+  title: Cisco Webex Create Room, Add Member, and Post Message
+  summary: Create a new space, add a person to it, and post an opening message.
+  description: >-
+    The canonical Webex onboarding flow for a new collaboration space. The
+    workflow creates a group room, adds a person to it by email or person ID as
+    a member (optionally a moderator), and then posts an opening message into
+    the freshly created room. Every step spells out its request inline so the
+    flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: roomsApi
+  url: ../openapi/cisco-webex-rooms-openapi.yml
+  type: openapi
+- name: membershipsApi
+  url: ../openapi/cisco-webex-memberships-openapi.yml
+  type: openapi
+- name: messagingApi
+  url: ../openapi/cisco-webex-messaging-openapi.yml
+  type: openapi
+workflows:
+- workflowId: create-room-add-member-post-message
+  summary: Create a Webex room, add a member, and post a message.
+  description: >-
+    Creates a group room, attaches a person to it as a member, and posts an
+    opening markdown message into the new room.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - title
+    - personEmail
+    - markdown
+    properties:
+      accessToken:
+        type: string
+        description: Webex API bearer access token.
+      title:
+        type: string
+        description: A user-friendly name for the new room.
+      personEmail:
+        type: string
+        description: Email address of the person to add to the room.
+      isModerator:
+        type: boolean
+        description: Whether the added person should be a room moderator.
+      markdown:
+        type: string
+        description: The markdown content of the opening message.
+  steps:
+  - stepId: createRoom
+    description: Create a new group room (space) with the supplied title.
+    operationId: createRoom
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        title: $inputs.title
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      roomId: $response.body#/id
+      roomTitle: $response.body#/title
+  - stepId: addMember
+    description: >-
+      Add the supplied person to the new room by email address, optionally as
+      a moderator.
+    operationId: createMembership
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        roomId: $steps.createRoom.outputs.roomId
+        personEmail: $inputs.personEmail
+        isModerator: $inputs.isModerator
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      membershipId: $response.body#/id
+      memberPersonId: $response.body#/personId
+  - stepId: postMessage
+    description: Post an opening markdown message into the new room.
+    operationId: createMessage
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        roomId: $steps.createRoom.outputs.roomId
+        markdown: $inputs.markdown
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      messageId: $response.body#/id
+      created: $response.body#/created
+  outputs:
+    roomId: $steps.createRoom.outputs.roomId
+    membershipId: $steps.addMember.outputs.membershipId
+    messageId: $steps.postMessage.outputs.messageId

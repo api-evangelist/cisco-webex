@@ -1,0 +1,95 @@
+arazzo: 1.0.1
+info:
+  title: Cisco Webex Schedule a Meeting and Notify a Room
+  summary: Create a meeting and post its join link as a message into a room.
+  description: >-
+    Schedules a meeting and shares it with a space. The workflow creates a
+    meeting with the supplied title and time window, captures the meeting's
+    browser join link, and posts a markdown message into a room that includes
+    the join link so room members can join. Every step spells out its request
+    inline so the flow can be read and executed without opening the underlying
+    OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: meetingsApi
+  url: ../openapi/cisco-webex-meetings-openapi.yml
+  type: openapi
+- name: messagingApi
+  url: ../openapi/cisco-webex-messaging-openapi.yml
+  type: openapi
+workflows:
+- workflowId: schedule-meeting-and-notify-room
+  summary: Schedule a meeting and post its join link into a room.
+  description: >-
+    Creates a meeting and posts a message into a room containing the meeting
+    title and its web join link.
+  inputs:
+    type: object
+    required:
+    - accessToken
+    - title
+    - start
+    - end
+    - roomId
+    properties:
+      accessToken:
+        type: string
+        description: Webex API bearer access token.
+      title:
+        type: string
+        description: The meeting title.
+      start:
+        type: string
+        description: Meeting start time in ISO 8601 format.
+      end:
+        type: string
+        description: Meeting end time in ISO 8601 format.
+      timezone:
+        type: string
+        description: Time zone for the meeting.
+      roomId:
+        type: string
+        description: The room ID to notify with the meeting join link.
+  steps:
+  - stepId: createMeeting
+    description: Create a meeting with the supplied title and time window.
+    operationId: createMeeting
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        title: $inputs.title
+        start: $inputs.start
+        end: $inputs.end
+        timezone: $inputs.timezone
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      meetingId: $response.body#/id
+      webLink: $response.body#/webLink
+      meetingNumber: $response.body#/meetingNumber
+  - stepId: notifyRoom
+    description: >-
+      Post a markdown message into the room that includes the meeting title
+      and its browser join link.
+    operationId: createMessage
+    parameters:
+    - name: Authorization
+      in: header
+      value: Bearer $inputs.accessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        roomId: $inputs.roomId
+        markdown: "Meeting scheduled: **$inputs.title** — join at $steps.createMeeting.outputs.webLink"
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      messageId: $response.body#/id
+  outputs:
+    meetingId: $steps.createMeeting.outputs.meetingId
+    webLink: $steps.createMeeting.outputs.webLink
+    messageId: $steps.notifyRoom.outputs.messageId
