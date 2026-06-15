@@ -1,0 +1,889 @@
+{
+  "item": [
+    {
+      "id": "c2cfebe2-6604-4451-927d-7cd974990f12",
+      "name": "Webhooks",
+      "description": {
+        "content": "Operations for managing webhooks",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "22c07824-06f6-475f-b4e2-8cc734b8242f",
+          "name": "Cisco Webex List Webhooks",
+          "request": {
+            "name": "Cisco Webex List Webhooks",
+            "description": {
+              "content": "Lists all webhooks registered by the authenticated user. Results are paginated and include webhook status and configuration details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "webhooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "100",
+                  "description": "Maximum number of webhooks to return (default 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "ownedBy",
+                  "value": "<string>",
+                  "description": "Filter webhooks by ownership. Set to 'org' for organization-level webhooks."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8f19ba30-adcb-4d76-a5d4-4c54ca884b34",
+              "name": "Successful response with list of webhooks.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max",
+                      "value": "100"
+                    },
+                    {
+                      "key": "ownedBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"targetUrl\": \"https://zwoPijODdEqjsjiAkeCsHpmPiALy.glsHU7FjaFvK3ozkcaQRJOSuN4laXNVX\",\n      \"resource\": \"recordings\",\n      \"event\": \"joined\",\n      \"filter\": \"string\",\n      \"secret\": \"string\",\n      \"status\": \"active\",\n      \"ownedBy\": \"string\",\n      \"orgId\": \"string\",\n      \"createdBy\": \"string\",\n      \"appId\": \"string\",\n      \"created\": \"2015-08-01T08:03:52.872Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"targetUrl\": \"http://KtbHbEWGCcFiQcAQtcfJzHOxxEl.yptYTJrhlKt,BxaxQAluET.gLlRdYBuTRreNuvrUTDdVO.tdYQ0xue.E7yokBSF.JyxwyKbU953tPcsw\",\n      \"resource\": \"meetingParticipants\",\n      \"event\": \"migrated\",\n      \"filter\": \"string\",\n      \"secret\": \"string\",\n      \"status\": \"inactive\",\n      \"ownedBy\": \"string\",\n      \"orgId\": \"string\",\n      \"createdBy\": \"string\",\n      \"appId\": \"string\",\n      \"created\": \"1949-06-18T12:50:35.520Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a6e9bac-88bb-47a1-987d-442f53a393d7",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max",
+                      "value": "100"
+                    },
+                    {
+                      "key": "ownedBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d94861e-aeca-4e26-a033-a5d123989cec",
+          "name": "Cisco Webex Create a Webhook",
+          "request": {
+            "name": "Cisco Webex Create a Webhook",
+            "description": {
+              "content": "Creates a new webhook. Webhooks receive HTTP POST requests when the specified resource and event combination occurs. A secret can be provided for payload signature verification.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "webhooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"targetUrl\": \"<uri>\",\n  \"resource\": \"<string>\",\n  \"event\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"secret\": \"<string>\",\n  \"ownedBy\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "00283382-d1b9-4a7b-9d62-77dfc86eeee7",
+              "name": "Webhook created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"targetUrl\": \"<uri>\",\n  \"resource\": \"<string>\",\n  \"event\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"secret\": \"<string>\",\n  \"ownedBy\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"targetUrl\": \"http://nYgokQOmMDYZuGbkNZFguRBVciPn.muvhMvHMw6bagu7QoEQaEOr.TLTgjjjnreVsVxQIkZoXCcOjaklRW9pQ\",\n  \"resource\": \"rooms\",\n  \"event\": \"created\",\n  \"filter\": \"string\",\n  \"secret\": \"string\",\n  \"status\": \"active\",\n  \"ownedBy\": \"string\",\n  \"orgId\": \"string\",\n  \"createdBy\": \"string\",\n  \"appId\": \"string\",\n  \"created\": \"2024-10-01T13:02:25.563Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa61f272-167d-4c07-9918-60e5d831560b",
+              "name": "Bad request - invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"targetUrl\": \"<uri>\",\n  \"resource\": \"<string>\",\n  \"event\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"secret\": \"<string>\",\n  \"ownedBy\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7e032a06-1f2b-437d-bd84-a551a2129296",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"targetUrl\": \"<uri>\",\n  \"resource\": \"<string>\",\n  \"event\": \"<string>\",\n  \"filter\": \"<string>\",\n  \"secret\": \"<string>\",\n  \"ownedBy\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c9eed37-637f-4e11-9ab0-5d1c167e2b87",
+          "name": "Cisco Webex Get Webhook Details",
+          "request": {
+            "name": "Cisco Webex Get Webhook Details",
+            "description": {
+              "content": "Shows details for a webhook by ID. Returns the webhook configuration, status, and metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "webhooks",
+                ":webhookId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "webhookId",
+                  "description": "(Required) Unique identifier for the webhook."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fbced169-addb-4e97-92ad-743165cee8e6",
+              "name": "Successful response with webhook details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    ":webhookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "webhookId",
+                      "description": "(Required) Unique identifier for the webhook."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"targetUrl\": \"http://nYgokQOmMDYZuGbkNZFguRBVciPn.muvhMvHMw6bagu7QoEQaEOr.TLTgjjjnreVsVxQIkZoXCcOjaklRW9pQ\",\n  \"resource\": \"rooms\",\n  \"event\": \"created\",\n  \"filter\": \"string\",\n  \"secret\": \"string\",\n  \"status\": \"active\",\n  \"ownedBy\": \"string\",\n  \"orgId\": \"string\",\n  \"createdBy\": \"string\",\n  \"appId\": \"string\",\n  \"created\": \"2024-10-01T13:02:25.563Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47e7e17f-a105-4f03-9fd8-ceb00870c8cd",
+              "name": "Webhook not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    ":webhookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "webhookId",
+                      "description": "(Required) Unique identifier for the webhook."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e2c8e94-35f0-4af1-966f-0a1b25ba67a2",
+          "name": "Cisco Webex Update a Webhook",
+          "request": {
+            "name": "Cisco Webex Update a Webhook",
+            "description": {
+              "content": "Updates a webhook by ID. Allows changing the name, target URL, secret, status, and ownership of the webhook.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "webhooks",
+                ":webhookId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "webhookId",
+                  "description": "(Required) Unique identifier for the webhook."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"targetUrl\": \"<uri>\",\n  \"secret\": \"<string>\",\n  \"status\": \"<string>\",\n  \"ownedBy\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a0983eba-0cd2-4597-94ed-858b8c17fc92",
+              "name": "Webhook updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    ":webhookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "webhookId",
+                      "description": "(Required) Unique identifier for the webhook."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"targetUrl\": \"<uri>\",\n  \"secret\": \"<string>\",\n  \"status\": \"<string>\",\n  \"ownedBy\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"targetUrl\": \"http://nYgokQOmMDYZuGbkNZFguRBVciPn.muvhMvHMw6bagu7QoEQaEOr.TLTgjjjnreVsVxQIkZoXCcOjaklRW9pQ\",\n  \"resource\": \"rooms\",\n  \"event\": \"created\",\n  \"filter\": \"string\",\n  \"secret\": \"string\",\n  \"status\": \"active\",\n  \"ownedBy\": \"string\",\n  \"orgId\": \"string\",\n  \"createdBy\": \"string\",\n  \"appId\": \"string\",\n  \"created\": \"2024-10-01T13:02:25.563Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "105da81b-a6ec-44fb-aa5d-1606aad7156f",
+              "name": "Bad request - invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    ":webhookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "webhookId",
+                      "description": "(Required) Unique identifier for the webhook."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"targetUrl\": \"<uri>\",\n  \"secret\": \"<string>\",\n  \"status\": \"<string>\",\n  \"ownedBy\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8a3cf40a-4cdb-483a-8c18-712dc5731f55",
+              "name": "Webhook not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    ":webhookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "webhookId",
+                      "description": "(Required) Unique identifier for the webhook."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"targetUrl\": \"<uri>\",\n  \"secret\": \"<string>\",\n  \"status\": \"<string>\",\n  \"ownedBy\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "99ed3afd-caa4-47b9-90d8-5a5f829def63",
+          "name": "Cisco Webex Delete a Webhook",
+          "request": {
+            "name": "Cisco Webex Delete a Webhook",
+            "description": {
+              "content": "Deletes a webhook by ID. The webhook will no longer receive notifications for the configured resource and event.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "webhooks",
+                ":webhookId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "webhookId",
+                  "description": "(Required) Unique identifier for the webhook."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a3ef0f61-2e20-4975-8d9e-0fcb08d6635a",
+              "name": "Webhook deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    ":webhookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "webhookId",
+                      "description": "(Required) Unique identifier for the webhook."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a75feddc-652b-4ff1-b82b-b726ca4ca811",
+              "name": "Webhook not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    ":webhookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "webhookId",
+                      "description": "(Required) Unique identifier for the webhook."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://webexapis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "69bb26b5-d2b9-43f3-9d09-b77a07a53a90",
+    "name": "Cisco Webex Webhooks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Register webhooks to receive real-time HTTP callbacks when specific events occur in Webex. Supports filtering by resource type, event type, and other criteria for efficient event-driven integrations.\n\nContact Support:\n Name: Cisco Webex Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

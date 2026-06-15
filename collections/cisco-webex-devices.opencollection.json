@@ -1,0 +1,209 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Webex Devices API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cisco Webex List Devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/devices",
+            "params": [
+              {
+                "name": "personId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by person ID who owns the device."
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by workspace ID where the device is assigned."
+              },
+              {
+                "name": "displayName",
+                "value": "",
+                "type": "query",
+                "description": "Filter by device display name."
+              },
+              {
+                "name": "product",
+                "value": "",
+                "type": "query",
+                "description": "Filter by device product name."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by device type."
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query",
+                "description": "Filter by device tag."
+              },
+              {
+                "name": "connectionStatus",
+                "value": "",
+                "type": "query",
+                "description": "Filter by device connection status."
+              },
+              {
+                "name": "serial",
+                "value": "",
+                "type": "query",
+                "description": "Filter by device serial number."
+              },
+              {
+                "name": "software",
+                "value": "",
+                "type": "query",
+                "description": "Filter by software version."
+              },
+              {
+                "name": "upgradeChannel",
+                "value": "",
+                "type": "query",
+                "description": "Filter by upgrade channel."
+              },
+              {
+                "name": "errorCode",
+                "value": "",
+                "type": "query",
+                "description": "Filter by error code."
+              },
+              {
+                "name": "capability",
+                "value": "",
+                "type": "query",
+                "description": "Filter by device capability."
+              },
+              {
+                "name": "permission",
+                "value": "",
+                "type": "query",
+                "description": "Filter by device permission."
+              },
+              {
+                "name": "orgId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by organization ID."
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination."
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of devices to return (default 100)."
+              }
+            ]
+          },
+          "docs": "Lists all devices associated with the authenticated user or organization. Supports filtering by person, workspace, display name, product, and other criteria."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Create a Device Activation Code",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/devices",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a device activation code for onboarding a new device to a person or workspace. The activation code is used to register the device with Webex."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Get Device Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/devices/:deviceId",
+            "params": [
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the device."
+              }
+            ]
+          },
+          "docs": "Shows details for a device by ID. Returns configuration, status, and metadata for the device."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Update a Device",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://webexapis.com/v1/devices/:deviceId",
+            "params": [
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the device."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates details for a device by ID. Allows modifying display name, upgrade channel, and other device properties."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Delete a Device",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://webexapis.com/v1/devices/:deviceId",
+            "params": [
+              {
+                "name": "deviceId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the device."
+              }
+            ]
+          },
+          "docs": "Deletes a device by ID. The device is removed from the organization and must be re-activated to rejoin."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

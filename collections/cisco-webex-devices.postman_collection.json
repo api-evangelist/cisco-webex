@@ -1,0 +1,1085 @@
+{
+  "item": [
+    {
+      "id": "f27e5066-e7ea-474a-947b-04a792eaa808",
+      "name": "Devices",
+      "description": {
+        "content": "Operations for managing Webex devices",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "77d5e6d4-4cb7-41ec-ac4c-1f9e416e89c2",
+          "name": "Cisco Webex List Devices",
+          "request": {
+            "name": "Cisco Webex List Devices",
+            "description": {
+              "content": "Lists all devices associated with the authenticated user or organization. Supports filtering by person, workspace, display name, product, and other criteria.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "personId",
+                  "value": "<string>",
+                  "description": "Filter by person ID who owns the device."
+                },
+                {
+                  "disabled": false,
+                  "key": "workspaceId",
+                  "value": "<string>",
+                  "description": "Filter by workspace ID where the device is assigned."
+                },
+                {
+                  "disabled": false,
+                  "key": "displayName",
+                  "value": "<string>",
+                  "description": "Filter by device display name."
+                },
+                {
+                  "disabled": false,
+                  "key": "product",
+                  "value": "<string>",
+                  "description": "Filter by device product name."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filter by device type."
+                },
+                {
+                  "disabled": false,
+                  "key": "tag",
+                  "value": "<string>",
+                  "description": "Filter by device tag."
+                },
+                {
+                  "disabled": false,
+                  "key": "connectionStatus",
+                  "value": "<string>",
+                  "description": "Filter by device connection status."
+                },
+                {
+                  "disabled": false,
+                  "key": "serial",
+                  "value": "<string>",
+                  "description": "Filter by device serial number."
+                },
+                {
+                  "disabled": false,
+                  "key": "software",
+                  "value": "<string>",
+                  "description": "Filter by software version."
+                },
+                {
+                  "disabled": false,
+                  "key": "upgradeChannel",
+                  "value": "<string>",
+                  "description": "Filter by upgrade channel."
+                },
+                {
+                  "disabled": false,
+                  "key": "errorCode",
+                  "value": "<string>",
+                  "description": "Filter by error code."
+                },
+                {
+                  "disabled": false,
+                  "key": "capability",
+                  "value": "<string>",
+                  "description": "Filter by device capability."
+                },
+                {
+                  "disabled": false,
+                  "key": "permission",
+                  "value": "<string>",
+                  "description": "Filter by device permission."
+                },
+                {
+                  "disabled": false,
+                  "key": "orgId",
+                  "value": "<string>",
+                  "description": "Filter by organization ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<integer>",
+                  "description": "Offset for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "100",
+                  "description": "Maximum number of devices to return (default 100)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8ecb815d-8286-4876-90f0-9db1f8df60c1",
+              "name": "Successful response with list of devices.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "personId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "workspaceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "displayName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "product",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "connectionStatus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serial",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "software",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "upgradeChannel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "errorCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "capability",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "permission",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orgId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"workspaceId\": \"string\",\n      \"personId\": \"string\",\n      \"orgId\": \"string\",\n      \"capabilities\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"connectionStatus\": \"disconnected\",\n      \"product\": \"string\",\n      \"type\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"ip\": \"string\",\n      \"mac\": \"string\",\n      \"serial\": \"string\",\n      \"software\": \"string\",\n      \"upgradeChannel\": \"string\",\n      \"primarySipUrl\": \"string\",\n      \"sipUrls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"errorCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"created\": \"1952-11-14T17:08:08.621Z\",\n      \"firstSeen\": \"1998-08-03T16:54:49.091Z\",\n      \"lastSeen\": \"1990-08-31T05:20:40.928Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"workspaceId\": \"string\",\n      \"personId\": \"string\",\n      \"orgId\": \"string\",\n      \"capabilities\": [\n        \"string\",\n        \"string\"\n      ],\n      \"permissions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"connectionStatus\": \"connected_with_issues\",\n      \"product\": \"string\",\n      \"type\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"ip\": \"string\",\n      \"mac\": \"string\",\n      \"serial\": \"string\",\n      \"software\": \"string\",\n      \"upgradeChannel\": \"string\",\n      \"primarySipUrl\": \"string\",\n      \"sipUrls\": [\n        \"string\",\n        \"string\"\n      ],\n      \"errorCodes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"created\": \"2016-11-09T15:29:31.601Z\",\n      \"firstSeen\": \"1971-11-06T16:46:57.761Z\",\n      \"lastSeen\": \"2020-05-29T05:35:15.435Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e35beb5c-f021-444a-9401-10be2bc59318",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "personId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "workspaceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "displayName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "product",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "connectionStatus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serial",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "software",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "upgradeChannel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "errorCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "capability",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "permission",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orgId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d7c1da6-7bc9-46ba-a9ad-d2fb6286cb96",
+          "name": "Cisco Webex Create a Device Activation Code",
+          "request": {
+            "name": "Cisco Webex Create a Device Activation Code",
+            "description": {
+              "content": "Creates a device activation code for onboarding a new device to a person or workspace. The activation code is used to register the device with Webex.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"personId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"model\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b99e749f-b63a-430c-bb84-ae23bc290312",
+              "name": "Device activation code created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"model\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"code\": \"string\",\n  \"expiresAt\": \"2009-02-22T13:57:53.745Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6672b8d6-e858-470f-b343-59e2a7fc6702",
+              "name": "Bad request - invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"model\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c0d6cf12-4b81-4005-be83-246ed2c54d7f",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"personId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"model\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aeb6584c-539c-4f46-9a19-c29ebccd9969",
+          "name": "Cisco Webex Get Device Details",
+          "request": {
+            "name": "Cisco Webex Get Device Details",
+            "description": {
+              "content": "Shows details for a device by ID. Returns configuration, status, and metadata for the device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":deviceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deviceId",
+                  "description": "(Required) Unique identifier for the device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fc3c51bc-b414-4e54-8215-6c16b8582b42",
+              "name": "Successful response with device details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceId",
+                      "description": "(Required) Unique identifier for the device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"workspaceId\": \"string\",\n  \"personId\": \"string\",\n  \"orgId\": \"string\",\n  \"capabilities\": [\n    \"string\",\n    \"string\"\n  ],\n  \"permissions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"connectionStatus\": \"connected_with_issues\",\n  \"product\": \"string\",\n  \"type\": \"string\",\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"ip\": \"string\",\n  \"mac\": \"string\",\n  \"serial\": \"string\",\n  \"software\": \"string\",\n  \"upgradeChannel\": \"string\",\n  \"primarySipUrl\": \"string\",\n  \"sipUrls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"errorCodes\": [\n    \"string\",\n    \"string\"\n  ],\n  \"created\": \"1969-09-18T00:03:49.166Z\",\n  \"firstSeen\": \"1953-12-01T21:30:33.735Z\",\n  \"lastSeen\": \"1955-09-13T09:38:08.514Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b377ff27-3a47-4898-a91f-364e18a746ea",
+              "name": "Device not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceId",
+                      "description": "(Required) Unique identifier for the device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "487dfbc1-5b30-4464-8714-62c8cd4d1bd7",
+          "name": "Cisco Webex Update a Device",
+          "request": {
+            "name": "Cisco Webex Update a Device",
+            "description": {
+              "content": "Updates details for a device by ID. Allows modifying display name, upgrade channel, and other device properties.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":deviceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deviceId",
+                  "description": "(Required) Unique identifier for the device."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"<string>\",\n  \"upgradeChannel\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b14c7f8f-c1e7-49e8-8d21-e8bef127c8aa",
+              "name": "Device updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceId",
+                      "description": "(Required) Unique identifier for the device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"upgradeChannel\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"workspaceId\": \"string\",\n  \"personId\": \"string\",\n  \"orgId\": \"string\",\n  \"capabilities\": [\n    \"string\",\n    \"string\"\n  ],\n  \"permissions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"connectionStatus\": \"connected_with_issues\",\n  \"product\": \"string\",\n  \"type\": \"string\",\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"ip\": \"string\",\n  \"mac\": \"string\",\n  \"serial\": \"string\",\n  \"software\": \"string\",\n  \"upgradeChannel\": \"string\",\n  \"primarySipUrl\": \"string\",\n  \"sipUrls\": [\n    \"string\",\n    \"string\"\n  ],\n  \"errorCodes\": [\n    \"string\",\n    \"string\"\n  ],\n  \"created\": \"1969-09-18T00:03:49.166Z\",\n  \"firstSeen\": \"1953-12-01T21:30:33.735Z\",\n  \"lastSeen\": \"1955-09-13T09:38:08.514Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e1fe227-dd07-42ce-8ffb-6c6314ec28b3",
+              "name": "Bad request - invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceId",
+                      "description": "(Required) Unique identifier for the device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"upgradeChannel\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4dda0017-7e75-4f86-9618-0eaee378f624",
+              "name": "Device not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceId",
+                      "description": "(Required) Unique identifier for the device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"upgradeChannel\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ffea3d2f-a1e0-427f-8322-450c77bf8d18",
+          "name": "Cisco Webex Delete a Device",
+          "request": {
+            "name": "Cisco Webex Delete a Device",
+            "description": {
+              "content": "Deletes a device by ID. The device is removed from the organization and must be re-activated to rejoin.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "devices",
+                ":deviceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deviceId",
+                  "description": "(Required) Unique identifier for the device."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "16e06e69-22dd-43c1-8a3e-75950387528c",
+              "name": "Device deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceId",
+                      "description": "(Required) Unique identifier for the device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b5a02f41-f0e6-43bf-9787-4541f8feab59",
+              "name": "Device not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "devices",
+                    ":deviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceId",
+                      "description": "(Required) Unique identifier for the device."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://webexapis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6f947d70-20de-4a9b-9e5b-15e286a3246b",
+    "name": "Cisco Webex Devices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage and control Webex devices and room systems. Provides endpoints for listing, creating, and managing device configurations, activations, and workspace assignments.\n\nContact Support:\n Name: Cisco Webex Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

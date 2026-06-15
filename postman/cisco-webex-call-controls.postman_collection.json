@@ -1,0 +1,1734 @@
+{
+  "info": {
+    "_postman_id": "66c55a19-fcf9-426a-8ec0-9cf6130e3de1",
+    "name": "Cisco Webex Call Controls API",
+    "description": "Control active calls in Webex Calling including dial, answer, hold, transfer, and pickup operations. Supports third-party call control for building custom calling experiences and integrations.\n\nContact Support:\n Name: Cisco Webex Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:14:41.000Z",
+    "updatedAt": "2026-06-05T13:14:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-66c55a19-fcf9-426a-8ec0-9cf6130e3de1"
+  },
+  "item": [
+    {
+      "name": "telephony",
+      "item": [
+        {
+          "name": "calls",
+          "item": [
+            {
+              "name": "dial",
+              "item": [
+                {
+                  "name": "Cisco Webex Dial",
+                  "id": "9160aee4-c6f5-4d59-b49f-2be184400cbe",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"destination\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/telephony/calls/dial",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "telephony",
+                        "calls",
+                        "dial"
+                      ]
+                    },
+                    "description": "Initiates an outbound call from the authenticated user's device. The destination can be a phone number, SIP URI, or Webex person ID."
+                  },
+                  "response": [
+                    {
+                      "id": "5dd4ef5d-3f50-4bc2-8ae0-0c470ffd1bcc",
+                      "name": "Call initiated successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"destination\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/dial",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            "dial"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"callId\": \"<string>\",\n  \"state\": \"held\",\n  \"callType\": \"organization\",\n  \"personality\": \"terminator\",\n  \"appearance\": \"<integer>\",\n  \"remoteParty\": {\n    \"name\": \"<string>\",\n    \"number\": \"<string>\",\n    \"personId\": \"<string>\",\n    \"sipAddress\": \"<string>\",\n    \"callType\": \"<string>\"\n  },\n  \"startTime\": \"<dateTime>\",\n  \"answerTime\": \"<dateTime>\",\n  \"duration\": \"<integer>\"\n}",
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-5dd4ef5d-3f50-4bc2-8ae0-0c470ffd1bcc"
+                    },
+                    {
+                      "id": "827e44dd-049e-4a0e-a3be-0c479225c51a",
+                      "name": "Bad request - invalid destination.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"destination\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/dial",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            "dial"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-827e44dd-049e-4a0e-a3be-0c479225c51a"
+                    },
+                    {
+                      "id": "c71c182c-3a73-4ec8-9ed9-1171d8797004",
+                      "name": "Unauthorized - invalid or missing access token.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"destination\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/dial",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            "dial"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-c71c182c-3a73-4ec8-9ed9-1171d8797004"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:14:42.000Z",
+                  "updatedAt": "2026-06-05T13:14:42.000Z",
+                  "uid": "35240-9160aee4-c6f5-4d59-b49f-2be184400cbe"
+                }
+              ],
+              "id": "78a97354-9d59-46ff-b322-1ae55ad664fd",
+              "createdAt": "2026-06-05T13:14:42.000Z",
+              "updatedAt": "2026-06-05T13:14:42.000Z",
+              "uid": "35240-78a97354-9d59-46ff-b322-1ae55ad664fd"
+            },
+            {
+              "name": "answer",
+              "item": [
+                {
+                  "name": "Cisco Webex Answer",
+                  "id": "6a46fe50-cdf8-4249-95b0-8a5f3a0c682d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"callId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/telephony/calls/answer",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "telephony",
+                        "calls",
+                        "answer"
+                      ]
+                    },
+                    "description": "Answers an incoming call on the authenticated user's device. The call ID must be provided to identify which call to answer."
+                  },
+                  "response": [
+                    {
+                      "id": "0e45187d-cbf5-41be-b32d-b06dade4405b",
+                      "name": "Call answered successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"callId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/answer",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            "answer"
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-0e45187d-cbf5-41be-b32d-b06dade4405b"
+                    },
+                    {
+                      "id": "211e39e7-eecb-49c6-82b1-4d1c9e4fd6f0",
+                      "name": "Bad request - invalid call ID.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"callId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/answer",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            "answer"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-211e39e7-eecb-49c6-82b1-4d1c9e4fd6f0"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:14:42.000Z",
+                  "updatedAt": "2026-06-05T13:14:42.000Z",
+                  "uid": "35240-6a46fe50-cdf8-4249-95b0-8a5f3a0c682d"
+                }
+              ],
+              "id": "701732a4-68eb-49b4-abce-017099ac597b",
+              "createdAt": "2026-06-05T13:14:42.000Z",
+              "updatedAt": "2026-06-05T13:14:42.000Z",
+              "uid": "35240-701732a4-68eb-49b4-abce-017099ac597b"
+            },
+            {
+              "name": "reject",
+              "item": [
+                {
+                  "name": "Cisco Webex Reject",
+                  "id": "a1785063-0d6c-445c-bfa6-8037b74e7fcf",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"callId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/telephony/calls/reject",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "telephony",
+                        "calls",
+                        "reject"
+                      ]
+                    },
+                    "description": "Rejects an incoming call. The caller will hear a busy tone or be redirected to voicemail depending on configuration."
+                  },
+                  "response": [
+                    {
+                      "id": "ddac88c7-a33c-4578-be0c-d42d5854fa68",
+                      "name": "Call rejected successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"callId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/reject",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            "reject"
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-ddac88c7-a33c-4578-be0c-d42d5854fa68"
+                    },
+                    {
+                      "id": "c5c4b1e2-c181-4066-bd85-b02cd70d5ee3",
+                      "name": "Bad request - invalid call ID.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"callId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/reject",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            "reject"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-c5c4b1e2-c181-4066-bd85-b02cd70d5ee3"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:14:42.000Z",
+                  "updatedAt": "2026-06-05T13:14:42.000Z",
+                  "uid": "35240-a1785063-0d6c-445c-bfa6-8037b74e7fcf"
+                }
+              ],
+              "id": "c5c44c91-faab-4dbe-b906-e7fc786a5f08",
+              "createdAt": "2026-06-05T13:14:42.000Z",
+              "updatedAt": "2026-06-05T13:14:42.000Z",
+              "uid": "35240-c5c44c91-faab-4dbe-b906-e7fc786a5f08"
+            },
+            {
+              "name": "hangup",
+              "item": [
+                {
+                  "name": "Cisco Webex Hangup",
+                  "id": "dc24b41e-da92-41fe-9eb8-f696dcc57d62",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"callId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/telephony/calls/hangup",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "telephony",
+                        "calls",
+                        "hangup"
+                      ]
+                    },
+                    "description": "Ends an active call. Both parties are disconnected when the call is terminated."
+                  },
+                  "response": [
+                    {
+                      "id": "e47d17a3-c381-4301-bb7d-5f68c24ece24",
+                      "name": "Call ended successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"callId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/hangup",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            "hangup"
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-e47d17a3-c381-4301-bb7d-5f68c24ece24"
+                    },
+                    {
+                      "id": "d1cb0f49-ad1e-48e3-9a33-351b8f4bd94d",
+                      "name": "Bad request - invalid call ID.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"callId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/hangup",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            "hangup"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-d1cb0f49-ad1e-48e3-9a33-351b8f4bd94d"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:14:42.000Z",
+                  "updatedAt": "2026-06-05T13:14:42.000Z",
+                  "uid": "35240-dc24b41e-da92-41fe-9eb8-f696dcc57d62"
+                }
+              ],
+              "id": "d1e3cab7-1552-4e31-b230-c0f2be6127c3",
+              "createdAt": "2026-06-05T13:14:42.000Z",
+              "updatedAt": "2026-06-05T13:14:42.000Z",
+              "uid": "35240-d1e3cab7-1552-4e31-b230-c0f2be6127c3"
+            },
+            {
+              "name": "hold",
+              "item": [
+                {
+                  "name": "Cisco Webex Hold",
+                  "id": "3a89fa0c-9f4b-4a1c-80a8-1a838b0774e2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"callId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/telephony/calls/hold",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "telephony",
+                        "calls",
+                        "hold"
+                      ]
+                    },
+                    "description": "Places an active call on hold. The other party hears hold music while the call is held."
+                  },
+                  "response": [
+                    {
+                      "id": "da934aa3-c9f3-4e69-98d9-3cb12e28d06c",
+                      "name": "Call placed on hold successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"callId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/hold",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            "hold"
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-da934aa3-c9f3-4e69-98d9-3cb12e28d06c"
+                    },
+                    {
+                      "id": "12504df0-64fc-4750-9801-e44bdce9d038",
+                      "name": "Bad request - invalid call ID.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"callId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/hold",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            "hold"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-12504df0-64fc-4750-9801-e44bdce9d038"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:14:42.000Z",
+                  "updatedAt": "2026-06-05T13:14:42.000Z",
+                  "uid": "35240-3a89fa0c-9f4b-4a1c-80a8-1a838b0774e2"
+                }
+              ],
+              "id": "02b94519-1e4f-4951-9b31-150f07bf16b4",
+              "createdAt": "2026-06-05T13:14:42.000Z",
+              "updatedAt": "2026-06-05T13:14:42.000Z",
+              "uid": "35240-02b94519-1e4f-4951-9b31-150f07bf16b4"
+            },
+            {
+              "name": "resume",
+              "item": [
+                {
+                  "name": "Cisco Webex Resume",
+                  "id": "890cb3a5-129e-4aed-b759-aa93fd314695",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"callId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/telephony/calls/resume",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "telephony",
+                        "calls",
+                        "resume"
+                      ]
+                    },
+                    "description": "Resumes a held call. The call returns to an active state with both parties connected."
+                  },
+                  "response": [
+                    {
+                      "id": "c104ea9e-e9b6-4658-bd5a-b073bdd1d25e",
+                      "name": "Call resumed successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"callId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/resume",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            "resume"
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-c104ea9e-e9b6-4658-bd5a-b073bdd1d25e"
+                    },
+                    {
+                      "id": "8b498a22-949f-4cd5-855c-bc940d6c3930",
+                      "name": "Bad request - invalid call ID.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"callId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/resume",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            "resume"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-8b498a22-949f-4cd5-855c-bc940d6c3930"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:14:42.000Z",
+                  "updatedAt": "2026-06-05T13:14:42.000Z",
+                  "uid": "35240-890cb3a5-129e-4aed-b759-aa93fd314695"
+                }
+              ],
+              "id": "a180e442-c7c4-4051-88ef-1886ca19495f",
+              "createdAt": "2026-06-05T13:14:42.000Z",
+              "updatedAt": "2026-06-05T13:14:42.000Z",
+              "uid": "35240-a180e442-c7c4-4051-88ef-1886ca19495f"
+            },
+            {
+              "name": "transfer",
+              "item": [
+                {
+                  "name": "Cisco Webex Transfer",
+                  "id": "66f90347-0ecc-4dfb-9b9e-440f59d1b130",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"callId1\": \"<string>\",\n  \"callId2\": \"<string>\",\n  \"destination\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/telephony/calls/transfer",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "telephony",
+                        "calls",
+                        "transfer"
+                      ]
+                    },
+                    "description": "Transfers an active call to another destination. Supports blind transfer and consultative transfer when two calls are active."
+                  },
+                  "response": [
+                    {
+                      "id": "4db2390c-a540-4153-b29d-e6a41b63003d",
+                      "name": "Call transferred successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"callId1\": \"<string>\",\n  \"callId2\": \"<string>\",\n  \"destination\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/transfer",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            "transfer"
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-4db2390c-a540-4153-b29d-e6a41b63003d"
+                    },
+                    {
+                      "id": "4c8109d6-5200-4e30-bd07-ead3652bacdf",
+                      "name": "Bad request - invalid parameters.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"callId1\": \"<string>\",\n  \"callId2\": \"<string>\",\n  \"destination\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/transfer",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            "transfer"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-4c8109d6-5200-4e30-bd07-ead3652bacdf"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:14:42.000Z",
+                  "updatedAt": "2026-06-05T13:14:42.000Z",
+                  "uid": "35240-66f90347-0ecc-4dfb-9b9e-440f59d1b130"
+                }
+              ],
+              "id": "58c6a655-a7f4-41f7-b65f-d76157908d86",
+              "createdAt": "2026-06-05T13:14:42.000Z",
+              "updatedAt": "2026-06-05T13:14:42.000Z",
+              "uid": "35240-58c6a655-a7f4-41f7-b65f-d76157908d86"
+            },
+            {
+              "name": "park",
+              "item": [
+                {
+                  "name": "Cisco Webex Park",
+                  "id": "141c0427-e36e-4403-adaf-236f72f8752a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"callId\": \"<string>\",\n  \"destination\": \"<string>\",\n  \"isGroupPark\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/telephony/calls/park",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "telephony",
+                        "calls",
+                        "park"
+                      ]
+                    },
+                    "description": "Parks an active call at a call park extension. The call can be retrieved from any device by dialing the park extension."
+                  },
+                  "response": [
+                    {
+                      "id": "978e6a52-d847-4142-a0fd-4fc2673c6d5d",
+                      "name": "Call parked successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"callId\": \"<string>\",\n  \"destination\": \"<string>\",\n  \"isGroupPark\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/park",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            "park"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"callId\": \"<string>\",\n  \"parkedAgainst\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-978e6a52-d847-4142-a0fd-4fc2673c6d5d"
+                    },
+                    {
+                      "id": "64b8dae3-6ef3-496c-9e8d-58e811ebf828",
+                      "name": "Bad request - invalid parameters.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"callId\": \"<string>\",\n  \"destination\": \"<string>\",\n  \"isGroupPark\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/park",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            "park"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-64b8dae3-6ef3-496c-9e8d-58e811ebf828"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:14:42.000Z",
+                  "updatedAt": "2026-06-05T13:14:42.000Z",
+                  "uid": "35240-141c0427-e36e-4403-adaf-236f72f8752a"
+                }
+              ],
+              "id": "d84989a6-2355-4077-873a-e028314eabda",
+              "createdAt": "2026-06-05T13:14:42.000Z",
+              "updatedAt": "2026-06-05T13:14:42.000Z",
+              "uid": "35240-d84989a6-2355-4077-873a-e028314eabda"
+            },
+            {
+              "name": "retrieve",
+              "item": [
+                {
+                  "name": "Cisco Webex Retrieve",
+                  "id": "dee1a502-af7e-44f2-a0f0-aa71820bc3d4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"destination\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/telephony/calls/retrieve",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "telephony",
+                        "calls",
+                        "retrieve"
+                      ]
+                    },
+                    "description": "Retrieves a parked call by providing the park destination. The call is connected to the authenticated user's device."
+                  },
+                  "response": [
+                    {
+                      "id": "7cee7379-9192-4fa8-b506-6635af4753b8",
+                      "name": "Call retrieved successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"destination\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/retrieve",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            "retrieve"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"callId\": \"<string>\",\n  \"state\": \"held\",\n  \"callType\": \"organization\",\n  \"personality\": \"terminator\",\n  \"appearance\": \"<integer>\",\n  \"remoteParty\": {\n    \"name\": \"<string>\",\n    \"number\": \"<string>\",\n    \"personId\": \"<string>\",\n    \"sipAddress\": \"<string>\",\n    \"callType\": \"<string>\"\n  },\n  \"startTime\": \"<dateTime>\",\n  \"answerTime\": \"<dateTime>\",\n  \"duration\": \"<integer>\"\n}",
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-7cee7379-9192-4fa8-b506-6635af4753b8"
+                    },
+                    {
+                      "id": "21ffc30f-af63-4038-bf06-a69eab9f4459",
+                      "name": "Bad request - invalid parameters.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"destination\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/retrieve",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            "retrieve"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-21ffc30f-af63-4038-bf06-a69eab9f4459"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:14:42.000Z",
+                  "updatedAt": "2026-06-05T13:14:42.000Z",
+                  "uid": "35240-dee1a502-af7e-44f2-a0f0-aa71820bc3d4"
+                }
+              ],
+              "id": "41dfbb37-be00-4c1b-bc49-ea7c99d463f6",
+              "createdAt": "2026-06-05T13:14:42.000Z",
+              "updatedAt": "2026-06-05T13:14:42.000Z",
+              "uid": "35240-41dfbb37-be00-4c1b-bc49-ea7c99d463f6"
+            },
+            {
+              "name": "{callId}",
+              "item": [
+                {
+                  "name": "Cisco Webex Get Call Details",
+                  "id": "9e5efe71-ae40-4ee3-9476-c5d94f88af31",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/telephony/calls/:callId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "telephony",
+                        "calls",
+                        ":callId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "3eb22a4a-fd02-4815-839b-b77d406eeae5",
+                          "key": "callId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier for the call."
+                        }
+                      ]
+                    },
+                    "description": "Shows details for an active call by call ID. Returns the current call state, parties, and duration."
+                  },
+                  "response": [
+                    {
+                      "id": "3e9bdef6-99c5-46c1-a4f6-6264aff141a6",
+                      "name": "Successful response with call details.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/:callId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            ":callId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "callId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"callId\": \"<string>\",\n  \"state\": \"held\",\n  \"callType\": \"organization\",\n  \"personality\": \"terminator\",\n  \"appearance\": \"<integer>\",\n  \"remoteParty\": {\n    \"name\": \"<string>\",\n    \"number\": \"<string>\",\n    \"personId\": \"<string>\",\n    \"sipAddress\": \"<string>\",\n    \"callType\": \"<string>\"\n  },\n  \"startTime\": \"<dateTime>\",\n  \"answerTime\": \"<dateTime>\",\n  \"duration\": \"<integer>\"\n}",
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-3e9bdef6-99c5-46c1-a4f6-6264aff141a6"
+                    },
+                    {
+                      "id": "d88809bd-54ae-423c-a6c9-f94446692489",
+                      "name": "Call not found.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/telephony/calls/:callId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "telephony",
+                            "calls",
+                            ":callId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "callId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:42.000Z",
+                      "updatedAt": "2026-06-05T13:14:42.000Z",
+                      "uid": "35240-d88809bd-54ae-423c-a6c9-f94446692489"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:14:42.000Z",
+                  "updatedAt": "2026-06-05T13:14:42.000Z",
+                  "uid": "35240-9e5efe71-ae40-4ee3-9476-c5d94f88af31"
+                }
+              ],
+              "id": "d1dfc2ff-86bf-4556-a82e-7c724e95ae5a",
+              "createdAt": "2026-06-05T13:14:42.000Z",
+              "updatedAt": "2026-06-05T13:14:42.000Z",
+              "uid": "35240-d1dfc2ff-86bf-4556-a82e-7c724e95ae5a"
+            },
+            {
+              "name": "Cisco Webex List Calls",
+              "id": "d57baa51-f71c-46d2-9c07-9967c2bb4191",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/telephony/calls",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "telephony",
+                    "calls"
+                  ]
+                },
+                "description": "Lists all active calls for the authenticated user. Returns call details including state, direction, and connected parties."
+              },
+              "response": [
+                {
+                  "id": "1dc76ad5-02e5-421f-a0a2-18790dd5e9bb",
+                  "name": "Successful response with list of active calls.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/telephony/calls",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "telephony",
+                        "calls"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"callId\": \"<string>\",\n      \"state\": \"connected\",\n      \"callType\": \"emergency\",\n      \"personality\": \"terminator\",\n      \"appearance\": \"<integer>\",\n      \"remoteParty\": {\n        \"name\": \"<string>\",\n        \"number\": \"<string>\",\n        \"personId\": \"<string>\",\n        \"sipAddress\": \"<string>\",\n        \"callType\": \"<string>\"\n      },\n      \"startTime\": \"<dateTime>\",\n      \"answerTime\": \"<dateTime>\",\n      \"duration\": \"<integer>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"callId\": \"<string>\",\n      \"state\": \"disconnected\",\n      \"callType\": \"emergency\",\n      \"personality\": \"terminator\",\n      \"appearance\": \"<integer>\",\n      \"remoteParty\": {\n        \"name\": \"<string>\",\n        \"number\": \"<string>\",\n        \"personId\": \"<string>\",\n        \"sipAddress\": \"<string>\",\n        \"callType\": \"<string>\"\n      },\n      \"startTime\": \"<dateTime>\",\n      \"answerTime\": \"<dateTime>\",\n      \"duration\": \"<integer>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:14:42.000Z",
+                  "updatedAt": "2026-06-05T13:14:42.000Z",
+                  "uid": "35240-1dc76ad5-02e5-421f-a0a2-18790dd5e9bb"
+                },
+                {
+                  "id": "52235c42-f744-4f69-8834-2a925c306927",
+                  "name": "Unauthorized - invalid or missing access token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/telephony/calls",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "telephony",
+                        "calls"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:42.000Z",
+                  "updatedAt": "2026-06-05T13:14:42.000Z",
+                  "uid": "35240-52235c42-f744-4f69-8834-2a925c306927"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:42.000Z",
+              "updatedAt": "2026-06-05T13:14:42.000Z",
+              "uid": "35240-d57baa51-f71c-46d2-9c07-9967c2bb4191"
+            }
+          ],
+          "id": "86926a96-6c88-44d6-ae57-b2307c400554",
+          "createdAt": "2026-06-05T13:14:42.000Z",
+          "updatedAt": "2026-06-05T13:14:42.000Z",
+          "uid": "35240-86926a96-6c88-44d6-ae57-b2307c400554"
+        }
+      ],
+      "id": "85dff339-4f55-4074-9578-41b763d74ea1",
+      "createdAt": "2026-06-05T13:14:42.000Z",
+      "updatedAt": "2026-06-05T13:14:42.000Z",
+      "uid": "35240-85dff339-4f55-4074-9578-41b763d74ea1"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://webexapis.com/v1"
+    }
+  ]
+}

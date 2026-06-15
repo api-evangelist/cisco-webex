@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Webex Events API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cisco Webex List Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/events",
+            "params": [
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query",
+                "description": "Filter by resource type."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by event type."
+              },
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by person ID who performed the action."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "List events after this date and time in ISO 8601 format."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "List events before this date and time in ISO 8601 format."
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of events to return (default 100, max 1000)."
+              }
+            ]
+          },
+          "docs": "Lists events in the organization. Events represent activities such as message creation, membership changes, and file shares. Only available to compliance officers with the spark-compliance:events_read scope."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Get Event Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/events/:eventId",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the event."
+              }
+            ]
+          },
+          "docs": "Shows details for an event by ID. Returns the event metadata and associated resource data at the time the event occurred."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

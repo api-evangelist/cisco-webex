@@ -1,0 +1,200 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Webex People API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "People",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cisco Webex List People",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/people",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "Filter by email address. Only exact matches are returned."
+              },
+              {
+                "name": "displayName",
+                "value": "",
+                "type": "query",
+                "description": "Filter by display name. Supports partial matching."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by person ID. Supports up to 85 IDs, comma-separated."
+              },
+              {
+                "name": "orgId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by organization ID."
+              },
+              {
+                "name": "callingData",
+                "value": "",
+                "type": "query",
+                "description": "Include Webex Calling user details in the response."
+              },
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by location ID for Webex Calling users."
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of people to return (default 100, max 1000)."
+              }
+            ]
+          },
+          "docs": "Lists people in the organization. Supports filtering by email, display name, ID, and organization. Results are paginated. Admin users can list people across the organization."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Create a Person",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/people",
+            "params": [
+              {
+                "name": "callingData",
+                "value": "",
+                "type": "query",
+                "description": "Include Webex Calling user details in the response."
+              },
+              {
+                "name": "minResponse",
+                "value": "",
+                "type": "query",
+                "description": "Only return the person ID on success."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new user account for the organization. Only admins can create people. Newly created accounts require valid email addresses and can be assigned licenses and roles."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Get My Own Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/people/me",
+            "params": [
+              {
+                "name": "callingData",
+                "value": "",
+                "type": "query",
+                "description": "Include Webex Calling user details in the response."
+              }
+            ]
+          },
+          "docs": "Shows the profile for the authenticated user. Use this to confirm identity and retrieve your own person details."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Get Person Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/people/:personId",
+            "params": [
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the person."
+              },
+              {
+                "name": "callingData",
+                "value": "",
+                "type": "query",
+                "description": "Include Webex Calling user details in the response."
+              }
+            ]
+          },
+          "docs": "Shows details for a person by ID. Certain fields may not be available depending on the caller's relationship to the person and admin status."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Update a Person",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://webexapis.com/v1/people/:personId",
+            "params": [
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the person."
+              },
+              {
+                "name": "callingData",
+                "value": "",
+                "type": "query",
+                "description": "Include Webex Calling user details in the response."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates details for a person by ID. Only admins can update people. Include all desired fields in the request body as the update replaces the existing record."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Delete a Person",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://webexapis.com/v1/people/:personId",
+            "params": [
+              {
+                "name": "personId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the person."
+              }
+            ]
+          },
+          "docs": "Removes a person from the system. Only admins can delete people. The deleted person will lose access to Webex services."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

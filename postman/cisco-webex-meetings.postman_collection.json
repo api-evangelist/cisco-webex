@@ -1,0 +1,1860 @@
+{
+  "info": {
+    "_postman_id": "7cff45f5-6bb8-459b-8f87-7750e972b478",
+    "name": "Cisco Webex Meetings API",
+    "description": "Enables scheduling, managing, and controlling Webex meetings programmatically. Provides endpoints for creating meetings, managing attendees, preferences, and retrieving meeting details.\n\nContact Support:\n Name: Cisco Webex Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:14:08.000Z",
+    "updatedAt": "2026-06-05T13:14:09.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7cff45f5-6bb8-459b-8f87-7750e972b478"
+  },
+  "item": [
+    {
+      "name": "meetings",
+      "item": [
+        {
+          "name": "{meetingId}",
+          "item": [
+            {
+              "name": "registrants",
+              "item": [
+                {
+                  "name": "approve",
+                  "item": [
+                    {
+                      "name": "Cisco Webex Batch Approve Meeting Registrants",
+                      "id": "e5360d09-261a-4b5e-befc-8d7bab632c6e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"sendEmail\": \"<boolean>\",\n  \"registrants\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/meetings/:meetingId/registrants/approve?current=<boolean>&hostEmail=<email>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "meetings",
+                            ":meetingId",
+                            "registrants",
+                            "approve"
+                          ],
+                          "query": [
+                            {
+                              "description": "Whether to filter for the current scheduled meeting.",
+                              "key": "current",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Email address of the meeting host (admin use).",
+                              "key": "hostEmail",
+                              "value": "<email>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "9bb5e57a-8074-42b3-971c-0c93f5153906",
+                              "key": "meetingId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier for the meeting series."
+                            }
+                          ]
+                        },
+                        "description": "Approves one or more pending registrants for a meeting with registration enabled."
+                      },
+                      "response": [
+                        {
+                          "id": "5f4a902f-c013-41b3-86f9-48cefd353b5f",
+                          "name": "Registrants approved successfully.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"sendEmail\": \"<boolean>\",\n  \"registrants\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/meetings/:meetingId/registrants/approve?current=<boolean>&hostEmail=<email>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "meetings",
+                                ":meetingId",
+                                "registrants",
+                                "approve"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Whether to filter for the current scheduled meeting.",
+                                  "key": "current",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Email address of the meeting host (admin use).",
+                                  "key": "hostEmail",
+                                  "value": "<email>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "meetingId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T13:14:09.000Z",
+                          "updatedAt": "2026-06-05T13:14:09.000Z",
+                          "uid": "35240-5f4a902f-c013-41b3-86f9-48cefd353b5f"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T13:14:09.000Z",
+                      "updatedAt": "2026-06-05T13:14:09.000Z",
+                      "uid": "35240-e5360d09-261a-4b5e-befc-8d7bab632c6e"
+                    }
+                  ],
+                  "id": "348d2568-1b93-4a77-b6ae-dda6bec0db69",
+                  "createdAt": "2026-06-05T13:14:09.000Z",
+                  "updatedAt": "2026-06-05T13:14:09.000Z",
+                  "uid": "35240-348d2568-1b93-4a77-b6ae-dda6bec0db69"
+                },
+                {
+                  "name": "reject",
+                  "item": [
+                    {
+                      "name": "Cisco Webex Batch Reject Meeting Registrants",
+                      "id": "f464520f-6cb6-474f-8530-99cd93d73be6",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"sendEmail\": \"<boolean>\",\n  \"registrants\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/meetings/:meetingId/registrants/reject?current=<boolean>&hostEmail=<email>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "meetings",
+                            ":meetingId",
+                            "registrants",
+                            "reject"
+                          ],
+                          "query": [
+                            {
+                              "description": "Whether to filter for the current scheduled meeting.",
+                              "key": "current",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Email address of the meeting host (admin use).",
+                              "key": "hostEmail",
+                              "value": "<email>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "05cbf98e-05d7-4dd6-acaa-714bbcc861fd",
+                              "key": "meetingId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier for the meeting series."
+                            }
+                          ]
+                        },
+                        "description": "Rejects one or more pending registrants for a meeting with registration enabled."
+                      },
+                      "response": [
+                        {
+                          "id": "43ea80a5-03c8-4d64-bb1b-fb869559c085",
+                          "name": "Registrants rejected successfully.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"sendEmail\": \"<boolean>\",\n  \"registrants\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/meetings/:meetingId/registrants/reject?current=<boolean>&hostEmail=<email>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "meetings",
+                                ":meetingId",
+                                "registrants",
+                                "reject"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Whether to filter for the current scheduled meeting.",
+                                  "key": "current",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Email address of the meeting host (admin use).",
+                                  "key": "hostEmail",
+                                  "value": "<email>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "meetingId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T13:14:09.000Z",
+                          "updatedAt": "2026-06-05T13:14:09.000Z",
+                          "uid": "35240-43ea80a5-03c8-4d64-bb1b-fb869559c085"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T13:14:09.000Z",
+                      "updatedAt": "2026-06-05T13:14:09.000Z",
+                      "uid": "35240-f464520f-6cb6-474f-8530-99cd93d73be6"
+                    }
+                  ],
+                  "id": "188331d0-310b-439c-8616-81595bc7dd97",
+                  "createdAt": "2026-06-05T13:14:09.000Z",
+                  "updatedAt": "2026-06-05T13:14:09.000Z",
+                  "uid": "35240-188331d0-310b-439c-8616-81595bc7dd97"
+                },
+                {
+                  "name": "cancel",
+                  "item": [
+                    {
+                      "name": "Cisco Webex Batch Cancel Meeting Registrants",
+                      "id": "eb3cc1a1-4635-49ce-9db5-19d93a63cba1",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"sendEmail\": \"<boolean>\",\n  \"registrants\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/meetings/:meetingId/registrants/cancel?current=<boolean>&hostEmail=<email>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "meetings",
+                            ":meetingId",
+                            "registrants",
+                            "cancel"
+                          ],
+                          "query": [
+                            {
+                              "description": "Whether to filter for the current scheduled meeting.",
+                              "key": "current",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Email address of the meeting host (admin use).",
+                              "key": "hostEmail",
+                              "value": "<email>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "1cff4d67-0862-4b49-9ee6-37f0561d154c",
+                              "key": "meetingId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier for the meeting series."
+                            }
+                          ]
+                        },
+                        "description": "Cancels one or more approved registrants for a meeting with registration enabled."
+                      },
+                      "response": [
+                        {
+                          "id": "e724191d-6e9f-4229-94af-8fdddb84b3dd",
+                          "name": "Registrants cancelled successfully.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"sendEmail\": \"<boolean>\",\n  \"registrants\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/meetings/:meetingId/registrants/cancel?current=<boolean>&hostEmail=<email>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "meetings",
+                                ":meetingId",
+                                "registrants",
+                                "cancel"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Whether to filter for the current scheduled meeting.",
+                                  "key": "current",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Email address of the meeting host (admin use).",
+                                  "key": "hostEmail",
+                                  "value": "<email>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "meetingId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T13:14:09.000Z",
+                          "updatedAt": "2026-06-05T13:14:09.000Z",
+                          "uid": "35240-e724191d-6e9f-4229-94af-8fdddb84b3dd"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T13:14:09.000Z",
+                      "updatedAt": "2026-06-05T13:14:09.000Z",
+                      "uid": "35240-eb3cc1a1-4635-49ce-9db5-19d93a63cba1"
+                    }
+                  ],
+                  "id": "2a88c55e-a1c9-4581-b599-59b32feb2839",
+                  "createdAt": "2026-06-05T13:14:09.000Z",
+                  "updatedAt": "2026-06-05T13:14:09.000Z",
+                  "uid": "35240-2a88c55e-a1c9-4581-b599-59b32feb2839"
+                },
+                {
+                  "name": "bulkInsert",
+                  "item": [
+                    {
+                      "name": "Cisco Webex Batch Register Meeting Registrants",
+                      "id": "bf2bcaef-7f32-4dd6-9de1-7037ee08fb2f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"items\": [\n    {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<email>\",\n      \"jobTitle\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"address1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zipCode\": \"<string>\",\n      \"countryRegion\": \"<string>\",\n      \"phone\": \"<string>\"\n    },\n    {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<email>\",\n      \"jobTitle\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"address1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zipCode\": \"<string>\",\n      \"countryRegion\": \"<string>\",\n      \"phone\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/meetings/:meetingId/registrants/bulkInsert?current=<boolean>&hostEmail=<email>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "meetings",
+                            ":meetingId",
+                            "registrants",
+                            "bulkInsert"
+                          ],
+                          "query": [
+                            {
+                              "description": "Whether to filter for the current scheduled meeting.",
+                              "key": "current",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Email address of the meeting host (admin use).",
+                              "key": "hostEmail",
+                              "value": "<email>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "7807c1f6-f18c-4f80-87d4-804630f1106a",
+                              "key": "meetingId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier for the meeting series."
+                            }
+                          ]
+                        },
+                        "description": "Registers one or more people for a meeting with registration enabled. Supports bulk insertion of registrant details."
+                      },
+                      "response": [
+                        {
+                          "id": "d6428f8e-0f7b-4f3f-8c8a-c6379f4415bb",
+                          "name": "Registrants created successfully.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"items\": [\n    {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<email>\",\n      \"jobTitle\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"address1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zipCode\": \"<string>\",\n      \"countryRegion\": \"<string>\",\n      \"phone\": \"<string>\"\n    },\n    {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<email>\",\n      \"jobTitle\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"address1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zipCode\": \"<string>\",\n      \"countryRegion\": \"<string>\",\n      \"phone\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/meetings/:meetingId/registrants/bulkInsert?current=<boolean>&hostEmail=<email>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "meetings",
+                                ":meetingId",
+                                "registrants",
+                                "bulkInsert"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Whether to filter for the current scheduled meeting.",
+                                  "key": "current",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Email address of the meeting host (admin use).",
+                                  "key": "hostEmail",
+                                  "value": "<email>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "meetingId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"status\": \"cancelled\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<email>\",\n      \"jobTitle\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"registrationTime\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"status\": \"pending\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<email>\",\n      \"jobTitle\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"registrationTime\": \"<dateTime>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-06-05T13:14:09.000Z",
+                          "updatedAt": "2026-06-05T13:14:09.000Z",
+                          "uid": "35240-d6428f8e-0f7b-4f3f-8c8a-c6379f4415bb"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T13:14:09.000Z",
+                      "updatedAt": "2026-06-05T13:14:09.000Z",
+                      "uid": "35240-bf2bcaef-7f32-4dd6-9de1-7037ee08fb2f"
+                    }
+                  ],
+                  "id": "d498aaa6-ed47-401d-a814-9ad5ac6f56ce",
+                  "createdAt": "2026-06-05T13:14:09.000Z",
+                  "updatedAt": "2026-06-05T13:14:09.000Z",
+                  "uid": "35240-d498aaa6-ed47-401d-a814-9ad5ac6f56ce"
+                },
+                {
+                  "name": "bulkDelete",
+                  "item": [
+                    {
+                      "name": "Cisco Webex Batch Delete Meeting Registrants",
+                      "id": "c632eb59-d177-47c8-b7e4-a7ca93f05e0b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"registrants\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/meetings/:meetingId/registrants/bulkDelete?current=<boolean>&hostEmail=<email>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "meetings",
+                            ":meetingId",
+                            "registrants",
+                            "bulkDelete"
+                          ],
+                          "query": [
+                            {
+                              "description": "Whether to filter for the current scheduled meeting.",
+                              "key": "current",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Email address of the meeting host (admin use).",
+                              "key": "hostEmail",
+                              "value": "<email>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "e87844fc-6450-4e18-bf69-d8d671b61260",
+                              "key": "meetingId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier for the meeting series."
+                            }
+                          ]
+                        },
+                        "description": "Deletes one or more registrants from a meeting with registration enabled."
+                      },
+                      "response": [
+                        {
+                          "id": "1aa5cbfa-0b33-405f-8b8f-3fbe1c2bc223",
+                          "name": "Registrants deleted successfully.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"registrants\": [\n    {\n      \"id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/meetings/:meetingId/registrants/bulkDelete?current=<boolean>&hostEmail=<email>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "meetings",
+                                ":meetingId",
+                                "registrants",
+                                "bulkDelete"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Whether to filter for the current scheduled meeting.",
+                                  "key": "current",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Email address of the meeting host (admin use).",
+                                  "key": "hostEmail",
+                                  "value": "<email>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "meetingId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T13:14:09.000Z",
+                          "updatedAt": "2026-06-05T13:14:09.000Z",
+                          "uid": "35240-1aa5cbfa-0b33-405f-8b8f-3fbe1c2bc223"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T13:14:09.000Z",
+                      "updatedAt": "2026-06-05T13:14:09.000Z",
+                      "uid": "35240-c632eb59-d177-47c8-b7e4-a7ca93f05e0b"
+                    }
+                  ],
+                  "id": "d3f2b001-62f8-43e6-8868-b5bd7dce8877",
+                  "createdAt": "2026-06-05T13:14:09.000Z",
+                  "updatedAt": "2026-06-05T13:14:09.000Z",
+                  "uid": "35240-d3f2b001-62f8-43e6-8868-b5bd7dce8877"
+                },
+                {
+                  "name": "Cisco Webex List Meeting Registrants",
+                  "id": "5bd4a74b-40a4-4aef-9d44-0248a3f07520",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/meetings/:meetingId/registrants?hostEmail=<email>&max=100",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "meetings",
+                        ":meetingId",
+                        "registrants"
+                      ],
+                      "query": [
+                        {
+                          "description": "Email address of the meeting host (admin use).",
+                          "key": "hostEmail",
+                          "value": "<email>"
+                        },
+                        {
+                          "description": "Maximum number of registrants to return.",
+                          "key": "max",
+                          "value": "100"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "48749c37-e854-480d-a7d1-b0a7c398522a",
+                          "key": "meetingId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier for the meeting series."
+                        }
+                      ]
+                    },
+                    "description": "Lists meeting registrants for a specified meeting. Only applies to meetings with registration enabled."
+                  },
+                  "response": [
+                    {
+                      "id": "723c8d6a-8f8e-4526-8b44-fe9eb2517e7e",
+                      "name": "Successful response with list of registrants.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/meetings/:meetingId/registrants?hostEmail=<email>&max=100",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "meetings",
+                            ":meetingId",
+                            "registrants"
+                          ],
+                          "query": [
+                            {
+                              "description": "Email address of the meeting host (admin use).",
+                              "key": "hostEmail",
+                              "value": "<email>"
+                            },
+                            {
+                              "description": "Maximum number of registrants to return.",
+                              "key": "max",
+                              "value": "100"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "meetingId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"status\": \"cancelled\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<email>\",\n      \"jobTitle\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"registrationTime\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"status\": \"pending\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"email\": \"<email>\",\n      \"jobTitle\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"registrationTime\": \"<dateTime>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:14:09.000Z",
+                      "updatedAt": "2026-06-05T13:14:09.000Z",
+                      "uid": "35240-723c8d6a-8f8e-4526-8b44-fe9eb2517e7e"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:14:09.000Z",
+                  "updatedAt": "2026-06-05T13:14:09.000Z",
+                  "uid": "35240-5bd4a74b-40a4-4aef-9d44-0248a3f07520"
+                }
+              ],
+              "id": "77a475cf-317d-4522-ac63-871c4a1493ef",
+              "createdAt": "2026-06-05T13:14:09.000Z",
+              "updatedAt": "2026-06-05T13:14:09.000Z",
+              "uid": "35240-77a475cf-317d-4522-ac63-871c4a1493ef"
+            },
+            {
+              "name": "Cisco Webex Get Meeting Details",
+              "id": "98ff4acb-48eb-44ec-876f-1d90c99c0fa6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/meetings/:meetingId?current=<boolean>&hostEmail=<email>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "meetings",
+                    ":meetingId"
+                  ],
+                  "query": [
+                    {
+                      "description": "Whether to return the current scheduled meeting of a meeting series.",
+                      "key": "current",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Email address of the meeting host (admin use).",
+                      "key": "hostEmail",
+                      "value": "<email>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "db242250-bf4d-4e53-b5ce-0bbd23f5493b",
+                      "key": "meetingId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the meeting."
+                    }
+                  ]
+                },
+                "description": "Retrieves details for a meeting with a specified meeting ID. The meeting can be a meeting series, a scheduled meeting, or a meeting instance that has happened or is happening."
+              },
+              "response": [
+                {
+                  "id": "839cbb61-06b2-49b4-9e78-1873ec5a2109",
+                  "name": "Successful response with meeting details.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/meetings/:meetingId?current=<boolean>&hostEmail=<email>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "meetings",
+                        ":meetingId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to return the current scheduled meeting of a meeting series.",
+                          "key": "current",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Email address of the meeting host (admin use).",
+                          "key": "hostEmail",
+                          "value": "<email>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "meetingId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"meetingNumber\": \"<string>\",\n  \"title\": \"<string>\",\n  \"password\": \"<string>\",\n  \"meetingType\": \"meetingSeries\",\n  \"state\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"hostUserId\": \"<string>\",\n  \"hostDisplayName\": \"<string>\",\n  \"hostEmail\": \"<email>\",\n  \"webLink\": \"<uri>\",\n  \"sipAddress\": \"<string>\",\n  \"dialInIpAddress\": \"<string>\",\n  \"scheduledType\": \"webinar\",\n  \"recurrence\": \"<string>\",\n  \"telephony\": {\n    \"accessCode\": \"<string>\",\n    \"callInNumbers\": [\n      {\n        \"label\": \"<string>\",\n        \"callInNumber\": \"<string>\",\n        \"tollType\": \"<string>\"\n      },\n      {\n        \"label\": \"<string>\",\n        \"callInNumber\": \"<string>\",\n        \"tollType\": \"<string>\"\n      }\n    ]\n  },\n  \"registrationEnabled\": \"<boolean>\"\n}",
+                  "createdAt": "2026-06-05T13:14:09.000Z",
+                  "updatedAt": "2026-06-05T13:14:09.000Z",
+                  "uid": "35240-839cbb61-06b2-49b4-9e78-1873ec5a2109"
+                },
+                {
+                  "id": "c48f5f9d-f4f0-4f95-a0d4-11ee16d21138",
+                  "name": "Meeting not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/meetings/:meetingId?current=<boolean>&hostEmail=<email>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "meetings",
+                        ":meetingId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to return the current scheduled meeting of a meeting series.",
+                          "key": "current",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Email address of the meeting host (admin use).",
+                          "key": "hostEmail",
+                          "value": "<email>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "meetingId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:09.000Z",
+                  "updatedAt": "2026-06-05T13:14:09.000Z",
+                  "uid": "35240-c48f5f9d-f4f0-4f95-a0d4-11ee16d21138"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:09.000Z",
+              "updatedAt": "2026-06-05T13:14:09.000Z",
+              "uid": "35240-98ff4acb-48eb-44ec-876f-1d90c99c0fa6"
+            },
+            {
+              "name": "Cisco Webex Update a Meeting",
+              "id": "82227d02-5db7-4e3d-9430-934fe52d8164",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"password\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"recurrence\": \"<string>\",\n  \"enabledAutoRecordMeeting\": \"<boolean>\",\n  \"allowAnyUserToBeCoHost\": \"<boolean>\",\n  \"hostEmail\": \"<email>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/meetings/:meetingId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "meetings",
+                    ":meetingId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "d51ebba8-0536-44d2-867a-b89581e26c9d",
+                      "key": "meetingId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the meeting."
+                    }
+                  ]
+                },
+                "description": "Updates details for a meeting with a specified meeting ID. Allows changing the title, password, start/end times, recurrence, and other meeting properties."
+              },
+              "response": [
+                {
+                  "id": "63256332-f5e4-4716-88ba-928b5f63abba",
+                  "name": "Meeting updated successfully.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"password\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"recurrence\": \"<string>\",\n  \"enabledAutoRecordMeeting\": \"<boolean>\",\n  \"allowAnyUserToBeCoHost\": \"<boolean>\",\n  \"hostEmail\": \"<email>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/meetings/:meetingId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "meetings",
+                        ":meetingId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "meetingId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"meetingNumber\": \"<string>\",\n  \"title\": \"<string>\",\n  \"password\": \"<string>\",\n  \"meetingType\": \"meetingSeries\",\n  \"state\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"hostUserId\": \"<string>\",\n  \"hostDisplayName\": \"<string>\",\n  \"hostEmail\": \"<email>\",\n  \"webLink\": \"<uri>\",\n  \"sipAddress\": \"<string>\",\n  \"dialInIpAddress\": \"<string>\",\n  \"scheduledType\": \"webinar\",\n  \"recurrence\": \"<string>\",\n  \"telephony\": {\n    \"accessCode\": \"<string>\",\n    \"callInNumbers\": [\n      {\n        \"label\": \"<string>\",\n        \"callInNumber\": \"<string>\",\n        \"tollType\": \"<string>\"\n      },\n      {\n        \"label\": \"<string>\",\n        \"callInNumber\": \"<string>\",\n        \"tollType\": \"<string>\"\n      }\n    ]\n  },\n  \"registrationEnabled\": \"<boolean>\"\n}",
+                  "createdAt": "2026-06-05T13:14:09.000Z",
+                  "updatedAt": "2026-06-05T13:14:09.000Z",
+                  "uid": "35240-63256332-f5e4-4716-88ba-928b5f63abba"
+                },
+                {
+                  "id": "0de9f0d2-a817-4cda-94a5-2a8289104091",
+                  "name": "Bad request - invalid input parameters.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"password\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"recurrence\": \"<string>\",\n  \"enabledAutoRecordMeeting\": \"<boolean>\",\n  \"allowAnyUserToBeCoHost\": \"<boolean>\",\n  \"hostEmail\": \"<email>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/meetings/:meetingId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "meetings",
+                        ":meetingId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "meetingId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:09.000Z",
+                  "updatedAt": "2026-06-05T13:14:09.000Z",
+                  "uid": "35240-0de9f0d2-a817-4cda-94a5-2a8289104091"
+                },
+                {
+                  "id": "2a236fc8-9067-487a-a4e6-536346da6a29",
+                  "name": "Meeting not found.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"password\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"recurrence\": \"<string>\",\n  \"enabledAutoRecordMeeting\": \"<boolean>\",\n  \"allowAnyUserToBeCoHost\": \"<boolean>\",\n  \"hostEmail\": \"<email>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/meetings/:meetingId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "meetings",
+                        ":meetingId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "meetingId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:09.000Z",
+                  "updatedAt": "2026-06-05T13:14:09.000Z",
+                  "uid": "35240-2a236fc8-9067-487a-a4e6-536346da6a29"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:09.000Z",
+              "updatedAt": "2026-06-05T13:14:09.000Z",
+              "uid": "35240-82227d02-5db7-4e3d-9430-934fe52d8164"
+            },
+            {
+              "name": "Cisco Webex Delete a Meeting",
+              "id": "6901274a-2048-4e87-96b0-048335197bd2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/meetings/:meetingId?hostEmail=<email>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "meetings",
+                    ":meetingId"
+                  ],
+                  "query": [
+                    {
+                      "description": "Email address of the meeting host (admin use).",
+                      "key": "hostEmail",
+                      "value": "<email>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "f469fbd9-a938-4ace-a1a5-ca404ebd57f6",
+                      "key": "meetingId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the meeting."
+                    }
+                  ]
+                },
+                "description": "Deletes a meeting with a specified meeting ID. The deleted meeting will no longer be accessible and all scheduled instances are cancelled."
+              },
+              "response": [
+                {
+                  "id": "6e2c001b-b765-4205-b132-74ea99481034",
+                  "name": "Meeting deleted successfully.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/meetings/:meetingId?hostEmail=<email>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "meetings",
+                        ":meetingId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Email address of the meeting host (admin use).",
+                          "key": "hostEmail",
+                          "value": "<email>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "meetingId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:09.000Z",
+                  "updatedAt": "2026-06-05T13:14:09.000Z",
+                  "uid": "35240-6e2c001b-b765-4205-b132-74ea99481034"
+                },
+                {
+                  "id": "72f9f92a-c739-4b47-b92b-013d0e4ea309",
+                  "name": "Meeting not found.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/meetings/:meetingId?hostEmail=<email>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "meetings",
+                        ":meetingId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Email address of the meeting host (admin use).",
+                          "key": "hostEmail",
+                          "value": "<email>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "meetingId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:09.000Z",
+                  "updatedAt": "2026-06-05T13:14:09.000Z",
+                  "uid": "35240-72f9f92a-c739-4b47-b92b-013d0e4ea309"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:09.000Z",
+              "updatedAt": "2026-06-05T13:14:09.000Z",
+              "uid": "35240-6901274a-2048-4e87-96b0-048335197bd2"
+            }
+          ],
+          "id": "e9f1fa1a-7eeb-443d-b303-37f4bc97453b",
+          "createdAt": "2026-06-05T13:14:09.000Z",
+          "updatedAt": "2026-06-05T13:14:09.000Z",
+          "uid": "35240-e9f1fa1a-7eeb-443d-b303-37f4bc97453b"
+        },
+        {
+          "name": "Cisco Webex List Meetings",
+          "id": "6e601aa6-a9eb-41b3-811b-824a627893af",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/meetings?meetingNumber=<string>&webLink=<string>&roomId=<string>&meetingType=meeting&state=<string>&scheduledType=<string>&from=<dateTime>&to=<dateTime>&hostEmail=<email>&max=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "meetings"
+              ],
+              "query": [
+                {
+                  "description": "Meeting number for the meeting.",
+                  "key": "meetingNumber",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Meeting link for the meeting.",
+                  "key": "webLink",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Associated room ID for the meeting.",
+                  "key": "roomId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Meeting type to filter by. Possible values are meetingSeries, scheduledMeeting, or meeting.",
+                  "key": "meetingType",
+                  "value": "meeting"
+                },
+                {
+                  "description": "Meeting state to filter by. Possible values are active, scheduled, ready, lobby, connected, started, expiring, expired, ended, missed, or cancelled.",
+                  "key": "state",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Scheduled type of the meeting. Possible values are meeting, webinar, or personalRoomMeeting.",
+                  "key": "scheduledType",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Start date and time in ISO 8601 format.",
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "End date and time in ISO 8601 format.",
+                  "key": "to",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Email address of the meeting host (admin use).",
+                  "key": "hostEmail",
+                  "value": "<email>"
+                },
+                {
+                  "description": "Maximum number of meetings to return (default 10, max 100).",
+                  "key": "max",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "Lists meetings. You can specify a date range, meeting type, and other filters to narrow results. Long-running meeting series will only have instances within the specified date range returned."
+          },
+          "response": [
+            {
+              "id": "eddb5d20-3c4c-411c-8405-541e4164d499",
+              "name": "Successful response with list of meetings.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/meetings?meetingNumber=<string>&webLink=<string>&roomId=<string>&meetingType=meeting&state=<string>&scheduledType=<string>&from=<dateTime>&to=<dateTime>&hostEmail=<email>&max=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "meetings"
+                  ],
+                  "query": [
+                    {
+                      "description": "Meeting number for the meeting.",
+                      "key": "meetingNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Meeting link for the meeting.",
+                      "key": "webLink",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Associated room ID for the meeting.",
+                      "key": "roomId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Meeting type to filter by. Possible values are meetingSeries, scheduledMeeting, or meeting.",
+                      "key": "meetingType",
+                      "value": "meeting"
+                    },
+                    {
+                      "description": "Meeting state to filter by. Possible values are active, scheduled, ready, lobby, connected, started, expiring, expired, ended, missed, or cancelled.",
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Scheduled type of the meeting. Possible values are meeting, webinar, or personalRoomMeeting.",
+                      "key": "scheduledType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Start date and time in ISO 8601 format.",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "End date and time in ISO 8601 format.",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Email address of the meeting host (admin use).",
+                      "key": "hostEmail",
+                      "value": "<email>"
+                    },
+                    {
+                      "description": "Maximum number of meetings to return (default 10, max 100).",
+                      "key": "max",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"meetingNumber\": \"<string>\",\n      \"title\": \"<string>\",\n      \"password\": \"<string>\",\n      \"meetingType\": \"meeting\",\n      \"state\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\",\n      \"hostUserId\": \"<string>\",\n      \"hostDisplayName\": \"<string>\",\n      \"hostEmail\": \"<email>\",\n      \"webLink\": \"<uri>\",\n      \"sipAddress\": \"<string>\",\n      \"dialInIpAddress\": \"<string>\",\n      \"scheduledType\": \"webinar\",\n      \"recurrence\": \"<string>\",\n      \"telephony\": {\n        \"accessCode\": \"<string>\",\n        \"callInNumbers\": [\n          {\n            \"label\": \"<string>\",\n            \"callInNumber\": \"<string>\",\n            \"tollType\": \"<string>\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"callInNumber\": \"<string>\",\n            \"tollType\": \"<string>\"\n          }\n        ]\n      },\n      \"registrationEnabled\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"meetingNumber\": \"<string>\",\n      \"title\": \"<string>\",\n      \"password\": \"<string>\",\n      \"meetingType\": \"meetingSeries\",\n      \"state\": \"<string>\",\n      \"timezone\": \"<string>\",\n      \"start\": \"<dateTime>\",\n      \"end\": \"<dateTime>\",\n      \"hostUserId\": \"<string>\",\n      \"hostDisplayName\": \"<string>\",\n      \"hostEmail\": \"<email>\",\n      \"webLink\": \"<uri>\",\n      \"sipAddress\": \"<string>\",\n      \"dialInIpAddress\": \"<string>\",\n      \"scheduledType\": \"webinar\",\n      \"recurrence\": \"<string>\",\n      \"telephony\": {\n        \"accessCode\": \"<string>\",\n        \"callInNumbers\": [\n          {\n            \"label\": \"<string>\",\n            \"callInNumber\": \"<string>\",\n            \"tollType\": \"<string>\"\n          },\n          {\n            \"label\": \"<string>\",\n            \"callInNumber\": \"<string>\",\n            \"tollType\": \"<string>\"\n          }\n        ]\n      },\n      \"registrationEnabled\": \"<boolean>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T13:14:09.000Z",
+              "updatedAt": "2026-06-05T13:14:09.000Z",
+              "uid": "35240-eddb5d20-3c4c-411c-8405-541e4164d499"
+            },
+            {
+              "id": "d8ba1e72-8ac7-4a9e-8e1a-22caf2446a68",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/meetings?meetingNumber=<string>&webLink=<string>&roomId=<string>&meetingType=meeting&state=<string>&scheduledType=<string>&from=<dateTime>&to=<dateTime>&hostEmail=<email>&max=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "meetings"
+                  ],
+                  "query": [
+                    {
+                      "description": "Meeting number for the meeting.",
+                      "key": "meetingNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Meeting link for the meeting.",
+                      "key": "webLink",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Associated room ID for the meeting.",
+                      "key": "roomId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Meeting type to filter by. Possible values are meetingSeries, scheduledMeeting, or meeting.",
+                      "key": "meetingType",
+                      "value": "meeting"
+                    },
+                    {
+                      "description": "Meeting state to filter by. Possible values are active, scheduled, ready, lobby, connected, started, expiring, expired, ended, missed, or cancelled.",
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Scheduled type of the meeting. Possible values are meeting, webinar, or personalRoomMeeting.",
+                      "key": "scheduledType",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Start date and time in ISO 8601 format.",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "End date and time in ISO 8601 format.",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Email address of the meeting host (admin use).",
+                      "key": "hostEmail",
+                      "value": "<email>"
+                    },
+                    {
+                      "description": "Maximum number of meetings to return (default 10, max 100).",
+                      "key": "max",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:09.000Z",
+              "updatedAt": "2026-06-05T13:14:09.000Z",
+              "uid": "35240-d8ba1e72-8ac7-4a9e-8e1a-22caf2446a68"
+            }
+          ],
+          "createdAt": "2026-06-05T13:14:09.000Z",
+          "updatedAt": "2026-06-05T13:14:09.000Z",
+          "uid": "35240-6e601aa6-a9eb-41b3-811b-824a627893af"
+        },
+        {
+          "name": "Cisco Webex Create a Meeting",
+          "id": "86727522-bc2c-46d6-84ed-9807f19d88d9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"password\": \"<string>\",\n  \"scheduledType\": \"personalRoomMeeting\",\n  \"timezone\": \"<string>\",\n  \"recurrence\": \"<string>\",\n  \"enabledAutoRecordMeeting\": \"<boolean>\",\n  \"allowAnyUserToBeCoHost\": \"<boolean>\",\n  \"hostEmail\": \"<email>\",\n  \"invitees\": [\n    {\n      \"email\": \"<email>\",\n      \"displayName\": \"<string>\",\n      \"coHost\": \"<boolean>\"\n    },\n    {\n      \"email\": \"<email>\",\n      \"displayName\": \"<string>\",\n      \"coHost\": \"<boolean>\"\n    }\n  ],\n  \"registrationEnabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/meetings",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "meetings"
+              ]
+            },
+            "description": "Creates a new meeting. The authenticated user becomes the host of the meeting. Supports scheduling one-time, recurring, and personal room meetings."
+          },
+          "response": [
+            {
+              "id": "d20c8b94-a951-4aef-82cc-bf6564519c90",
+              "name": "Meeting created successfully.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"password\": \"<string>\",\n  \"scheduledType\": \"personalRoomMeeting\",\n  \"timezone\": \"<string>\",\n  \"recurrence\": \"<string>\",\n  \"enabledAutoRecordMeeting\": \"<boolean>\",\n  \"allowAnyUserToBeCoHost\": \"<boolean>\",\n  \"hostEmail\": \"<email>\",\n  \"invitees\": [\n    {\n      \"email\": \"<email>\",\n      \"displayName\": \"<string>\",\n      \"coHost\": \"<boolean>\"\n    },\n    {\n      \"email\": \"<email>\",\n      \"displayName\": \"<string>\",\n      \"coHost\": \"<boolean>\"\n    }\n  ],\n  \"registrationEnabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/meetings",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "meetings"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"meetingNumber\": \"<string>\",\n  \"title\": \"<string>\",\n  \"password\": \"<string>\",\n  \"meetingType\": \"meetingSeries\",\n  \"state\": \"<string>\",\n  \"timezone\": \"<string>\",\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"hostUserId\": \"<string>\",\n  \"hostDisplayName\": \"<string>\",\n  \"hostEmail\": \"<email>\",\n  \"webLink\": \"<uri>\",\n  \"sipAddress\": \"<string>\",\n  \"dialInIpAddress\": \"<string>\",\n  \"scheduledType\": \"webinar\",\n  \"recurrence\": \"<string>\",\n  \"telephony\": {\n    \"accessCode\": \"<string>\",\n    \"callInNumbers\": [\n      {\n        \"label\": \"<string>\",\n        \"callInNumber\": \"<string>\",\n        \"tollType\": \"<string>\"\n      },\n      {\n        \"label\": \"<string>\",\n        \"callInNumber\": \"<string>\",\n        \"tollType\": \"<string>\"\n      }\n    ]\n  },\n  \"registrationEnabled\": \"<boolean>\"\n}",
+              "createdAt": "2026-06-05T13:14:09.000Z",
+              "updatedAt": "2026-06-05T13:14:09.000Z",
+              "uid": "35240-d20c8b94-a951-4aef-82cc-bf6564519c90"
+            },
+            {
+              "id": "1131cfa7-7f7e-413d-9df1-6932ca4cf23c",
+              "name": "Bad request - invalid input parameters.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"password\": \"<string>\",\n  \"scheduledType\": \"personalRoomMeeting\",\n  \"timezone\": \"<string>\",\n  \"recurrence\": \"<string>\",\n  \"enabledAutoRecordMeeting\": \"<boolean>\",\n  \"allowAnyUserToBeCoHost\": \"<boolean>\",\n  \"hostEmail\": \"<email>\",\n  \"invitees\": [\n    {\n      \"email\": \"<email>\",\n      \"displayName\": \"<string>\",\n      \"coHost\": \"<boolean>\"\n    },\n    {\n      \"email\": \"<email>\",\n      \"displayName\": \"<string>\",\n      \"coHost\": \"<boolean>\"\n    }\n  ],\n  \"registrationEnabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/meetings",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "meetings"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:09.000Z",
+              "updatedAt": "2026-06-05T13:14:09.000Z",
+              "uid": "35240-1131cfa7-7f7e-413d-9df1-6932ca4cf23c"
+            },
+            {
+              "id": "881dfbe4-6961-4abe-93b6-6c118d607392",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"password\": \"<string>\",\n  \"scheduledType\": \"personalRoomMeeting\",\n  \"timezone\": \"<string>\",\n  \"recurrence\": \"<string>\",\n  \"enabledAutoRecordMeeting\": \"<boolean>\",\n  \"allowAnyUserToBeCoHost\": \"<boolean>\",\n  \"hostEmail\": \"<email>\",\n  \"invitees\": [\n    {\n      \"email\": \"<email>\",\n      \"displayName\": \"<string>\",\n      \"coHost\": \"<boolean>\"\n    },\n    {\n      \"email\": \"<email>\",\n      \"displayName\": \"<string>\",\n      \"coHost\": \"<boolean>\"\n    }\n  ],\n  \"registrationEnabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/meetings",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "meetings"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:09.000Z",
+              "updatedAt": "2026-06-05T13:14:09.000Z",
+              "uid": "35240-881dfbe4-6961-4abe-93b6-6c118d607392"
+            }
+          ],
+          "createdAt": "2026-06-05T13:14:09.000Z",
+          "updatedAt": "2026-06-05T13:14:09.000Z",
+          "uid": "35240-86727522-bc2c-46d6-84ed-9807f19d88d9"
+        }
+      ],
+      "id": "b89cac3b-4e59-46fe-abd2-8baad25cb199",
+      "createdAt": "2026-06-05T13:14:09.000Z",
+      "updatedAt": "2026-06-05T13:14:09.000Z",
+      "uid": "35240-b89cac3b-4e59-46fe-abd2-8baad25cb199"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://webexapis.com/v1"
+    }
+  ]
+}

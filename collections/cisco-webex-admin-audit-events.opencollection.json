@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Webex Admin Audit Events API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Admin Audit Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cisco Webex List Admin Audit Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/adminAudit/events",
+            "params": [
+              {
+                "name": "orgId",
+                "value": "",
+                "type": "query",
+                "description": "Organization ID to list events for."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date and time in ISO 8601 format."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date and time in ISO 8601 format."
+              },
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by person ID who performed the action."
+              },
+              {
+                "name": "eventCategories",
+                "value": "",
+                "type": "query",
+                "description": "Filter by event category."
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of events to return (default 100, max 200)."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset for pagination."
+              }
+            ]
+          },
+          "docs": "Lists admin audit events for the organization. Supports filtering by date range, actor, and event category. Results are paginated with offset-based pagination. Available to full administrators."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex List Admin Audit Event Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/adminAudit/eventCategories"
+          },
+          "docs": "Lists all available admin audit event categories. Returns the complete set of event categories that can be used for filtering audit events."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

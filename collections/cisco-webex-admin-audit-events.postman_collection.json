@@ -1,0 +1,382 @@
+{
+  "item": [
+    {
+      "id": "2e4f6c87-50c0-40df-a717-a01d8fec6192",
+      "name": "Admin Audit Events",
+      "description": {
+        "content": "Operations for accessing admin audit events",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d63e4321-3086-46af-bfd3-8b3a4cd8a34b",
+          "name": "Cisco Webex List Admin Audit Events",
+          "request": {
+            "name": "Cisco Webex List Admin Audit Events",
+            "description": {
+              "content": "Lists admin audit events for the organization. Supports filtering by date range, actor, and event category. Results are paginated with offset-based pagination. Available to full administrators.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "adminAudit",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "orgId",
+                  "value": "<string>",
+                  "description": "(Required) Organization ID to list events for."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "(Required) Start date and time in ISO 8601 format."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "(Required) End date and time in ISO 8601 format."
+                },
+                {
+                  "disabled": false,
+                  "key": "actorId",
+                  "value": "<string>",
+                  "description": "Filter by person ID who performed the action."
+                },
+                {
+                  "disabled": false,
+                  "key": "eventCategories",
+                  "value": "<string>",
+                  "description": "Filter by event category."
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "100",
+                  "description": "Maximum number of events to return (default 100, max 200)."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset for pagination."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "34962767-02c6-4fbd-8c58-7979f3fd5a92",
+              "name": "Successful response with list of admin audit events.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "adminAudit",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "orgId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eventCategories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"actorId\": \"string\",\n      \"actorName\": \"string\",\n      \"actorEmail\": \"sRHjoG@haCnMqf.tz\",\n      \"actorOrgId\": \"string\",\n      \"actorOrgName\": \"string\",\n      \"targetId\": \"string\",\n      \"targetType\": \"string\",\n      \"targetName\": \"string\",\n      \"targetOrgId\": \"string\",\n      \"targetOrgName\": \"string\",\n      \"eventCategory\": \"string\",\n      \"eventDescription\": \"string\",\n      \"actionText\": \"string\",\n      \"trackingId\": \"string\",\n      \"actorIp\": \"string\",\n      \"actorUserAgent\": \"string\",\n      \"created\": \"1978-03-03T22:49:00.747Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"actorId\": \"string\",\n      \"actorName\": \"string\",\n      \"actorEmail\": \"sPxY@DKVmpqnxjCipHGUsONGRZoIw.nuju\",\n      \"actorOrgId\": \"string\",\n      \"actorOrgName\": \"string\",\n      \"targetId\": \"string\",\n      \"targetType\": \"string\",\n      \"targetName\": \"string\",\n      \"targetOrgId\": \"string\",\n      \"targetOrgName\": \"string\",\n      \"eventCategory\": \"string\",\n      \"eventDescription\": \"string\",\n      \"actionText\": \"string\",\n      \"trackingId\": \"string\",\n      \"actorIp\": \"string\",\n      \"actorUserAgent\": \"string\",\n      \"created\": \"1981-10-24T21:56:57.772Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d30cd6d-095e-4f12-beac-c5892505ed97",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "adminAudit",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "orgId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eventCategories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "77ef0b97-0fe5-4851-9975-d699026012eb",
+          "name": "Cisco Webex List Admin Audit Event Categories",
+          "request": {
+            "name": "Cisco Webex List Admin Audit Event Categories",
+            "description": {
+              "content": "Lists all available admin audit event categories. Returns the complete set of event categories that can be used for filtering audit events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "adminAudit",
+                "eventCategories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0c593286-18ce-490b-b5ed-3e85075e8f14",
+              "name": "Successful response with list of event categories.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "adminAudit",
+                    "eventCategories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"eventCategories\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "25d93612-f39d-4241-a79f-4fcdbca4be3a",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "adminAudit",
+                    "eventCategories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://webexapis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ae51a374-d5ae-4c20-a9e6-28a110f6d9d4",
+    "name": "Cisco Webex Admin Audit Events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Access admin audit events for tracking administrative actions performed in Webex Control Hub. Available to full administrators for compliance monitoring and security auditing purposes.\n\nContact Support:\n Name: Cisco Webex Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Webex Attachment Actions API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Attachment Actions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cisco Webex Create an Attachment Action",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/attachment/actions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an attachment action representing a user's interaction with an adaptive card. The action captures the user's input from the card form fields."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Get Attachment Action Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/attachment/actions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the attachment action."
+              }
+            ]
+          },
+          "docs": "Shows details for an attachment action by ID. Returns the action metadata and user-provided input data from the adaptive card."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

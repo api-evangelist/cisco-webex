@@ -1,0 +1,1117 @@
+{
+  "info": {
+    "_postman_id": "d96c7eff-7f8b-4166-bc04-c2d0cd47197a",
+    "name": "Cisco Webex People API",
+    "description": "Access user profile information, manage contacts, and administer user accounts within an organization. Supports listing, creating, updating, and deleting people records.\n\nContact Support:\n Name: Cisco Webex Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:14:11.000Z",
+    "updatedAt": "2026-06-05T13:14:12.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d96c7eff-7f8b-4166-bc04-c2d0cd47197a"
+  },
+  "item": [
+    {
+      "name": "people",
+      "item": [
+        {
+          "name": "me",
+          "item": [
+            {
+              "name": "Cisco Webex Get My Own Details",
+              "id": "78dda454-4584-42a2-9bb1-c6d6ded10ab2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/people/me?callingData=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "people",
+                    "me"
+                  ],
+                  "query": [
+                    {
+                      "description": "Include Webex Calling user details in the response.",
+                      "key": "callingData",
+                      "value": "false"
+                    }
+                  ]
+                },
+                "description": "Shows the profile for the authenticated user. Use this to confirm identity and retrieve your own person details."
+              },
+              "response": [
+                {
+                  "id": "66471a31-ee7f-4bf5-83df-ea86f0d18157",
+                  "name": "Successful response with the authenticated user profile.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/people/me?callingData=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "people",
+                        "me"
+                      ],
+                      "query": [
+                        {
+                          "description": "Include Webex Calling user details in the response.",
+                          "key": "callingData",
+                          "value": "false"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"phoneNumbers\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"sipAddresses\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\",\n      \"primary\": \"<boolean>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\",\n      \"primary\": \"<boolean>\"\n    }\n  ],\n  \"extension\": \"<string>\",\n  \"locationId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"nickName\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"orgId\": \"<string>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"licenses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"department\": \"<string>\",\n  \"manager\": \"<string>\",\n  \"managerId\": \"<string>\",\n  \"title\": \"<string>\",\n  \"addresses\": [\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ],\n  \"created\": \"<dateTime>\",\n  \"lastModified\": \"<dateTime>\",\n  \"timezone\": \"<string>\",\n  \"lastActivity\": \"<dateTime>\",\n  \"siteUrls\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": \"active\",\n  \"type\": \"bot\",\n  \"invitePending\": \"<boolean>\",\n  \"loginEnabled\": \"<boolean>\"\n}",
+                  "createdAt": "2026-06-05T13:14:12.000Z",
+                  "updatedAt": "2026-06-05T13:14:12.000Z",
+                  "uid": "35240-66471a31-ee7f-4bf5-83df-ea86f0d18157"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:12.000Z",
+              "updatedAt": "2026-06-05T13:14:12.000Z",
+              "uid": "35240-78dda454-4584-42a2-9bb1-c6d6ded10ab2"
+            }
+          ],
+          "id": "980d3e50-28f1-40a2-8e26-b315f091c398",
+          "createdAt": "2026-06-05T13:14:12.000Z",
+          "updatedAt": "2026-06-05T13:14:12.000Z",
+          "uid": "35240-980d3e50-28f1-40a2-8e26-b315f091c398"
+        },
+        {
+          "name": "{personId}",
+          "item": [
+            {
+              "name": "Cisco Webex Get Person Details",
+              "id": "04ff534f-2052-43e9-8f72-3b438bb2b45a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/people/:personId?callingData=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "people",
+                    ":personId"
+                  ],
+                  "query": [
+                    {
+                      "description": "Include Webex Calling user details in the response.",
+                      "key": "callingData",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "e97020ce-0d88-4a4a-9689-93a11d4ddae8",
+                      "key": "personId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the person."
+                    }
+                  ]
+                },
+                "description": "Shows details for a person by ID. Certain fields may not be available depending on the caller's relationship to the person and admin status."
+              },
+              "response": [
+                {
+                  "id": "b851a674-d9b3-40af-af86-aa2fed45eb0a",
+                  "name": "Successful response with person details.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/people/:personId?callingData=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "people",
+                        ":personId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Include Webex Calling user details in the response.",
+                          "key": "callingData",
+                          "value": "false"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "personId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"phoneNumbers\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"sipAddresses\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\",\n      \"primary\": \"<boolean>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\",\n      \"primary\": \"<boolean>\"\n    }\n  ],\n  \"extension\": \"<string>\",\n  \"locationId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"nickName\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"orgId\": \"<string>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"licenses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"department\": \"<string>\",\n  \"manager\": \"<string>\",\n  \"managerId\": \"<string>\",\n  \"title\": \"<string>\",\n  \"addresses\": [\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ],\n  \"created\": \"<dateTime>\",\n  \"lastModified\": \"<dateTime>\",\n  \"timezone\": \"<string>\",\n  \"lastActivity\": \"<dateTime>\",\n  \"siteUrls\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": \"active\",\n  \"type\": \"bot\",\n  \"invitePending\": \"<boolean>\",\n  \"loginEnabled\": \"<boolean>\"\n}",
+                  "createdAt": "2026-06-05T13:14:12.000Z",
+                  "updatedAt": "2026-06-05T13:14:12.000Z",
+                  "uid": "35240-b851a674-d9b3-40af-af86-aa2fed45eb0a"
+                },
+                {
+                  "id": "2e333abe-91a9-4d6b-a70e-f2a40e978753",
+                  "name": "Person not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/people/:personId?callingData=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "people",
+                        ":personId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Include Webex Calling user details in the response.",
+                          "key": "callingData",
+                          "value": "false"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "personId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:12.000Z",
+                  "updatedAt": "2026-06-05T13:14:12.000Z",
+                  "uid": "35240-2e333abe-91a9-4d6b-a70e-f2a40e978753"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:12.000Z",
+              "updatedAt": "2026-06-05T13:14:12.000Z",
+              "uid": "35240-04ff534f-2052-43e9-8f72-3b438bb2b45a"
+            },
+            {
+              "name": "Cisco Webex Update a Person",
+              "id": "9a2b2563-8564-4b6b-a23f-8e71612d17b6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"displayName\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"orgId\": \"<string>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"licenses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"department\": \"<string>\",\n  \"manager\": \"<string>\",\n  \"managerId\": \"<string>\",\n  \"title\": \"<string>\",\n  \"addresses\": [\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ],\n  \"phoneNumbers\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"extension\": \"<string>\",\n  \"locationId\": \"<string>\",\n  \"loginEnabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/people/:personId?callingData=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "people",
+                    ":personId"
+                  ],
+                  "query": [
+                    {
+                      "description": "Include Webex Calling user details in the response.",
+                      "key": "callingData",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "41db7d0b-b4ac-4eae-8b61-a4091548db6b",
+                      "key": "personId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the person."
+                    }
+                  ]
+                },
+                "description": "Updates details for a person by ID. Only admins can update people. Include all desired fields in the request body as the update replaces the existing record."
+              },
+              "response": [
+                {
+                  "id": "a75496f7-b82c-41fb-916f-0598f3ab4fe1",
+                  "name": "Person updated successfully.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"displayName\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"orgId\": \"<string>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"licenses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"department\": \"<string>\",\n  \"manager\": \"<string>\",\n  \"managerId\": \"<string>\",\n  \"title\": \"<string>\",\n  \"addresses\": [\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ],\n  \"phoneNumbers\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"extension\": \"<string>\",\n  \"locationId\": \"<string>\",\n  \"loginEnabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/people/:personId?callingData=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "people",
+                        ":personId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Include Webex Calling user details in the response.",
+                          "key": "callingData",
+                          "value": "false"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "personId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"phoneNumbers\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"sipAddresses\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\",\n      \"primary\": \"<boolean>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\",\n      \"primary\": \"<boolean>\"\n    }\n  ],\n  \"extension\": \"<string>\",\n  \"locationId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"nickName\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"orgId\": \"<string>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"licenses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"department\": \"<string>\",\n  \"manager\": \"<string>\",\n  \"managerId\": \"<string>\",\n  \"title\": \"<string>\",\n  \"addresses\": [\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ],\n  \"created\": \"<dateTime>\",\n  \"lastModified\": \"<dateTime>\",\n  \"timezone\": \"<string>\",\n  \"lastActivity\": \"<dateTime>\",\n  \"siteUrls\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": \"active\",\n  \"type\": \"bot\",\n  \"invitePending\": \"<boolean>\",\n  \"loginEnabled\": \"<boolean>\"\n}",
+                  "createdAt": "2026-06-05T13:14:12.000Z",
+                  "updatedAt": "2026-06-05T13:14:12.000Z",
+                  "uid": "35240-a75496f7-b82c-41fb-916f-0598f3ab4fe1"
+                },
+                {
+                  "id": "2f24e01f-8c41-4119-9410-8b1ec8b26997",
+                  "name": "Bad request - invalid input parameters.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"displayName\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"orgId\": \"<string>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"licenses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"department\": \"<string>\",\n  \"manager\": \"<string>\",\n  \"managerId\": \"<string>\",\n  \"title\": \"<string>\",\n  \"addresses\": [\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ],\n  \"phoneNumbers\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"extension\": \"<string>\",\n  \"locationId\": \"<string>\",\n  \"loginEnabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/people/:personId?callingData=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "people",
+                        ":personId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Include Webex Calling user details in the response.",
+                          "key": "callingData",
+                          "value": "false"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "personId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:12.000Z",
+                  "updatedAt": "2026-06-05T13:14:12.000Z",
+                  "uid": "35240-2f24e01f-8c41-4119-9410-8b1ec8b26997"
+                },
+                {
+                  "id": "ea6a25e9-d3b9-405c-9d5c-6fddc5cd9d2b",
+                  "name": "Person not found.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"displayName\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"orgId\": \"<string>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"licenses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"department\": \"<string>\",\n  \"manager\": \"<string>\",\n  \"managerId\": \"<string>\",\n  \"title\": \"<string>\",\n  \"addresses\": [\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ],\n  \"phoneNumbers\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"extension\": \"<string>\",\n  \"locationId\": \"<string>\",\n  \"loginEnabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/people/:personId?callingData=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "people",
+                        ":personId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Include Webex Calling user details in the response.",
+                          "key": "callingData",
+                          "value": "false"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "personId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:12.000Z",
+                  "updatedAt": "2026-06-05T13:14:12.000Z",
+                  "uid": "35240-ea6a25e9-d3b9-405c-9d5c-6fddc5cd9d2b"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:12.000Z",
+              "updatedAt": "2026-06-05T13:14:12.000Z",
+              "uid": "35240-9a2b2563-8564-4b6b-a23f-8e71612d17b6"
+            },
+            {
+              "name": "Cisco Webex Delete a Person",
+              "id": "e86705fe-6d0f-4325-baf5-dd7981ac3888",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/people/:personId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "people",
+                    ":personId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "adf33c38-b332-40fd-ba0b-e6d71844e020",
+                      "key": "personId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the person."
+                    }
+                  ]
+                },
+                "description": "Removes a person from the system. Only admins can delete people. The deleted person will lose access to Webex services."
+              },
+              "response": [
+                {
+                  "id": "027b84dd-09f4-432f-80c0-b10f56466254",
+                  "name": "Person deleted successfully.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/people/:personId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "people",
+                        ":personId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "personId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:12.000Z",
+                  "updatedAt": "2026-06-05T13:14:12.000Z",
+                  "uid": "35240-027b84dd-09f4-432f-80c0-b10f56466254"
+                },
+                {
+                  "id": "c8755354-775e-451f-b060-21efbcd21ccf",
+                  "name": "Person not found.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/people/:personId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "people",
+                        ":personId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "personId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:12.000Z",
+                  "updatedAt": "2026-06-05T13:14:12.000Z",
+                  "uid": "35240-c8755354-775e-451f-b060-21efbcd21ccf"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:12.000Z",
+              "updatedAt": "2026-06-05T13:14:12.000Z",
+              "uid": "35240-e86705fe-6d0f-4325-baf5-dd7981ac3888"
+            }
+          ],
+          "id": "70403ac5-d6d2-40a4-8a77-a00a12cf82e3",
+          "createdAt": "2026-06-05T13:14:12.000Z",
+          "updatedAt": "2026-06-05T13:14:12.000Z",
+          "uid": "35240-70403ac5-d6d2-40a4-8a77-a00a12cf82e3"
+        },
+        {
+          "name": "Cisco Webex List People",
+          "id": "a857c523-8e63-4d94-b573-a34ff08587f6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/people?email=<email>&displayName=<string>&id=<string>&orgId=<string>&callingData=false&locationId=<string>&max=100",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "people"
+              ],
+              "query": [
+                {
+                  "description": "Filter by email address. Only exact matches are returned.",
+                  "key": "email",
+                  "value": "<email>"
+                },
+                {
+                  "description": "Filter by display name. Supports partial matching.",
+                  "key": "displayName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by person ID. Supports up to 85 IDs, comma-separated.",
+                  "key": "id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by organization ID.",
+                  "key": "orgId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Include Webex Calling user details in the response.",
+                  "key": "callingData",
+                  "value": "false"
+                },
+                {
+                  "description": "Filter by location ID for Webex Calling users.",
+                  "key": "locationId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of people to return (default 100, max 1000).",
+                  "key": "max",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "Lists people in the organization. Supports filtering by email, display name, ID, and organization. Results are paginated. Admin users can list people across the organization."
+          },
+          "response": [
+            {
+              "id": "073d82ca-89ce-4a3d-9f66-c54a691cefe7",
+              "name": "Successful response with list of people.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/people?email=<email>&displayName=<string>&id=<string>&orgId=<string>&callingData=false&locationId=<string>&max=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "people"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by email address. Only exact matches are returned.",
+                      "key": "email",
+                      "value": "<email>"
+                    },
+                    {
+                      "description": "Filter by display name. Supports partial matching.",
+                      "key": "displayName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by person ID. Supports up to 85 IDs, comma-separated.",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by organization ID.",
+                      "key": "orgId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include Webex Calling user details in the response.",
+                      "key": "callingData",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter by location ID for Webex Calling users.",
+                      "key": "locationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of people to return (default 100, max 1000).",
+                      "key": "max",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"emails\": [\n        \"<email>\",\n        \"<email>\"\n      ],\n      \"phoneNumbers\": [\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"sipAddresses\": [\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\",\n          \"primary\": \"<boolean>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\",\n          \"primary\": \"<boolean>\"\n        }\n      ],\n      \"extension\": \"<string>\",\n      \"locationId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"nickName\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"avatar\": \"<uri>\",\n      \"orgId\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"licenses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"department\": \"<string>\",\n      \"manager\": \"<string>\",\n      \"managerId\": \"<string>\",\n      \"title\": \"<string>\",\n      \"addresses\": [\n        {\n          \"type\": \"<string>\",\n          \"streetAddress\": \"<string>\",\n          \"locality\": \"<string>\",\n          \"region\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"country\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"streetAddress\": \"<string>\",\n          \"locality\": \"<string>\",\n          \"region\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"country\": \"<string>\"\n        }\n      ],\n      \"created\": \"<dateTime>\",\n      \"lastModified\": \"<dateTime>\",\n      \"timezone\": \"<string>\",\n      \"lastActivity\": \"<dateTime>\",\n      \"siteUrls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"status\": \"call\",\n      \"type\": \"person\",\n      \"invitePending\": \"<boolean>\",\n      \"loginEnabled\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"emails\": [\n        \"<email>\",\n        \"<email>\"\n      ],\n      \"phoneNumbers\": [\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"sipAddresses\": [\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\",\n          \"primary\": \"<boolean>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"value\": \"<string>\",\n          \"primary\": \"<boolean>\"\n        }\n      ],\n      \"extension\": \"<string>\",\n      \"locationId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"nickName\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"avatar\": \"<uri>\",\n      \"orgId\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"licenses\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"department\": \"<string>\",\n      \"manager\": \"<string>\",\n      \"managerId\": \"<string>\",\n      \"title\": \"<string>\",\n      \"addresses\": [\n        {\n          \"type\": \"<string>\",\n          \"streetAddress\": \"<string>\",\n          \"locality\": \"<string>\",\n          \"region\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"country\": \"<string>\"\n        },\n        {\n          \"type\": \"<string>\",\n          \"streetAddress\": \"<string>\",\n          \"locality\": \"<string>\",\n          \"region\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"country\": \"<string>\"\n        }\n      ],\n      \"created\": \"<dateTime>\",\n      \"lastModified\": \"<dateTime>\",\n      \"timezone\": \"<string>\",\n      \"lastActivity\": \"<dateTime>\",\n      \"siteUrls\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"status\": \"pending\",\n      \"type\": \"bot\",\n      \"invitePending\": \"<boolean>\",\n      \"loginEnabled\": \"<boolean>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T13:14:12.000Z",
+              "updatedAt": "2026-06-05T13:14:12.000Z",
+              "uid": "35240-073d82ca-89ce-4a3d-9f66-c54a691cefe7"
+            },
+            {
+              "id": "856a5ff9-38d5-41bd-aabb-59d78c881945",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/people?email=<email>&displayName=<string>&id=<string>&orgId=<string>&callingData=false&locationId=<string>&max=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "people"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by email address. Only exact matches are returned.",
+                      "key": "email",
+                      "value": "<email>"
+                    },
+                    {
+                      "description": "Filter by display name. Supports partial matching.",
+                      "key": "displayName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by person ID. Supports up to 85 IDs, comma-separated.",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by organization ID.",
+                      "key": "orgId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include Webex Calling user details in the response.",
+                      "key": "callingData",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter by location ID for Webex Calling users.",
+                      "key": "locationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of people to return (default 100, max 1000).",
+                      "key": "max",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:12.000Z",
+              "updatedAt": "2026-06-05T13:14:12.000Z",
+              "uid": "35240-856a5ff9-38d5-41bd-aabb-59d78c881945"
+            }
+          ],
+          "createdAt": "2026-06-05T13:14:12.000Z",
+          "updatedAt": "2026-06-05T13:14:12.000Z",
+          "uid": "35240-a857c523-8e63-4d94-b573-a34ff08587f6"
+        },
+        {
+          "name": "Cisco Webex Create a Person",
+          "id": "5449d9b8-5dde-4d8d-8bea-03b565f87c46",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"phoneNumbers\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"extension\": \"<string>\",\n  \"locationId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"orgId\": \"<string>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"licenses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"department\": \"<string>\",\n  \"manager\": \"<string>\",\n  \"managerId\": \"<string>\",\n  \"title\": \"<string>\",\n  \"addresses\": [\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ],\n  \"siteUrls\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/people?callingData=false&minResponse=false",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "people"
+              ],
+              "query": [
+                {
+                  "description": "Include Webex Calling user details in the response.",
+                  "key": "callingData",
+                  "value": "false"
+                },
+                {
+                  "description": "Only return the person ID on success.",
+                  "key": "minResponse",
+                  "value": "false"
+                }
+              ]
+            },
+            "description": "Creates a new user account for the organization. Only admins can create people. Newly created accounts require valid email addresses and can be assigned licenses and roles."
+          },
+          "response": [
+            {
+              "id": "5071c6c1-43b2-4b09-b833-3d859c92076b",
+              "name": "Person created successfully.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"phoneNumbers\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"extension\": \"<string>\",\n  \"locationId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"orgId\": \"<string>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"licenses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"department\": \"<string>\",\n  \"manager\": \"<string>\",\n  \"managerId\": \"<string>\",\n  \"title\": \"<string>\",\n  \"addresses\": [\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ],\n  \"siteUrls\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/people?callingData=false&minResponse=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "people"
+                  ],
+                  "query": [
+                    {
+                      "description": "Include Webex Calling user details in the response.",
+                      "key": "callingData",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Only return the person ID on success.",
+                      "key": "minResponse",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"phoneNumbers\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"sipAddresses\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\",\n      \"primary\": \"<boolean>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\",\n      \"primary\": \"<boolean>\"\n    }\n  ],\n  \"extension\": \"<string>\",\n  \"locationId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"nickName\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"orgId\": \"<string>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"licenses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"department\": \"<string>\",\n  \"manager\": \"<string>\",\n  \"managerId\": \"<string>\",\n  \"title\": \"<string>\",\n  \"addresses\": [\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ],\n  \"created\": \"<dateTime>\",\n  \"lastModified\": \"<dateTime>\",\n  \"timezone\": \"<string>\",\n  \"lastActivity\": \"<dateTime>\",\n  \"siteUrls\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"status\": \"active\",\n  \"type\": \"bot\",\n  \"invitePending\": \"<boolean>\",\n  \"loginEnabled\": \"<boolean>\"\n}",
+              "createdAt": "2026-06-05T13:14:12.000Z",
+              "updatedAt": "2026-06-05T13:14:12.000Z",
+              "uid": "35240-5071c6c1-43b2-4b09-b833-3d859c92076b"
+            },
+            {
+              "id": "0422deaf-ed34-4c01-afb0-131f5e127a0b",
+              "name": "Bad request - invalid input parameters.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"phoneNumbers\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"extension\": \"<string>\",\n  \"locationId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"orgId\": \"<string>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"licenses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"department\": \"<string>\",\n  \"manager\": \"<string>\",\n  \"managerId\": \"<string>\",\n  \"title\": \"<string>\",\n  \"addresses\": [\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ],\n  \"siteUrls\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/people?callingData=false&minResponse=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "people"
+                  ],
+                  "query": [
+                    {
+                      "description": "Include Webex Calling user details in the response.",
+                      "key": "callingData",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Only return the person ID on success.",
+                      "key": "minResponse",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:12.000Z",
+              "updatedAt": "2026-06-05T13:14:12.000Z",
+              "uid": "35240-0422deaf-ed34-4c01-afb0-131f5e127a0b"
+            },
+            {
+              "id": "9807e3b6-9b5c-49d6-8018-b9ff4a59d678",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"phoneNumbers\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"extension\": \"<string>\",\n  \"locationId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"avatar\": \"<uri>\",\n  \"orgId\": \"<string>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"licenses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"department\": \"<string>\",\n  \"manager\": \"<string>\",\n  \"managerId\": \"<string>\",\n  \"title\": \"<string>\",\n  \"addresses\": [\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"streetAddress\": \"<string>\",\n      \"locality\": \"<string>\",\n      \"region\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\"\n    }\n  ],\n  \"siteUrls\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/people?callingData=false&minResponse=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "people"
+                  ],
+                  "query": [
+                    {
+                      "description": "Include Webex Calling user details in the response.",
+                      "key": "callingData",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Only return the person ID on success.",
+                      "key": "minResponse",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:12.000Z",
+              "updatedAt": "2026-06-05T13:14:12.000Z",
+              "uid": "35240-9807e3b6-9b5c-49d6-8018-b9ff4a59d678"
+            }
+          ],
+          "createdAt": "2026-06-05T13:14:12.000Z",
+          "updatedAt": "2026-06-05T13:14:12.000Z",
+          "uid": "35240-5449d9b8-5dde-4d8d-8bea-03b565f87c46"
+        }
+      ],
+      "id": "952804b0-39e4-41cf-88a6-1131a5c8a5f8",
+      "createdAt": "2026-06-05T13:14:12.000Z",
+      "updatedAt": "2026-06-05T13:14:12.000Z",
+      "uid": "35240-952804b0-39e4-41cf-88a6-1131a5c8a5f8"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://webexapis.com/v1"
+    }
+  ]
+}

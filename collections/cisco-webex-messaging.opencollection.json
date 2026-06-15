@@ -1,0 +1,174 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Webex Messaging API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Messages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cisco Webex List Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/messages",
+            "params": [
+              {
+                "name": "roomId",
+                "value": "",
+                "type": "query",
+                "description": "Unique identifier for the room to list messages from."
+              },
+              {
+                "name": "parentId",
+                "value": "",
+                "type": "query",
+                "description": "List messages that are replies to the specified parent message."
+              },
+              {
+                "name": "mentionedPeople",
+                "value": "",
+                "type": "query",
+                "description": "List messages where the specified person is mentioned. Use 'me' for the authenticated user."
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query",
+                "description": "List messages sent before a date and time in ISO 8601 format."
+              },
+              {
+                "name": "beforeMessage",
+                "value": "",
+                "type": "query",
+                "description": "List messages sent before a specified message ID."
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of messages to return (default 50, max 1000)."
+              }
+            ]
+          },
+          "docs": "Lists all messages in a room. Each message includes content and metadata about the message. The list sorts the messages in descending order by creation date."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Create a Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/messages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Posts a plain text, rich text, or card message to a room. Messages can include file attachments and adaptive cards. The files parameter is limited to one file per message."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex List Direct Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/messages/direct",
+            "params": [
+              {
+                "name": "personId",
+                "value": "",
+                "type": "query",
+                "description": "Person ID of the other participant in the direct conversation."
+              },
+              {
+                "name": "personEmail",
+                "value": "",
+                "type": "query",
+                "description": "Email address of the other participant in the direct conversation."
+              }
+            ]
+          },
+          "docs": "Lists all messages in a 1:1 (direct) room with another person. The authenticated user must be a member of the direct conversation."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Get Message Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/messages/:messageId",
+            "params": [
+              {
+                "name": "messageId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the message."
+              }
+            ]
+          },
+          "docs": "Shows details for a message by message ID. Specify the message ID in the URI. The returned message includes all content and metadata."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Edit a Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://webexapis.com/v1/messages/:messageId",
+            "params": [
+              {
+                "name": "messageId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the message."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a message you have posted. Supports editing plain text and markdown content. Cannot edit messages with files or attachments. Maximum of 10 edits per message."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Delete a Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://webexapis.com/v1/messages/:messageId",
+            "params": [
+              {
+                "name": "messageId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the message."
+              }
+            ]
+          },
+          "docs": "Deletes a message by message ID. The deleted message will no longer be visible in the room. Moderators can delete any message; others can only delete their own."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

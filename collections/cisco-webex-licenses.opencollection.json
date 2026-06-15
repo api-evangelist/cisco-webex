@@ -1,0 +1,95 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Webex Licenses API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Licenses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cisco Webex List Licenses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/licenses",
+            "params": [
+              {
+                "name": "orgId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by organization ID."
+              }
+            ]
+          },
+          "docs": "Lists all licenses for the organization. Returns license name, total units, consumed units, and subscription details."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Get License Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/licenses/:licenseId",
+            "params": [
+              {
+                "name": "licenseId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the license."
+              },
+              {
+                "name": "includeAssignedTo",
+                "value": "",
+                "type": "query",
+                "description": "Set to 'user' to include the list of users assigned to this license."
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token for retrieving additional assigned users."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of assigned users to return (default 300, max 300)."
+              }
+            ]
+          },
+          "docs": "Shows details for a license by ID. Includes unit consumption, subscription details, and optionally the list of users assigned to the license."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Assign Licenses to Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://webexapis.com/v1/licenses/users",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assigns licenses and attendee site URLs to existing users. Supports bulk operations and partial success scenarios with 206 response codes."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

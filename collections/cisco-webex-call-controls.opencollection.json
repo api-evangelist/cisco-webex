@@ -1,0 +1,189 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Webex Call Controls API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Call Controls",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cisco Webex Dial",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/telephony/calls/dial",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initiates an outbound call from the authenticated user's device. The destination can be a phone number, SIP URI, or Webex person ID."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Answer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/telephony/calls/answer",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Answers an incoming call on the authenticated user's device. The call ID must be provided to identify which call to answer."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Reject",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/telephony/calls/reject",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Rejects an incoming call. The caller will hear a busy tone or be redirected to voicemail depending on configuration."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Hangup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/telephony/calls/hangup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Ends an active call. Both parties are disconnected when the call is terminated."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Hold",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/telephony/calls/hold",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Places an active call on hold. The other party hears hold music while the call is held."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Resume",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/telephony/calls/resume",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Resumes a held call. The call returns to an active state with both parties connected."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/telephony/calls/transfer",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Transfers an active call to another destination. Supports blind transfer and consultative transfer when two calls are active."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Park",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/telephony/calls/park",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Parks an active call at a call park extension. The call can be retrieved from any device by dialing the park extension."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Retrieve",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/telephony/calls/retrieve",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves a parked call by providing the park destination. The call is connected to the authenticated user's device."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex List Calls",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/telephony/calls"
+          },
+          "docs": "Lists all active calls for the authenticated user. Returns call details including state, direction, and connected parties."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Get Call Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/telephony/calls/:callId",
+            "params": [
+              {
+                "name": "callId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the call."
+              }
+            ]
+          },
+          "docs": "Shows details for an active call by call ID. Returns the current call state, parties, and duration."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

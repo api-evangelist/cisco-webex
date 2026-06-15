@@ -1,0 +1,873 @@
+{
+  "info": {
+    "_postman_id": "6174cd60-c775-4cd9-acc6-2a799afd69ce",
+    "name": "Cisco Webex Team Memberships API",
+    "description": "Manage team memberships representing a person's relationship to a team. Use this API to add and remove people from teams and manage team membership roles.\n\nContact Support:\n Name: Cisco Webex Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:14:37.000Z",
+    "updatedAt": "2026-06-05T13:14:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6174cd60-c775-4cd9-acc6-2a799afd69ce"
+  },
+  "item": [
+    {
+      "name": "team",
+      "item": [
+        {
+          "name": "memberships",
+          "item": [
+            {
+              "name": "{membershipId}",
+              "item": [
+                {
+                  "name": "Cisco Webex Get Team Membership Details",
+                  "id": "c1ce466b-3a11-4e1e-9b62-2f3d4e0d9774",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/team/memberships/:membershipId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "team",
+                        "memberships",
+                        ":membershipId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9f59017a-0b77-46d0-8463-059a72935e97",
+                          "key": "membershipId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier for the team membership."
+                        }
+                      ]
+                    },
+                    "description": "Shows details for a team membership by ID. Returns the team membership configuration including person details and moderator status."
+                  },
+                  "response": [
+                    {
+                      "id": "bf0e1d21-fe1c-4488-a12c-313b7fd4f120",
+                      "name": "Successful response with team membership details.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/team/memberships/:membershipId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "team",
+                            "memberships",
+                            ":membershipId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "membershipId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"personId\": \"<string>\",\n  \"personEmail\": \"<email>\",\n  \"personDisplayName\": \"<string>\",\n  \"personOrgId\": \"<string>\",\n  \"isModerator\": \"<boolean>\",\n  \"created\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-06-05T13:14:38.000Z",
+                      "updatedAt": "2026-06-05T13:14:38.000Z",
+                      "uid": "35240-bf0e1d21-fe1c-4488-a12c-313b7fd4f120"
+                    },
+                    {
+                      "id": "7131c2f9-d80b-405d-86f6-eff7b8512a3a",
+                      "name": "Team membership not found.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/team/memberships/:membershipId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "team",
+                            "memberships",
+                            ":membershipId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "membershipId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:38.000Z",
+                      "updatedAt": "2026-06-05T13:14:38.000Z",
+                      "uid": "35240-7131c2f9-d80b-405d-86f6-eff7b8512a3a"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:14:38.000Z",
+                  "updatedAt": "2026-06-05T13:14:38.000Z",
+                  "uid": "35240-c1ce466b-3a11-4e1e-9b62-2f3d4e0d9774"
+                },
+                {
+                  "name": "Cisco Webex Update a Team Membership",
+                  "id": "e037f2f8-4fdc-4b32-918c-d5b0bf28307a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"isModerator\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/team/memberships/:membershipId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "team",
+                        "memberships",
+                        ":membershipId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "619d2d3c-7237-4d5a-aea3-004113b1c93b",
+                          "key": "membershipId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier for the team membership."
+                        }
+                      ]
+                    },
+                    "description": "Updates a team membership by ID. Allows changing the moderator status of the team member."
+                  },
+                  "response": [
+                    {
+                      "id": "a22c5462-8003-4c57-9349-8795b60aa913",
+                      "name": "Team membership updated successfully.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"isModerator\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/team/memberships/:membershipId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "team",
+                            "memberships",
+                            ":membershipId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "membershipId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"personId\": \"<string>\",\n  \"personEmail\": \"<email>\",\n  \"personDisplayName\": \"<string>\",\n  \"personOrgId\": \"<string>\",\n  \"isModerator\": \"<boolean>\",\n  \"created\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-06-05T13:14:38.000Z",
+                      "updatedAt": "2026-06-05T13:14:38.000Z",
+                      "uid": "35240-a22c5462-8003-4c57-9349-8795b60aa913"
+                    },
+                    {
+                      "id": "3ac43eef-23b4-41bc-87ac-bdbf8b89d806",
+                      "name": "Bad request - invalid input parameters.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"isModerator\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/team/memberships/:membershipId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "team",
+                            "memberships",
+                            ":membershipId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "membershipId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:38.000Z",
+                      "updatedAt": "2026-06-05T13:14:38.000Z",
+                      "uid": "35240-3ac43eef-23b4-41bc-87ac-bdbf8b89d806"
+                    },
+                    {
+                      "id": "7bbeb879-436c-467e-b0e0-5147c02ce16b",
+                      "name": "Team membership not found.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"isModerator\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/team/memberships/:membershipId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "team",
+                            "memberships",
+                            ":membershipId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "membershipId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:38.000Z",
+                      "updatedAt": "2026-06-05T13:14:38.000Z",
+                      "uid": "35240-7bbeb879-436c-467e-b0e0-5147c02ce16b"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:14:38.000Z",
+                  "updatedAt": "2026-06-05T13:14:38.000Z",
+                  "uid": "35240-e037f2f8-4fdc-4b32-918c-d5b0bf28307a"
+                },
+                {
+                  "name": "Cisco Webex Delete a Team Membership",
+                  "id": "4517cafd-7384-402d-a83e-de883ddb2f54",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/team/memberships/:membershipId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "team",
+                        "memberships",
+                        ":membershipId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "5ee5d1ab-c8e6-4ee6-9696-cd6333ba1d10",
+                          "key": "membershipId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier for the team membership."
+                        }
+                      ]
+                    },
+                    "description": "Deletes a team membership by ID. The person is removed from the team and loses access to all team spaces."
+                  },
+                  "response": [
+                    {
+                      "id": "8dc72d0f-b6ea-4a08-ae00-b6ce37b88e48",
+                      "name": "Team membership deleted successfully.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/team/memberships/:membershipId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "team",
+                            "memberships",
+                            ":membershipId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "membershipId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:38.000Z",
+                      "updatedAt": "2026-06-05T13:14:38.000Z",
+                      "uid": "35240-8dc72d0f-b6ea-4a08-ae00-b6ce37b88e48"
+                    },
+                    {
+                      "id": "1e6e2551-6454-4ade-bf1d-a6f0be437567",
+                      "name": "Team membership not found.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/team/memberships/:membershipId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "team",
+                            "memberships",
+                            ":membershipId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "membershipId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:38.000Z",
+                      "updatedAt": "2026-06-05T13:14:38.000Z",
+                      "uid": "35240-1e6e2551-6454-4ade-bf1d-a6f0be437567"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:14:38.000Z",
+                  "updatedAt": "2026-06-05T13:14:38.000Z",
+                  "uid": "35240-4517cafd-7384-402d-a83e-de883ddb2f54"
+                }
+              ],
+              "id": "cbf06ddd-5326-4d63-ab7b-acc0917b725b",
+              "createdAt": "2026-06-05T13:14:38.000Z",
+              "updatedAt": "2026-06-05T13:14:38.000Z",
+              "uid": "35240-cbf06ddd-5326-4d63-ab7b-acc0917b725b"
+            },
+            {
+              "name": "Cisco Webex List Team Memberships",
+              "id": "66822201-1bb0-4a37-9083-99526b29d0a7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/team/memberships?teamId=<string>&max=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "team",
+                    "memberships"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The team ID to list memberships for.",
+                      "key": "teamId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of memberships to return (default 100).",
+                      "key": "max",
+                      "value": "100"
+                    }
+                  ]
+                },
+                "description": "Lists memberships for a team by team ID. Results include person details, role, and creation timestamp. Results are paginated."
+              },
+              "response": [
+                {
+                  "id": "5dba21ce-4a21-40e1-ae72-c71467b9f55c",
+                  "name": "Successful response with list of team memberships.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/team/memberships?teamId=<string>&max=100",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "team",
+                        "memberships"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The team ID to list memberships for.",
+                          "key": "teamId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of memberships to return (default 100).",
+                          "key": "max",
+                          "value": "100"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"teamId\": \"<string>\",\n      \"personId\": \"<string>\",\n      \"personEmail\": \"<email>\",\n      \"personDisplayName\": \"<string>\",\n      \"personOrgId\": \"<string>\",\n      \"isModerator\": \"<boolean>\",\n      \"created\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"teamId\": \"<string>\",\n      \"personId\": \"<string>\",\n      \"personEmail\": \"<email>\",\n      \"personDisplayName\": \"<string>\",\n      \"personOrgId\": \"<string>\",\n      \"isModerator\": \"<boolean>\",\n      \"created\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:14:38.000Z",
+                  "updatedAt": "2026-06-05T13:14:38.000Z",
+                  "uid": "35240-5dba21ce-4a21-40e1-ae72-c71467b9f55c"
+                },
+                {
+                  "id": "ded9dc50-428b-49fe-b8ef-3ac795973954",
+                  "name": "Unauthorized - invalid or missing access token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/team/memberships?teamId=<string>&max=100",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "team",
+                        "memberships"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The team ID to list memberships for.",
+                          "key": "teamId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of memberships to return (default 100).",
+                          "key": "max",
+                          "value": "100"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:38.000Z",
+                  "updatedAt": "2026-06-05T13:14:38.000Z",
+                  "uid": "35240-ded9dc50-428b-49fe-b8ef-3ac795973954"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:38.000Z",
+              "updatedAt": "2026-06-05T13:14:38.000Z",
+              "uid": "35240-66822201-1bb0-4a37-9083-99526b29d0a7"
+            },
+            {
+              "name": "Cisco Webex Create a Team Membership",
+              "id": "c3e5510a-10fa-482b-919c-cf1d06b7c1cd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"teamId\": \"<string>\",\n  \"personId\": \"<string>\",\n  \"personEmail\": \"<email>\",\n  \"isModerator\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/team/memberships",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "team",
+                    "memberships"
+                  ]
+                },
+                "description": "Adds a person to a team. The person can be specified by person ID or email address. Optionally set the person as a team moderator."
+              },
+              "response": [
+                {
+                  "id": "bc5c7a4a-1762-478e-86cd-f5ca24a17242",
+                  "name": "Team membership created successfully.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"teamId\": \"<string>\",\n  \"personId\": \"<string>\",\n  \"personEmail\": \"<email>\",\n  \"isModerator\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/team/memberships",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "team",
+                        "memberships"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"personId\": \"<string>\",\n  \"personEmail\": \"<email>\",\n  \"personDisplayName\": \"<string>\",\n  \"personOrgId\": \"<string>\",\n  \"isModerator\": \"<boolean>\",\n  \"created\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-06-05T13:14:38.000Z",
+                  "updatedAt": "2026-06-05T13:14:38.000Z",
+                  "uid": "35240-bc5c7a4a-1762-478e-86cd-f5ca24a17242"
+                },
+                {
+                  "id": "be9356f4-c391-41d6-879d-f9abb793b2e5",
+                  "name": "Bad request - invalid input parameters.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"teamId\": \"<string>\",\n  \"personId\": \"<string>\",\n  \"personEmail\": \"<email>\",\n  \"isModerator\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/team/memberships",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "team",
+                        "memberships"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:38.000Z",
+                  "updatedAt": "2026-06-05T13:14:38.000Z",
+                  "uid": "35240-be9356f4-c391-41d6-879d-f9abb793b2e5"
+                },
+                {
+                  "id": "f5a21721-ef4b-486c-b0ac-2523133def55",
+                  "name": "Unauthorized - invalid or missing access token.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"teamId\": \"<string>\",\n  \"personId\": \"<string>\",\n  \"personEmail\": \"<email>\",\n  \"isModerator\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/team/memberships",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "team",
+                        "memberships"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:38.000Z",
+                  "updatedAt": "2026-06-05T13:14:38.000Z",
+                  "uid": "35240-f5a21721-ef4b-486c-b0ac-2523133def55"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:38.000Z",
+              "updatedAt": "2026-06-05T13:14:38.000Z",
+              "uid": "35240-c3e5510a-10fa-482b-919c-cf1d06b7c1cd"
+            }
+          ],
+          "id": "7a839d9f-173b-491b-bad0-a6ffe741b523",
+          "createdAt": "2026-06-05T13:14:38.000Z",
+          "updatedAt": "2026-06-05T13:14:38.000Z",
+          "uid": "35240-7a839d9f-173b-491b-bad0-a6ffe741b523"
+        }
+      ],
+      "id": "8247ed95-ab7f-4c40-8135-c5e8f0c43e42",
+      "createdAt": "2026-06-05T13:14:38.000Z",
+      "updatedAt": "2026-06-05T13:14:38.000Z",
+      "uid": "35240-8247ed95-ab7f-4c40-8135-c5e8f0c43e42"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://webexapis.com/v1"
+    }
+  ]
+}

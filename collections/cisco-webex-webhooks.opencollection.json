@@ -1,0 +1,125 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Webex Webhooks API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Webhooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cisco Webex List Webhooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/webhooks",
+            "params": [
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of webhooks to return (default 100)."
+              },
+              {
+                "name": "ownedBy",
+                "value": "",
+                "type": "query",
+                "description": "Filter webhooks by ownership. Set to 'org' for organization-level webhooks."
+              }
+            ]
+          },
+          "docs": "Lists all webhooks registered by the authenticated user. Results are paginated and include webhook status and configuration details."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Create a Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/webhooks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new webhook. Webhooks receive HTTP POST requests when the specified resource and event combination occurs. A secret can be provided for payload signature verification."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Get Webhook Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/webhooks/:webhookId",
+            "params": [
+              {
+                "name": "webhookId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the webhook."
+              }
+            ]
+          },
+          "docs": "Shows details for a webhook by ID. Returns the webhook configuration, status, and metadata."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Update a Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://webexapis.com/v1/webhooks/:webhookId",
+            "params": [
+              {
+                "name": "webhookId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the webhook."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a webhook by ID. Allows changing the name, target URL, secret, status, and ownership of the webhook."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Delete a Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://webexapis.com/v1/webhooks/:webhookId",
+            "params": [
+              {
+                "name": "webhookId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the webhook."
+              }
+            ]
+          },
+          "docs": "Deletes a webhook by ID. The webhook will no longer receive notifications for the configured resource and event."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,174 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Webex Rooms API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rooms",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cisco Webex List Rooms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/rooms",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "query",
+                "description": "Filter rooms by team ID."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by room type."
+              },
+              {
+                "name": "orgPublicSpaces",
+                "value": "",
+                "type": "query",
+                "description": "Show organization public spaces."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Filter rooms made public after this date and time."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "Filter rooms made public before this date and time."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for the results."
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of rooms to return (default 100, max 1000)."
+              }
+            ]
+          },
+          "docs": "Lists rooms to which the authenticated user belongs. Supports filtering by team, room type, and sorting options. Results are paginated."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Create a Room",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/rooms",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new room (space). The authenticated user is automatically added as a member of the room. Rooms can optionally be associated with a team."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Get Room Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/rooms/:roomId",
+            "params": [
+              {
+                "name": "roomId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the room."
+              }
+            ]
+          },
+          "docs": "Shows details for a room by ID. Only members of the room can view room details."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Update a Room",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://webexapis.com/v1/rooms/:roomId",
+            "params": [
+              {
+                "name": "roomId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the room."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates details for a room by ID. Only moderators of the room or admins can update room properties."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Delete a Room",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://webexapis.com/v1/rooms/:roomId",
+            "params": [
+              {
+                "name": "roomId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the room."
+              }
+            ]
+          },
+          "docs": "Deletes a room by ID. Deleting a room also removes all messages, memberships, and content within the room. This action cannot be undone."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Get Room Meeting Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/rooms/:roomId/meetingInfo",
+            "params": [
+              {
+                "name": "roomId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the room."
+              }
+            ]
+          },
+          "docs": "Shows meeting details for a room such as the SIP address, meeting URL, toll and toll-free dial-in numbers. Only available for group rooms."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

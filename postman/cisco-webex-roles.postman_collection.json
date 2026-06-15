@@ -1,0 +1,281 @@
+{
+  "info": {
+    "_postman_id": "64e3e407-8f5a-4c81-8297-348d75b8c1dd",
+    "name": "Cisco Webex Roles API",
+    "description": "Retrieve roles available within a Webex organization. Roles define the level of access and permissions granted to users, such as full administrator or read-only administrator.\n\nContact Support:\n Name: Cisco Webex Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:14:49.000Z",
+    "updatedAt": "2026-06-05T13:14:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-64e3e407-8f5a-4c81-8297-348d75b8c1dd"
+  },
+  "item": [
+    {
+      "name": "roles",
+      "item": [
+        {
+          "name": "{roleId}",
+          "item": [
+            {
+              "name": "Cisco Webex Get Role Details",
+              "id": "e0f46128-81b7-4b48-bc30-35614cbf7efc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/roles/:roleId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "roles",
+                    ":roleId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f1ec0cda-74b5-4d72-bcb7-6b96b98f3a99",
+                      "key": "roleId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the role."
+                    }
+                  ]
+                },
+                "description": "Shows details for a role by ID. Returns the role name and unique identifier. Must be called by an admin user."
+              },
+              "response": [
+                {
+                  "id": "7a8fb710-577b-40b9-a1ad-40c3183e37a8",
+                  "name": "Successful response with role details.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/roles/:roleId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "roles",
+                        ":roleId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "roleId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                  "createdAt": "2026-06-05T13:14:49.000Z",
+                  "updatedAt": "2026-06-05T13:14:49.000Z",
+                  "uid": "35240-7a8fb710-577b-40b9-a1ad-40c3183e37a8"
+                },
+                {
+                  "id": "a7fe1770-f370-475b-9e35-f656f5989d79",
+                  "name": "Role not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/roles/:roleId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "roles",
+                        ":roleId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "roleId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:49.000Z",
+                  "updatedAt": "2026-06-05T13:14:49.000Z",
+                  "uid": "35240-a7fe1770-f370-475b-9e35-f656f5989d79"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:49.000Z",
+              "updatedAt": "2026-06-05T13:14:49.000Z",
+              "uid": "35240-e0f46128-81b7-4b48-bc30-35614cbf7efc"
+            }
+          ],
+          "id": "d194acd6-656b-4c43-a7b7-3e6d55794788",
+          "createdAt": "2026-06-05T13:14:49.000Z",
+          "updatedAt": "2026-06-05T13:14:49.000Z",
+          "uid": "35240-d194acd6-656b-4c43-a7b7-3e6d55794788"
+        },
+        {
+          "name": "Cisco Webex List Roles",
+          "id": "3737deab-7bec-4050-987c-0fba88288336",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/roles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "roles"
+              ]
+            },
+            "description": "Lists all roles available in the organization. Must be called by an admin user. Returns role names and unique identifiers."
+          },
+          "response": [
+            {
+              "id": "42daca33-b975-48cb-bd7f-1be9498bb0b8",
+              "name": "Successful response with list of roles.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/roles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "roles"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T13:14:49.000Z",
+              "updatedAt": "2026-06-05T13:14:49.000Z",
+              "uid": "35240-42daca33-b975-48cb-bd7f-1be9498bb0b8"
+            },
+            {
+              "id": "e12c6f95-79ed-4704-9dd7-0eefa9931728",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/roles",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "roles"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:49.000Z",
+              "updatedAt": "2026-06-05T13:14:49.000Z",
+              "uid": "35240-e12c6f95-79ed-4704-9dd7-0eefa9931728"
+            }
+          ],
+          "createdAt": "2026-06-05T13:14:49.000Z",
+          "updatedAt": "2026-06-05T13:14:49.000Z",
+          "uid": "35240-3737deab-7bec-4050-987c-0fba88288336"
+        }
+      ],
+      "id": "fb337e47-28ac-4ce2-8142-b93a298c04ec",
+      "createdAt": "2026-06-05T13:14:49.000Z",
+      "updatedAt": "2026-06-05T13:14:49.000Z",
+      "uid": "35240-fb337e47-28ac-4ce2-8142-b93a298c04ec"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://webexapis.com/v1"
+    }
+  ]
+}

@@ -1,0 +1,964 @@
+{
+  "item": [
+    {
+      "id": "18b39e68-7042-48b2-b4f6-58a7b64f9125",
+      "name": "Memberships",
+      "description": {
+        "content": "Operations for managing room memberships",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "193f0daa-420c-47ff-8105-26dfaf9cb06f",
+          "name": "Cisco Webex List Memberships",
+          "request": {
+            "name": "Cisco Webex List Memberships",
+            "description": {
+              "content": "Lists all room memberships. Filter by room ID, person ID, or person email. Results are paginated and include membership status and roles.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "memberships"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "roomId",
+                  "value": "<string>",
+                  "description": "Filter memberships by room ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "personId",
+                  "value": "<string>",
+                  "description": "Filter memberships by person ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "personEmail",
+                  "value": "<email>",
+                  "description": "Filter memberships by person email address."
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "100",
+                  "description": "Maximum number of memberships to return (default 100)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "36425202-bd6c-43e3-ba75-73d674073687",
+              "name": "Successful response with list of memberships.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "memberships"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "roomId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "personId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "personEmail",
+                      "value": "<email>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"roomId\": \"string\",\n      \"personId\": \"string\",\n      \"personEmail\": \"lgws1RRV1o@RbSZtjuIQxbEialyPSUZGAqD.yr\",\n      \"personDisplayName\": \"string\",\n      \"personOrgId\": \"string\",\n      \"isModerator\": false,\n      \"isRoomHidden\": false,\n      \"roomType\": \"direct\",\n      \"isMonitor\": true,\n      \"created\": \"2024-09-12T03:32:09.648Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"roomId\": \"string\",\n      \"personId\": \"string\",\n      \"personEmail\": \"co7m@ScBHDSAFf.mmb\",\n      \"personDisplayName\": \"string\",\n      \"personOrgId\": \"string\",\n      \"isModerator\": false,\n      \"isRoomHidden\": true,\n      \"roomType\": \"direct\",\n      \"isMonitor\": true,\n      \"created\": \"2017-07-04T15:16:16.922Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e11ccae-9e51-44b4-8afe-817cd876d9b4",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "memberships"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "roomId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "personId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "personEmail",
+                      "value": "<email>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d6ae6aa-eda2-490a-a736-c595959d725c",
+          "name": "Cisco Webex Create a Membership",
+          "request": {
+            "name": "Cisco Webex Create a Membership",
+            "description": {
+              "content": "Adds a person to a room. The person can be specified by person ID or email address. Optionally set the person as a room moderator.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "memberships"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roomId\": \"<string>\",\n  \"personId\": \"<string>\",\n  \"personEmail\": \"<email>\",\n  \"isModerator\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0074aff2-4d18-4fca-b46c-6ad87fa1b501",
+              "name": "Membership created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "memberships"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roomId\": \"<string>\",\n  \"personId\": \"<string>\",\n  \"personEmail\": \"<email>\",\n  \"isModerator\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"roomId\": \"string\",\n  \"personId\": \"string\",\n  \"personEmail\": \"bu1E@RRNSCEgRRQkCUomdQdnFjTIVLcm.dws\",\n  \"personDisplayName\": \"string\",\n  \"personOrgId\": \"string\",\n  \"isModerator\": true,\n  \"isRoomHidden\": true,\n  \"roomType\": \"direct\",\n  \"isMonitor\": false,\n  \"created\": \"1954-03-14T14:19:57.274Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "20fff7b7-57ab-492f-a6be-836fe08ede18",
+              "name": "Bad request - invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "memberships"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roomId\": \"<string>\",\n  \"personId\": \"<string>\",\n  \"personEmail\": \"<email>\",\n  \"isModerator\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3bd4450c-836a-44a6-b3e7-1f431d126ced",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "memberships"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roomId\": \"<string>\",\n  \"personId\": \"<string>\",\n  \"personEmail\": \"<email>\",\n  \"isModerator\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2bfe1db1-e749-4a17-8d07-6e6f379e33d2",
+              "name": "Conflict - person is already a member of the room.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "memberships"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roomId\": \"<string>\",\n  \"personId\": \"<string>\",\n  \"personEmail\": \"<email>\",\n  \"isModerator\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65000f9e-08f6-4154-8fec-d577bea4af04",
+          "name": "Cisco Webex Get Membership Details",
+          "request": {
+            "name": "Cisco Webex Get Membership Details",
+            "description": {
+              "content": "Shows details for a membership by ID. Returns the membership configuration including role and hidden status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "memberships",
+                ":membershipId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "membershipId",
+                  "description": "(Required) Unique identifier for the membership."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f1a57353-7a5d-4584-8ce3-a48971e92e70",
+              "name": "Successful response with membership details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "memberships",
+                    ":membershipId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "membershipId",
+                      "description": "(Required) Unique identifier for the membership."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"roomId\": \"string\",\n  \"personId\": \"string\",\n  \"personEmail\": \"bu1E@RRNSCEgRRQkCUomdQdnFjTIVLcm.dws\",\n  \"personDisplayName\": \"string\",\n  \"personOrgId\": \"string\",\n  \"isModerator\": true,\n  \"isRoomHidden\": true,\n  \"roomType\": \"direct\",\n  \"isMonitor\": false,\n  \"created\": \"1954-03-14T14:19:57.274Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "077f2476-fd3c-460e-8088-55b9649bb819",
+              "name": "Membership not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "memberships",
+                    ":membershipId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "membershipId",
+                      "description": "(Required) Unique identifier for the membership."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "42ae7c5e-ca87-4d79-9282-9b4cb338b6da",
+          "name": "Cisco Webex Update a Membership",
+          "request": {
+            "name": "Cisco Webex Update a Membership",
+            "description": {
+              "content": "Updates properties of a membership by ID. Allows changing the moderator status and visibility of direct spaces.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "memberships",
+                ":membershipId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "membershipId",
+                  "description": "(Required) Unique identifier for the membership."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"isModerator\": \"<boolean>\",\n  \"isRoomHidden\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d79b51c1-2217-4bce-9605-39e903e49fbf",
+              "name": "Membership updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "memberships",
+                    ":membershipId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "membershipId",
+                      "description": "(Required) Unique identifier for the membership."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isModerator\": \"<boolean>\",\n  \"isRoomHidden\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"roomId\": \"string\",\n  \"personId\": \"string\",\n  \"personEmail\": \"bu1E@RRNSCEgRRQkCUomdQdnFjTIVLcm.dws\",\n  \"personDisplayName\": \"string\",\n  \"personOrgId\": \"string\",\n  \"isModerator\": true,\n  \"isRoomHidden\": true,\n  \"roomType\": \"direct\",\n  \"isMonitor\": false,\n  \"created\": \"1954-03-14T14:19:57.274Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc3f178f-4ffd-4b96-86f1-ec8e793c3a3c",
+              "name": "Bad request - invalid input parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "memberships",
+                    ":membershipId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "membershipId",
+                      "description": "(Required) Unique identifier for the membership."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isModerator\": \"<boolean>\",\n  \"isRoomHidden\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d5e8f3f0-4273-4409-b7de-b8cd912cce3b",
+              "name": "Membership not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "memberships",
+                    ":membershipId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "membershipId",
+                      "description": "(Required) Unique identifier for the membership."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isModerator\": \"<boolean>\",\n  \"isRoomHidden\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb6c6124-ad25-4c32-82f8-58277276668e",
+          "name": "Cisco Webex Delete a Membership",
+          "request": {
+            "name": "Cisco Webex Delete a Membership",
+            "description": {
+              "content": "Deletes a membership by ID. The person is removed from the room and can no longer access the room's content.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "memberships",
+                ":membershipId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "membershipId",
+                  "description": "(Required) Unique identifier for the membership."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d8f05186-d7a6-4146-bc30-baf1995bbf83",
+              "name": "Membership deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "memberships",
+                    ":membershipId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "membershipId",
+                      "description": "(Required) Unique identifier for the membership."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "98c4c233-6218-4321-8438-940dc8299ee4",
+              "name": "Membership not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "memberships",
+                    ":membershipId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "membershipId",
+                      "description": "(Required) Unique identifier for the membership."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://webexapis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b5f81b75-4039-4adb-b556-4ad668471901",
+    "name": "Cisco Webex Memberships API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage room memberships representing a person's relationship to a room. Use this API to list members of any room, create memberships to invite users, and update or remove memberships.\n\nContact Support:\n Name: Cisco Webex Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

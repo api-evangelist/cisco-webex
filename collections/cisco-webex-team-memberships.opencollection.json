@@ -1,0 +1,125 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Webex Team Memberships API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Team Memberships",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cisco Webex List Team Memberships",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/team/memberships",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "query",
+                "description": "The team ID to list memberships for."
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of memberships to return (default 100)."
+              }
+            ]
+          },
+          "docs": "Lists memberships for a team by team ID. Results include person details, role, and creation timestamp. Results are paginated."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Create a Team Membership",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/team/memberships",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds a person to a team. The person can be specified by person ID or email address. Optionally set the person as a team moderator."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Get Team Membership Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/team/memberships/:membershipId",
+            "params": [
+              {
+                "name": "membershipId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the team membership."
+              }
+            ]
+          },
+          "docs": "Shows details for a team membership by ID. Returns the team membership configuration including person details and moderator status."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Update a Team Membership",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://webexapis.com/v1/team/memberships/:membershipId",
+            "params": [
+              {
+                "name": "membershipId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the team membership."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a team membership by ID. Allows changing the moderator status of the team member."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Delete a Team Membership",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://webexapis.com/v1/team/memberships/:membershipId",
+            "params": [
+              {
+                "name": "membershipId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the team membership."
+              }
+            ]
+          },
+          "docs": "Deletes a team membership by ID. The person is removed from the team and loses access to all team spaces."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

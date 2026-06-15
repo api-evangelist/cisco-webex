@@ -1,0 +1,377 @@
+{
+  "info": {
+    "_postman_id": "d74c0126-fdf4-45cd-958b-16459900fe71",
+    "name": "Cisco Webex Events API",
+    "description": "Access events representing activities within a Webex organization such as message posts, file shares, and membership changes. Provides a historical log of activities for compliance and auditing purposes.\n\nContact Support:\n Name: Cisco Webex Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:14:38.000Z",
+    "updatedAt": "2026-06-05T13:14:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d74c0126-fdf4-45cd-958b-16459900fe71"
+  },
+  "item": [
+    {
+      "name": "events",
+      "item": [
+        {
+          "name": "{eventId}",
+          "item": [
+            {
+              "name": "Cisco Webex Get Event Details",
+              "id": "3c2fd983-197a-47ec-9c22-7ae5cfaf7f1a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events/:eventId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events",
+                    ":eventId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "86a79018-0f8f-4434-afd1-afd4fdf44d69",
+                      "key": "eventId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the event."
+                    }
+                  ]
+                },
+                "description": "Shows details for an event by ID. Returns the event metadata and associated resource data at the time the event occurred."
+              },
+              "response": [
+                {
+                  "id": "2646f1a8-f3ab-4b1d-81b7-76de6b199a85",
+                  "name": "Successful response with event details.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/events/:eventId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "events",
+                        ":eventId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "eventId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"resource\": \"memberships\",\n  \"type\": \"updated\",\n  \"appId\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"orgId\": \"<string>\",\n  \"created\": \"<dateTime>\",\n  \"data\": {}\n}",
+                  "createdAt": "2026-06-05T13:14:39.000Z",
+                  "updatedAt": "2026-06-05T13:14:39.000Z",
+                  "uid": "35240-2646f1a8-f3ab-4b1d-81b7-76de6b199a85"
+                },
+                {
+                  "id": "e84aa349-e1ba-4acd-8c0e-652a806c90ed",
+                  "name": "Event not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/events/:eventId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "events",
+                        ":eventId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "eventId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:39.000Z",
+                  "updatedAt": "2026-06-05T13:14:39.000Z",
+                  "uid": "35240-e84aa349-e1ba-4acd-8c0e-652a806c90ed"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:39.000Z",
+              "updatedAt": "2026-06-05T13:14:39.000Z",
+              "uid": "35240-3c2fd983-197a-47ec-9c22-7ae5cfaf7f1a"
+            }
+          ],
+          "id": "902f03f8-7160-4690-8a70-25da851084f0",
+          "createdAt": "2026-06-05T13:14:39.000Z",
+          "updatedAt": "2026-06-05T13:14:39.000Z",
+          "uid": "35240-902f03f8-7160-4690-8a70-25da851084f0"
+        },
+        {
+          "name": "Cisco Webex List Events",
+          "id": "6839feaf-f161-4135-9500-992ecea0a971",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/events?resource=meetingMessages&type=updated&actorId=<string>&from=<dateTime>&to=<dateTime>&max=100",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "events"
+              ],
+              "query": [
+                {
+                  "description": "Filter by resource type.",
+                  "key": "resource",
+                  "value": "meetingMessages"
+                },
+                {
+                  "description": "Filter by event type.",
+                  "key": "type",
+                  "value": "updated"
+                },
+                {
+                  "description": "Filter by person ID who performed the action.",
+                  "key": "actorId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "List events after this date and time in ISO 8601 format.",
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "List events before this date and time in ISO 8601 format.",
+                  "key": "to",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Maximum number of events to return (default 100, max 1000).",
+                  "key": "max",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "Lists events in the organization. Events represent activities such as message creation, membership changes, and file shares. Only available to compliance officers with the spark-compliance:events_read scope."
+          },
+          "response": [
+            {
+              "id": "0acd55f2-c8b0-4107-b541-4d00685053a3",
+              "name": "Successful response with list of events.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events?resource=meetingMessages&type=updated&actorId=<string>&from=<dateTime>&to=<dateTime>&max=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by resource type.",
+                      "key": "resource",
+                      "value": "meetingMessages"
+                    },
+                    {
+                      "description": "Filter by event type.",
+                      "key": "type",
+                      "value": "updated"
+                    },
+                    {
+                      "description": "Filter by person ID who performed the action.",
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "List events after this date and time in ISO 8601 format.",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "List events before this date and time in ISO 8601 format.",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Maximum number of events to return (default 100, max 1000).",
+                      "key": "max",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"resource\": \"rooms\",\n      \"type\": \"deleted\",\n      \"appId\": \"<string>\",\n      \"actorId\": \"<string>\",\n      \"orgId\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"data\": {}\n    },\n    {\n      \"id\": \"<string>\",\n      \"resource\": \"meetings\",\n      \"type\": \"deleted\",\n      \"appId\": \"<string>\",\n      \"actorId\": \"<string>\",\n      \"orgId\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"data\": {}\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T13:14:39.000Z",
+              "updatedAt": "2026-06-05T13:14:39.000Z",
+              "uid": "35240-0acd55f2-c8b0-4107-b541-4d00685053a3"
+            },
+            {
+              "id": "9ab9f6ea-ef42-4847-8c13-538d33d0e404",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/events?resource=meetingMessages&type=updated&actorId=<string>&from=<dateTime>&to=<dateTime>&max=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "events"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by resource type.",
+                      "key": "resource",
+                      "value": "meetingMessages"
+                    },
+                    {
+                      "description": "Filter by event type.",
+                      "key": "type",
+                      "value": "updated"
+                    },
+                    {
+                      "description": "Filter by person ID who performed the action.",
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "List events after this date and time in ISO 8601 format.",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "List events before this date and time in ISO 8601 format.",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Maximum number of events to return (default 100, max 1000).",
+                      "key": "max",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:39.000Z",
+              "updatedAt": "2026-06-05T13:14:39.000Z",
+              "uid": "35240-9ab9f6ea-ef42-4847-8c13-538d33d0e404"
+            }
+          ],
+          "createdAt": "2026-06-05T13:14:39.000Z",
+          "updatedAt": "2026-06-05T13:14:39.000Z",
+          "uid": "35240-6839feaf-f161-4135-9500-992ecea0a971"
+        }
+      ],
+      "id": "18a6951f-6f26-4304-a3c0-67ce1f942013",
+      "createdAt": "2026-06-05T13:14:39.000Z",
+      "updatedAt": "2026-06-05T13:14:39.000Z",
+      "uid": "35240-18a6951f-6f26-4304-a3c0-67ce1f942013"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://webexapis.com/v1"
+    }
+  ]
+}

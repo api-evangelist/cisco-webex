@@ -1,0 +1,394 @@
+{
+  "info": {
+    "_postman_id": "70f9271c-d913-4a28-bc5e-c9299f11c1f4",
+    "name": "Cisco Webex Organizations API",
+    "description": "Retrieve organization details for Webex administration. Provides access to organization-level information and settings, available only to organization administrators.\n\nContact Support:\n Name: Cisco Webex Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:14:45.000Z",
+    "updatedAt": "2026-06-05T13:14:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-70f9271c-d913-4a28-bc5e-c9299f11c1f4"
+  },
+  "item": [
+    {
+      "name": "organizations",
+      "item": [
+        {
+          "name": "{orgId}",
+          "item": [
+            {
+              "name": "Cisco Webex Get Organization Details",
+              "id": "e789d58f-567f-4e85-aa58-fb0f66d18d1f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/organizations/:orgId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "organizations",
+                    ":orgId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "1f6de008-dc89-4a3b-a278-4255e377b266",
+                      "key": "orgId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the organization."
+                    }
+                  ]
+                },
+                "description": "Shows details for an organization by ID. Returns organization name, creation date, and other metadata. Only available to organization administrators."
+              },
+              "response": [
+                {
+                  "id": "0c83911a-460e-4329-bcbf-179a7271ba32",
+                  "name": "Successful response with organization details.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/:orgId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        ":orgId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orgId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"created\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-06-05T13:14:46.000Z",
+                  "updatedAt": "2026-06-05T13:14:46.000Z",
+                  "uid": "35240-0c83911a-460e-4329-bcbf-179a7271ba32"
+                },
+                {
+                  "id": "ae960593-a9a0-42b1-81a0-103fae38ddfd",
+                  "name": "Organization not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/:orgId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        ":orgId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orgId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:46.000Z",
+                  "updatedAt": "2026-06-05T13:14:46.000Z",
+                  "uid": "35240-ae960593-a9a0-42b1-81a0-103fae38ddfd"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:46.000Z",
+              "updatedAt": "2026-06-05T13:14:46.000Z",
+              "uid": "35240-e789d58f-567f-4e85-aa58-fb0f66d18d1f"
+            },
+            {
+              "name": "Cisco Webex Delete Organization",
+              "id": "b0e31a12-13a7-4199-b4bc-bc3ef32e2ec4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/organizations/:orgId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "organizations",
+                    ":orgId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "01a2072d-ec9c-4003-9ca6-de077d01c553",
+                      "key": "orgId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the organization."
+                    }
+                  ]
+                },
+                "description": "Deletes an organization by ID. This action permanently removes the organization and all associated data. Only available to full administrators."
+              },
+              "response": [
+                {
+                  "id": "0b39745b-2b50-433c-9264-906f2f65506e",
+                  "name": "Organization deleted successfully.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/:orgId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        ":orgId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orgId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:46.000Z",
+                  "updatedAt": "2026-06-05T13:14:46.000Z",
+                  "uid": "35240-0b39745b-2b50-433c-9264-906f2f65506e"
+                },
+                {
+                  "id": "101fd69c-215d-4cc6-838c-995797a9ada5",
+                  "name": "Organization not found.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/:orgId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        ":orgId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orgId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:46.000Z",
+                  "updatedAt": "2026-06-05T13:14:46.000Z",
+                  "uid": "35240-101fd69c-215d-4cc6-838c-995797a9ada5"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:46.000Z",
+              "updatedAt": "2026-06-05T13:14:46.000Z",
+              "uid": "35240-b0e31a12-13a7-4199-b4bc-bc3ef32e2ec4"
+            }
+          ],
+          "id": "6e40f670-7dc9-4391-9fdf-9341b4f20cb3",
+          "createdAt": "2026-06-05T13:14:46.000Z",
+          "updatedAt": "2026-06-05T13:14:46.000Z",
+          "uid": "35240-6e40f670-7dc9-4391-9fdf-9341b4f20cb3"
+        },
+        {
+          "name": "Cisco Webex List Organizations",
+          "id": "e8941844-0028-4b1e-b359-b6ba10740445",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/organizations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "organizations"
+              ]
+            },
+            "description": "Lists organizations associated with the authenticated user. Typically returns a single organization unless the user belongs to multiple organizations."
+          },
+          "response": [
+            {
+              "id": "11f5f02a-6f3e-4243-9f8f-01693e734f31",
+              "name": "Successful response with list of organizations.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/organizations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "organizations"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"created\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"created\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T13:14:46.000Z",
+              "updatedAt": "2026-06-05T13:14:46.000Z",
+              "uid": "35240-11f5f02a-6f3e-4243-9f8f-01693e734f31"
+            },
+            {
+              "id": "2160f215-d630-40eb-b1c0-8b3c933d6b8e",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/organizations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "organizations"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:46.000Z",
+              "updatedAt": "2026-06-05T13:14:46.000Z",
+              "uid": "35240-2160f215-d630-40eb-b1c0-8b3c933d6b8e"
+            }
+          ],
+          "createdAt": "2026-06-05T13:14:46.000Z",
+          "updatedAt": "2026-06-05T13:14:46.000Z",
+          "uid": "35240-e8941844-0028-4b1e-b359-b6ba10740445"
+        }
+      ],
+      "id": "f2be7036-f339-4739-8344-c3f1ff2f80f3",
+      "createdAt": "2026-06-05T13:14:46.000Z",
+      "updatedAt": "2026-06-05T13:14:46.000Z",
+      "uid": "35240-f2be7036-f339-4739-8344-c3f1ff2f80f3"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://webexapis.com/v1"
+    }
+  ]
+}

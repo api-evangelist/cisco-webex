@@ -1,0 +1,1069 @@
+{
+  "item": [
+    {
+      "id": "91a02349-2943-4dba-9db7-fa77bf4f336b",
+      "name": "Admin Recordings",
+      "description": {
+        "content": "Admin and compliance officer operations for recordings",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e8d6172c-2a76-4b46-83a6-1ce5fe794554",
+          "name": "Cisco Webex List Recordings for Admin or Compliance Officer",
+          "request": {
+            "name": "Cisco Webex List Recordings for Admin or Compliance Officer",
+            "description": {
+              "content": "Lists recordings for admin or compliance officer access. Includes additional fields such as host display name and email. Supports extended filtering capabilities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "admin",
+                "recordings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "meetingId",
+                  "value": "<string>",
+                  "description": "Filter recordings by meeting ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "List recordings after this date and time in ISO 8601 format."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "List recordings before this date and time in ISO 8601 format."
+                },
+                {
+                  "disabled": false,
+                  "key": "hostEmail",
+                  "value": "<email>",
+                  "description": "Email of the meeting host."
+                },
+                {
+                  "disabled": false,
+                  "key": "siteUrl",
+                  "value": "<string>",
+                  "description": "Webex site URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "topic",
+                  "value": "<string>",
+                  "description": "Filter by recording topic."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Filter by recording format."
+                },
+                {
+                  "disabled": false,
+                  "key": "serviceType",
+                  "value": "<string>",
+                  "description": "Filter by Webex service type."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "available",
+                  "description": "Filter by recording status."
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "10",
+                  "description": "Maximum number of recordings to return (default 10, max 100)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c2892cf5-5a7d-4577-9c1b-c4826127e501",
+              "name": "Successful response with list of recordings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "admin",
+                    "recordings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "meetingId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "hostEmail",
+                      "value": "<email>"
+                    },
+                    {
+                      "key": "siteUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topic",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serviceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "available"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"meetingId\": \"string\",\n      \"topic\": \"string\",\n      \"createTime\": \"1951-04-20T13:54:04.852Z\",\n      \"timeRecorded\": \"2008-03-15T18:43:42.585Z\",\n      \"downloadUrl\": \"http://inyOrEsGdonRWuUyWXyMkaTMVvOp.wunmBq8xl2aAIZcIiXRf7vHoapU4qlGUgzF5xIUh8mI0TlELCIeuENk\",\n      \"playbackUrl\": \"http://SjwpFVpebHaldDg.ahrw7wUB.nm.EynLD.nQUVOmyjw\",\n      \"password\": \"string\",\n      \"format\": \"MP4\",\n      \"serviceType\": \"EventCenter\",\n      \"durationSeconds\": 9222,\n      \"sizeBytes\": 4911,\n      \"status\": \"deleted\",\n      \"temporaryDirectDownloadLinks\": {\n        \"recordingDownloadLink\": \"http://IXUSvkKCEIwkBOfajMKlXgkXjHTbQLHzf.ifunpbfaZHzBoL\",\n        \"audioDownloadLink\": \"https://HPkIycXnWUNVGxLvgdehbQUXd.eznWq\",\n        \"transcriptDownloadLink\": \"http://MatSWLwHogbjomNNYRjedLrgC.iaipD-6m,hggOTSxjuInIiKo6G\",\n        \"expiration\": \"1994-02-23T22:03:43.939Z\"\n      },\n      \"hostDisplayName\": \"string\",\n      \"hostEmail\": \"qqN1phzRadp2@ea.gnl\"\n    },\n    {\n      \"id\": \"string\",\n      \"meetingId\": \"string\",\n      \"topic\": \"string\",\n      \"createTime\": \"1981-01-13T12:51:09.202Z\",\n      \"timeRecorded\": \"1988-10-11T13:40:44.832Z\",\n      \"downloadUrl\": \"https://DJrvQnbKhquuVXaWLOylgSEXA.psOtlG9+cZISfkQTRTerp8XWxyNScG,8CXx2j0H3O0paYjuGpu6PrsEzr6get\",\n      \"playbackUrl\": \"http://SWqhtMfuoevCeWlypSz.uoad-UN\",\n      \"password\": \"string\",\n      \"format\": \"ARF\",\n      \"serviceType\": \"EventCenter\",\n      \"durationSeconds\": 8181,\n      \"sizeBytes\": 5259,\n      \"status\": \"available\",\n      \"temporaryDirectDownloadLinks\": {\n        \"recordingDownloadLink\": \"https://YLULMDzOIUeRiiobhu.byTbajl39nOsQDHk,OYxgPM6hzcFduPjyyWn6Ejruv,6\",\n        \"audioDownloadLink\": \"https://DTBNf.brtM4CLuTWJ.+Sn4xgkMN2T5\",\n        \"transcriptDownloadLink\": \"https://iZTXOv.fwygdNHCxNin7T,64qyBt2.zuKNgq4oThyNDH+Zv57vpbTS\",\n        \"expiration\": \"1949-08-13T09:35:25.450Z\"\n      },\n      \"hostDisplayName\": \"string\",\n      \"hostEmail\": \"RZb@gDPrCtfrkoPiScO.yq\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea79a2fc-c2ea-4dc8-9f98-6e6f64238c5f",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "admin",
+                    "recordings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "meetingId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "hostEmail",
+                      "value": "<email>"
+                    },
+                    {
+                      "key": "siteUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topic",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serviceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "available"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5725334-b480-4dfd-8ba6-644980841a0a",
+          "name": "Cisco Webex Delete a Recording By Admin",
+          "request": {
+            "name": "Cisco Webex Delete a Recording By Admin",
+            "description": {
+              "content": "Deletes a recording by admin using the recording ID. Available only to organization administrators.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "admin",
+                "recordings",
+                ":recordingId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "recordingId",
+                  "description": "(Required) Unique identifier for the recording."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e77e73fa-ca0b-44fc-84e9-92a682411309",
+              "name": "Recording deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "admin",
+                    "recordings",
+                    ":recordingId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recordingId",
+                      "description": "(Required) Unique identifier for the recording."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0d24e6d8-3b29-4bbf-ac29-6d83b3045560",
+              "name": "Recording not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "admin",
+                    "recordings",
+                    ":recordingId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recordingId",
+                      "description": "(Required) Unique identifier for the recording."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "6297b44b-757d-429f-b3bf-9112359f3797",
+      "name": "Recordings",
+      "description": {
+        "content": "Operations for managing meeting recordings",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b8d51594-b8c1-4591-8064-04d5a2023842",
+          "name": "Cisco Webex List Recordings",
+          "request": {
+            "name": "Cisco Webex List Recordings",
+            "description": {
+              "content": "Lists recordings for the authenticated user. Supports filtering by meeting ID, date range, format, service type, and status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recordings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "meetingId",
+                  "value": "<string>",
+                  "description": "Filter recordings by meeting ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "List recordings after this date and time in ISO 8601 format."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "List recordings before this date and time in ISO 8601 format."
+                },
+                {
+                  "disabled": false,
+                  "key": "hostEmail",
+                  "value": "<email>",
+                  "description": "Email of the meeting host (admin use)."
+                },
+                {
+                  "disabled": false,
+                  "key": "siteUrl",
+                  "value": "<string>",
+                  "description": "Webex site URL to filter recordings."
+                },
+                {
+                  "disabled": false,
+                  "key": "integrationTag",
+                  "value": "<string>",
+                  "description": "Integration tag to filter recordings."
+                },
+                {
+                  "disabled": false,
+                  "key": "topic",
+                  "value": "<string>",
+                  "description": "Filter by recording topic."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Filter by recording format."
+                },
+                {
+                  "disabled": false,
+                  "key": "serviceType",
+                  "value": "<string>",
+                  "description": "Filter by Webex service type."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "available",
+                  "description": "Filter by recording status."
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "10",
+                  "description": "Maximum number of recordings to return (default 10, max 100)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68c1bbdc-b9a3-4617-8f40-8eadd6b81159",
+              "name": "Successful response with list of recordings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recordings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "meetingId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "hostEmail",
+                      "value": "<email>"
+                    },
+                    {
+                      "key": "siteUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "integrationTag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topic",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serviceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "available"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"meetingId\": \"string\",\n      \"topic\": \"string\",\n      \"createTime\": \"1952-02-26T18:15:58.364Z\",\n      \"timeRecorded\": \"1966-10-03T09:32:38.210Z\",\n      \"downloadUrl\": \"https://mySItAUvpeYTe.ixwgYNWu.MhSv2yNc5W3LtRyzFfJPnIxij0XN\",\n      \"playbackUrl\": \"http://OxdZzkhTvGvzeBVoxCPJPyvulKUcnge.mzgrnO2+WK2bAXAZAbC6X4OD\",\n      \"password\": \"string\",\n      \"format\": \"MP4\",\n      \"serviceType\": \"SupportCenter\",\n      \"durationSeconds\": 2562,\n      \"sizeBytes\": 1915,\n      \"status\": \"purged\",\n      \"temporaryDirectDownloadLinks\": {\n        \"recordingDownloadLink\": \"http://PhjsbBQVwiudVGCUyl.ngxjO8S+dFbWUFJetleqBpuX1ZVZWvn0m,KPGGgfMVHah.zeQbdh.wohTTJh284\",\n        \"audioDownloadLink\": \"https://saJyYFPpDtvSSPGzBaMKpLYvzlh.acjQdp1VvzVYZTeWco2sPdB+PHwIYp0.MTdq4EZcIbGYucMrWPBWimoWIYEdd46PrurC\",\n        \"transcriptDownloadLink\": \"http://QbaSMtVGLxXXqvLopwouiwiVPZszeUX.rbeuMhiVuGuZ9N.zn2o5i-V0d0x5t,ZJpFk0jqU\",\n        \"expiration\": \"1976-02-27T04:51:27.220Z\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"meetingId\": \"string\",\n      \"topic\": \"string\",\n      \"createTime\": \"1974-08-07T04:12:20.415Z\",\n      \"timeRecorded\": \"1994-11-05T13:02:07.658Z\",\n      \"downloadUrl\": \"http://K.cmxrfweWRPR8uX8eGvZnDWOc.\",\n      \"playbackUrl\": \"http://zLVbDTjuXkJzHSKAdMI.ichQN235ovvlZXuz1KU-iqQdIs.ujcybr1DpBUaB\",\n      \"password\": \"string\",\n      \"format\": \"MP4\",\n      \"serviceType\": \"EventCenter\",\n      \"durationSeconds\": 4418,\n      \"sizeBytes\": 9421,\n      \"status\": \"deleted\",\n      \"temporaryDirectDownloadLinks\": {\n        \"recordingDownloadLink\": \"http://kUiDLaoQvruR.snxbRJ7egIifvmAouht99l38o3cyG1WLIrtwdqneHUVkkreiz\",\n        \"audioDownloadLink\": \"https://DlQdtCztNIkKwnMDRbXaFG.toevtXHdRR0JxpfzOlqL-UDVnZofpsu2Bj-yxscHYtas3D9.bDi9GzwmnzQjkZZZxKD21S+3V,Twu1o5l\",\n        \"transcriptDownloadLink\": \"https://uyVSjTxvOJLAbtkFACjbArkwCgji.fdoAAk2htCGISah1UFC2qEN,66gFbgUtMYS2XUD-YDWbb0DkXTrBuN,ZqWLcHpj0kI\",\n        \"expiration\": \"1958-06-09T18:08:52.361Z\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5b193cce-3412-4b37-89b8-185112cb3bb7",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recordings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "meetingId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "hostEmail",
+                      "value": "<email>"
+                    },
+                    {
+                      "key": "siteUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "integrationTag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topic",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serviceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "available"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d58f9f3-f72d-4d9d-95a8-1651f9160049",
+          "name": "Cisco Webex Get Recording Details",
+          "request": {
+            "name": "Cisco Webex Get Recording Details",
+            "description": {
+              "content": "Shows details for a recording by ID. Includes download URLs, playback links, and temporary direct download links with expiration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recordings",
+                ":recordingId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hostEmail",
+                  "value": "<email>",
+                  "description": "Email of the meeting host (admin use)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "recordingId",
+                  "description": "(Required) Unique identifier for the recording."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "700679fd-73bf-4094-b2b3-43f0dd50ad64",
+              "name": "Successful response with recording details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recordings",
+                    ":recordingId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hostEmail",
+                      "value": "<email>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recordingId",
+                      "description": "(Required) Unique identifier for the recording."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"meetingId\": \"string\",\n  \"topic\": \"string\",\n  \"createTime\": \"1959-06-07T19:11:17.638Z\",\n  \"timeRecorded\": \"1962-04-06T11:22:38.181Z\",\n  \"downloadUrl\": \"https://xXRazZujwvTrqSL.memDjX39MCfITkR\",\n  \"playbackUrl\": \"http://ovBbnTEbHPEUpGOlojg.kidQNXb5pElUINpQGgQDRN5vN\",\n  \"password\": \"string\",\n  \"format\": \"ARF\",\n  \"serviceType\": \"MeetingCenter\",\n  \"durationSeconds\": 8370,\n  \"sizeBytes\": 4970,\n  \"status\": \"purged\",\n  \"temporaryDirectDownloadLinks\": {\n    \"recordingDownloadLink\": \"http://oKiPALZMceQpysiIwpzMvnZrGxZz.zwcvWl5DJNZI.dBX+QW38Wi3\",\n    \"audioDownloadLink\": \"http://cqJ.nfb0AdTXFoqia,dkqoYgungjSe88Zy.A6X9lJ\",\n    \"transcriptDownloadLink\": \"http://DhFrmpRYetDhqWDCJphX.xkroauAOmzQPG+dv.b7LmXSJsap7JpGgB9bCKfFB6UyIbCMNKUp\",\n    \"expiration\": \"1974-03-02T11:52:07.613Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d46feaf-e037-4ceb-bc44-d17352bc9079",
+              "name": "Recording not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recordings",
+                    ":recordingId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hostEmail",
+                      "value": "<email>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recordingId",
+                      "description": "(Required) Unique identifier for the recording."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19680a78-6ecc-47b6-8627-6ed9bb8fef2c",
+          "name": "Cisco Webex Delete a Recording",
+          "request": {
+            "name": "Cisco Webex Delete a Recording",
+            "description": {
+              "content": "Deletes a recording by ID. Compliance officers must provide a reason for the deletion. The recording is soft-deleted and can be purged later.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "recordings",
+                ":recordingId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hostEmail",
+                  "value": "<email>",
+                  "description": "Email of the meeting host (admin use)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "recordingId",
+                  "description": "(Required) Unique identifier for the recording."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"<string>\",\n  \"comment\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "630765c3-f583-437c-9fd1-fdda5bf5c076",
+              "name": "Recording deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recordings",
+                    ":recordingId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hostEmail",
+                      "value": "<email>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recordingId",
+                      "description": "(Required) Unique identifier for the recording."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"<string>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f8e6d08a-f68f-48a0-82c4-1d782cfb6707",
+              "name": "Recording not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "recordings",
+                    ":recordingId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hostEmail",
+                      "value": "<email>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recordingId",
+                      "description": "(Required) Unique identifier for the recording."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"<string>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://webexapis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c8b6f078-5177-41e8-bd68-b1b36c3be57b",
+    "name": "Cisco Webex Recordings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "List and manage meeting recordings. Provides access to recording details, download links, and metadata. Includes separate endpoints for admin and compliance officer access with extended filtering capabilities.\n\nContact Support:\n Name: Cisco Webex Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

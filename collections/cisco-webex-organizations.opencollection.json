@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Webex Organizations API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Organizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cisco Webex List Organizations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/organizations"
+          },
+          "docs": "Lists organizations associated with the authenticated user. Typically returns a single organization unless the user belongs to multiple organizations."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Get Organization Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/organizations/:orgId",
+            "params": [
+              {
+                "name": "orgId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the organization."
+              }
+            ]
+          },
+          "docs": "Shows details for an organization by ID. Returns organization name, creation date, and other metadata. Only available to organization administrators."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Delete Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://webexapis.com/v1/organizations/:orgId",
+            "params": [
+              {
+                "name": "orgId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the organization."
+              }
+            ]
+          },
+          "docs": "Deletes an organization by ID. This action permanently removes the organization and all associated data. Only available to full administrators."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

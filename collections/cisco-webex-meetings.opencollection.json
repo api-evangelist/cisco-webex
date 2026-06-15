@@ -1,0 +1,405 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Webex Meetings API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Meetings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cisco Webex List Meetings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/meetings",
+            "params": [
+              {
+                "name": "meetingNumber",
+                "value": "",
+                "type": "query",
+                "description": "Meeting number for the meeting."
+              },
+              {
+                "name": "webLink",
+                "value": "",
+                "type": "query",
+                "description": "Meeting link for the meeting."
+              },
+              {
+                "name": "roomId",
+                "value": "",
+                "type": "query",
+                "description": "Associated room ID for the meeting."
+              },
+              {
+                "name": "meetingType",
+                "value": "",
+                "type": "query",
+                "description": "Meeting type to filter by. Possible values are meetingSeries, scheduledMeeting, or meeting."
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Meeting state to filter by. Possible values are active, scheduled, ready, lobby, connected, started, expiring, expired, ended, missed, or cancelled."
+              },
+              {
+                "name": "scheduledType",
+                "value": "",
+                "type": "query",
+                "description": "Scheduled type of the meeting. Possible values are meeting, webinar, or personalRoomMeeting."
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Start date and time in ISO 8601 format."
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "End date and time in ISO 8601 format."
+              },
+              {
+                "name": "hostEmail",
+                "value": "",
+                "type": "query",
+                "description": "Email address of the meeting host (admin use)."
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of meetings to return (default 10, max 100)."
+              }
+            ]
+          },
+          "docs": "Lists meetings. You can specify a date range, meeting type, and other filters to narrow results. Long-running meeting series will only have instances within the specified date range returned."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Create a Meeting",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/meetings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new meeting. The authenticated user becomes the host of the meeting. Supports scheduling one-time, recurring, and personal room meetings."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Get Meeting Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/meetings/:meetingId",
+            "params": [
+              {
+                "name": "meetingId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the meeting."
+              },
+              {
+                "name": "current",
+                "value": "",
+                "type": "query",
+                "description": "Whether to return the current scheduled meeting of a meeting series."
+              },
+              {
+                "name": "hostEmail",
+                "value": "",
+                "type": "query",
+                "description": "Email address of the meeting host (admin use)."
+              }
+            ]
+          },
+          "docs": "Retrieves details for a meeting with a specified meeting ID. The meeting can be a meeting series, a scheduled meeting, or a meeting instance that has happened or is happening."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Update a Meeting",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://webexapis.com/v1/meetings/:meetingId",
+            "params": [
+              {
+                "name": "meetingId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the meeting."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates details for a meeting with a specified meeting ID. Allows changing the title, password, start/end times, recurrence, and other meeting properties."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Delete a Meeting",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://webexapis.com/v1/meetings/:meetingId",
+            "params": [
+              {
+                "name": "meetingId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the meeting."
+              },
+              {
+                "name": "hostEmail",
+                "value": "",
+                "type": "query",
+                "description": "Email address of the meeting host (admin use)."
+              }
+            ]
+          },
+          "docs": "Deletes a meeting with a specified meeting ID. The deleted meeting will no longer be accessible and all scheduled instances are cancelled."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Registrants",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cisco Webex List Meeting Registrants",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/meetings/:meetingId/registrants",
+            "params": [
+              {
+                "name": "meetingId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the meeting series."
+              },
+              {
+                "name": "hostEmail",
+                "value": "",
+                "type": "query",
+                "description": "Email address of the meeting host (admin use)."
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of registrants to return."
+              }
+            ]
+          },
+          "docs": "Lists meeting registrants for a specified meeting. Only applies to meetings with registration enabled."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Batch Approve Meeting Registrants",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/meetings/:meetingId/registrants/approve",
+            "params": [
+              {
+                "name": "meetingId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the meeting series."
+              },
+              {
+                "name": "current",
+                "value": "",
+                "type": "query",
+                "description": "Whether to filter for the current scheduled meeting."
+              },
+              {
+                "name": "hostEmail",
+                "value": "",
+                "type": "query",
+                "description": "Email address of the meeting host (admin use)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Approves one or more pending registrants for a meeting with registration enabled."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Batch Reject Meeting Registrants",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/meetings/:meetingId/registrants/reject",
+            "params": [
+              {
+                "name": "meetingId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the meeting series."
+              },
+              {
+                "name": "current",
+                "value": "",
+                "type": "query",
+                "description": "Whether to filter for the current scheduled meeting."
+              },
+              {
+                "name": "hostEmail",
+                "value": "",
+                "type": "query",
+                "description": "Email address of the meeting host (admin use)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Rejects one or more pending registrants for a meeting with registration enabled."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Batch Cancel Meeting Registrants",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/meetings/:meetingId/registrants/cancel",
+            "params": [
+              {
+                "name": "meetingId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the meeting series."
+              },
+              {
+                "name": "current",
+                "value": "",
+                "type": "query",
+                "description": "Whether to filter for the current scheduled meeting."
+              },
+              {
+                "name": "hostEmail",
+                "value": "",
+                "type": "query",
+                "description": "Email address of the meeting host (admin use)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cancels one or more approved registrants for a meeting with registration enabled."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Batch Register Meeting Registrants",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/meetings/:meetingId/registrants/bulkInsert",
+            "params": [
+              {
+                "name": "meetingId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the meeting series."
+              },
+              {
+                "name": "current",
+                "value": "",
+                "type": "query",
+                "description": "Whether to filter for the current scheduled meeting."
+              },
+              {
+                "name": "hostEmail",
+                "value": "",
+                "type": "query",
+                "description": "Email address of the meeting host (admin use)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Registers one or more people for a meeting with registration enabled. Supports bulk insertion of registrant details."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Batch Delete Meeting Registrants",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/meetings/:meetingId/registrants/bulkDelete",
+            "params": [
+              {
+                "name": "meetingId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the meeting series."
+              },
+              {
+                "name": "current",
+                "value": "",
+                "type": "query",
+                "description": "Whether to filter for the current scheduled meeting."
+              },
+              {
+                "name": "hostEmail",
+                "value": "",
+                "type": "query",
+                "description": "Email address of the meeting host (admin use)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletes one or more registrants from a meeting with registration enabled."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

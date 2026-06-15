@@ -1,0 +1,1061 @@
+{
+  "info": {
+    "_postman_id": "2f38d4a7-7268-4967-a205-3530b25d8392",
+    "name": "Cisco Webex Rooms API",
+    "description": "Create and manage Webex spaces (rooms) for collaboration. Rooms are virtual meeting places where people post messages and collaborate, and can be organized within teams.\n\nContact Support:\n Name: Cisco Webex Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:14:14.000Z",
+    "updatedAt": "2026-06-05T13:14:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2f38d4a7-7268-4967-a205-3530b25d8392"
+  },
+  "item": [
+    {
+      "name": "rooms",
+      "item": [
+        {
+          "name": "{roomId}",
+          "item": [
+            {
+              "name": "meetingInfo",
+              "item": [
+                {
+                  "name": "Cisco Webex Get Room Meeting Details",
+                  "id": "2bdda742-28d5-45cc-a47d-f35706c4b0d5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/rooms/:roomId/meetingInfo",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rooms",
+                        ":roomId",
+                        "meetingInfo"
+                      ],
+                      "variable": [
+                        {
+                          "id": "faccbb46-d7fe-44d8-a101-498ee0708eeb",
+                          "key": "roomId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier for the room."
+                        }
+                      ]
+                    },
+                    "description": "Shows meeting details for a room such as the SIP address, meeting URL, toll and toll-free dial-in numbers. Only available for group rooms."
+                  },
+                  "response": [
+                    {
+                      "id": "7f325bb2-5f38-4b3a-a66d-c48391802b8d",
+                      "name": "Successful response with room meeting details.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/rooms/:roomId/meetingInfo",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "rooms",
+                            ":roomId",
+                            "meetingInfo"
+                          ],
+                          "variable": [
+                            {
+                              "key": "roomId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"roomId\": \"<string>\",\n  \"meetingLink\": \"<uri>\",\n  \"sipAddress\": \"<string>\",\n  \"meetingNumber\": \"<string>\",\n  \"meetingId\": \"<string>\",\n  \"callInTollFreeNumber\": \"<string>\",\n  \"callInTollNumber\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T13:14:14.000Z",
+                      "updatedAt": "2026-06-05T13:14:14.000Z",
+                      "uid": "35240-7f325bb2-5f38-4b3a-a66d-c48391802b8d"
+                    },
+                    {
+                      "id": "37a4a5d2-ec20-4948-bb26-930c03080c75",
+                      "name": "Room not found.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/rooms/:roomId/meetingInfo",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "rooms",
+                            ":roomId",
+                            "meetingInfo"
+                          ],
+                          "variable": [
+                            {
+                              "key": "roomId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:14.000Z",
+                      "updatedAt": "2026-06-05T13:14:14.000Z",
+                      "uid": "35240-37a4a5d2-ec20-4948-bb26-930c03080c75"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:14:14.000Z",
+                  "updatedAt": "2026-06-05T13:14:14.000Z",
+                  "uid": "35240-2bdda742-28d5-45cc-a47d-f35706c4b0d5"
+                }
+              ],
+              "id": "caaaa264-b9be-43cc-b93e-3c9421d0f480",
+              "createdAt": "2026-06-05T13:14:14.000Z",
+              "updatedAt": "2026-06-05T13:14:14.000Z",
+              "uid": "35240-caaaa264-b9be-43cc-b93e-3c9421d0f480"
+            },
+            {
+              "name": "Cisco Webex Get Room Details",
+              "id": "2a2de653-02b1-4158-8315-5bb1e9fe5a5a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/rooms/:roomId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "rooms",
+                    ":roomId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "9246a065-8e05-4458-8abe-7f7ddad05ceb",
+                      "key": "roomId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the room."
+                    }
+                  ]
+                },
+                "description": "Shows details for a room by ID. Only members of the room can view room details."
+              },
+              "response": [
+                {
+                  "id": "6bfe8d2a-e43f-4112-a4c0-9fb5205c728a",
+                  "name": "Successful response with room details.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/rooms/:roomId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rooms",
+                        ":roomId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "roomId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"type\": \"group\",\n  \"isLocked\": \"<boolean>\",\n  \"isPublic\": \"<boolean>\",\n  \"isAnnouncementOnly\": \"<boolean>\",\n  \"isReadOnly\": \"<boolean>\",\n  \"teamId\": \"<string>\",\n  \"lastActivity\": \"<dateTime>\",\n  \"creatorId\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"classificationId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"madePublic\": \"<dateTime>\",\n  \"created\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-06-05T13:14:14.000Z",
+                  "updatedAt": "2026-06-05T13:14:14.000Z",
+                  "uid": "35240-6bfe8d2a-e43f-4112-a4c0-9fb5205c728a"
+                },
+                {
+                  "id": "41141d40-2339-4ce1-b4be-95c22e2cf533",
+                  "name": "Room not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/rooms/:roomId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rooms",
+                        ":roomId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "roomId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:14.000Z",
+                  "updatedAt": "2026-06-05T13:14:14.000Z",
+                  "uid": "35240-41141d40-2339-4ce1-b4be-95c22e2cf533"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:14.000Z",
+              "updatedAt": "2026-06-05T13:14:14.000Z",
+              "uid": "35240-2a2de653-02b1-4158-8315-5bb1e9fe5a5a"
+            },
+            {
+              "name": "Cisco Webex Update a Room",
+              "id": "0f3c7940-f9e6-42dc-97d7-22de6411d6e0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"classificationId\": \"<string>\",\n  \"isLocked\": \"<boolean>\",\n  \"isPublic\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"isAnnouncementOnly\": \"<boolean>\",\n  \"isReadOnly\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/rooms/:roomId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "rooms",
+                    ":roomId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "ebda9b03-1038-494b-9978-aeba1c91b517",
+                      "key": "roomId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the room."
+                    }
+                  ]
+                },
+                "description": "Updates details for a room by ID. Only moderators of the room or admins can update room properties."
+              },
+              "response": [
+                {
+                  "id": "3d2311a2-e411-42c3-9657-794a7da5a7b2",
+                  "name": "Room updated successfully.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"classificationId\": \"<string>\",\n  \"isLocked\": \"<boolean>\",\n  \"isPublic\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"isAnnouncementOnly\": \"<boolean>\",\n  \"isReadOnly\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/rooms/:roomId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rooms",
+                        ":roomId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "roomId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"type\": \"group\",\n  \"isLocked\": \"<boolean>\",\n  \"isPublic\": \"<boolean>\",\n  \"isAnnouncementOnly\": \"<boolean>\",\n  \"isReadOnly\": \"<boolean>\",\n  \"teamId\": \"<string>\",\n  \"lastActivity\": \"<dateTime>\",\n  \"creatorId\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"classificationId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"madePublic\": \"<dateTime>\",\n  \"created\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-06-05T13:14:14.000Z",
+                  "updatedAt": "2026-06-05T13:14:14.000Z",
+                  "uid": "35240-3d2311a2-e411-42c3-9657-794a7da5a7b2"
+                },
+                {
+                  "id": "7a5f6b28-d2ff-460e-966e-f4afb4c979df",
+                  "name": "Bad request - invalid input parameters.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"classificationId\": \"<string>\",\n  \"isLocked\": \"<boolean>\",\n  \"isPublic\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"isAnnouncementOnly\": \"<boolean>\",\n  \"isReadOnly\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/rooms/:roomId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rooms",
+                        ":roomId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "roomId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:14.000Z",
+                  "updatedAt": "2026-06-05T13:14:14.000Z",
+                  "uid": "35240-7a5f6b28-d2ff-460e-966e-f4afb4c979df"
+                },
+                {
+                  "id": "d5d53ae9-cde8-47b6-b1b3-4c5bfd63c062",
+                  "name": "Room not found.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"title\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"classificationId\": \"<string>\",\n  \"isLocked\": \"<boolean>\",\n  \"isPublic\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"isAnnouncementOnly\": \"<boolean>\",\n  \"isReadOnly\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/rooms/:roomId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rooms",
+                        ":roomId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "roomId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:14.000Z",
+                  "updatedAt": "2026-06-05T13:14:14.000Z",
+                  "uid": "35240-d5d53ae9-cde8-47b6-b1b3-4c5bfd63c062"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:14.000Z",
+              "updatedAt": "2026-06-05T13:14:14.000Z",
+              "uid": "35240-0f3c7940-f9e6-42dc-97d7-22de6411d6e0"
+            },
+            {
+              "name": "Cisco Webex Delete a Room",
+              "id": "81b9547c-835b-4abd-a698-abef8d537f7c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/rooms/:roomId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "rooms",
+                    ":roomId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "a0ecbe4e-49ec-493e-8d07-f2800ebd9e87",
+                      "key": "roomId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the room."
+                    }
+                  ]
+                },
+                "description": "Deletes a room by ID. Deleting a room also removes all messages, memberships, and content within the room. This action cannot be undone."
+              },
+              "response": [
+                {
+                  "id": "6c7bffca-7fb8-49a3-9936-452a6a949cba",
+                  "name": "Room deleted successfully.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/rooms/:roomId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rooms",
+                        ":roomId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "roomId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:14.000Z",
+                  "updatedAt": "2026-06-05T13:14:14.000Z",
+                  "uid": "35240-6c7bffca-7fb8-49a3-9936-452a6a949cba"
+                },
+                {
+                  "id": "a1fbd99f-50ad-47ba-949b-1dace042779e",
+                  "name": "Room not found.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/rooms/:roomId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rooms",
+                        ":roomId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "roomId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:14.000Z",
+                  "updatedAt": "2026-06-05T13:14:14.000Z",
+                  "uid": "35240-a1fbd99f-50ad-47ba-949b-1dace042779e"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:14.000Z",
+              "updatedAt": "2026-06-05T13:14:14.000Z",
+              "uid": "35240-81b9547c-835b-4abd-a698-abef8d537f7c"
+            }
+          ],
+          "id": "e855718b-ddb0-43ed-bb39-be464ed1ec4d",
+          "createdAt": "2026-06-05T13:14:14.000Z",
+          "updatedAt": "2026-06-05T13:14:14.000Z",
+          "uid": "35240-e855718b-ddb0-43ed-bb39-be464ed1ec4d"
+        },
+        {
+          "name": "Cisco Webex List Rooms",
+          "id": "5f3bd9da-e3eb-40f4-a406-baf27be5b0b9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/rooms?teamId=<string>&type=group&orgPublicSpaces=<boolean>&from=<dateTime>&to=<dateTime>&sortBy=lastactivity&max=100",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "rooms"
+              ],
+              "query": [
+                {
+                  "description": "Filter rooms by team ID.",
+                  "key": "teamId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by room type.",
+                  "key": "type",
+                  "value": "group"
+                },
+                {
+                  "description": "Show organization public spaces.",
+                  "key": "orgPublicSpaces",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Filter rooms made public after this date and time.",
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Filter rooms made public before this date and time.",
+                  "key": "to",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Sort order for the results.",
+                  "key": "sortBy",
+                  "value": "lastactivity"
+                },
+                {
+                  "description": "Maximum number of rooms to return (default 100, max 1000).",
+                  "key": "max",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "Lists rooms to which the authenticated user belongs. Supports filtering by team, room type, and sorting options. Results are paginated."
+          },
+          "response": [
+            {
+              "id": "85738faa-7b12-4f92-9ad9-59355886c0cd",
+              "name": "Successful response with list of rooms.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/rooms?teamId=<string>&type=group&orgPublicSpaces=<boolean>&from=<dateTime>&to=<dateTime>&sortBy=lastactivity&max=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "rooms"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter rooms by team ID.",
+                      "key": "teamId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by room type.",
+                      "key": "type",
+                      "value": "group"
+                    },
+                    {
+                      "description": "Show organization public spaces.",
+                      "key": "orgPublicSpaces",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter rooms made public after this date and time.",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter rooms made public before this date and time.",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Sort order for the results.",
+                      "key": "sortBy",
+                      "value": "lastactivity"
+                    },
+                    {
+                      "description": "Maximum number of rooms to return (default 100, max 1000).",
+                      "key": "max",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"group\",\n      \"isLocked\": \"<boolean>\",\n      \"isPublic\": \"<boolean>\",\n      \"isAnnouncementOnly\": \"<boolean>\",\n      \"isReadOnly\": \"<boolean>\",\n      \"teamId\": \"<string>\",\n      \"lastActivity\": \"<dateTime>\",\n      \"creatorId\": \"<string>\",\n      \"ownerId\": \"<string>\",\n      \"classificationId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"madePublic\": \"<dateTime>\",\n      \"created\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"group\",\n      \"isLocked\": \"<boolean>\",\n      \"isPublic\": \"<boolean>\",\n      \"isAnnouncementOnly\": \"<boolean>\",\n      \"isReadOnly\": \"<boolean>\",\n      \"teamId\": \"<string>\",\n      \"lastActivity\": \"<dateTime>\",\n      \"creatorId\": \"<string>\",\n      \"ownerId\": \"<string>\",\n      \"classificationId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"madePublic\": \"<dateTime>\",\n      \"created\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T13:14:14.000Z",
+              "updatedAt": "2026-06-05T13:14:14.000Z",
+              "uid": "35240-85738faa-7b12-4f92-9ad9-59355886c0cd"
+            },
+            {
+              "id": "51da0c41-b446-49be-b2ad-294b6653336f",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/rooms?teamId=<string>&type=group&orgPublicSpaces=<boolean>&from=<dateTime>&to=<dateTime>&sortBy=lastactivity&max=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "rooms"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter rooms by team ID.",
+                      "key": "teamId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by room type.",
+                      "key": "type",
+                      "value": "group"
+                    },
+                    {
+                      "description": "Show organization public spaces.",
+                      "key": "orgPublicSpaces",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter rooms made public after this date and time.",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter rooms made public before this date and time.",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Sort order for the results.",
+                      "key": "sortBy",
+                      "value": "lastactivity"
+                    },
+                    {
+                      "description": "Maximum number of rooms to return (default 100, max 1000).",
+                      "key": "max",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:14.000Z",
+              "updatedAt": "2026-06-05T13:14:14.000Z",
+              "uid": "35240-51da0c41-b446-49be-b2ad-294b6653336f"
+            }
+          ],
+          "createdAt": "2026-06-05T13:14:14.000Z",
+          "updatedAt": "2026-06-05T13:14:14.000Z",
+          "uid": "35240-5f3bd9da-e3eb-40f4-a406-baf27be5b0b9"
+        },
+        {
+          "name": "Cisco Webex Create a Room",
+          "id": "28c84745-db46-446c-a8ac-647b0942157d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"classificationId\": \"<string>\",\n  \"isLocked\": \"<boolean>\",\n  \"isPublic\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"isAnnouncementOnly\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/rooms",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "rooms"
+              ]
+            },
+            "description": "Creates a new room (space). The authenticated user is automatically added as a member of the room. Rooms can optionally be associated with a team."
+          },
+          "response": [
+            {
+              "id": "7efcda38-487e-4345-8a19-e78b7e59919c",
+              "name": "Room created successfully.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"classificationId\": \"<string>\",\n  \"isLocked\": \"<boolean>\",\n  \"isPublic\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"isAnnouncementOnly\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/rooms",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "rooms"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"type\": \"group\",\n  \"isLocked\": \"<boolean>\",\n  \"isPublic\": \"<boolean>\",\n  \"isAnnouncementOnly\": \"<boolean>\",\n  \"isReadOnly\": \"<boolean>\",\n  \"teamId\": \"<string>\",\n  \"lastActivity\": \"<dateTime>\",\n  \"creatorId\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"classificationId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"madePublic\": \"<dateTime>\",\n  \"created\": \"<dateTime>\"\n}",
+              "createdAt": "2026-06-05T13:14:14.000Z",
+              "updatedAt": "2026-06-05T13:14:14.000Z",
+              "uid": "35240-7efcda38-487e-4345-8a19-e78b7e59919c"
+            },
+            {
+              "id": "9e181585-9e65-4b45-a6a8-95ba27610611",
+              "name": "Bad request - invalid input parameters.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"classificationId\": \"<string>\",\n  \"isLocked\": \"<boolean>\",\n  \"isPublic\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"isAnnouncementOnly\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/rooms",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "rooms"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:14.000Z",
+              "updatedAt": "2026-06-05T13:14:14.000Z",
+              "uid": "35240-9e181585-9e65-4b45-a6a8-95ba27610611"
+            },
+            {
+              "id": "283cc6db-cdb8-4634-824b-f500a809e9a6",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"teamId\": \"<string>\",\n  \"classificationId\": \"<string>\",\n  \"isLocked\": \"<boolean>\",\n  \"isPublic\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"isAnnouncementOnly\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/rooms",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "rooms"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:14.000Z",
+              "updatedAt": "2026-06-05T13:14:14.000Z",
+              "uid": "35240-283cc6db-cdb8-4634-824b-f500a809e9a6"
+            }
+          ],
+          "createdAt": "2026-06-05T13:14:14.000Z",
+          "updatedAt": "2026-06-05T13:14:14.000Z",
+          "uid": "35240-28c84745-db46-446c-a8ac-647b0942157d"
+        }
+      ],
+      "id": "6dd7e983-743f-4d33-b54e-5c06f26a2a7b",
+      "createdAt": "2026-06-05T13:14:14.000Z",
+      "updatedAt": "2026-06-05T13:14:14.000Z",
+      "uid": "35240-6dd7e983-743f-4d33-b54e-5c06f26a2a7b"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://webexapis.com/v1"
+    }
+  ]
+}

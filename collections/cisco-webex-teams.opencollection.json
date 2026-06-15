@@ -1,0 +1,119 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Cisco Webex Teams API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Teams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cisco Webex List Teams",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/teams",
+            "params": [
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of teams to return (default 100)."
+              }
+            ]
+          },
+          "docs": "Lists teams to which the authenticated user belongs. Results are paginated and sorted by the most recent activity."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Create a Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://webexapis.com/v1/teams",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new team. The authenticated user is automatically added as a member and moderator of the team. A General space is also created for the team."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Get Team Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://webexapis.com/v1/teams/:teamId",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the team."
+              }
+            ]
+          },
+          "docs": "Shows details for a team by ID. Only members of the team can view team details."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Update a Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://webexapis.com/v1/teams/:teamId",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the team."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates details for a team by ID. Only team moderators can update team properties such as name and description."
+        },
+        {
+          "info": {
+            "name": "Cisco Webex Delete a Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://webexapis.com/v1/teams/:teamId",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the team."
+              }
+            ]
+          },
+          "docs": "Deletes a team by ID. Deleting a team also deletes all team memberships and associated spaces. Only team moderators can delete a team."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

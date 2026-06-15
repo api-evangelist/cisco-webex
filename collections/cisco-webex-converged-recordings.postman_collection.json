@@ -1,0 +1,540 @@
+{
+  "item": [
+    {
+      "id": "da67df09-bfd7-4f01-8771-563850dcf77f",
+      "name": "Converged Recordings",
+      "description": {
+        "content": "Operations for managing converged recordings",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a1cd9770-44d1-4e1b-952c-b3b2a0d8c56a",
+          "name": "Cisco Webex List Converged Recordings",
+          "request": {
+            "name": "Cisco Webex List Converged Recordings",
+            "description": {
+              "content": "Lists converged recordings from Webex Meetings and Webex Calling. Provides a unified view of recordings across multiple services. Supports filtering by date range, status, and service type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "convergedRecordings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "List recordings after this date and time in ISO 8601 format."
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "List recordings before this date and time in ISO 8601 format."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by recording status."
+                },
+                {
+                  "disabled": false,
+                  "key": "serviceType",
+                  "value": "<string>",
+                  "description": "Filter by Webex service type."
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "10",
+                  "description": "Maximum number of recordings to return (default 10, max 100)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09384704-dae1-44a1-b080-a16f9292d6d5",
+              "name": "Successful response with list of converged recordings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "convergedRecordings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serviceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"topic\": \"string\",\n      \"createTime\": \"2010-11-19T04:56:20.030Z\",\n      \"timeRecorded\": \"1993-06-23T21:04:58.547Z\",\n      \"format\": \"MP4\",\n      \"serviceType\": \"calling\",\n      \"status\": \"available\",\n      \"durationSeconds\": 5630,\n      \"sizeBytes\": 6205,\n      \"downloadUrl\": \"http://IFnekBYnUThQbTympFeFppAKdhBqn.qyaLNfhO7nQ,906s90o+3y37poWiHFm7A7vMGXMzejA8RUd2-EsDIkLhGc0-Dz\",\n      \"playbackUrl\": \"https://vBFwpBrWuSLioJEgMpbDvGYMR.jlppMkPv8dSE,D67tMa-NWaoPK0UYdGmGwhOLly4yHaW,zx\",\n      \"temporaryDirectDownloadLinks\": {\n        \"recordingDownloadLink\": \"http://JJZLDhJkH.hhyeyY1StPjDKmbCZJwCoOs\",\n        \"audioDownloadLink\": \"https://zcNryfdmCsNaCDpSVqsJLVscqNivGoxD.mcT-C6cvw5oXoo\",\n        \"transcriptDownloadLink\": \"http://RzlvqdnifmvkgPdfHqZfuVBIB.jedZ6h.hc\",\n        \"expiration\": \"1980-07-27T15:03:02.040Z\"\n      },\n      \"meetingId\": \"string\",\n      \"hostEmail\": \"q4Ub@FpOVUIUrJiRKakKXrRqzuILNSBOirfwNk.azl\",\n      \"hostDisplayName\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"topic\": \"string\",\n      \"createTime\": \"1971-08-23T04:41:26.118Z\",\n      \"timeRecorded\": \"2004-01-10T05:45:00.262Z\",\n      \"format\": \"MP4\",\n      \"serviceType\": \"meeting\",\n      \"status\": \"deleted\",\n      \"durationSeconds\": 8393,\n      \"sizeBytes\": 7126,\n      \"downloadUrl\": \"http://ufdQStiOtsiXp.foM0wgXdONdy,zq.cR0VUpvEMiYMKN5sBoc8cRWgVnl4krmP\",\n      \"playbackUrl\": \"http://IzPX.oyAsqugZ+jUJ6fmF9Cy5ORWDt2UePp0gsmNJRwyLKJz\",\n      \"temporaryDirectDownloadLinks\": {\n        \"recordingDownloadLink\": \"http://SRdtCfYbxfanEKxdqhaoltJyC.usapGFPw\",\n        \"audioDownloadLink\": \"https://zxYMHRIQSzlNVyhOIZJFngx.khuhFv37cGP2FK3JslE2a+iCmWT0ZHHpJiX1eZ2Cj8Q4xpm,beckfCHpW\",\n        \"transcriptDownloadLink\": \"https://OOpIYXfGyVnWGFFOU.efPiE3,tBoib9j6pQq6r6Y23hhTMzM7GsdP4lKOt.MKz\",\n        \"expiration\": \"2023-03-05T20:33:54.549Z\"\n      },\n      \"meetingId\": \"string\",\n      \"hostEmail\": \"emsHfL1@aBbbSmejZZuJqvdTHVgZrnkSlM.frmf\",\n      \"hostDisplayName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1bf9d94-c64b-4bdb-aab9-4dd59991874d",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "convergedRecordings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serviceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6bf20fc-c945-41fa-b810-364e281653ea",
+          "name": "Cisco Webex Get Converged Recording Details",
+          "request": {
+            "name": "Cisco Webex Get Converged Recording Details",
+            "description": {
+              "content": "Shows details for a converged recording by ID. Returns the recording metadata, download links, and service-specific details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "convergedRecordings",
+                ":recordingId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "recordingId",
+                  "description": "(Required) Unique identifier for the recording."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "935852e0-d040-4aff-89f9-df8b80bfd754",
+              "name": "Successful response with recording details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "convergedRecordings",
+                    ":recordingId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recordingId",
+                      "description": "(Required) Unique identifier for the recording."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"topic\": \"string\",\n  \"createTime\": \"1984-02-21T03:51:10.259Z\",\n  \"timeRecorded\": \"1959-01-02T08:29:28.641Z\",\n  \"format\": \"MP4\",\n  \"serviceType\": \"meeting\",\n  \"status\": \"deleted\",\n  \"durationSeconds\": 2978,\n  \"sizeBytes\": 5439,\n  \"downloadUrl\": \"https://XiIVpvNShzxDurNBifrk.zumif.bjJooZcFYetju9456hY\",\n  \"playbackUrl\": \"https://QahVWMqceQcbGzJSf.jciUqSyhnufnYcjcG,GfxXtp0li3ZmSmtCQQSkdiMDE9tKD1R.28iCT4eX93v90PmRc4YO\",\n  \"temporaryDirectDownloadLinks\": {\n    \"recordingDownloadLink\": \"http://psWjLHnsupYEDWYYugvYTUlNM.srmhrIs1qbIbXwWLQcCY.5ak,tO+.75fjGF5V9-cnAwRkJtsbF1qh\",\n    \"audioDownloadLink\": \"https://IsOdFtArJBFjdUkxWW.iofbEox4cPbnHLeUDkvBQOZs50YK\",\n    \"transcriptDownloadLink\": \"https://WNSHNbQHysMSTRBONQSdTrvqrMGzqLIad.birQXCgpg.PT3.C30OPOGEMhxhTrnJ,h9TcE+oYTzeWgF7CpV+kH8TV2t,i2L,ZRKu19rhQrrk\",\n    \"expiration\": \"2006-12-28T20:43:12.337Z\"\n  },\n  \"meetingId\": \"string\",\n  \"hostEmail\": \"iThEtP@DjubIyGfkeAAsyFzaL.ohw\",\n  \"hostDisplayName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "78f653b0-b69f-44a9-a49f-b0c6cb9edc36",
+              "name": "Recording not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "convergedRecordings",
+                    ":recordingId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recordingId",
+                      "description": "(Required) Unique identifier for the recording."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5eb1f2f5-535b-4016-a79d-1ec48b048c0e",
+          "name": "Cisco Webex Delete a Converged Recording",
+          "request": {
+            "name": "Cisco Webex Delete a Converged Recording",
+            "description": {
+              "content": "Deletes a converged recording by ID. The recording is soft-deleted and can be recovered within a retention period.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "convergedRecordings",
+                ":recordingId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "recordingId",
+                  "description": "(Required) Unique identifier for the recording."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"<string>\",\n  \"comment\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ad8533a5-4d65-432d-ac7c-a33126b2568e",
+              "name": "Recording deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "convergedRecordings",
+                    ":recordingId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recordingId",
+                      "description": "(Required) Unique identifier for the recording."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"<string>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7cbf4be6-d18c-49fe-ba00-668abd197d01",
+              "name": "Recording not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "convergedRecordings",
+                    ":recordingId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "recordingId",
+                      "description": "(Required) Unique identifier for the recording."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"<string>\",\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://webexapis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a192758d-a6bd-42cb-96a7-78b2d2ac54e6",
+    "name": "Cisco Webex Converged Recordings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Access converged recording capabilities across Webex Meetings and Webex Calling. Provides unified endpoints for listing, retrieving, and managing recordings from multiple Webex services.\n\nContact Support:\n Name: Cisco Webex Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

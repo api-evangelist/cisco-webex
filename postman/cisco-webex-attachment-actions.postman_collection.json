@@ -1,0 +1,386 @@
+{
+  "info": {
+    "_postman_id": "3e057409-518d-4340-a362-8fa9318cd98d",
+    "name": "Cisco Webex Attachment Actions API",
+    "description": "Create and retrieve attachment actions for adaptive card interactions. Used with Buttons and Cards to capture user input from interactive card elements submitted in Webex messaging spaces.\n\nContact Support:\n Name: Cisco Webex Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:14:44.000Z",
+    "updatedAt": "2026-06-05T13:14:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3e057409-518d-4340-a362-8fa9318cd98d"
+  },
+  "item": [
+    {
+      "name": "attachment",
+      "item": [
+        {
+          "name": "actions",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Cisco Webex Get Attachment Action Details",
+                  "id": "d87b6740-cb7c-4abb-bb44-234be846078e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/attachment/actions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "attachment",
+                        "actions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ac50df18-4d6a-4c78-90a0-4b7cf67b9d89",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier for the attachment action."
+                        }
+                      ]
+                    },
+                    "description": "Shows details for an attachment action by ID. Returns the action metadata and user-provided input data from the adaptive card."
+                  },
+                  "response": [
+                    {
+                      "id": "c45b35eb-0044-446a-b4ec-3e38317de5f1",
+                      "name": "Successful response with attachment action details.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/attachment/actions/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "attachment",
+                            "actions",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"type\": \"submit\",\n  \"messageId\": \"<string>\",\n  \"personId\": \"<string>\",\n  \"roomId\": \"<string>\",\n  \"inputs\": {\n    \"minim_9\": -21371943.59413384,\n    \"et_6b2\": 91773053.319541,\n    \"veniam4\": -20670085,\n    \"ut3_5\": true\n  },\n  \"created\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-06-05T13:14:44.000Z",
+                      "updatedAt": "2026-06-05T13:14:44.000Z",
+                      "uid": "35240-c45b35eb-0044-446a-b4ec-3e38317de5f1"
+                    },
+                    {
+                      "id": "f246f2fc-4dd2-49a0-9e60-1674c7f008a7",
+                      "name": "Attachment action not found.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/attachment/actions/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "attachment",
+                            "actions",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:14:44.000Z",
+                      "updatedAt": "2026-06-05T13:14:44.000Z",
+                      "uid": "35240-f246f2fc-4dd2-49a0-9e60-1674c7f008a7"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:14:44.000Z",
+                  "updatedAt": "2026-06-05T13:14:44.000Z",
+                  "uid": "35240-d87b6740-cb7c-4abb-bb44-234be846078e"
+                }
+              ],
+              "id": "5ce51f19-163c-4ffd-a18f-ce199199135f",
+              "createdAt": "2026-06-05T13:14:44.000Z",
+              "updatedAt": "2026-06-05T13:14:44.000Z",
+              "uid": "35240-5ce51f19-163c-4ffd-a18f-ce199199135f"
+            },
+            {
+              "name": "Cisco Webex Create an Attachment Action",
+              "id": "0496d6dc-bf8f-4d0d-b1a1-93f788bcdf80",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"submit\",\n  \"messageId\": \"<string>\",\n  \"inputs\": {\n    \"exercitation_dc3\": -90753289.3498666,\n    \"cillum_836\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/attachment/actions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "attachment",
+                    "actions"
+                  ]
+                },
+                "description": "Creates an attachment action representing a user's interaction with an adaptive card. The action captures the user's input from the card form fields."
+              },
+              "response": [
+                {
+                  "id": "87079353-f6f2-4b84-9629-0d192abef532",
+                  "name": "Attachment action created successfully.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"type\": \"submit\",\n  \"messageId\": \"<string>\",\n  \"inputs\": {\n    \"exercitation_dc3\": -90753289.3498666,\n    \"cillum_836\": false\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/attachment/actions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "attachment",
+                        "actions"
+                      ]
+                    }
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"type\": \"submit\",\n  \"messageId\": \"<string>\",\n  \"personId\": \"<string>\",\n  \"roomId\": \"<string>\",\n  \"inputs\": {\n    \"minim_9\": -21371943.59413384,\n    \"et_6b2\": 91773053.319541,\n    \"veniam4\": -20670085,\n    \"ut3_5\": true\n  },\n  \"created\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-06-05T13:14:44.000Z",
+                  "updatedAt": "2026-06-05T13:14:44.000Z",
+                  "uid": "35240-87079353-f6f2-4b84-9629-0d192abef532"
+                },
+                {
+                  "id": "7a8be3a4-5a84-49d2-952c-31c09f8c97a1",
+                  "name": "Bad request - invalid input parameters.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"type\": \"submit\",\n  \"messageId\": \"<string>\",\n  \"inputs\": {\n    \"exercitation_dc3\": -90753289.3498666,\n    \"cillum_836\": false\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/attachment/actions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "attachment",
+                        "actions"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:44.000Z",
+                  "updatedAt": "2026-06-05T13:14:44.000Z",
+                  "uid": "35240-7a8be3a4-5a84-49d2-952c-31c09f8c97a1"
+                },
+                {
+                  "id": "ead38665-b32c-4220-b858-caec1fe5978d",
+                  "name": "Unauthorized - invalid or missing access token.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"type\": \"submit\",\n  \"messageId\": \"<string>\",\n  \"inputs\": {\n    \"exercitation_dc3\": -90753289.3498666,\n    \"cillum_836\": false\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/attachment/actions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "attachment",
+                        "actions"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:44.000Z",
+                  "updatedAt": "2026-06-05T13:14:44.000Z",
+                  "uid": "35240-ead38665-b32c-4220-b858-caec1fe5978d"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:44.000Z",
+              "updatedAt": "2026-06-05T13:14:44.000Z",
+              "uid": "35240-0496d6dc-bf8f-4d0d-b1a1-93f788bcdf80"
+            }
+          ],
+          "id": "b61bc81c-b4e2-4eaf-9a5a-9810e988eea1",
+          "createdAt": "2026-06-05T13:14:44.000Z",
+          "updatedAt": "2026-06-05T13:14:44.000Z",
+          "uid": "35240-b61bc81c-b4e2-4eaf-9a5a-9810e988eea1"
+        }
+      ],
+      "id": "679a24dc-8585-4c6a-8ccb-db7ec850b977",
+      "createdAt": "2026-06-05T13:14:44.000Z",
+      "updatedAt": "2026-06-05T13:14:44.000Z",
+      "uid": "35240-679a24dc-8585-4c6a-8ccb-db7ec850b977"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://webexapis.com/v1"
+    }
+  ]
+}

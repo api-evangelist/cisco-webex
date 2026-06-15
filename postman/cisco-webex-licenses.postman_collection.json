@@ -1,0 +1,609 @@
+{
+  "info": {
+    "_postman_id": "4d2e87b0-c98b-45a4-b7f5-5c050f4cf149",
+    "name": "Cisco Webex Licenses API",
+    "description": "Manage and retrieve Webex licenses for an organization. Provides endpoints to list available licenses, view license details, and assign or modify license allocations for users.\n\nContact Support:\n Name: Cisco Webex Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:14:47.000Z",
+    "updatedAt": "2026-06-05T13:14:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4d2e87b0-c98b-45a4-b7f5-5c050f4cf149"
+  },
+  "item": [
+    {
+      "name": "licenses",
+      "item": [
+        {
+          "name": "{licenseId}",
+          "item": [
+            {
+              "name": "Cisco Webex Get License Details",
+              "id": "d00144cd-f25a-4646-83b7-2ec54830b2bb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/licenses/:licenseId?includeAssignedTo=user&next=<string>&limit=300",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "licenses",
+                    ":licenseId"
+                  ],
+                  "query": [
+                    {
+                      "description": "Set to 'user' to include the list of users assigned to this license.",
+                      "key": "includeAssignedTo",
+                      "value": "user"
+                    },
+                    {
+                      "description": "Pagination token for retrieving additional assigned users.",
+                      "key": "next",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of assigned users to return (default 300, max 300).",
+                      "key": "limit",
+                      "value": "300"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "bed431ff-3083-4a72-829c-221335b48dd9",
+                      "key": "licenseId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the license."
+                    }
+                  ]
+                },
+                "description": "Shows details for a license by ID. Includes unit consumption, subscription details, and optionally the list of users assigned to the license."
+              },
+              "response": [
+                {
+                  "id": "17107e3d-3a73-43d3-9bd3-d9f305654ef1",
+                  "name": "Successful response with license details.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/licenses/:licenseId?includeAssignedTo=user&next=<string>&limit=300",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "licenses",
+                        ":licenseId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Set to 'user' to include the list of users assigned to this license.",
+                          "key": "includeAssignedTo",
+                          "value": "user"
+                        },
+                        {
+                          "description": "Pagination token for retrieving additional assigned users.",
+                          "key": "next",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of assigned users to return (default 300, max 300).",
+                          "key": "limit",
+                          "value": "300"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "licenseId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"totalUnits\": \"<integer>\",\n  \"consumedUnits\": \"<integer>\",\n  \"consumedByUsers\": \"<integer>\",\n  \"consumedByWorkspaces\": \"<integer>\",\n  \"subscriptionId\": \"<string>\",\n  \"siteUrl\": \"<string>\",\n  \"siteType\": \"<string>\",\n  \"users\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"INTERNAL\",\n      \"displayName\": \"<string>\",\n      \"email\": \"<email>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"INTERNAL\",\n      \"displayName\": \"<string>\",\n      \"email\": \"<email>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:14:47.000Z",
+                  "updatedAt": "2026-06-05T13:14:47.000Z",
+                  "uid": "35240-17107e3d-3a73-43d3-9bd3-d9f305654ef1"
+                },
+                {
+                  "id": "c98b5a1e-4c43-4c2f-afcf-1d4dc5b5f25a",
+                  "name": "License not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/licenses/:licenseId?includeAssignedTo=user&next=<string>&limit=300",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "licenses",
+                        ":licenseId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Set to 'user' to include the list of users assigned to this license.",
+                          "key": "includeAssignedTo",
+                          "value": "user"
+                        },
+                        {
+                          "description": "Pagination token for retrieving additional assigned users.",
+                          "key": "next",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of assigned users to return (default 300, max 300).",
+                          "key": "limit",
+                          "value": "300"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "licenseId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:47.000Z",
+                  "updatedAt": "2026-06-05T13:14:47.000Z",
+                  "uid": "35240-c98b5a1e-4c43-4c2f-afcf-1d4dc5b5f25a"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:47.000Z",
+              "updatedAt": "2026-06-05T13:14:47.000Z",
+              "uid": "35240-d00144cd-f25a-4646-83b7-2ec54830b2bb"
+            }
+          ],
+          "id": "055a514f-9b27-4cbc-b563-21563ea6fcf9",
+          "createdAt": "2026-06-05T13:14:47.000Z",
+          "updatedAt": "2026-06-05T13:14:47.000Z",
+          "uid": "35240-055a514f-9b27-4cbc-b563-21563ea6fcf9"
+        },
+        {
+          "name": "users",
+          "item": [
+            {
+              "name": "Cisco Webex Assign Licenses to Users",
+              "id": "bf905d48-a80d-4f02-a364-0c4af7ae7ca8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"email\": \"<email>\",\n    \"personId\": \"<string>\",\n    \"orgId\": \"<string>\",\n    \"licenses\": [\n      {\n        \"id\": \"<string>\",\n        \"operation\": \"add\",\n        \"properties\": {\n          \"locationId\": \"<string>\",\n          \"phoneNumber\": \"<string>\",\n          \"extension\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"operation\": \"add\",\n        \"properties\": {\n          \"locationId\": \"<string>\",\n          \"phoneNumber\": \"<string>\",\n          \"extension\": \"<string>\"\n        }\n      }\n    ],\n    \"siteUrls\": [\n      {\n        \"siteUrl\": \"<string>\",\n        \"accountType\": \"attendee\",\n        \"operation\": \"remove\"\n      },\n      {\n        \"siteUrl\": \"<string>\",\n        \"accountType\": \"attendee\",\n        \"operation\": \"add\"\n      }\n    ]\n  },\n  {\n    \"email\": \"<email>\",\n    \"personId\": \"<string>\",\n    \"orgId\": \"<string>\",\n    \"licenses\": [\n      {\n        \"id\": \"<string>\",\n        \"operation\": \"add\",\n        \"properties\": {\n          \"locationId\": \"<string>\",\n          \"phoneNumber\": \"<string>\",\n          \"extension\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"operation\": \"add\",\n        \"properties\": {\n          \"locationId\": \"<string>\",\n          \"phoneNumber\": \"<string>\",\n          \"extension\": \"<string>\"\n        }\n      }\n    ],\n    \"siteUrls\": [\n      {\n        \"siteUrl\": \"<string>\",\n        \"accountType\": \"attendee\",\n        \"operation\": \"remove\"\n      },\n      {\n        \"siteUrl\": \"<string>\",\n        \"accountType\": \"attendee\",\n        \"operation\": \"add\"\n      }\n    ]\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/licenses/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "licenses",
+                    "users"
+                  ]
+                },
+                "description": "Assigns licenses and attendee site URLs to existing users. Supports bulk operations and partial success scenarios with 206 response codes."
+              },
+              "response": [
+                {
+                  "id": "dd88f4af-1e07-4917-b0bc-f1002695371c",
+                  "name": "All license assignments completed successfully.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n  {\n    \"email\": \"<email>\",\n    \"personId\": \"<string>\",\n    \"orgId\": \"<string>\",\n    \"licenses\": [\n      {\n        \"id\": \"<string>\",\n        \"operation\": \"add\",\n        \"properties\": {\n          \"locationId\": \"<string>\",\n          \"phoneNumber\": \"<string>\",\n          \"extension\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"operation\": \"add\",\n        \"properties\": {\n          \"locationId\": \"<string>\",\n          \"phoneNumber\": \"<string>\",\n          \"extension\": \"<string>\"\n        }\n      }\n    ],\n    \"siteUrls\": [\n      {\n        \"siteUrl\": \"<string>\",\n        \"accountType\": \"attendee\",\n        \"operation\": \"remove\"\n      },\n      {\n        \"siteUrl\": \"<string>\",\n        \"accountType\": \"attendee\",\n        \"operation\": \"add\"\n      }\n    ]\n  },\n  {\n    \"email\": \"<email>\",\n    \"personId\": \"<string>\",\n    \"orgId\": \"<string>\",\n    \"licenses\": [\n      {\n        \"id\": \"<string>\",\n        \"operation\": \"add\",\n        \"properties\": {\n          \"locationId\": \"<string>\",\n          \"phoneNumber\": \"<string>\",\n          \"extension\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"operation\": \"add\",\n        \"properties\": {\n          \"locationId\": \"<string>\",\n          \"phoneNumber\": \"<string>\",\n          \"extension\": \"<string>\"\n        }\n      }\n    ],\n    \"siteUrls\": [\n      {\n        \"siteUrl\": \"<string>\",\n        \"accountType\": \"attendee\",\n        \"operation\": \"remove\"\n      },\n      {\n        \"siteUrl\": \"<string>\",\n        \"accountType\": \"attendee\",\n        \"operation\": \"add\"\n      }\n    ]\n  }\n]",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/licenses/users",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "licenses",
+                        "users"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:47.000Z",
+                  "updatedAt": "2026-06-05T13:14:47.000Z",
+                  "uid": "35240-dd88f4af-1e07-4917-b0bc-f1002695371c"
+                },
+                {
+                  "id": "94a98bbf-d58a-4810-89f7-f9e2141e91fd",
+                  "name": "Partial success - some assignments failed.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n  {\n    \"email\": \"<email>\",\n    \"personId\": \"<string>\",\n    \"orgId\": \"<string>\",\n    \"licenses\": [\n      {\n        \"id\": \"<string>\",\n        \"operation\": \"add\",\n        \"properties\": {\n          \"locationId\": \"<string>\",\n          \"phoneNumber\": \"<string>\",\n          \"extension\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"operation\": \"add\",\n        \"properties\": {\n          \"locationId\": \"<string>\",\n          \"phoneNumber\": \"<string>\",\n          \"extension\": \"<string>\"\n        }\n      }\n    ],\n    \"siteUrls\": [\n      {\n        \"siteUrl\": \"<string>\",\n        \"accountType\": \"attendee\",\n        \"operation\": \"remove\"\n      },\n      {\n        \"siteUrl\": \"<string>\",\n        \"accountType\": \"attendee\",\n        \"operation\": \"add\"\n      }\n    ]\n  },\n  {\n    \"email\": \"<email>\",\n    \"personId\": \"<string>\",\n    \"orgId\": \"<string>\",\n    \"licenses\": [\n      {\n        \"id\": \"<string>\",\n        \"operation\": \"add\",\n        \"properties\": {\n          \"locationId\": \"<string>\",\n          \"phoneNumber\": \"<string>\",\n          \"extension\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"operation\": \"add\",\n        \"properties\": {\n          \"locationId\": \"<string>\",\n          \"phoneNumber\": \"<string>\",\n          \"extension\": \"<string>\"\n        }\n      }\n    ],\n    \"siteUrls\": [\n      {\n        \"siteUrl\": \"<string>\",\n        \"accountType\": \"attendee\",\n        \"operation\": \"remove\"\n      },\n      {\n        \"siteUrl\": \"<string>\",\n        \"accountType\": \"attendee\",\n        \"operation\": \"add\"\n      }\n    ]\n  }\n]",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/licenses/users",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "licenses",
+                        "users"
+                      ]
+                    }
+                  },
+                  "status": "Partial Content",
+                  "code": 206,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"email\": \"<string>\",\n    \"personId\": \"<string>\",\n    \"error\": {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  },\n  {\n    \"email\": \"<string>\",\n    \"personId\": \"<string>\",\n    \"error\": {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  }\n]",
+                  "createdAt": "2026-06-05T13:14:47.000Z",
+                  "updatedAt": "2026-06-05T13:14:47.000Z",
+                  "uid": "35240-94a98bbf-d58a-4810-89f7-f9e2141e91fd"
+                },
+                {
+                  "id": "8af7e747-7b6c-4fc8-b2e6-9a310a8d124c",
+                  "name": "Bad request - invalid input parameters.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n  {\n    \"email\": \"<email>\",\n    \"personId\": \"<string>\",\n    \"orgId\": \"<string>\",\n    \"licenses\": [\n      {\n        \"id\": \"<string>\",\n        \"operation\": \"add\",\n        \"properties\": {\n          \"locationId\": \"<string>\",\n          \"phoneNumber\": \"<string>\",\n          \"extension\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"operation\": \"add\",\n        \"properties\": {\n          \"locationId\": \"<string>\",\n          \"phoneNumber\": \"<string>\",\n          \"extension\": \"<string>\"\n        }\n      }\n    ],\n    \"siteUrls\": [\n      {\n        \"siteUrl\": \"<string>\",\n        \"accountType\": \"attendee\",\n        \"operation\": \"remove\"\n      },\n      {\n        \"siteUrl\": \"<string>\",\n        \"accountType\": \"attendee\",\n        \"operation\": \"add\"\n      }\n    ]\n  },\n  {\n    \"email\": \"<email>\",\n    \"personId\": \"<string>\",\n    \"orgId\": \"<string>\",\n    \"licenses\": [\n      {\n        \"id\": \"<string>\",\n        \"operation\": \"add\",\n        \"properties\": {\n          \"locationId\": \"<string>\",\n          \"phoneNumber\": \"<string>\",\n          \"extension\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"operation\": \"add\",\n        \"properties\": {\n          \"locationId\": \"<string>\",\n          \"phoneNumber\": \"<string>\",\n          \"extension\": \"<string>\"\n        }\n      }\n    ],\n    \"siteUrls\": [\n      {\n        \"siteUrl\": \"<string>\",\n        \"accountType\": \"attendee\",\n        \"operation\": \"remove\"\n      },\n      {\n        \"siteUrl\": \"<string>\",\n        \"accountType\": \"attendee\",\n        \"operation\": \"add\"\n      }\n    ]\n  }\n]",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/licenses/users",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "licenses",
+                        "users"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:47.000Z",
+                  "updatedAt": "2026-06-05T13:14:47.000Z",
+                  "uid": "35240-8af7e747-7b6c-4fc8-b2e6-9a310a8d124c"
+                },
+                {
+                  "id": "064a0951-2bd3-4b32-9d2a-b6ed73bb3e5d",
+                  "name": "Unauthorized - invalid or missing access token.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n  {\n    \"email\": \"<email>\",\n    \"personId\": \"<string>\",\n    \"orgId\": \"<string>\",\n    \"licenses\": [\n      {\n        \"id\": \"<string>\",\n        \"operation\": \"add\",\n        \"properties\": {\n          \"locationId\": \"<string>\",\n          \"phoneNumber\": \"<string>\",\n          \"extension\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"operation\": \"add\",\n        \"properties\": {\n          \"locationId\": \"<string>\",\n          \"phoneNumber\": \"<string>\",\n          \"extension\": \"<string>\"\n        }\n      }\n    ],\n    \"siteUrls\": [\n      {\n        \"siteUrl\": \"<string>\",\n        \"accountType\": \"attendee\",\n        \"operation\": \"remove\"\n      },\n      {\n        \"siteUrl\": \"<string>\",\n        \"accountType\": \"attendee\",\n        \"operation\": \"add\"\n      }\n    ]\n  },\n  {\n    \"email\": \"<email>\",\n    \"personId\": \"<string>\",\n    \"orgId\": \"<string>\",\n    \"licenses\": [\n      {\n        \"id\": \"<string>\",\n        \"operation\": \"add\",\n        \"properties\": {\n          \"locationId\": \"<string>\",\n          \"phoneNumber\": \"<string>\",\n          \"extension\": \"<string>\"\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"operation\": \"add\",\n        \"properties\": {\n          \"locationId\": \"<string>\",\n          \"phoneNumber\": \"<string>\",\n          \"extension\": \"<string>\"\n        }\n      }\n    ],\n    \"siteUrls\": [\n      {\n        \"siteUrl\": \"<string>\",\n        \"accountType\": \"attendee\",\n        \"operation\": \"remove\"\n      },\n      {\n        \"siteUrl\": \"<string>\",\n        \"accountType\": \"attendee\",\n        \"operation\": \"add\"\n      }\n    ]\n  }\n]",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/licenses/users",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "licenses",
+                        "users"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:47.000Z",
+                  "updatedAt": "2026-06-05T13:14:47.000Z",
+                  "uid": "35240-064a0951-2bd3-4b32-9d2a-b6ed73bb3e5d"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:47.000Z",
+              "updatedAt": "2026-06-05T13:14:47.000Z",
+              "uid": "35240-bf905d48-a80d-4f02-a364-0c4af7ae7ca8"
+            }
+          ],
+          "id": "ce73a07a-b585-4ab9-a406-d41b1cb4f6dd",
+          "createdAt": "2026-06-05T13:14:47.000Z",
+          "updatedAt": "2026-06-05T13:14:47.000Z",
+          "uid": "35240-ce73a07a-b585-4ab9-a406-d41b1cb4f6dd"
+        },
+        {
+          "name": "Cisco Webex List Licenses",
+          "id": "759a3a91-9f18-4850-8318-3427d9bfabe2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/licenses?orgId=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "licenses"
+              ],
+              "query": [
+                {
+                  "description": "Filter by organization ID.",
+                  "key": "orgId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Lists all licenses for the organization. Returns license name, total units, consumed units, and subscription details."
+          },
+          "response": [
+            {
+              "id": "dd039b6b-3030-48df-9d10-6563aee69ce1",
+              "name": "Successful response with list of licenses.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/licenses?orgId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "licenses"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by organization ID.",
+                      "key": "orgId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"totalUnits\": \"<integer>\",\n      \"consumedUnits\": \"<integer>\",\n      \"consumedByUsers\": \"<integer>\",\n      \"consumedByWorkspaces\": \"<integer>\",\n      \"subscriptionId\": \"<string>\",\n      \"siteUrl\": \"<string>\",\n      \"siteType\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"totalUnits\": \"<integer>\",\n      \"consumedUnits\": \"<integer>\",\n      \"consumedByUsers\": \"<integer>\",\n      \"consumedByWorkspaces\": \"<integer>\",\n      \"subscriptionId\": \"<string>\",\n      \"siteUrl\": \"<string>\",\n      \"siteType\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T13:14:47.000Z",
+              "updatedAt": "2026-06-05T13:14:47.000Z",
+              "uid": "35240-dd039b6b-3030-48df-9d10-6563aee69ce1"
+            },
+            {
+              "id": "72261054-aab6-4d41-822c-64323bbbadb9",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/licenses?orgId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "licenses"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by organization ID.",
+                      "key": "orgId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:47.000Z",
+              "updatedAt": "2026-06-05T13:14:47.000Z",
+              "uid": "35240-72261054-aab6-4d41-822c-64323bbbadb9"
+            }
+          ],
+          "createdAt": "2026-06-05T13:14:47.000Z",
+          "updatedAt": "2026-06-05T13:14:47.000Z",
+          "uid": "35240-759a3a91-9f18-4850-8318-3427d9bfabe2"
+        }
+      ],
+      "id": "f4119886-29e2-4a66-ac71-ec750133711b",
+      "createdAt": "2026-06-05T13:14:47.000Z",
+      "updatedAt": "2026-06-05T13:14:47.000Z",
+      "uid": "35240-f4119886-29e2-4a66-ac71-ec750133711b"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://webexapis.com/v1"
+    }
+  ]
+}

@@ -1,0 +1,1015 @@
+{
+  "info": {
+    "_postman_id": "27eb6ff8-18ee-4148-9649-819c83bd40e4",
+    "name": "Cisco Webex Messaging API",
+    "description": "Send and receive messages, manage spaces and teams, and share files within the Webex messaging platform. Supports rich text, file attachments, and adaptive cards.\n\nContact Support:\n Name: Cisco Webex Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:14:10.000Z",
+    "updatedAt": "2026-06-05T13:14:10.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-27eb6ff8-18ee-4148-9649-819c83bd40e4"
+  },
+  "item": [
+    {
+      "name": "messages",
+      "item": [
+        {
+          "name": "direct",
+          "item": [
+            {
+              "name": "Cisco Webex List Direct Messages",
+              "id": "b2b700d9-c376-4e71-876c-89273944fa2a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/messages/direct?personId=<string>&personEmail=<email>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages",
+                    "direct"
+                  ],
+                  "query": [
+                    {
+                      "description": "Person ID of the other participant in the direct conversation.",
+                      "key": "personId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Email address of the other participant in the direct conversation.",
+                      "key": "personEmail",
+                      "value": "<email>"
+                    }
+                  ]
+                },
+                "description": "Lists all messages in a 1:1 (direct) room with another person. The authenticated user must be a member of the direct conversation."
+              },
+              "response": [
+                {
+                  "id": "c233a8d0-2719-4d69-a92c-cea7f1dc2726",
+                  "name": "Successful response with list of direct messages.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/messages/direct?personId=<string>&personEmail=<email>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "messages",
+                        "direct"
+                      ],
+                      "query": [
+                        {
+                          "description": "Person ID of the other participant in the direct conversation.",
+                          "key": "personId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Email address of the other participant in the direct conversation.",
+                          "key": "personEmail",
+                          "value": "<email>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"parentId\": \"<string>\",\n      \"roomId\": \"<string>\",\n      \"roomType\": \"group\",\n      \"text\": \"<string>\",\n      \"markdown\": \"<string>\",\n      \"html\": \"<string>\",\n      \"files\": [\n        \"<uri>\",\n        \"<uri>\"\n      ],\n      \"personId\": \"<string>\",\n      \"personEmail\": \"<email>\",\n      \"mentionedPeople\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mentionedGroups\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"attachments\": [\n        {\n          \"contentType\": \"<string>\",\n          \"content\": {}\n        },\n        {\n          \"contentType\": \"<string>\",\n          \"content\": {}\n        }\n      ],\n      \"isVoiceClip\": \"<boolean>\",\n      \"created\": \"<dateTime>\",\n      \"updated\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"parentId\": \"<string>\",\n      \"roomId\": \"<string>\",\n      \"roomType\": \"direct\",\n      \"text\": \"<string>\",\n      \"markdown\": \"<string>\",\n      \"html\": \"<string>\",\n      \"files\": [\n        \"<uri>\",\n        \"<uri>\"\n      ],\n      \"personId\": \"<string>\",\n      \"personEmail\": \"<email>\",\n      \"mentionedPeople\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mentionedGroups\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"attachments\": [\n        {\n          \"contentType\": \"<string>\",\n          \"content\": {}\n        },\n        {\n          \"contentType\": \"<string>\",\n          \"content\": {}\n        }\n      ],\n      \"isVoiceClip\": \"<boolean>\",\n      \"created\": \"<dateTime>\",\n      \"updated\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:14:11.000Z",
+                  "updatedAt": "2026-06-05T13:14:11.000Z",
+                  "uid": "35240-c233a8d0-2719-4d69-a92c-cea7f1dc2726"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:11.000Z",
+              "updatedAt": "2026-06-05T13:14:11.000Z",
+              "uid": "35240-b2b700d9-c376-4e71-876c-89273944fa2a"
+            }
+          ],
+          "id": "067304c9-8111-4b5a-99cc-529649d2d2c1",
+          "createdAt": "2026-06-05T13:14:11.000Z",
+          "updatedAt": "2026-06-05T13:14:11.000Z",
+          "uid": "35240-067304c9-8111-4b5a-99cc-529649d2d2c1"
+        },
+        {
+          "name": "{messageId}",
+          "item": [
+            {
+              "name": "Cisco Webex Get Message Details",
+              "id": "c2cec3d6-b86f-420b-9c78-2870504476f6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/messages/:messageId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3bfe8a2f-4f22-418c-b099-2f603453aa62",
+                      "key": "messageId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the message."
+                    }
+                  ]
+                },
+                "description": "Shows details for a message by message ID. Specify the message ID in the URI. The returned message includes all content and metadata."
+              },
+              "response": [
+                {
+                  "id": "2abba743-7494-4fb8-83b2-6229adea5201",
+                  "name": "Successful response with message details.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/messages/:messageId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "messages",
+                        ":messageId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "messageId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"parentId\": \"<string>\",\n  \"roomId\": \"<string>\",\n  \"roomType\": \"direct\",\n  \"text\": \"<string>\",\n  \"markdown\": \"<string>\",\n  \"html\": \"<string>\",\n  \"files\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"personId\": \"<string>\",\n  \"personEmail\": \"<email>\",\n  \"mentionedPeople\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mentionedGroups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"attachments\": [\n    {\n      \"contentType\": \"<string>\",\n      \"content\": {}\n    },\n    {\n      \"contentType\": \"<string>\",\n      \"content\": {}\n    }\n  ],\n  \"isVoiceClip\": \"<boolean>\",\n  \"created\": \"<dateTime>\",\n  \"updated\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-06-05T13:14:11.000Z",
+                  "updatedAt": "2026-06-05T13:14:11.000Z",
+                  "uid": "35240-2abba743-7494-4fb8-83b2-6229adea5201"
+                },
+                {
+                  "id": "06da91a2-232b-4fc2-ae7d-03062e887281",
+                  "name": "Message not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/messages/:messageId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "messages",
+                        ":messageId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "messageId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:11.000Z",
+                  "updatedAt": "2026-06-05T13:14:11.000Z",
+                  "uid": "35240-06da91a2-232b-4fc2-ae7d-03062e887281"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:11.000Z",
+              "updatedAt": "2026-06-05T13:14:11.000Z",
+              "uid": "35240-c2cec3d6-b86f-420b-9c78-2870504476f6"
+            },
+            {
+              "name": "Cisco Webex Edit a Message",
+              "id": "f2925ce1-e779-4212-ab84-1fa682193f6a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roomId\": \"<string>\",\n  \"text\": \"<string>\",\n  \"markdown\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/messages/:messageId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c5c4e899-7355-4756-bb02-7ac1f30c052f",
+                      "key": "messageId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the message."
+                    }
+                  ]
+                },
+                "description": "Updates a message you have posted. Supports editing plain text and markdown content. Cannot edit messages with files or attachments. Maximum of 10 edits per message."
+              },
+              "response": [
+                {
+                  "id": "da562681-d768-4bc0-946d-9da31314696d",
+                  "name": "Message updated successfully.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"roomId\": \"<string>\",\n  \"text\": \"<string>\",\n  \"markdown\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/messages/:messageId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "messages",
+                        ":messageId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "messageId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"parentId\": \"<string>\",\n  \"roomId\": \"<string>\",\n  \"roomType\": \"direct\",\n  \"text\": \"<string>\",\n  \"markdown\": \"<string>\",\n  \"html\": \"<string>\",\n  \"files\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"personId\": \"<string>\",\n  \"personEmail\": \"<email>\",\n  \"mentionedPeople\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mentionedGroups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"attachments\": [\n    {\n      \"contentType\": \"<string>\",\n      \"content\": {}\n    },\n    {\n      \"contentType\": \"<string>\",\n      \"content\": {}\n    }\n  ],\n  \"isVoiceClip\": \"<boolean>\",\n  \"created\": \"<dateTime>\",\n  \"updated\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-06-05T13:14:11.000Z",
+                  "updatedAt": "2026-06-05T13:14:11.000Z",
+                  "uid": "35240-da562681-d768-4bc0-946d-9da31314696d"
+                },
+                {
+                  "id": "47e240fb-f8ba-4547-b4d2-e0bd6071bdc3",
+                  "name": "Bad request - invalid input parameters.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"roomId\": \"<string>\",\n  \"text\": \"<string>\",\n  \"markdown\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/messages/:messageId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "messages",
+                        ":messageId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "messageId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:11.000Z",
+                  "updatedAt": "2026-06-05T13:14:11.000Z",
+                  "uid": "35240-47e240fb-f8ba-4547-b4d2-e0bd6071bdc3"
+                },
+                {
+                  "id": "94c98507-1a57-46fd-9f25-fd6c1cc7bf6c",
+                  "name": "Message not found.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"roomId\": \"<string>\",\n  \"text\": \"<string>\",\n  \"markdown\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/messages/:messageId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "messages",
+                        ":messageId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "messageId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:11.000Z",
+                  "updatedAt": "2026-06-05T13:14:11.000Z",
+                  "uid": "35240-94c98507-1a57-46fd-9f25-fd6c1cc7bf6c"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:11.000Z",
+              "updatedAt": "2026-06-05T13:14:11.000Z",
+              "uid": "35240-f2925ce1-e779-4212-ab84-1fa682193f6a"
+            },
+            {
+              "name": "Cisco Webex Delete a Message",
+              "id": "383a58d0-e14d-4646-be8f-4c17bdb2b0d5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/messages/:messageId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages",
+                    ":messageId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "be1c6a85-0dbd-4d00-b503-bdea38434cbc",
+                      "key": "messageId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the message."
+                    }
+                  ]
+                },
+                "description": "Deletes a message by message ID. The deleted message will no longer be visible in the room. Moderators can delete any message; others can only delete their own."
+              },
+              "response": [
+                {
+                  "id": "57ea9189-00ae-413a-b87b-823321ad0b60",
+                  "name": "Message deleted successfully.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/messages/:messageId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "messages",
+                        ":messageId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "messageId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:11.000Z",
+                  "updatedAt": "2026-06-05T13:14:11.000Z",
+                  "uid": "35240-57ea9189-00ae-413a-b87b-823321ad0b60"
+                },
+                {
+                  "id": "77707e4a-dbe2-4d5f-87ff-46a27a84cb77",
+                  "name": "Message not found.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/messages/:messageId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "messages",
+                        ":messageId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "messageId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:11.000Z",
+                  "updatedAt": "2026-06-05T13:14:11.000Z",
+                  "uid": "35240-77707e4a-dbe2-4d5f-87ff-46a27a84cb77"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:11.000Z",
+              "updatedAt": "2026-06-05T13:14:11.000Z",
+              "uid": "35240-383a58d0-e14d-4646-be8f-4c17bdb2b0d5"
+            }
+          ],
+          "id": "5b89acef-f13d-4f27-a9e3-3630325873de",
+          "createdAt": "2026-06-05T13:14:11.000Z",
+          "updatedAt": "2026-06-05T13:14:11.000Z",
+          "uid": "35240-5b89acef-f13d-4f27-a9e3-3630325873de"
+        },
+        {
+          "name": "Cisco Webex List Messages",
+          "id": "08200559-28af-46fa-949c-03b78280ea0b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/messages?roomId=<string>&parentId=<string>&mentionedPeople=<string>&before=<dateTime>&beforeMessage=<string>&max=50",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "messages"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Unique identifier for the room to list messages from.",
+                  "key": "roomId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "List messages that are replies to the specified parent message.",
+                  "key": "parentId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "List messages where the specified person is mentioned. Use 'me' for the authenticated user.",
+                  "key": "mentionedPeople",
+                  "value": "<string>"
+                },
+                {
+                  "description": "List messages sent before a date and time in ISO 8601 format.",
+                  "key": "before",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "List messages sent before a specified message ID.",
+                  "key": "beforeMessage",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of messages to return (default 50, max 1000).",
+                  "key": "max",
+                  "value": "50"
+                }
+              ]
+            },
+            "description": "Lists all messages in a room. Each message includes content and metadata about the message. The list sorts the messages in descending order by creation date."
+          },
+          "response": [
+            {
+              "id": "9fdc3bb1-a376-4fb8-b320-c79ddef2cdc9",
+              "name": "Successful response with list of messages.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/messages?roomId=<string>&parentId=<string>&mentionedPeople=<string>&before=<dateTime>&beforeMessage=<string>&max=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Unique identifier for the room to list messages from.",
+                      "key": "roomId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "List messages that are replies to the specified parent message.",
+                      "key": "parentId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "List messages where the specified person is mentioned. Use 'me' for the authenticated user.",
+                      "key": "mentionedPeople",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "List messages sent before a date and time in ISO 8601 format.",
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "List messages sent before a specified message ID.",
+                      "key": "beforeMessage",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of messages to return (default 50, max 1000).",
+                      "key": "max",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"parentId\": \"<string>\",\n      \"roomId\": \"<string>\",\n      \"roomType\": \"group\",\n      \"text\": \"<string>\",\n      \"markdown\": \"<string>\",\n      \"html\": \"<string>\",\n      \"files\": [\n        \"<uri>\",\n        \"<uri>\"\n      ],\n      \"personId\": \"<string>\",\n      \"personEmail\": \"<email>\",\n      \"mentionedPeople\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mentionedGroups\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"attachments\": [\n        {\n          \"contentType\": \"<string>\",\n          \"content\": {}\n        },\n        {\n          \"contentType\": \"<string>\",\n          \"content\": {}\n        }\n      ],\n      \"isVoiceClip\": \"<boolean>\",\n      \"created\": \"<dateTime>\",\n      \"updated\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"parentId\": \"<string>\",\n      \"roomId\": \"<string>\",\n      \"roomType\": \"direct\",\n      \"text\": \"<string>\",\n      \"markdown\": \"<string>\",\n      \"html\": \"<string>\",\n      \"files\": [\n        \"<uri>\",\n        \"<uri>\"\n      ],\n      \"personId\": \"<string>\",\n      \"personEmail\": \"<email>\",\n      \"mentionedPeople\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"mentionedGroups\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"attachments\": [\n        {\n          \"contentType\": \"<string>\",\n          \"content\": {}\n        },\n        {\n          \"contentType\": \"<string>\",\n          \"content\": {}\n        }\n      ],\n      \"isVoiceClip\": \"<boolean>\",\n      \"created\": \"<dateTime>\",\n      \"updated\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T13:14:11.000Z",
+              "updatedAt": "2026-06-05T13:14:11.000Z",
+              "uid": "35240-9fdc3bb1-a376-4fb8-b320-c79ddef2cdc9"
+            },
+            {
+              "id": "e1dd1382-e5d0-42fd-8e27-6fcf95db5c3c",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/messages?roomId=<string>&parentId=<string>&mentionedPeople=<string>&before=<dateTime>&beforeMessage=<string>&max=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Unique identifier for the room to list messages from.",
+                      "key": "roomId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "List messages that are replies to the specified parent message.",
+                      "key": "parentId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "List messages where the specified person is mentioned. Use 'me' for the authenticated user.",
+                      "key": "mentionedPeople",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "List messages sent before a date and time in ISO 8601 format.",
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "List messages sent before a specified message ID.",
+                      "key": "beforeMessage",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of messages to return (default 50, max 1000).",
+                      "key": "max",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:11.000Z",
+              "updatedAt": "2026-06-05T13:14:11.000Z",
+              "uid": "35240-e1dd1382-e5d0-42fd-8e27-6fcf95db5c3c"
+            }
+          ],
+          "createdAt": "2026-06-05T13:14:11.000Z",
+          "updatedAt": "2026-06-05T13:14:11.000Z",
+          "uid": "35240-08200559-28af-46fa-949c-03b78280ea0b"
+        },
+        {
+          "name": "Cisco Webex Create a Message",
+          "id": "3b80f66d-f1e9-4785-b1ff-05d251549daa",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roomId\": \"<string>\",\n  \"toPersonId\": \"<string>\",\n  \"toPersonEmail\": \"<email>\",\n  \"parentId\": \"<string>\",\n  \"text\": \"<string>\",\n  \"markdown\": \"<string>\",\n  \"files\": [\n    \"<uri>\"\n  ],\n  \"attachments\": [\n    {\n      \"contentType\": \"<string>\",\n      \"content\": {}\n    },\n    {\n      \"contentType\": \"<string>\",\n      \"content\": {}\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/messages",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "messages"
+              ]
+            },
+            "description": "Posts a plain text, rich text, or card message to a room. Messages can include file attachments and adaptive cards. The files parameter is limited to one file per message."
+          },
+          "response": [
+            {
+              "id": "b88e6782-be19-4320-b987-d58a6f82e5e1",
+              "name": "Message created successfully.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roomId\": \"<string>\",\n  \"toPersonId\": \"<string>\",\n  \"toPersonEmail\": \"<email>\",\n  \"parentId\": \"<string>\",\n  \"text\": \"<string>\",\n  \"markdown\": \"<string>\",\n  \"files\": [\n    \"<uri>\"\n  ],\n  \"attachments\": [\n    {\n      \"contentType\": \"<string>\",\n      \"content\": {}\n    },\n    {\n      \"contentType\": \"<string>\",\n      \"content\": {}\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/messages",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"parentId\": \"<string>\",\n  \"roomId\": \"<string>\",\n  \"roomType\": \"direct\",\n  \"text\": \"<string>\",\n  \"markdown\": \"<string>\",\n  \"html\": \"<string>\",\n  \"files\": [\n    \"<uri>\",\n    \"<uri>\"\n  ],\n  \"personId\": \"<string>\",\n  \"personEmail\": \"<email>\",\n  \"mentionedPeople\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mentionedGroups\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"attachments\": [\n    {\n      \"contentType\": \"<string>\",\n      \"content\": {}\n    },\n    {\n      \"contentType\": \"<string>\",\n      \"content\": {}\n    }\n  ],\n  \"isVoiceClip\": \"<boolean>\",\n  \"created\": \"<dateTime>\",\n  \"updated\": \"<dateTime>\"\n}",
+              "createdAt": "2026-06-05T13:14:11.000Z",
+              "updatedAt": "2026-06-05T13:14:11.000Z",
+              "uid": "35240-b88e6782-be19-4320-b987-d58a6f82e5e1"
+            },
+            {
+              "id": "708ce0f9-62d2-4f66-bb59-63b367d6e5c2",
+              "name": "Bad request - invalid input parameters.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roomId\": \"<string>\",\n  \"toPersonId\": \"<string>\",\n  \"toPersonEmail\": \"<email>\",\n  \"parentId\": \"<string>\",\n  \"text\": \"<string>\",\n  \"markdown\": \"<string>\",\n  \"files\": [\n    \"<uri>\"\n  ],\n  \"attachments\": [\n    {\n      \"contentType\": \"<string>\",\n      \"content\": {}\n    },\n    {\n      \"contentType\": \"<string>\",\n      \"content\": {}\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/messages",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:11.000Z",
+              "updatedAt": "2026-06-05T13:14:11.000Z",
+              "uid": "35240-708ce0f9-62d2-4f66-bb59-63b367d6e5c2"
+            },
+            {
+              "id": "a4764f0b-c210-41a8-8a39-093dce494d92",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roomId\": \"<string>\",\n  \"toPersonId\": \"<string>\",\n  \"toPersonEmail\": \"<email>\",\n  \"parentId\": \"<string>\",\n  \"text\": \"<string>\",\n  \"markdown\": \"<string>\",\n  \"files\": [\n    \"<uri>\"\n  ],\n  \"attachments\": [\n    {\n      \"contentType\": \"<string>\",\n      \"content\": {}\n    },\n    {\n      \"contentType\": \"<string>\",\n      \"content\": {}\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/messages",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:11.000Z",
+              "updatedAt": "2026-06-05T13:14:11.000Z",
+              "uid": "35240-a4764f0b-c210-41a8-8a39-093dce494d92"
+            }
+          ],
+          "createdAt": "2026-06-05T13:14:11.000Z",
+          "updatedAt": "2026-06-05T13:14:11.000Z",
+          "uid": "35240-3b80f66d-f1e9-4785-b1ff-05d251549daa"
+        }
+      ],
+      "id": "8683fb5d-373e-4ac8-920a-b25b7d96aa38",
+      "createdAt": "2026-06-05T13:14:11.000Z",
+      "updatedAt": "2026-06-05T13:14:11.000Z",
+      "uid": "35240-8683fb5d-373e-4ac8-920a-b25b7d96aa38"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://webexapis.com/v1"
+    }
+  ]
+}

@@ -1,0 +1,967 @@
+{
+  "info": {
+    "_postman_id": "73885fb4-682f-460e-979e-1abe9cf64a4c",
+    "name": "Cisco Webex Workspaces API",
+    "description": "Manage workspaces representing physical locations with Webex devices. Provides endpoints to create, list, update, and delete workspaces and manage their associated device configurations.\n\nContact Support:\n Name: Cisco Webex Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:14:50.000Z",
+    "updatedAt": "2026-06-05T13:14:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-73885fb4-682f-460e-979e-1abe9cf64a4c"
+  },
+  "item": [
+    {
+      "name": "workspaces",
+      "item": [
+        {
+          "name": "{workspaceId}",
+          "item": [
+            {
+              "name": "Cisco Webex Get Workspace Details",
+              "id": "42d623b3-a946-4ff0-ac21-ee9b70b9d56c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workspaces",
+                    ":workspaceId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "ac1724f6-1e7e-4e2e-af05-fa9628b81d3f",
+                      "key": "workspaceId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the workspace."
+                    }
+                  ]
+                },
+                "description": "Shows details for a workspace by ID. Returns the workspace configuration, device assignments, and metadata."
+              },
+              "response": [
+                {
+                  "id": "4268d247-3a48-4297-b06b-57e77454dda4",
+                  "name": "Successful response with workspace details.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workspaces",
+                        ":workspaceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "workspaceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"orgId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"workspaceLocationId\": \"<string>\",\n  \"floorId\": \"<string>\",\n  \"capacity\": \"<integer>\",\n  \"type\": \"other\",\n  \"sipAddress\": \"<string>\",\n  \"calling\": {\n    \"type\": \"none\",\n    \"hybridCalling\": {\n      \"emailAddress\": \"<email>\"\n    }\n  },\n  \"calendar\": {\n    \"type\": \"google\",\n    \"emailAddress\": \"<email>\"\n  },\n  \"notes\": \"<string>\",\n  \"created\": \"<dateTime>\",\n  \"lastModified\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-06-05T13:14:51.000Z",
+                  "updatedAt": "2026-06-05T13:14:51.000Z",
+                  "uid": "35240-4268d247-3a48-4297-b06b-57e77454dda4"
+                },
+                {
+                  "id": "74c34608-fafb-4b15-97f4-250801be6f54",
+                  "name": "Workspace not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workspaces",
+                        ":workspaceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "workspaceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:51.000Z",
+                  "updatedAt": "2026-06-05T13:14:51.000Z",
+                  "uid": "35240-74c34608-fafb-4b15-97f4-250801be6f54"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:51.000Z",
+              "updatedAt": "2026-06-05T13:14:51.000Z",
+              "uid": "35240-42d623b3-a946-4ff0-ac21-ee9b70b9d56c"
+            },
+            {
+              "name": "Cisco Webex Update a Workspace",
+              "id": "00c0647a-fa14-4574-aaf7-6a8a7d5efe62",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"workspaceLocationId\": \"<string>\",\n  \"floorId\": \"<string>\",\n  \"capacity\": \"<integer>\",\n  \"type\": \"open\",\n  \"calling\": {\n    \"type\": \"freeCalling\"\n  },\n  \"calendar\": {\n    \"type\": \"microsoft\",\n    \"emailAddress\": \"<email>\"\n  },\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workspaces",
+                    ":workspaceId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "4cad7b00-f6c0-465c-bafc-d551014feae6",
+                      "key": "workspaceId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the workspace."
+                    }
+                  ]
+                },
+                "description": "Updates details for a workspace by ID. Allows modifying display name, capacity, type, calling, and calendar settings."
+              },
+              "response": [
+                {
+                  "id": "c6dfd4d0-d285-4783-836d-43e2fb1f1ed1",
+                  "name": "Workspace updated successfully.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"displayName\": \"<string>\",\n  \"workspaceLocationId\": \"<string>\",\n  \"floorId\": \"<string>\",\n  \"capacity\": \"<integer>\",\n  \"type\": \"open\",\n  \"calling\": {\n    \"type\": \"freeCalling\"\n  },\n  \"calendar\": {\n    \"type\": \"microsoft\",\n    \"emailAddress\": \"<email>\"\n  },\n  \"notes\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workspaces",
+                        ":workspaceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "workspaceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"orgId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"workspaceLocationId\": \"<string>\",\n  \"floorId\": \"<string>\",\n  \"capacity\": \"<integer>\",\n  \"type\": \"other\",\n  \"sipAddress\": \"<string>\",\n  \"calling\": {\n    \"type\": \"none\",\n    \"hybridCalling\": {\n      \"emailAddress\": \"<email>\"\n    }\n  },\n  \"calendar\": {\n    \"type\": \"google\",\n    \"emailAddress\": \"<email>\"\n  },\n  \"notes\": \"<string>\",\n  \"created\": \"<dateTime>\",\n  \"lastModified\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-06-05T13:14:51.000Z",
+                  "updatedAt": "2026-06-05T13:14:51.000Z",
+                  "uid": "35240-c6dfd4d0-d285-4783-836d-43e2fb1f1ed1"
+                },
+                {
+                  "id": "d2bbf04d-e22d-4afa-8d81-8753526026cf",
+                  "name": "Bad request - invalid input parameters.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"displayName\": \"<string>\",\n  \"workspaceLocationId\": \"<string>\",\n  \"floorId\": \"<string>\",\n  \"capacity\": \"<integer>\",\n  \"type\": \"open\",\n  \"calling\": {\n    \"type\": \"freeCalling\"\n  },\n  \"calendar\": {\n    \"type\": \"microsoft\",\n    \"emailAddress\": \"<email>\"\n  },\n  \"notes\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workspaces",
+                        ":workspaceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "workspaceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:51.000Z",
+                  "updatedAt": "2026-06-05T13:14:51.000Z",
+                  "uid": "35240-d2bbf04d-e22d-4afa-8d81-8753526026cf"
+                },
+                {
+                  "id": "45596b0c-54e9-4344-add7-ac13c9acbc40",
+                  "name": "Workspace not found.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"displayName\": \"<string>\",\n  \"workspaceLocationId\": \"<string>\",\n  \"floorId\": \"<string>\",\n  \"capacity\": \"<integer>\",\n  \"type\": \"open\",\n  \"calling\": {\n    \"type\": \"freeCalling\"\n  },\n  \"calendar\": {\n    \"type\": \"microsoft\",\n    \"emailAddress\": \"<email>\"\n  },\n  \"notes\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workspaces",
+                        ":workspaceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "workspaceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:51.000Z",
+                  "updatedAt": "2026-06-05T13:14:51.000Z",
+                  "uid": "35240-45596b0c-54e9-4344-add7-ac13c9acbc40"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:51.000Z",
+              "updatedAt": "2026-06-05T13:14:51.000Z",
+              "uid": "35240-00c0647a-fa14-4574-aaf7-6a8a7d5efe62"
+            },
+            {
+              "name": "Cisco Webex Delete a Workspace",
+              "id": "fdc0c1b7-728c-474f-b4d8-915abec1c3d1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workspaces",
+                    ":workspaceId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "5e7de831-7ecb-412d-a3a4-696e4e87ab6e",
+                      "key": "workspaceId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the workspace."
+                    }
+                  ]
+                },
+                "description": "Deletes a workspace by ID. The workspace and its associated device configurations are removed. Devices remain but become unassigned."
+              },
+              "response": [
+                {
+                  "id": "ae03800b-e0de-4bdd-aa48-b01681562a30",
+                  "name": "Workspace deleted successfully.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workspaces",
+                        ":workspaceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "workspaceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:51.000Z",
+                  "updatedAt": "2026-06-05T13:14:51.000Z",
+                  "uid": "35240-ae03800b-e0de-4bdd-aa48-b01681562a30"
+                },
+                {
+                  "id": "6da90c75-5e5e-4101-b272-686e1455f076",
+                  "name": "Workspace not found.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workspaces",
+                        ":workspaceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "workspaceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:51.000Z",
+                  "updatedAt": "2026-06-05T13:14:51.000Z",
+                  "uid": "35240-6da90c75-5e5e-4101-b272-686e1455f076"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:51.000Z",
+              "updatedAt": "2026-06-05T13:14:51.000Z",
+              "uid": "35240-fdc0c1b7-728c-474f-b4d8-915abec1c3d1"
+            }
+          ],
+          "id": "5a97ba09-6cd6-4952-bc96-b745432f7392",
+          "createdAt": "2026-06-05T13:14:51.000Z",
+          "updatedAt": "2026-06-05T13:14:51.000Z",
+          "uid": "35240-5a97ba09-6cd6-4952-bc96-b745432f7392"
+        },
+        {
+          "name": "Cisco Webex List Workspaces",
+          "id": "826a7c43-c2fd-4b05-b9ef-c4b2f35cf1e6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/workspaces?displayName=<string>&workspaceLocationId=<string>&floorId=<string>&capacity=<integer>&type=other&callingType=webexEdgeForDevices&calendarType=microsoft&orgId=<string>&start=<integer>&max=100",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "workspaces"
+              ],
+              "query": [
+                {
+                  "description": "Filter by workspace display name.",
+                  "key": "displayName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by workspace location ID.",
+                  "key": "workspaceLocationId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by floor ID.",
+                  "key": "floorId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by workspace capacity.",
+                  "key": "capacity",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by workspace type.",
+                  "key": "type",
+                  "value": "other"
+                },
+                {
+                  "description": "Filter by calling type.",
+                  "key": "callingType",
+                  "value": "webexEdgeForDevices"
+                },
+                {
+                  "description": "Filter by calendar type.",
+                  "key": "calendarType",
+                  "value": "microsoft"
+                },
+                {
+                  "description": "Filter by organization ID.",
+                  "key": "orgId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Offset for pagination.",
+                  "key": "start",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Maximum number of workspaces to return (default 100).",
+                  "key": "max",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "Lists workspaces in the organization. Supports filtering by display name, workspace location ID, floor ID, capacity, type, calling type, and calendar type. Results are paginated."
+          },
+          "response": [
+            {
+              "id": "2286c9c2-c4a0-4efc-9e88-b61ccb7356cb",
+              "name": "Successful response with list of workspaces.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/workspaces?displayName=<string>&workspaceLocationId=<string>&floorId=<string>&capacity=<integer>&type=other&callingType=webexEdgeForDevices&calendarType=microsoft&orgId=<string>&start=<integer>&max=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workspaces"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by workspace display name.",
+                      "key": "displayName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by workspace location ID.",
+                      "key": "workspaceLocationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by floor ID.",
+                      "key": "floorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by workspace capacity.",
+                      "key": "capacity",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by workspace type.",
+                      "key": "type",
+                      "value": "other"
+                    },
+                    {
+                      "description": "Filter by calling type.",
+                      "key": "callingType",
+                      "value": "webexEdgeForDevices"
+                    },
+                    {
+                      "description": "Filter by calendar type.",
+                      "key": "calendarType",
+                      "value": "microsoft"
+                    },
+                    {
+                      "description": "Filter by organization ID.",
+                      "key": "orgId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Offset for pagination.",
+                      "key": "start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Maximum number of workspaces to return (default 100).",
+                      "key": "max",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"orgId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"workspaceLocationId\": \"<string>\",\n      \"floorId\": \"<string>\",\n      \"capacity\": \"<integer>\",\n      \"type\": \"focus\",\n      \"sipAddress\": \"<string>\",\n      \"calling\": {\n        \"type\": \"none\",\n        \"hybridCalling\": {\n          \"emailAddress\": \"<email>\"\n        }\n      },\n      \"calendar\": {\n        \"type\": \"none\",\n        \"emailAddress\": \"<email>\"\n      },\n      \"notes\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"lastModified\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"orgId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"workspaceLocationId\": \"<string>\",\n      \"floorId\": \"<string>\",\n      \"capacity\": \"<integer>\",\n      \"type\": \"meetingRoom\",\n      \"sipAddress\": \"<string>\",\n      \"calling\": {\n        \"type\": \"webexCalling\",\n        \"hybridCalling\": {\n          \"emailAddress\": \"<email>\"\n        }\n      },\n      \"calendar\": {\n        \"type\": \"none\",\n        \"emailAddress\": \"<email>\"\n      },\n      \"notes\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"lastModified\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T13:14:51.000Z",
+              "updatedAt": "2026-06-05T13:14:51.000Z",
+              "uid": "35240-2286c9c2-c4a0-4efc-9e88-b61ccb7356cb"
+            },
+            {
+              "id": "6ff6a744-52df-4923-9fc3-ecd89fd92fbf",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/workspaces?displayName=<string>&workspaceLocationId=<string>&floorId=<string>&capacity=<integer>&type=other&callingType=webexEdgeForDevices&calendarType=microsoft&orgId=<string>&start=<integer>&max=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workspaces"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by workspace display name.",
+                      "key": "displayName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by workspace location ID.",
+                      "key": "workspaceLocationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by floor ID.",
+                      "key": "floorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by workspace capacity.",
+                      "key": "capacity",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by workspace type.",
+                      "key": "type",
+                      "value": "other"
+                    },
+                    {
+                      "description": "Filter by calling type.",
+                      "key": "callingType",
+                      "value": "webexEdgeForDevices"
+                    },
+                    {
+                      "description": "Filter by calendar type.",
+                      "key": "calendarType",
+                      "value": "microsoft"
+                    },
+                    {
+                      "description": "Filter by organization ID.",
+                      "key": "orgId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Offset for pagination.",
+                      "key": "start",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Maximum number of workspaces to return (default 100).",
+                      "key": "max",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:51.000Z",
+              "updatedAt": "2026-06-05T13:14:51.000Z",
+              "uid": "35240-6ff6a744-52df-4923-9fc3-ecd89fd92fbf"
+            }
+          ],
+          "createdAt": "2026-06-05T13:14:51.000Z",
+          "updatedAt": "2026-06-05T13:14:51.000Z",
+          "uid": "35240-826a7c43-c2fd-4b05-b9ef-c4b2f35cf1e6"
+        },
+        {
+          "name": "Cisco Webex Create a Workspace",
+          "id": "3cf52b12-31c5-4e1c-be37-e1f70fc0f545",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"<string>\",\n  \"orgId\": \"<string>\",\n  \"workspaceLocationId\": \"<string>\",\n  \"floorId\": \"<string>\",\n  \"capacity\": \"<integer>\",\n  \"type\": \"huddle\",\n  \"calling\": {\n    \"type\": \"hybridCalling\"\n  },\n  \"calendar\": {\n    \"type\": \"google\",\n    \"emailAddress\": \"<email>\"\n  },\n  \"notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/workspaces",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "workspaces"
+              ]
+            },
+            "description": "Creates a new workspace representing a physical location with Webex devices. The workspace can be configured with capacity, type, calling, and calendar settings."
+          },
+          "response": [
+            {
+              "id": "1de4ec64-6d37-4451-8145-ac7770d1516f",
+              "name": "Workspace created successfully.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"orgId\": \"<string>\",\n  \"workspaceLocationId\": \"<string>\",\n  \"floorId\": \"<string>\",\n  \"capacity\": \"<integer>\",\n  \"type\": \"huddle\",\n  \"calling\": {\n    \"type\": \"hybridCalling\"\n  },\n  \"calendar\": {\n    \"type\": \"google\",\n    \"emailAddress\": \"<email>\"\n  },\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/workspaces",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workspaces"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"orgId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"workspaceLocationId\": \"<string>\",\n  \"floorId\": \"<string>\",\n  \"capacity\": \"<integer>\",\n  \"type\": \"other\",\n  \"sipAddress\": \"<string>\",\n  \"calling\": {\n    \"type\": \"none\",\n    \"hybridCalling\": {\n      \"emailAddress\": \"<email>\"\n    }\n  },\n  \"calendar\": {\n    \"type\": \"google\",\n    \"emailAddress\": \"<email>\"\n  },\n  \"notes\": \"<string>\",\n  \"created\": \"<dateTime>\",\n  \"lastModified\": \"<dateTime>\"\n}",
+              "createdAt": "2026-06-05T13:14:51.000Z",
+              "updatedAt": "2026-06-05T13:14:51.000Z",
+              "uid": "35240-1de4ec64-6d37-4451-8145-ac7770d1516f"
+            },
+            {
+              "id": "79d8f2db-1b98-4179-8499-21b180861ec9",
+              "name": "Bad request - invalid input parameters.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"orgId\": \"<string>\",\n  \"workspaceLocationId\": \"<string>\",\n  \"floorId\": \"<string>\",\n  \"capacity\": \"<integer>\",\n  \"type\": \"huddle\",\n  \"calling\": {\n    \"type\": \"hybridCalling\"\n  },\n  \"calendar\": {\n    \"type\": \"google\",\n    \"emailAddress\": \"<email>\"\n  },\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/workspaces",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workspaces"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:51.000Z",
+              "updatedAt": "2026-06-05T13:14:51.000Z",
+              "uid": "35240-79d8f2db-1b98-4179-8499-21b180861ec9"
+            },
+            {
+              "id": "49538a4f-dd09-4847-82c1-4d433be36f7b",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"orgId\": \"<string>\",\n  \"workspaceLocationId\": \"<string>\",\n  \"floorId\": \"<string>\",\n  \"capacity\": \"<integer>\",\n  \"type\": \"huddle\",\n  \"calling\": {\n    \"type\": \"hybridCalling\"\n  },\n  \"calendar\": {\n    \"type\": \"google\",\n    \"emailAddress\": \"<email>\"\n  },\n  \"notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/workspaces",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workspaces"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:51.000Z",
+              "updatedAt": "2026-06-05T13:14:51.000Z",
+              "uid": "35240-49538a4f-dd09-4847-82c1-4d433be36f7b"
+            }
+          ],
+          "createdAt": "2026-06-05T13:14:51.000Z",
+          "updatedAt": "2026-06-05T13:14:51.000Z",
+          "uid": "35240-3cf52b12-31c5-4e1c-be37-e1f70fc0f545"
+        }
+      ],
+      "id": "2954800b-1008-4872-9458-98ba2c259bde",
+      "createdAt": "2026-06-05T13:14:51.000Z",
+      "updatedAt": "2026-06-05T13:14:51.000Z",
+      "uid": "35240-2954800b-1008-4872-9458-98ba2c259bde"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://webexapis.com/v1"
+    }
+  ]
+}

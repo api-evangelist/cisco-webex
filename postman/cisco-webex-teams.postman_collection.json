@@ -1,0 +1,832 @@
+{
+  "info": {
+    "_postman_id": "afe8486e-d181-4471-99c7-865a4644bdfa",
+    "name": "Cisco Webex Teams API",
+    "description": "Create and manage teams and team memberships within Webex. Teams group people and spaces together for organized collaboration across projects and departments.\n\nContact Support:\n Name: Cisco Webex Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:14:12.000Z",
+    "updatedAt": "2026-06-05T13:14:13.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-afe8486e-d181-4471-99c7-865a4644bdfa"
+  },
+  "item": [
+    {
+      "name": "teams",
+      "item": [
+        {
+          "name": "{teamId}",
+          "item": [
+            {
+              "name": "Cisco Webex Get Team Details",
+              "id": "4c45674c-b96d-4c71-b2d0-43a8d72febbe",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/teams/:teamId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams",
+                    ":teamId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "891b2502-5832-40c3-bc53-97bd452658c6",
+                      "key": "teamId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the team."
+                    }
+                  ]
+                },
+                "description": "Shows details for a team by ID. Only members of the team can view team details."
+              },
+              "response": [
+                {
+                  "id": "1b358260-c2d0-4c56-9c55-eaa4dd22357f",
+                  "name": "Successful response with team details.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:teamId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":teamId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "teamId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"creatorId\": \"<string>\",\n  \"created\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-06-05T13:14:13.000Z",
+                  "updatedAt": "2026-06-05T13:14:13.000Z",
+                  "uid": "35240-1b358260-c2d0-4c56-9c55-eaa4dd22357f"
+                },
+                {
+                  "id": "5888cf2d-1bca-4b8d-96b4-098b79878ebf",
+                  "name": "Team not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:teamId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":teamId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "teamId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:13.000Z",
+                  "updatedAt": "2026-06-05T13:14:13.000Z",
+                  "uid": "35240-5888cf2d-1bca-4b8d-96b4-098b79878ebf"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:13.000Z",
+              "updatedAt": "2026-06-05T13:14:13.000Z",
+              "uid": "35240-4c45674c-b96d-4c71-b2d0-43a8d72febbe"
+            },
+            {
+              "name": "Cisco Webex Update a Team",
+              "id": "e5ec3533-d0b0-4d89-a827-0d7d8b782a21",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/teams/:teamId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams",
+                    ":teamId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "e7bc5c74-db8b-47fe-b3a0-d9d5ab8fb393",
+                      "key": "teamId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the team."
+                    }
+                  ]
+                },
+                "description": "Updates details for a team by ID. Only team moderators can update team properties such as name and description."
+              },
+              "response": [
+                {
+                  "id": "f9b97758-2062-4aaf-9ca1-96e6d90628ea",
+                  "name": "Team updated successfully.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:teamId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":teamId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "teamId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"creatorId\": \"<string>\",\n  \"created\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-06-05T13:14:13.000Z",
+                  "updatedAt": "2026-06-05T13:14:13.000Z",
+                  "uid": "35240-f9b97758-2062-4aaf-9ca1-96e6d90628ea"
+                },
+                {
+                  "id": "61de0514-13bb-49fb-a76f-9433aaf130a5",
+                  "name": "Bad request - invalid input parameters.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:teamId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":teamId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "teamId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:13.000Z",
+                  "updatedAt": "2026-06-05T13:14:13.000Z",
+                  "uid": "35240-61de0514-13bb-49fb-a76f-9433aaf130a5"
+                },
+                {
+                  "id": "8366b22e-00d8-4070-8473-31a3d632ecbb",
+                  "name": "Team not found.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:teamId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":teamId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "teamId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:13.000Z",
+                  "updatedAt": "2026-06-05T13:14:13.000Z",
+                  "uid": "35240-8366b22e-00d8-4070-8473-31a3d632ecbb"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:13.000Z",
+              "updatedAt": "2026-06-05T13:14:13.000Z",
+              "uid": "35240-e5ec3533-d0b0-4d89-a827-0d7d8b782a21"
+            },
+            {
+              "name": "Cisco Webex Delete a Team",
+              "id": "d0b0f31d-8896-42ea-98e5-da73faf89b0f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/teams/:teamId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams",
+                    ":teamId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "5646bcd3-3871-4cd9-9228-441464ce75c2",
+                      "key": "teamId",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier for the team."
+                    }
+                  ]
+                },
+                "description": "Deletes a team by ID. Deleting a team also deletes all team memberships and associated spaces. Only team moderators can delete a team."
+              },
+              "response": [
+                {
+                  "id": "0a0a6bb5-f19a-4775-a688-846b03c4aac8",
+                  "name": "Team deleted successfully.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:teamId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":teamId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "teamId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:13.000Z",
+                  "updatedAt": "2026-06-05T13:14:13.000Z",
+                  "uid": "35240-0a0a6bb5-f19a-4775-a688-846b03c4aac8"
+                },
+                {
+                  "id": "a654712d-4623-4fcf-aed6-3b8a6c697514",
+                  "name": "Team not found.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/teams/:teamId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "teams",
+                        ":teamId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "teamId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T13:14:13.000Z",
+                  "updatedAt": "2026-06-05T13:14:13.000Z",
+                  "uid": "35240-a654712d-4623-4fcf-aed6-3b8a6c697514"
+                }
+              ],
+              "createdAt": "2026-06-05T13:14:13.000Z",
+              "updatedAt": "2026-06-05T13:14:13.000Z",
+              "uid": "35240-d0b0f31d-8896-42ea-98e5-da73faf89b0f"
+            }
+          ],
+          "id": "dea8b1c4-eb73-45ff-a4e0-c5ae07a5dd6d",
+          "createdAt": "2026-06-05T13:14:13.000Z",
+          "updatedAt": "2026-06-05T13:14:13.000Z",
+          "uid": "35240-dea8b1c4-eb73-45ff-a4e0-c5ae07a5dd6d"
+        },
+        {
+          "name": "Cisco Webex List Teams",
+          "id": "7c36dc5f-e3b8-496c-a63e-72f3ec37d2a4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/teams?max=100",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "teams"
+              ],
+              "query": [
+                {
+                  "description": "Maximum number of teams to return (default 100).",
+                  "key": "max",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "Lists teams to which the authenticated user belongs. Results are paginated and sorted by the most recent activity."
+          },
+          "response": [
+            {
+              "id": "dc13c11a-d9c2-4cb8-9d61-35b150b07378",
+              "name": "Successful response with list of teams.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/teams?max=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of teams to return (default 100).",
+                      "key": "max",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"creatorId\": \"<string>\",\n      \"created\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"creatorId\": \"<string>\",\n      \"created\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T13:14:13.000Z",
+              "updatedAt": "2026-06-05T13:14:13.000Z",
+              "uid": "35240-dc13c11a-d9c2-4cb8-9d61-35b150b07378"
+            },
+            {
+              "id": "572484f4-a92e-4483-a630-cff7970e91d3",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/teams?max=100",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of teams to return (default 100).",
+                      "key": "max",
+                      "value": "100"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:13.000Z",
+              "updatedAt": "2026-06-05T13:14:13.000Z",
+              "uid": "35240-572484f4-a92e-4483-a630-cff7970e91d3"
+            }
+          ],
+          "createdAt": "2026-06-05T13:14:13.000Z",
+          "updatedAt": "2026-06-05T13:14:13.000Z",
+          "uid": "35240-7c36dc5f-e3b8-496c-a63e-72f3ec37d2a4"
+        },
+        {
+          "name": "Cisco Webex Create a Team",
+          "id": "77077693-c579-4e31-bd86-9390f9846299",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/teams",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "teams"
+              ]
+            },
+            "description": "Creates a new team. The authenticated user is automatically added as a member and moderator of the team. A General space is also created for the team."
+          },
+          "response": [
+            {
+              "id": "44ae7b8f-7199-4fa7-ae6c-b3becd085b46",
+              "name": "Team created successfully.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/teams",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"creatorId\": \"<string>\",\n  \"created\": \"<dateTime>\"\n}",
+              "createdAt": "2026-06-05T13:14:13.000Z",
+              "updatedAt": "2026-06-05T13:14:13.000Z",
+              "uid": "35240-44ae7b8f-7199-4fa7-ae6c-b3becd085b46"
+            },
+            {
+              "id": "2765b3d6-b6ac-4efa-be73-d696bd338363",
+              "name": "Bad request - invalid input parameters.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/teams",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:13.000Z",
+              "updatedAt": "2026-06-05T13:14:13.000Z",
+              "uid": "35240-2765b3d6-b6ac-4efa-be73-d696bd338363"
+            },
+            {
+              "id": "43746f5f-148d-44a7-95cf-0b8851150d80",
+              "name": "Unauthorized - invalid or missing access token.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/teams",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T13:14:13.000Z",
+              "updatedAt": "2026-06-05T13:14:13.000Z",
+              "uid": "35240-43746f5f-148d-44a7-95cf-0b8851150d80"
+            }
+          ],
+          "createdAt": "2026-06-05T13:14:13.000Z",
+          "updatedAt": "2026-06-05T13:14:13.000Z",
+          "uid": "35240-77077693-c579-4e31-bd86-9390f9846299"
+        }
+      ],
+      "id": "b9928f5c-d789-4a85-90c5-41ed99c3e815",
+      "createdAt": "2026-06-05T13:14:13.000Z",
+      "updatedAt": "2026-06-05T13:14:13.000Z",
+      "uid": "35240-b9928f5c-d789-4a85-90c5-41ed99c3e815"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://webexapis.com/v1"
+    }
+  ]
+}
