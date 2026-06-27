@@ -392,39 +392,36 @@ apis:
 common:
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/cisco-webex/overview
-  - type: ArazzoWorkflows
-    url: arazzo/
-    workflows:
-      - url: arazzo/cisco-webex-add-person-to-team-and-team-room-workflow.yml
-        name: Cisco Webex Add Person to Team and a Team Room
-        summary: Find a person by email, add them to a team, and add them to a team room.
-      - url: arazzo/cisco-webex-create-room-add-member-post-message-workflow.yml
-        name: Cisco Webex Create Room, Add Member, and Post Message
-        summary: Create a new space, add a person to it, and post an opening message.
-      - url: arazzo/cisco-webex-create-team-and-team-room-workflow.yml
-        name: Cisco Webex Create Team and Team Room
-        summary: Create a team and a room scoped to that team, then announce it.
-      - url: arazzo/cisco-webex-ensure-room-membership-workflow.yml
-        name: Cisco Webex Ensure Room Membership
-        summary: Add a person to a room only if they are not already a member.
-      - url: arazzo/cisco-webex-find-person-direct-message-workflow.yml
-        name: Cisco Webex Find Person and Send Direct Message
-        summary: Look up a person by email and send them a 1:1 direct message.
-      - url: arazzo/cisco-webex-post-card-and-read-attachment-action-workflow.yml
-        name: Cisco Webex Post an Adaptive Card and Read its Attachment Action
-        summary: Post a card message to a room, then submit and read an attachment action.
-      - url: arazzo/cisco-webex-provision-person-and-add-to-room-workflow.yml
-        name: Cisco Webex Provision a Person and Add to a Room
-        summary: Create an organization user, then add them to a room and welcome them.
-      - url: arazzo/cisco-webex-register-messages-webhook-workflow.yml
-        name: Cisco Webex Register a Messages Webhook for a Room
-        summary: Create a room and register a messages-created webhook scoped to it.
-      - url: arazzo/cisco-webex-reply-in-thread-workflow.yml
-        name: Cisco Webex Post a Message and Reply in Thread
-        summary: Post a parent message to a room and then post a threaded reply to it.
-      - url: arazzo/cisco-webex-schedule-meeting-and-notify-room-workflow.yml
-        name: Cisco Webex Schedule a Meeting and Notify a Room
-        summary: Create a meeting and post its join link as a message into a room.
+  - type: Arazzo
+    url: arazzo/cisco-webex-add-person-to-team-and-team-room-workflow.yml
+    name: Cisco Webex Add Person to Team and a Team Room
+  - type: Arazzo
+    url: arazzo/cisco-webex-create-room-add-member-post-message-workflow.yml
+    name: Cisco Webex Create Room, Add Member, and Post Message
+  - type: Arazzo
+    url: arazzo/cisco-webex-create-team-and-team-room-workflow.yml
+    name: Cisco Webex Create Team and Team Room
+  - type: Arazzo
+    url: arazzo/cisco-webex-ensure-room-membership-workflow.yml
+    name: Cisco Webex Ensure Room Membership
+  - type: Arazzo
+    url: arazzo/cisco-webex-find-person-direct-message-workflow.yml
+    name: Cisco Webex Find Person and Send Direct Message
+  - type: Arazzo
+    url: arazzo/cisco-webex-post-card-and-read-attachment-action-workflow.yml
+    name: Cisco Webex Post an Adaptive Card and Read its Attachment Action
+  - type: Arazzo
+    url: arazzo/cisco-webex-provision-person-and-add-to-room-workflow.yml
+    name: Cisco Webex Provision a Person and Add to a Room
+  - type: Arazzo
+    url: arazzo/cisco-webex-register-messages-webhook-workflow.yml
+    name: Cisco Webex Register a Messages Webhook for a Room
+  - type: Arazzo
+    url: arazzo/cisco-webex-reply-in-thread-workflow.yml
+    name: Cisco Webex Post a Message and Reply in Thread
+  - type: Arazzo
+    url: arazzo/cisco-webex-schedule-meeting-and-notify-room-workflow.yml
+    name: Cisco Webex Schedule a Meeting and Notify a Room
   - type: LinkedIn
     url: https://www.linkedin.com/company/webex
   - type: Portal
@@ -459,11 +456,11 @@ common:
     url: https://www.webex.com
   - type: Login
     url: https://developer.webex.com/login
-  - type: SignUp
+  - type: Signup
     url: https://developer.webex.com/signup
-  - type: JSON-LD Context
+  - type: JSONLDContext
     url: json-ld/cisco-webex-context.jsonld
-  - type: JSON Schema
+  - type: JSONSchema
     url: json-schema/
   - type: Spectral
     url: rules/cisco-webex-rules.yml
