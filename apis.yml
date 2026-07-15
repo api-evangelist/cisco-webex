@@ -390,6 +390,8 @@ apis:
       - type: OpenAPI
         url: openapi/cisco-webex-converged-recordings-openapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/cisco-webex-agentic-access.yml
   - type: DomainSecurity
     url: security/cisco-webex-domain-security.yml
   - type: Authentication
