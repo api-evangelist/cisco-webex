@@ -1,0 +1,41 @@
+generated: '2026-06-20'
+method: searched
+source: https://developer.webex.com/docs/api/changelog
+docs: https://developer.webex.com/docs/api/changelog
+description: >-
+  Structured capture of the dated Webex API changelog. Webex versions the API
+  under a single /v1 URI-path surface and announces additions and breaking
+  changes (with retirement dates) as dated changelog entries. This records the
+  recent window; the live changelog is the source of truth.
+versioning:
+  scheme: uri-path
+  current: v1
+  detail: lifecycle/cisco-webex-lifecycle.yml
+entries:
+  - date: '2026-07-13'
+    additions:
+      - New webex-node npm package for Node.js runtimes (messaging + REST-backed capabilities).
+  - date: '2026-07-09'
+    breaking:
+      - Legacy Webex Calling analytics API endpoints retiring 2026-07-31; migrate to new regional FQDN endpoints (US/Canada, EU, India, Government).
+  - date: '2026-07-01'
+    breaking:
+      - SCIMv2 accountStatus field moving from single string to array (postponed to 2026-07-28); supports Suspended, Compliance, Fraud statuses.
+  - date: '2026-06-22'
+    breaking:
+      - firstName/lastName/displayName single dot or dash values treated as null; fields becoming optional in Webex Calling APIs.
+  - date: '2026-06-15'
+    additions:
+      - New CDR fields in call-history reports for AI Receptionist activity (transfer type, context).
+  - date: '2026-05-20'
+    additions:
+      - New query recording APIs to replace list endpoints; better filtering with special characters.
+  - date: '2026-05-08'
+    additions:
+      - New Webex Calling Call Controls "Members Me" APIs for self-scoped member call control.
+  - date: '2026-05-01'
+    breaking:
+      - CORS headers no longer returned for localhost origins; use a backend proxy or a proper domain.
+  - date: '2026-04-30'
+    additions:
+      - Webhooks for messages/created now fire for scheduled messages, not only live messages.

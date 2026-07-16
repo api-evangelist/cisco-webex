@@ -1,0 +1,56 @@
+generated: '2026-06-20'
+method: searched
+status: published
+source: >-
+  https://developer.webex.com/mcp/docs/webex-mcp-server-overview and
+  https://github.com/CiscoDevNet/webex-mcp-official — Cisco operates official,
+  hosted (remote) Webex MCP servers. Each must be enabled by an organization
+  admin in Webex Control Hub before use, and all authenticate with an OAuth 2.0
+  bearer token (issuer https://webexapis.com) carrying the spark:mcp scope.
+  Server URLs and tool names captured verbatim from the official repository.
+docs: https://developer.webex.com/mcp/docs/webex-mcp-server-overview
+repo: https://github.com/CiscoDevNet/webex-mcp-official
+auth:
+  type: oauth2
+  issuer: https://webexapis.com
+  required_scope: spark:mcp
+  enablement: Admin must enable the server in Webex Control Hub
+servers:
+  - name: webex-messaging
+    transport: http
+    url: https://mcp.webexapis.com/mcp/webex-messaging
+    description: >-
+      Create, edit, delete, and retrieve messages in 1:1 and group spaces;
+      manage spaces and memberships; search messages, files, and spaces.
+      24 tools across messages, spaces, memberships, webhooks, files, threading.
+    example_tools:
+      - webex-create-message
+      - webex-search-messages
+      - webex-add-membership
+  - name: webex-meeting
+    transport: http
+    url: https://mcp.webexapis.com/mcp/webex-meeting
+    description: >-
+      Schedule meetings, look up meeting details, and access recordings,
+      transcripts, and transcript snippets.
+    tools:
+      - webex-list-meetings
+      - webex-create-meeting
+      - webex-update-meeting
+      - webex-delete-meeting
+      - webex-get-meeting-status
+      - webex-get-meeting-summary
+      - webex-list-recordings
+      - webex-list-transcripts
+  - name: vidcast
+    transport: http
+    url: https://mcp.webexapis.com/mcp/vidcast
+    description: >-
+      Search, browse, analyze, and retrieve information from Vidcast videos,
+      playlists, pages, and user activity. 29 tools covering video discovery,
+      content analysis, engagement, analytics, recommendations, and sharing.
+    tool_count: 29
+notes: >-
+  A community-maintained sample (WebexSamples/webex-messaging-mcp-server) also
+  exists but is not first-party; the servers above under mcp.webexapis.com are
+  the official Cisco-hosted MCP surface.

@@ -1,0 +1,53 @@
+generated: '2026-06-20'
+method: derived
+format: webex-error-envelope
+source: >-
+  Derived from the 4xx/5xx responses declared across openapi/*.yml, enriched
+  from https://developer.webex.com/docs/basics (error handling) and the "Webex
+  troubleshooting" developer guidance. Webex does not use RFC 9457
+  application/problem+json; it returns application/json with a Webex envelope.
+envelope:
+  content_type: application/json
+  fields:
+    message: Human-readable top-level error message.
+    errors: Array of {description} sub-errors giving field- or reason-level detail.
+    trackingId: >-
+      Per-request correlation id (also returned as the Trackingid response
+      header) — quote it when contacting Webex developer support.
+  example: |
+    {
+      "message": "The request requires a valid access token set in the Authorization request header.",
+      "errors": [
+        { "description": "The request requires a valid access token set in the Authorization request header." }
+      ],
+      "trackingId": "ROUTER_0123456789ABCDEF"
+    }
+problems:
+  - status: 400
+    title: Bad Request
+    meaning: Invalid or malformed request parameters or body.
+    remediation: Validate required fields and value formats against the endpoint schema.
+    observed_in: 14 of 19 specs (people, meetings, rooms, messaging, memberships, teams, team-memberships, devices, licenses, workspaces, webhooks, call-controls, attachment-actions, converged-recordings*)
+  - status: 401
+    title: Unauthorized
+    meaning: Missing, invalid, or expired access token.
+    remediation: Refresh the OAuth token / re-issue the personal access token; ensure the Authorization Bearer header is set.
+    observed_in: all 19 specs
+  - status: 404
+    title: Not Found
+    meaning: The referenced resource (person, room, meeting, membership, etc.) does not exist or is not visible to the caller.
+    remediation: Verify the resource id; confirm the token’s scope and org visibility.
+    observed_in: 18 of 19 specs
+  - status: 409
+    title: Conflict
+    meaning: The request conflicts with current state (e.g. a membership already exists).
+    remediation: Fetch current state before retrying; treat as idempotent success where appropriate.
+    observed_in: openapi/cisco-webex-memberships-openapi.yml#createMembership
+  - status: 429
+    title: Too Many Requests
+    meaning: Rate limit exceeded.
+    remediation: Honor the Retry-After response header and back off. See rate-limits/cisco-webex-rate-limits.yml.
+    observed_in: Not enumerated per-operation in specs; documented platform-wide (developer.webex.com/docs/api-rate-limits).
+notes: >-
+  See conventions/cisco-webex-conventions.yml for the request/response
+  semantics and lifecycle/cisco-webex-lifecycle.yml for retirement handling.

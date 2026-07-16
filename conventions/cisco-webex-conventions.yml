@@ -1,0 +1,69 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  https://developer.webex.com/docs/basics, https://developer.webex.com/docs/api-rate-limits,
+  https://developer.webex.com/blog/an-app-pagination-hands-on-guide, and derived
+  from openapi/*.yml. The cross-cutting request/response semantics that apply to
+  every Webex endpoint.
+description: >-
+  How the Webex REST API behaves across every operation: base URL, auth style,
+  pagination, request tracing, versioning, the error envelope, and rate-limit
+  signaling. These runtime-semantics conventions are not fully expressed in OpenAPI.
+base_url: https://webexapis.com/v1
+api_style: REST over HTTPS, JSON request and response bodies
+
+authentication:
+  scheme: Bearer access token (Authorization header)
+  token_types: [OAuth 2.0 access token, Personal Access Token (12-hour, dev testing), Service App token, Bot token]
+  oauth_authorize: https://webexapis.com/v1/authorize
+  oauth_token: https://webexapis.com/v1/access_token
+  docs: https://developer.webex.com/docs/getting-started
+  detail: authentication/cisco-webex-authentication.yml
+  scopes: scopes/cisco-webex-scopes.yml
+
+idempotency:
+  supported: false
+  notes: No Idempotency-Key convention is documented; some creates (e.g. memberships) return 409 Conflict on duplicates.
+
+pagination:
+  style: cursor via RFC 5988 Link header
+  request_params:
+    max: Page size (per-endpoint default and maximum, e.g. people default 100 / max 1000).
+  response:
+    Link: Header containing rel="next" URL when more results exist; follow it to page.
+  notes: Do not construct next-page URLs by hand — follow the Link header verbatim.
+  docs: https://developer.webex.com/blog/an-app-pagination-hands-on-guide
+
+request_tracing:
+  header: Trackingid
+  notes: Every response carries a Trackingid; include it when reporting issues to Webex developer support.
+
+versioning:
+  scheme: uri-path
+  current: v1
+  detail: lifecycle/cisco-webex-lifecycle.yml
+
+error_envelope:
+  content_type: application/json
+  shape: '{ message, errors: [{ description }], trackingId }'
+  detail: errors/cisco-webex-problem-types.yml
+
+rate_limiting:
+  signal: HTTP 429 Too Many Requests
+  retry_header: Retry-After (seconds)
+  scope: Per-application and per-user, varies by API family
+  docs: https://developer.webex.com/docs/api-rate-limits
+  detail: rate-limits/cisco-webex-rate-limits.yml
+
+resource_ids:
+  format: Base64-encoded URIs
+  notes: >-
+    Webex resource ids are Base64-encoded ciscospark:// URIs encoding the
+    resource type and region cluster; treat as opaque. See blog "What The Base?
+    Decoding Webex API IDs".
+  reference: https://developer.webex.com/blog/what-the-base-decoding-webex-api-ids
+
+webhooks:
+  delivery: HTTP POST callback
+  signature: X-Spark-Signature (HMAC-SHA1 of the payload using the webhook secret)
+  detail: https://developer.webex.com/docs/webhooks

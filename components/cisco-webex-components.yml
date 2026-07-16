@@ -1,0 +1,29 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  https://developer.webex.com/docs/widgets, https://developer.webex.com/docs/embedded-apps,
+  and the github.com/webex org. Webex ships client-side, embeddable UI surfaces
+  distinct from the server-side SDKs in packages/cisco-webex-packages.yml.
+description: >-
+  Webex embeddable/client-side UI components: drop-in JavaScript Widgets that
+  render messaging and meeting UX in a web page, and the Embedded Apps framework
+  for surfacing a web app inside the Webex client (meetings, spaces, devices).
+libraries:
+  - {name: "@webex/widgets", purpose: React/JS component library that renders Webex messaging and meeting UI.}
+  - {name: "@webex/embedded-app-sdk", purpose: JS SDK for apps embedded inside the Webex client (Embedded Apps framework).}
+families:
+  widgets:
+    description: Prebuilt, embeddable JavaScript UI widgets backed by the Webex JS SDK.
+    docs: https://developer.webex.com/docs/widgets
+    components:
+      - {name: Spaces Widget, description: Full messaging experience (spaces list + conversation) embedded in a web page.}
+      - {name: Space Widget, description: A single space/conversation view for embedding one room’s messaging.}
+      - {name: Recents Widget, description: List of recent spaces/activity for the authenticated user.}
+      - {name: Meeting Widget, description: Embeddable Webex meeting/calling experience (join, video, controls) in the browser.}
+  embedded_apps:
+    description: Framework to run a web application inside the Webex client surface (meetings, messaging, and devices), with context APIs (user, meeting, sidebar).
+    docs: https://developer.webex.com/docs/embedded-apps
+    loader: "@webex/embedded-app-sdk"
+notes: >-
+  Widgets and Embedded Apps are UI surfaces; the underlying data access uses the
+  same REST APIs and OAuth scopes catalogued elsewhere in this repo.

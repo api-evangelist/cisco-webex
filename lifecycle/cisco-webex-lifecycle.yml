@@ -1,0 +1,36 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  https://developer.webex.com/docs/api/changelog, https://status.webex.com,
+  https://developer.webex.com/docs/api-rate-limits; deprecated operations
+  derived from OpenAPI (no operation carries deprecated: true in the captured specs).
+versioning:
+  scheme: uri-path
+  current: v1
+  mechanism: All endpoints served under https://webexapis.com/v1
+  docs: https://developer.webex.com/docs/basics
+  notes: >-
+    Webex maintains a single stable /v1 API surface. Backwards-incompatible
+    changes are announced in the dated changelog with explicit retirement dates
+    (typically weeks-to-months ahead) rather than via a new version prefix.
+deprecation:
+  policy: Changelog-announced retirement dates
+  changelog: https://developer.webex.com/docs/api/changelog
+  sunset_header: false
+  notes: >-
+    Deprecations/retirements are communicated in the changelog (e.g. legacy
+    Webex Calling analytics endpoints retiring 2026-07-31). RFC 8594
+    Sunset/Deprecation response headers are not documented as supported.
+  recent_retirements:
+    - what: Legacy Webex Calling analytics API endpoints
+      retires: '2026-07-31'
+      migrate_to: New regional FQDN analytics endpoints (US/Canada, EU, India, Government)
+sla:
+  url: https://www.cisco.com/c/en/us/products/conferencing/webex-meetings/service-description.html
+  public_uptime_target: null
+  notes: Availability commitments are handled via Cisco service agreements; no numeric public API uptime SLA is published.
+status_page: https://status.webex.com
+rate_limits:
+  docs: https://developer.webex.com/docs/api-rate-limits
+  detail: rate-limits/cisco-webex-rate-limits.yml
+deprecated_operations: []

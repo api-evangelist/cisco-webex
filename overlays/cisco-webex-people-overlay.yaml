@@ -1,0 +1,17 @@
+# OpenAPI Overlay 1.0.0 — API Evangelist enhancements (generated 2026-06-20). Does not mutate the source OpenAPI.
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Cisco Webex People API
+  version: 1.0.0
+extends: openapi/cisco-webex-people-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: cisco-webex
+    x-apievangelist-artifacts: openapi, json-schema, postman, arazzo, authentication, scopes, conformance,
+      errors, lifecycle, data-model, mcp
+    x-apievangelist-mcp: https://mcp.webexapis.com
+    x-apievangelist-generated: '2026-06-20'
+- target: $.servers[*]
+  update:
+    x-base-host: webexapis.com

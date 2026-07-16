@@ -1,0 +1,51 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  https://developer.webex.com/docs/integrations and
+  https://developer.webex.com/docs/api/guides/integrations-and-authorization —
+  Webex uses OAuth 2.0. The captured OpenAPI specs declare an http bearer scheme
+  (webexapis.com access token) rather than inline oauth2 flows, so the scope
+  reference is captured from the Webex integration docs. Scopes prefixed
+  spark-admin: require organization-admin authorization; the spark:mcp scope
+  authorizes the official Webex MCP servers.
+docs: https://developer.webex.com/docs/integrations
+flows:
+  - flow: authorizationCode
+    authorizationUrl: https://webexapis.com/v1/authorize
+    tokenUrl: https://webexapis.com/v1/access_token
+    refreshUrl: https://webexapis.com/v1/access_token
+scopes:
+  - {scope: 'spark:all', description: Full access to a user’s Webex account (interactive access on behalf of the user).}
+  - {scope: 'spark:kms', description: Key Management Service access, required alongside content scopes for end-to-end encrypted messages, rooms, and files.}
+  - {scope: 'spark:people_read', description: Read access to people/user profile details.}
+  - {scope: 'spark:rooms_read', description: List and read the rooms (spaces) a user belongs to.}
+  - {scope: 'spark:rooms_write', description: Create, update, and delete rooms (spaces).}
+  - {scope: 'spark:messages_read', description: List and read messages in spaces the user belongs to.}
+  - {scope: 'spark:messages_write', description: Post and delete messages on behalf of the user.}
+  - {scope: 'spark:memberships_read', description: List room memberships.}
+  - {scope: 'spark:memberships_write', description: Add, update, and remove room memberships.}
+  - {scope: 'spark:teams_read', description: List and read the teams a user belongs to.}
+  - {scope: 'spark:teams_write', description: Create, update, and delete teams.}
+  - {scope: 'spark:team_memberships_read', description: List team memberships.}
+  - {scope: 'spark:team_memberships_write', description: Add, update, and remove team memberships.}
+  - {scope: 'spark:webhooks_read', description: List and read webhooks.}
+  - {scope: 'spark:webhooks_write', description: Create, update, and delete webhooks.}
+  - {scope: 'spark:mcp', description: Authorizes access to the official Webex MCP servers (messaging, meetings, vidcast).}
+  - {scope: 'spark-admin:people_read', description: Admin read access to all people in the organization.}
+  - {scope: 'spark-admin:people_write', description: Admin create/update/delete of people in the organization.}
+  - {scope: 'spark-admin:organizations_read', description: Admin read access to organization details.}
+  - {scope: 'spark-admin:roles_read', description: Admin read access to the organization’s roles.}
+  - {scope: 'spark-admin:licenses_read', description: Admin read access to the organization’s licenses.}
+  - {scope: 'spark-admin:devices_read', description: Admin read access to devices.}
+  - {scope: 'spark-admin:devices_write', description: Admin create/update/delete of devices.}
+  - {scope: 'spark-admin:workspaces_read', description: Admin read access to workspaces.}
+  - {scope: 'spark-admin:workspaces_write', description: Admin create/update/delete of workspaces.}
+  - {scope: 'audit:events_read', description: Read admin audit events (Control Hub) for the organization.}
+  - {scope: 'meeting:schedules_read', description: Read scheduled meetings on behalf of the user.}
+  - {scope: 'meeting:schedules_write', description: Create, update, and delete scheduled meetings.}
+  - {scope: 'meeting:recordings_read', description: Read meeting recordings and recording details.}
+  - {scope: 'meeting:participants_read', description: Read meeting participant information.}
+notes: >-
+  Webex documents a larger scope catalog (including Webex Calling and Contact
+  Center scopes); the list above covers the products represented by the OpenAPI
+  in this repo. Consult the docs URL for the authoritative, complete list.

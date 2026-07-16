@@ -1,0 +1,34 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  https://developer.webex.com/docs/getting-started and the Webex Developer
+  Sandbox program. Webex is not a payments API, so there are no test cards; its
+  sandbox surface is a dedicated developer test organization plus short-lived
+  personal access tokens for interactive testing.
+description: >-
+  How to exercise the Webex APIs safely before shipping. Webex provides a free
+  Developer Sandbox (an isolated Control Hub org with admin rights and seeded
+  users/licenses) and a 12-hour Personal Access Token for quick REST testing.
+sandbox_org:
+  name: Webex Developer Sandbox
+  what: >-
+    A free, isolated Webex organization with full admin access, pre-provisioned
+    users, and Webex Calling licenses, for building and testing admin/enterprise
+    integrations without touching a production org.
+  request: https://developer.webex.com/docs/developer-sandbox
+personal_access_token:
+  what: >-
+    A ready-to-use bearer token scoped to your own account, shown on the
+    developer portal for authenticated testing of REST calls.
+  lifetime: ~12 hours
+  scope: Acts on behalf of your own Webex user only (not for production apps).
+  where: https://developer.webex.com/docs/getting-started
+bots:
+  what: >-
+    Create a Bot account (fixed access token) for testing messaging/webhook
+    integrations in real spaces without an OAuth flow.
+  where: https://developer.webex.com/docs/bots
+notes: >-
+  For production apps, replace personal access tokens with an OAuth Integration
+  or Service App (see authentication/cisco-webex-authentication.yml). No
+  synthetic test card/identifier values are published for Webex.

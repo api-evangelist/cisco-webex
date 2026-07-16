@@ -1,0 +1,64 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  https://developer.webex.com/docs/sdks and the public package registries.
+  First-party SDKs are published under the github.com/webex org by the Cisco
+  Webex Developer Experience team. Community libraries are marked official:false.
+description: >-
+  First-party Webex client SDKs (browser/Node JavaScript, and native mobile/
+  desktop calling+messaging SDKs) plus notable community Python libraries.
+  Webex REST APIs are token-authenticated; these SDKs wrap auth, pagination,
+  and rate-limit handling.
+packages:
+  - language: javascript
+    registry: npm
+    name: webex
+    url: https://www.npmjs.com/package/webex
+    source: https://github.com/webex/webex-js-sdk
+    install: npm install webex
+    official: true
+    note: >-
+      Mono-repo JavaScript SDK for browsers and Node.js — messaging, meetings,
+      and calling. Hosted reference at https://web-sdk.webex.com.
+  - language: swift
+    registry: cocoapods
+    name: WebexSDK
+    url: https://github.com/webex/webex-ios-sdk
+    source: https://github.com/webex/webex-ios-sdk
+    install: pod 'WebexSDK'
+    official: true
+    note: iOS SDK for integrating messaging and calling into native apps.
+  - language: kotlin
+    registry: github
+    name: webex-android-sdk
+    url: https://github.com/webex/webex-android-sdk
+    source: https://github.com/webex/webex-android-sdk
+    install: "implementation 'com.ciscowebex:androidsdk:<version>'"
+    official: true
+    note: Android SDK for messaging and calling; distributed via Cisco Maven/JitPack.
+  - language: csharp
+    registry: github
+    name: webex-windows-sdk
+    url: https://github.com/webex/webex-windows-sdk
+    source: https://github.com/webex/webex-windows-sdk
+    install: See repository (NuGet / source build)
+    official: true
+    note: Windows SDK for integrating messaging and calling into Windows apps.
+  - language: python
+    registry: pypi
+    name: webexpythonsdk
+    url: https://pypi.org/project/webexpythonsdk/
+    source: https://github.com/WebexCommunity/WebexPythonSDK
+    install: pip install webexpythonsdk
+    official: false
+    note: >-
+      Community-maintained (WebexCommunity). Successor to webexteamssdk /
+      ciscosparkapi. Native Python wrapper handling auth, pagination, rate limits.
+  - language: python
+    registry: pypi
+    name: webexteamssdk
+    url: https://pypi.org/project/webexteamssdk/
+    source: https://github.com/WebexCommunity/WebexTeamsSDK
+    install: pip install webexteamssdk
+    official: false
+    note: Predecessor of webexpythonsdk; retained for legacy integrations.

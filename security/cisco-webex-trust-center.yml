@@ -1,0 +1,33 @@
+generated: '2026-06-20'
+method: searched
+probe: true
+source: >-
+  https://www.cisco.com/c/en/us/about/trust-center/webex.html,
+  https://trustportal.cisco.com/c/r/ctp/home.html, and
+  https://help.webex.com/en-us/article/pdz31w/Webex-Compliance-and-Certifications
+url: https://www.cisco.com/c/en/us/about/trust-center/webex.html
+trust_portal: https://trustportal.cisco.com/c/r/ctp/home.html
+compliance_docs: https://help.webex.com/en-us/article/pdz31w/Webex-Compliance-and-Certifications
+certifications:
+  - SOC 2 Type II
+  - SOC 3
+  - ISO/IEC 27001
+  - ISO/IEC 27017
+  - ISO/IEC 27018
+  - ISO/IEC 27701
+  - FedRAMP (Moderate — Webex for Government)
+  - HIPAA
+  - GDPR
+  - C5 (Germany)
+  - CSA STAR (Level 1 and 2)
+  - Cyber Essentials (UK)
+  - DISA IL5
+evidence:
+  - source: https://help.webex.com/en-us/article/pdz31w/Webex-Compliance-and-Certifications
+    keywords: [iso/iec 27001, hipaa, gdpr]
+  - source: https://www.cisco.com/c/en/us/about/trust-center/webex.html
+    keywords: [soc 2, iso 27001, fedramp, trust center]
+notes: >-
+  The Cisco Trust Portal hosts SOC 2 / ISO 27001 certificates, penetration-test
+  attestation letters, business-continuity/DR summaries, and per-product Privacy
+  Data Sheets for the Webex Suite (Meetings, Messaging, Calling, Contact Center).

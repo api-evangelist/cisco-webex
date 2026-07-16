@@ -12,7 +12,7 @@ type: Index
 access: 3rd-Party
 position: Consumer
 created: '2024-01-01'
-modified: '2026-05-19'
+modified: '2026-06-20'
 specificationVersion: '0.19'
 tags:
   - Collaboration
@@ -41,6 +41,8 @@ apis:
         url: https://developer.webex.com/docs/meetings
       - type: OpenAPI
         url: openapi/cisco-webex-meetings-openapi.yml
+      - type: Overlay
+        url: overlays/cisco-webex-meetings-overlay.yaml
       - type: Authentication
         url: https://developer.webex.com/docs/getting-started#authentication
   - aid: cisco-webex:webex-messaging-api
@@ -62,6 +64,8 @@ apis:
         url: https://developer.webex.com/docs/messaging
       - type: OpenAPI
         url: openapi/cisco-webex-messaging-openapi.yml
+      - type: Overlay
+        url: overlays/cisco-webex-messaging-overlay.yaml
       - type: Webhooks
         url: https://developer.webex.com/docs/webhooks
       - type: GettingStarted
@@ -85,6 +89,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/people
       - type: OpenAPI
         url: openapi/cisco-webex-people-openapi.yml
+      - type: Overlay
+        url: overlays/cisco-webex-people-overlay.yaml
   - aid: cisco-webex:webex-teams-api
     name: Webex Teams API
     description: >-
@@ -104,6 +110,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/teams
       - type: OpenAPI
         url: openapi/cisco-webex-teams-openapi.yml
+      - type: Overlay
+        url: overlays/cisco-webex-teams-overlay.yaml
   - aid: cisco-webex:webex-rooms-api
     name: Webex Rooms API
     description: >-
@@ -123,6 +131,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/rooms
       - type: OpenAPI
         url: openapi/cisco-webex-rooms-openapi.yml
+      - type: Overlay
+        url: overlays/cisco-webex-rooms-overlay.yaml
   - aid: cisco-webex:webex-webhooks-api
     name: Webex Webhooks API
     description: >-
@@ -142,6 +152,8 @@ apis:
         url: https://developer.webex.com/docs/webhooks
       - type: OpenAPI
         url: openapi/cisco-webex-webhooks-openapi.yml
+      - type: Overlay
+        url: overlays/cisco-webex-webhooks-overlay.yaml
   - aid: cisco-webex:webex-devices-api
     name: Webex Devices API
     description: >-
@@ -161,6 +173,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/devices
       - type: OpenAPI
         url: openapi/cisco-webex-devices-openapi.yml
+      - type: Overlay
+        url: overlays/cisco-webex-devices-overlay.yaml
   - aid: cisco-webex:webex-memberships-api
     name: Webex Memberships API
     description: >-
@@ -180,6 +194,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/memberships
       - type: OpenAPI
         url: openapi/cisco-webex-memberships-openapi.yml
+      - type: Overlay
+        url: overlays/cisco-webex-memberships-overlay.yaml
   - aid: cisco-webex:webex-team-memberships-api
     name: Webex Team Memberships API
     description: >-
@@ -199,6 +215,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/team-memberships
       - type: OpenAPI
         url: openapi/cisco-webex-team-memberships-openapi.yml
+      - type: Overlay
+        url: overlays/cisco-webex-team-memberships-overlay.yaml
   - aid: cisco-webex:webex-events-api
     name: Webex Events API
     description: >-
@@ -218,6 +236,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/events
       - type: OpenAPI
         url: openapi/cisco-webex-events-openapi.yml
+      - type: Overlay
+        url: overlays/cisco-webex-events-overlay.yaml
   - aid: cisco-webex:webex-recordings-api
     name: Webex Recordings API
     description: >-
@@ -237,6 +257,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/recordings
       - type: OpenAPI
         url: openapi/cisco-webex-recordings-openapi.yml
+      - type: Overlay
+        url: overlays/cisco-webex-recordings-overlay.yaml
   - aid: cisco-webex:webex-call-controls-api
     name: Webex Call Controls API
     description: >-
@@ -256,6 +278,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/call-controls
       - type: OpenAPI
         url: openapi/cisco-webex-call-controls-openapi.yml
+      - type: Overlay
+        url: overlays/cisco-webex-call-controls-overlay.yaml
   - aid: cisco-webex:webex-attachment-actions-api
     name: Webex Attachment Actions API
     description: >-
@@ -275,6 +299,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/attachment-actions
       - type: OpenAPI
         url: openapi/cisco-webex-attachment-actions-openapi.yml
+      - type: Overlay
+        url: overlays/cisco-webex-attachment-actions-overlay.yaml
   - aid: cisco-webex:webex-organizations-api
     name: Webex Organizations API
     description: >-
@@ -294,6 +320,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/organizations
       - type: OpenAPI
         url: openapi/cisco-webex-organizations-openapi.yml
+      - type: Overlay
+        url: overlays/cisco-webex-organizations-overlay.yaml
   - aid: cisco-webex:webex-licenses-api
     name: Webex Licenses API
     description: >-
@@ -313,6 +341,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/licenses
       - type: OpenAPI
         url: openapi/cisco-webex-licenses-openapi.yml
+      - type: Overlay
+        url: overlays/cisco-webex-licenses-overlay.yaml
   - aid: cisco-webex:webex-roles-api
     name: Webex Roles API
     description: >-
@@ -332,6 +362,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/roles
       - type: OpenAPI
         url: openapi/cisco-webex-roles-openapi.yml
+      - type: Overlay
+        url: overlays/cisco-webex-roles-overlay.yaml
   - aid: cisco-webex:webex-workspaces-api
     name: Webex Workspaces API
     description: >-
@@ -351,6 +383,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/workspaces
       - type: OpenAPI
         url: openapi/cisco-webex-workspaces-openapi.yml
+      - type: Overlay
+        url: overlays/cisco-webex-workspaces-overlay.yaml
   - aid: cisco-webex:webex-admin-audit-events-api
     name: Webex Admin Audit Events API
     description: >-
@@ -370,6 +404,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/admin-audit-events
       - type: OpenAPI
         url: openapi/cisco-webex-admin-audit-events-openapi.yml
+      - type: Overlay
+        url: overlays/cisco-webex-admin-audit-events-overlay.yaml
   - aid: cisco-webex:webex-converged-recordings-api
     name: Webex Converged Recordings API
     description: >-
@@ -389,6 +425,8 @@ apis:
         url: https://developer.webex.com/docs/api/v1/converged-recordings
       - type: OpenAPI
         url: openapi/cisco-webex-converged-recordings-openapi.yml
+      - type: Overlay
+        url: overlays/cisco-webex-converged-recordings-overlay.yaml
 common:
   - type: AgenticAccess
     url: agentic-access/cisco-webex-agentic-access.yml
@@ -470,6 +508,38 @@ common:
     url: json-schema/
   - type: Spectral
     url: rules/cisco-webex-rules.yml
+  - type: Packages
+    url: packages/cisco-webex-packages.yml
+  - type: WellKnown
+    url: well-known/cisco-webex-well-known.yml
+  - type: SecurityTxt
+    url: well-known/cisco-webex-security.txt
+  - type: MCPServer
+    url: mcp/cisco-webex-mcp.yml
+  - type: LLMsTxt
+    url: llms/cisco-webex-llms.txt
+  - type: Conformance
+    url: conformance/cisco-webex-conformance.yml
+  - type: ErrorCatalog
+    url: errors/cisco-webex-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/cisco-webex-lifecycle.yml
+  - type: OAuthScopes
+    url: scopes/cisco-webex-scopes.yml
+  - type: VulnerabilityDisclosure
+    url: security/cisco-webex-vulnerability-disclosure.yml
+  - type: TrustCenter
+    url: security/cisco-webex-trust-center.yml
+  - type: Sandbox
+    url: sandbox/cisco-webex-sandbox.yml
+  - type: Conventions
+    url: conventions/cisco-webex-conventions.yml
+  - type: ChangeLog
+    url: changelog/cisco-webex-changelog.yml
+  - type: Components
+    url: components/cisco-webex-components.yml
+  - type: DataModel
+    url: data-model/cisco-webex-data-model.yml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

@@ -1,0 +1,61 @@
+generated: '2026-06-20'
+method: derived
+source: >-
+  Derived from openapi/*.yml (securitySchemes, error responses, Link-header
+  pagination, webhook resource) and Webex documentation claims
+  (developer.webex.com/docs, developer.webex.com/mcp, changelog SCIMv2 entries).
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: >-
+      Webex authorizes via OAuth 2.0 authorization-code flow
+      (webexapis.com/v1/authorize + /v1/access_token) with a documented scope
+      catalog; see scopes/cisco-webex-scopes.yml.
+  - id: oidc
+    conforms: false
+    evidence: No /.well-known/openid-configuration is exposed (API host returns 401 to all unauthenticated requests).
+  - id: http-bearer-auth
+    conforms: true
+    evidence: openapi securitySchemes define bearerAuth (http bearer) across all specs.
+  - id: scim2
+    conforms: true
+    evidence: >-
+      Webex supports SCIM 2.0 for user/group provisioning via Control Hub; the
+      changelog tracks SCIMv2 accountStatus changes (2026-07-01 entry).
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      Errors use a Webex-specific JSON envelope ({message, errors[], trackingId})
+      with application/json, not application/problem+json. See errors/cisco-webex-problem-types.yml.
+  - id: rfc5988-link-pagination
+    conforms: true
+    evidence: List endpoints paginate via the RFC 5988 Link header (next) plus a max query parameter.
+  - id: rate-limiting-429
+    conforms: true
+    evidence: Rate limiting returns HTTP 429 with a Retry-After header (developer.webex.com/docs/api-rate-limits).
+  - id: webhooks
+    conforms: true
+    evidence: Webhooks API delivers real-time HTTP callbacks with HMAC-SHA1 signature validation (openapi/cisco-webex-webhooks-openapi.yml).
+  - id: idempotency-key
+    conforms: false
+    evidence: No Idempotency-Key header convention is documented for POST requests.
+  - id: mcp
+    conforms: true
+    evidence: >-
+      Official hosted MCP servers at mcp.webexapis.com (messaging, meeting,
+      vidcast); see mcp/cisco-webex-mcp.yml.
+  - id: soc2-type-ii
+    conforms: true
+    evidence: SOC 2 Type II attestation via the Cisco Trust Portal; see security/cisco-webex-trust-center.yml.
+  - id: iso-27001
+    conforms: true
+    evidence: ISO/IEC 27001 certified; see security/cisco-webex-trust-center.yml.
+  - id: fedramp
+    conforms: true
+    evidence: FedRAMP Moderate authorization for Webex for Government; see security/cisco-webex-trust-center.yml.
+  - id: hipaa
+    conforms: true
+    evidence: HIPAA-compliant configuration supported; see security/cisco-webex-trust-center.yml.
+  - id: gdpr
+    conforms: true
+    evidence: GDPR compliance documented (help.webex.com compliance article).

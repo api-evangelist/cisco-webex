@@ -1,19 +1,41 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/cisco-webex-admin-audit-events-openapi.yml, openapi/cisco-webex-attachment-actions-openapi.yml,
-  openapi/cisco-webex-call-controls-openapi.yml, openapi/cisco-webex-converged-recordings-openapi.yml,
-  openapi/cisco-webex-devices-openapi.yml, openapi/cisco-webex-events-openapi.yml, openapi/cisco-webex-licenses-openapi.yml,
-  openapi/cisco-webex-meetings-openapi.yml, openapi/cisco-webex-memberships-openapi.yml, openapi/cisco-webex-messaging-openapi.yml,
-  openapi/cisco-webex-organizations-openapi.yml, openapi/cisco-webex-people-openapi.yml ...
+generated: '2026-06-20'
+method: searched
+source: >-
+  https://developer.webex.com/docs/getting-started#authentication and
+  https://developer.webex.com/docs/integrations — upgraded from the OpenAPI-
+  derived profile with the documented Webex token model. All 19 captured specs
+  declare a single http bearer scheme (bearerAuth); Webex issues that bearer
+  token through four documented mechanisms.
+docs: https://developer.webex.com/docs/getting-started#authentication
 summary:
   types:
   - http
+  http_schemes:
+  - bearer
+  oauth2_flows:
+  - authorizationCode
+token_mechanisms:
+  - name: OAuth 2.0 Integration
+    for: Apps acting on behalf of a Webex user (authorization-code flow).
+    authorizationUrl: https://webexapis.com/v1/authorize
+    tokenUrl: https://webexapis.com/v1/access_token
+    scopes: scopes/cisco-webex-scopes.yml
+  - name: Personal Access Token
+    for: Interactive developer testing on your own account (~12h lifetime).
+  - name: Service App
+    for: >-
+      Server-to-server integrations authorized org-wide by an admin; long-lived,
+      admin-scoped tokens (see blog "Service App token management").
+  - name: Bot
+    for: A bot account with a fixed access token for messaging/webhook automations.
 schemes:
 - name: bearerAuth
   type: http
   scheme: bearer
-  description: Webex API access token. Obtain via OAuth 2.0 authorization flow. Requires audit:events_read
-    scope.
+  description: >-
+    Webex API access token supplied in the Authorization header. Obtain via the
+    OAuth 2.0 authorization-code flow, a Personal Access Token, a Service App, or
+    a Bot token.
   sources:
   - openapi/cisco-webex-admin-audit-events-openapi.yml
   - openapi/cisco-webex-attachment-actions-openapi.yml

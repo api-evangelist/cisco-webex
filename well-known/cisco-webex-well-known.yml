@@ -1,0 +1,32 @@
+generated: '2026-06-20'
+method: searched
+description: >-
+  Results of probing the /.well-known/ discovery surface for the Webex API host
+  (webexapis.com, from apis.yml baseURL and OpenAPI servers[]), the developer
+  portal (developer.webex.com), and the marketing/root host (www.webex.com).
+  Status is the HTTP code observed at fetch time. The API host answers 401 to
+  every unauthenticated request (including /.well-known/*), so no discovery doc
+  is exposed there. Only www.webex.com published a real document — a PGP-signed
+  RFC 9116 security.txt pointing at the Cisco PSIRT program (canonical
+  https://www.cisco.com/.well-known/security.txt) — saved verbatim.
+hosts:
+  - host: https://webexapis.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 401
+        note: API gateway requires a valid access token; not a discovery surface.
+      - path: /.well-known/openid-configuration
+        status: 401
+      - path: /.well-known/oauth-authorization-server
+        status: 401
+  - host: https://developer.webex.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+  - host: https://www.webex.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        type: text/plain
+        file: cisco-webex-security.txt
+        note: PGP-signed; canonical Cisco PSIRT security.txt (Contact psirt@cisco.com).

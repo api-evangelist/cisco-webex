@@ -1,0 +1,45 @@
+generated: '2026-06-20'
+method: derived
+source: Derived from the arazzo/*.yml workflow files in this repo.
+description: Browseable catalog of the native Arazzo 1.0.1 workflows for Cisco Webex.
+workflows:
+  - file: cisco-webex-add-person-to-team-and-team-room-workflow.yml
+    workflowId: add-person-to-team-and-team-room
+    title: Cisco Webex Add Person to Team and a Team Room
+    summary: Resolve a person, add to a team, then add to a team room.
+  - file: cisco-webex-create-room-add-member-post-message-workflow.yml
+    workflowId: create-room-add-member-post-message
+    title: Cisco Webex Create Room, Add Member, and Post Message
+    summary: Create a Webex room, add a member, and post a message.
+  - file: cisco-webex-create-team-and-team-room-workflow.yml
+    workflowId: create-team-and-team-room
+    title: Cisco Webex Create Team and Team Room
+    summary: Create a team, create a team-scoped room, and announce it.
+  - file: cisco-webex-ensure-room-membership-workflow.yml
+    workflowId: ensure-room-membership
+    title: Cisco Webex Ensure Room Membership
+    summary: Add a person to a room only when not already a member.
+  - file: cisco-webex-find-person-direct-message-workflow.yml
+    workflowId: find-person-direct-message
+    title: Cisco Webex Find Person and Send Direct Message
+    summary: Find a person by email and send them a direct message.
+  - file: cisco-webex-post-card-and-read-attachment-action-workflow.yml
+    workflowId: post-card-and-read-attachment-action
+    title: Cisco Webex Post an Adaptive Card and Read its Attachment Action
+    summary: Post a card, submit an attachment action, then read it back.
+  - file: cisco-webex-provision-person-and-add-to-room-workflow.yml
+    workflowId: provision-person-and-add-to-room
+    title: Cisco Webex Provision a Person and Add to a Room
+    summary: Create a person, add them to a room, and welcome them.
+  - file: cisco-webex-register-messages-webhook-workflow.yml
+    workflowId: register-messages-webhook
+    title: Cisco Webex Register a Messages Webhook for a Room
+    summary: Create a room and register a messages webhook filtered to it.
+  - file: cisco-webex-reply-in-thread-workflow.yml
+    workflowId: reply-in-thread
+    title: Cisco Webex Post a Message and Reply in Thread
+    summary: Post a parent message, then post a threaded reply.
+  - file: cisco-webex-schedule-meeting-and-notify-room-workflow.yml
+    workflowId: schedule-meeting-and-notify-room
+    title: Cisco Webex Schedule a Meeting and Notify a Room
+    summary: Schedule a meeting and post its join link into a room.
