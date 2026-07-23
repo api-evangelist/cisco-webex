@@ -1,10 +1,7 @@
 openapi: 3.1.0
 info:
   title: Cisco Webex Admin Audit Events API
-  description: >-
-    Access admin audit events for tracking administrative actions performed
-    in Webex Control Hub. Available to full administrators for compliance
-    monitoring and security auditing purposes.
+  description: Access admin audit events for tracking administrative actions performed in Webex Control Hub. Available to full administrators for compliance monitoring and security auditing purposes.
   version: 1.0.0
   contact:
     name: Cisco Webex Developer Support
@@ -13,67 +10,64 @@ info:
     name: Cisco Webex API Terms of Service
     url: https://developer.webex.com/terms-of-service
 servers:
-  - url: https://webexapis.com/v1
-    description: Webex Production API
+- url: https://webexapis.com/v1
+  description: Webex Production API
 security:
-  - bearerAuth: []
+- bearerAuth: []
 tags:
-  - name: Admin Audit Events
-    description: Operations for accessing admin audit events
+- name: Admin Audit Events
+  description: Operations for accessing admin audit events
 paths:
   /adminAudit/events:
     get:
       operationId: listAdminAuditEvents
       summary: Cisco Webex List Admin Audit Events
-      description: >-
-        Lists admin audit events for the organization. Supports filtering
-        by date range, actor, and event category. Results are paginated
-        with offset-based pagination. Available to full administrators.
+      description: Lists admin audit events for the organization. Supports filtering by date range, actor, and event category. Results are paginated with offset-based pagination. Available to full administrators.
       tags:
-        - Admin Audit Events
+      - Admin Audit Events
       parameters:
-        - name: orgId
-          in: query
-          required: true
-          description: Organization ID to list events for.
-          schema:
-            type: string
-        - name: from
-          in: query
-          required: true
-          description: Start date and time in ISO 8601 format.
-          schema:
-            type: string
-            format: date-time
-        - name: to
-          in: query
-          required: true
-          description: End date and time in ISO 8601 format.
-          schema:
-            type: string
-            format: date-time
-        - name: actorId
-          in: query
-          description: Filter by person ID who performed the action.
-          schema:
-            type: string
-        - name: eventCategories
-          in: query
-          description: Filter by event category.
-          schema:
-            type: string
-        - name: max
-          in: query
-          description: Maximum number of events to return (default 100, max 200).
-          schema:
-            type: integer
-            default: 100
-            maximum: 200
-        - name: offset
-          in: query
-          description: Offset for pagination.
-          schema:
-            type: integer
+      - name: orgId
+        in: query
+        required: true
+        description: Organization ID to list events for.
+        schema:
+          type: string
+      - name: from
+        in: query
+        required: true
+        description: Start date and time in ISO 8601 format.
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        required: true
+        description: End date and time in ISO 8601 format.
+        schema:
+          type: string
+          format: date-time
+      - name: actorId
+        in: query
+        description: Filter by person ID who performed the action.
+        schema:
+          type: string
+      - name: eventCategories
+        in: query
+        description: Filter by event category.
+        schema:
+          type: string
+      - name: max
+        in: query
+        description: Maximum number of events to return (default 100, max 200).
+        schema:
+          type: integer
+          default: 100
+          maximum: 200
+      - name: offset
+        in: query
+        description: Offset for pagination.
+        schema:
+          type: integer
       responses:
         '200':
           description: Successful response with list of admin audit events.
@@ -92,12 +86,9 @@ paths:
     get:
       operationId: listAdminAuditEventCategories
       summary: Cisco Webex List Admin Audit Event Categories
-      description: >-
-        Lists all available admin audit event categories. Returns the
-        complete set of event categories that can be used for filtering
-        audit events.
+      description: Lists all available admin audit event categories. Returns the complete set of event categories that can be used for filtering audit events.
       tags:
-        - Admin Audit Events
+      - Admin Audit Events
       responses:
         '200':
           description: Successful response with list of event categories.
@@ -113,13 +104,6 @@ paths:
         '401':
           description: Unauthorized - invalid or missing access token.
 components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      description: >-
-        Webex API access token. Obtain via OAuth 2.0 authorization flow.
-        Requires audit:events_read scope.
   schemas:
     AdminAuditEvent:
       type: object
@@ -180,3 +164,8 @@ components:
           type: string
           format: date-time
           description: Date and time the event occurred.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Webex API access token. Obtain via OAuth 2.0 authorization flow. Requires audit:events_read scope.

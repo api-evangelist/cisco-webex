@@ -1,10 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Cisco Webex Organizations API
-  description: >-
-    Retrieve organization details for Webex administration. Provides access
-    to organization-level information and settings, available only to
-    organization administrators.
+  title: Cisco Webex Admin Audit Events Organizations API
+  description: Access admin audit events for tracking administrative actions performed in Webex Control Hub. Available to full administrators for compliance monitoring and security auditing purposes.
   version: 1.0.0
   contact:
     name: Cisco Webex Developer Support
@@ -13,24 +10,21 @@ info:
     name: Cisco Webex API Terms of Service
     url: https://developer.webex.com/terms-of-service
 servers:
-  - url: https://webexapis.com/v1
-    description: Webex Production API
+- url: https://webexapis.com/v1
+  description: Webex Production API
 security:
-  - bearerAuth: []
+- bearerAuth: []
 tags:
-  - name: Organizations
-    description: Operations for managing organizations
+- name: Organizations
+  description: Operations for managing organizations
 paths:
   /organizations:
     get:
       operationId: listOrganizations
       summary: Cisco Webex List Organizations
-      description: >-
-        Lists organizations associated with the authenticated user.
-        Typically returns a single organization unless the user belongs to
-        multiple organizations.
+      description: Lists organizations associated with the authenticated user. Typically returns a single organization unless the user belongs to multiple organizations.
       tags:
-        - Organizations
+      - Organizations
       responses:
         '200':
           description: Successful response with list of organizations.
@@ -49,19 +43,16 @@ paths:
     get:
       operationId: getOrganizationDetails
       summary: Cisco Webex Get Organization Details
-      description: >-
-        Shows details for an organization by ID. Returns organization name,
-        creation date, and other metadata. Only available to organization
-        administrators.
+      description: Shows details for an organization by ID. Returns organization name, creation date, and other metadata. Only available to organization administrators.
       tags:
-        - Organizations
+      - Organizations
       parameters:
-        - name: orgId
-          in: path
-          required: true
-          description: Unique identifier for the organization.
-          schema:
-            type: string
+      - name: orgId
+        in: path
+        required: true
+        description: Unique identifier for the organization.
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response with organization details.
@@ -74,32 +65,22 @@ paths:
     delete:
       operationId: deleteOrganization
       summary: Cisco Webex Delete Organization
-      description: >-
-        Deletes an organization by ID. This action permanently removes the
-        organization and all associated data. Only available to full
-        administrators.
+      description: Deletes an organization by ID. This action permanently removes the organization and all associated data. Only available to full administrators.
       tags:
-        - Organizations
+      - Organizations
       parameters:
-        - name: orgId
-          in: path
-          required: true
-          description: Unique identifier for the organization.
-          schema:
-            type: string
+      - name: orgId
+        in: path
+        required: true
+        description: Unique identifier for the organization.
+        schema:
+          type: string
       responses:
         '204':
           description: Organization deleted successfully.
         '404':
           description: Organization not found.
 components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      description: >-
-        Webex API access token. Obtain via OAuth 2.0 authorization flow.
-        Requires spark-admin:organizations_read scope.
   schemas:
     Organization:
       type: object
@@ -114,3 +95,8 @@ components:
           type: string
           format: date-time
           description: Date and time the organization was created.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Webex API access token. Obtain via OAuth 2.0 authorization flow. Requires audit:events_read scope.

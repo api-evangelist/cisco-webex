@@ -1,10 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Cisco Webex Converged Recordings API
-  description: >-
-    Access converged recording capabilities across Webex Meetings and Webex
-    Calling. Provides unified endpoints for listing, retrieving, and managing
-    recordings from multiple Webex services.
+  title: Cisco Webex Admin Audit Events Converged Recordings API
+  description: Access admin audit events for tracking administrative actions performed in Webex Control Hub. Available to full administrators for compliance monitoring and security auditing purposes.
   version: 1.0.0
   contact:
     name: Cisco Webex Developer Support
@@ -13,63 +10,60 @@ info:
     name: Cisco Webex API Terms of Service
     url: https://developer.webex.com/terms-of-service
 servers:
-  - url: https://webexapis.com/v1
-    description: Webex Production API
+- url: https://webexapis.com/v1
+  description: Webex Production API
 security:
-  - bearerAuth: []
+- bearerAuth: []
 tags:
-  - name: Converged Recordings
-    description: Operations for managing converged recordings
+- name: Converged Recordings
+  description: Operations for managing converged recordings
 paths:
   /convergedRecordings:
     get:
       operationId: listConvergedRecordings
       summary: Cisco Webex List Converged Recordings
-      description: >-
-        Lists converged recordings from Webex Meetings and Webex Calling.
-        Provides a unified view of recordings across multiple services.
-        Supports filtering by date range, status, and service type.
+      description: Lists converged recordings from Webex Meetings and Webex Calling. Provides a unified view of recordings across multiple services. Supports filtering by date range, status, and service type.
       tags:
-        - Converged Recordings
+      - Converged Recordings
       parameters:
-        - name: from
-          in: query
-          description: List recordings after this date and time in ISO 8601 format.
-          schema:
-            type: string
-            format: date-time
-        - name: to
-          in: query
-          description: List recordings before this date and time in ISO 8601 format.
-          schema:
-            type: string
-            format: date-time
-        - name: status
-          in: query
-          description: Filter by recording status.
-          schema:
-            type: string
-            enum:
-              - available
-              - deleted
-              - purged
-        - name: serviceType
-          in: query
-          description: Filter by Webex service type.
-          schema:
-            type: string
-            enum:
-              - calling
-              - meeting
-              - all
-        - name: max
-          in: query
-          description: Maximum number of recordings to return (default 10, max 100).
-          schema:
-            type: integer
-            default: 10
-            minimum: 1
-            maximum: 100
+      - name: from
+        in: query
+        description: List recordings after this date and time in ISO 8601 format.
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        description: List recordings before this date and time in ISO 8601 format.
+        schema:
+          type: string
+          format: date-time
+      - name: status
+        in: query
+        description: Filter by recording status.
+        schema:
+          type: string
+          enum:
+          - available
+          - deleted
+          - purged
+      - name: serviceType
+        in: query
+        description: Filter by Webex service type.
+        schema:
+          type: string
+          enum:
+          - calling
+          - meeting
+          - all
+      - name: max
+        in: query
+        description: Maximum number of recordings to return (default 10, max 100).
+        schema:
+          type: integer
+          default: 10
+          minimum: 1
+          maximum: 100
       responses:
         '200':
           description: Successful response with list of converged recordings.
@@ -88,18 +82,16 @@ paths:
     get:
       operationId: getConvergedRecordingDetails
       summary: Cisco Webex Get Converged Recording Details
-      description: >-
-        Shows details for a converged recording by ID. Returns the recording
-        metadata, download links, and service-specific details.
+      description: Shows details for a converged recording by ID. Returns the recording metadata, download links, and service-specific details.
       tags:
-        - Converged Recordings
+      - Converged Recordings
       parameters:
-        - name: recordingId
-          in: path
-          required: true
-          description: Unique identifier for the recording.
-          schema:
-            type: string
+      - name: recordingId
+        in: path
+        required: true
+        description: Unique identifier for the recording.
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response with recording details.
@@ -112,18 +104,16 @@ paths:
     delete:
       operationId: deleteConvergedRecording
       summary: Cisco Webex Delete a Converged Recording
-      description: >-
-        Deletes a converged recording by ID. The recording is soft-deleted
-        and can be recovered within a retention period.
+      description: Deletes a converged recording by ID. The recording is soft-deleted and can be recovered within a retention period.
       tags:
-        - Converged Recordings
+      - Converged Recordings
       parameters:
-        - name: recordingId
-          in: path
-          required: true
-          description: Unique identifier for the recording.
-          schema:
-            type: string
+      - name: recordingId
+        in: path
+        required: true
+        description: Unique identifier for the recording.
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -143,13 +133,6 @@ paths:
         '404':
           description: Recording not found.
 components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      description: >-
-        Webex API access token. Obtain via OAuth 2.0 authorization flow or
-        personal access token from developer.webex.com.
   schemas:
     ConvergedRecording:
       type: object
@@ -172,21 +155,21 @@ components:
           type: string
           description: Format of the recording.
           enum:
-            - MP4
-            - MP3
+          - MP4
+          - MP3
         serviceType:
           type: string
           description: The Webex service type.
           enum:
-            - calling
-            - meeting
+          - calling
+          - meeting
         status:
           type: string
           description: Current status of the recording.
           enum:
-            - available
-            - deleted
-            - purged
+          - available
+          - deleted
+          - purged
         durationSeconds:
           type: integer
           description: Duration of the recording in seconds.
@@ -227,3 +210,8 @@ components:
         hostDisplayName:
           type: string
           description: Display name of the host.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Webex API access token. Obtain via OAuth 2.0 authorization flow. Requires audit:events_read scope.

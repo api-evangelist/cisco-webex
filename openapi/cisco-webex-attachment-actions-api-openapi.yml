@@ -1,10 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Cisco Webex Attachment Actions API
-  description: >-
-    Create and retrieve attachment actions for adaptive card interactions.
-    Used with Buttons and Cards to capture user input from interactive card
-    elements submitted in Webex messaging spaces.
+  title: Cisco Webex Admin Audit Events Attachment Actions API
+  description: Access admin audit events for tracking administrative actions performed in Webex Control Hub. Available to full administrators for compliance monitoring and security auditing purposes.
   version: 1.0.0
   contact:
     name: Cisco Webex Developer Support
@@ -13,24 +10,21 @@ info:
     name: Cisco Webex API Terms of Service
     url: https://developer.webex.com/terms-of-service
 servers:
-  - url: https://webexapis.com/v1
-    description: Webex Production API
+- url: https://webexapis.com/v1
+  description: Webex Production API
 security:
-  - bearerAuth: []
+- bearerAuth: []
 tags:
-  - name: Attachment Actions
-    description: Operations for managing adaptive card attachment actions
+- name: Attachment Actions
+  description: Operations for managing adaptive card attachment actions
 paths:
   /attachment/actions:
     post:
       operationId: createAttachmentAction
       summary: Cisco Webex Create an Attachment Action
-      description: >-
-        Creates an attachment action representing a user's interaction with
-        an adaptive card. The action captures the user's input from the
-        card form fields.
+      description: Creates an attachment action representing a user's interaction with an adaptive card. The action captures the user's input from the card form fields.
       tags:
-        - Attachment Actions
+      - Attachment Actions
       requestBody:
         required: true
         content:
@@ -52,18 +46,16 @@ paths:
     get:
       operationId: getAttachmentActionDetails
       summary: Cisco Webex Get Attachment Action Details
-      description: >-
-        Shows details for an attachment action by ID. Returns the action
-        metadata and user-provided input data from the adaptive card.
+      description: Shows details for an attachment action by ID. Returns the action metadata and user-provided input data from the adaptive card.
       tags:
-        - Attachment Actions
+      - Attachment Actions
       parameters:
-        - name: id
-          in: path
-          required: true
-          description: Unique identifier for the attachment action.
-          schema:
-            type: string
+      - name: id
+        in: path
+        required: true
+        description: Unique identifier for the attachment action.
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response with attachment action details.
@@ -74,14 +66,26 @@ paths:
         '404':
           description: Attachment action not found.
 components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      description: >-
-        Webex API access token. Obtain via OAuth 2.0 authorization flow or
-        personal access token from developer.webex.com.
   schemas:
+    CreateAttachmentActionRequest:
+      type: object
+      required:
+      - type
+      - messageId
+      - inputs
+      properties:
+        type:
+          type: string
+          description: The type of action. Currently only 'submit' is supported.
+          enum:
+          - submit
+        messageId:
+          type: string
+          description: The message ID containing the adaptive card.
+        inputs:
+          type: object
+          description: User input data from the adaptive card fields.
+          additionalProperties: true
     AttachmentAction:
       type: object
       properties:
@@ -92,7 +96,7 @@ components:
           type: string
           description: The type of action.
           enum:
-            - submit
+          - submit
         messageId:
           type: string
           description: The parent message ID containing the adaptive card.
@@ -104,30 +108,14 @@ components:
           description: The room ID where the action occurred.
         inputs:
           type: object
-          description: >-
-            User-provided form data from the adaptive card. Keys correspond
-            to the input field IDs defined in the card.
+          description: User-provided form data from the adaptive card. Keys correspond to the input field IDs defined in the card.
           additionalProperties: true
         created:
           type: string
           format: date-time
           description: Date and time the action was created.
-    CreateAttachmentActionRequest:
-      type: object
-      required:
-        - type
-        - messageId
-        - inputs
-      properties:
-        type:
-          type: string
-          description: The type of action. Currently only 'submit' is supported.
-          enum:
-            - submit
-        messageId:
-          type: string
-          description: The message ID containing the adaptive card.
-        inputs:
-          type: object
-          description: User input data from the adaptive card fields.
-          additionalProperties: true
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Webex API access token. Obtain via OAuth 2.0 authorization flow. Requires audit:events_read scope.

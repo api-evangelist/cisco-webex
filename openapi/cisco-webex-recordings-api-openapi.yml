@@ -1,0 +1,264 @@
+openapi: 3.1.0
+info:
+  title: Cisco Webex Admin Audit Events Recordings API
+  description: Access admin audit events for tracking administrative actions performed in Webex Control Hub. Available to full administrators for compliance monitoring and security auditing purposes.
+  version: 1.0.0
+  contact:
+    name: Cisco Webex Developer Support
+    url: https://developer.webex.com/support
+  license:
+    name: Cisco Webex API Terms of Service
+    url: https://developer.webex.com/terms-of-service
+servers:
+- url: https://webexapis.com/v1
+  description: Webex Production API
+security:
+- bearerAuth: []
+tags:
+- name: Recordings
+  description: Operations for managing meeting recordings
+paths:
+  /recordings:
+    get:
+      operationId: listRecordings
+      summary: Cisco Webex List Recordings
+      description: Lists recordings for the authenticated user. Supports filtering by meeting ID, date range, format, service type, and status.
+      tags:
+      - Recordings
+      parameters:
+      - name: meetingId
+        in: query
+        description: Filter recordings by meeting ID.
+        schema:
+          type: string
+      - name: from
+        in: query
+        description: List recordings after this date and time in ISO 8601 format.
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        description: List recordings before this date and time in ISO 8601 format.
+        schema:
+          type: string
+          format: date-time
+      - name: hostEmail
+        in: query
+        description: Email of the meeting host (admin use).
+        schema:
+          type: string
+          format: email
+      - name: siteUrl
+        in: query
+        description: Webex site URL to filter recordings.
+        schema:
+          type: string
+      - name: integrationTag
+        in: query
+        description: Integration tag to filter recordings.
+        schema:
+          type: string
+      - name: topic
+        in: query
+        description: Filter by recording topic.
+        schema:
+          type: string
+      - name: format
+        in: query
+        description: Filter by recording format.
+        schema:
+          type: string
+          enum:
+          - MP4
+          - ARF
+      - name: serviceType
+        in: query
+        description: Filter by Webex service type.
+        schema:
+          type: string
+          enum:
+          - MeetingCenter
+          - EventCenter
+          - TrainingCenter
+          - SupportCenter
+      - name: status
+        in: query
+        description: Filter by recording status.
+        schema:
+          type: string
+          enum:
+          - available
+          - deleted
+          - purged
+          default: available
+      - name: max
+        in: query
+        description: Maximum number of recordings to return (default 10, max 100).
+        schema:
+          type: integer
+          default: 10
+          minimum: 1
+          maximum: 100
+      responses:
+        '200':
+          description: Successful response with list of recordings.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Recording'
+        '401':
+          description: Unauthorized - invalid or missing access token.
+  /recordings/{recordingId}:
+    get:
+      operationId: getRecordingDetails
+      summary: Cisco Webex Get Recording Details
+      description: Shows details for a recording by ID. Includes download URLs, playback links, and temporary direct download links with expiration.
+      tags:
+      - Recordings
+      parameters:
+      - name: recordingId
+        in: path
+        required: true
+        description: Unique identifier for the recording.
+        schema:
+          type: string
+      - name: hostEmail
+        in: query
+        description: Email of the meeting host (admin use).
+        schema:
+          type: string
+          format: email
+      responses:
+        '200':
+          description: Successful response with recording details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Recording'
+        '404':
+          description: Recording not found.
+    delete:
+      operationId: deleteRecording
+      summary: Cisco Webex Delete a Recording
+      description: Deletes a recording by ID. Compliance officers must provide a reason for the deletion. The recording is soft-deleted and can be purged later.
+      tags:
+      - Recordings
+      parameters:
+      - name: recordingId
+        in: path
+        required: true
+        description: Unique identifier for the recording.
+        schema:
+          type: string
+      - name: hostEmail
+        in: query
+        description: Email of the meeting host (admin use).
+        schema:
+          type: string
+          format: email
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reason:
+                  type: string
+                  description: Reason for deletion (required for compliance officers).
+                comment:
+                  type: string
+                  description: Additional comment (max 255 characters).
+                  maxLength: 255
+      responses:
+        '204':
+          description: Recording deleted successfully.
+        '404':
+          description: Recording not found.
+components:
+  schemas:
+    Recording:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the recording.
+        meetingId:
+          type: string
+          description: The meeting ID associated with the recording.
+        topic:
+          type: string
+          description: The topic or title of the recording.
+        createTime:
+          type: string
+          format: date-time
+          description: Date and time the recording was created.
+        timeRecorded:
+          type: string
+          format: date-time
+          description: Date and time the recording was made.
+        downloadUrl:
+          type: string
+          format: uri
+          description: URL to download the recording.
+        playbackUrl:
+          type: string
+          format: uri
+          description: URL to play back the recording.
+        password:
+          type: string
+          description: Password required to access the recording.
+        format:
+          type: string
+          description: Format of the recording.
+          enum:
+          - MP4
+          - ARF
+          - UPLOADED
+        serviceType:
+          type: string
+          description: Webex service type.
+          enum:
+          - MeetingCenter
+          - EventCenter
+          - TrainingCenter
+          - SupportCenter
+        durationSeconds:
+          type: integer
+          description: Duration of the recording in seconds.
+        sizeBytes:
+          type: integer
+          description: Size of the recording in bytes.
+        status:
+          type: string
+          description: Current status of the recording.
+          enum:
+          - available
+          - deleted
+          - purged
+        temporaryDirectDownloadLinks:
+          type: object
+          description: Temporary download links with expiration.
+          properties:
+            recordingDownloadLink:
+              type: string
+              format: uri
+            audioDownloadLink:
+              type: string
+              format: uri
+            transcriptDownloadLink:
+              type: string
+              format: uri
+            expiration:
+              type: string
+              format: date-time
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Webex API access token. Obtain via OAuth 2.0 authorization flow. Requires audit:events_read scope.

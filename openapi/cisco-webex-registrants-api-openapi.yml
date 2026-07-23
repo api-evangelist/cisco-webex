@@ -1,0 +1,364 @@
+openapi: 3.1.0
+info:
+  title: Cisco Webex Admin Audit Events Registrants API
+  description: Access admin audit events for tracking administrative actions performed in Webex Control Hub. Available to full administrators for compliance monitoring and security auditing purposes.
+  version: 1.0.0
+  contact:
+    name: Cisco Webex Developer Support
+    url: https://developer.webex.com/support
+  license:
+    name: Cisco Webex API Terms of Service
+    url: https://developer.webex.com/terms-of-service
+servers:
+- url: https://webexapis.com/v1
+  description: Webex Production API
+security:
+- bearerAuth: []
+tags:
+- name: Registrants
+  description: Operations for managing meeting registrants
+paths:
+  /meetings/{meetingId}/registrants:
+    get:
+      operationId: listMeetingRegistrants
+      summary: Cisco Webex List Meeting Registrants
+      description: Lists meeting registrants for a specified meeting. Only applies to meetings with registration enabled.
+      tags:
+      - Registrants
+      parameters:
+      - name: meetingId
+        in: path
+        required: true
+        description: Unique identifier for the meeting series.
+        schema:
+          type: string
+      - name: hostEmail
+        in: query
+        description: Email address of the meeting host (admin use).
+        schema:
+          type: string
+          format: email
+      - name: max
+        in: query
+        description: Maximum number of registrants to return.
+        schema:
+          type: integer
+          default: 100
+      responses:
+        '200':
+          description: Successful response with list of registrants.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Registrant'
+  /meetings/{meetingId}/registrants/approve:
+    post:
+      operationId: approveMeetingRegistrants
+      summary: Cisco Webex Batch Approve Meeting Registrants
+      description: Approves one or more pending registrants for a meeting with registration enabled.
+      tags:
+      - Registrants
+      parameters:
+      - name: meetingId
+        in: path
+        required: true
+        description: Unique identifier for the meeting series.
+        schema:
+          type: string
+      - name: current
+        in: query
+        description: Whether to filter for the current scheduled meeting.
+        schema:
+          type: boolean
+      - name: hostEmail
+        in: query
+        description: Email address of the meeting host (admin use).
+        schema:
+          type: string
+          format: email
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sendEmail:
+                  type: boolean
+                  description: Whether to send notification email to registrants.
+                registrants:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: Registrant ID.
+      responses:
+        '204':
+          description: Registrants approved successfully.
+  /meetings/{meetingId}/registrants/reject:
+    post:
+      operationId: rejectMeetingRegistrants
+      summary: Cisco Webex Batch Reject Meeting Registrants
+      description: Rejects one or more pending registrants for a meeting with registration enabled.
+      tags:
+      - Registrants
+      parameters:
+      - name: meetingId
+        in: path
+        required: true
+        description: Unique identifier for the meeting series.
+        schema:
+          type: string
+      - name: current
+        in: query
+        description: Whether to filter for the current scheduled meeting.
+        schema:
+          type: boolean
+      - name: hostEmail
+        in: query
+        description: Email address of the meeting host (admin use).
+        schema:
+          type: string
+          format: email
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sendEmail:
+                  type: boolean
+                registrants:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+      responses:
+        '204':
+          description: Registrants rejected successfully.
+  /meetings/{meetingId}/registrants/cancel:
+    post:
+      operationId: cancelMeetingRegistrants
+      summary: Cisco Webex Batch Cancel Meeting Registrants
+      description: Cancels one or more approved registrants for a meeting with registration enabled.
+      tags:
+      - Registrants
+      parameters:
+      - name: meetingId
+        in: path
+        required: true
+        description: Unique identifier for the meeting series.
+        schema:
+          type: string
+      - name: current
+        in: query
+        description: Whether to filter for the current scheduled meeting.
+        schema:
+          type: boolean
+      - name: hostEmail
+        in: query
+        description: Email address of the meeting host (admin use).
+        schema:
+          type: string
+          format: email
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sendEmail:
+                  type: boolean
+                registrants:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+      responses:
+        '204':
+          description: Registrants cancelled successfully.
+  /meetings/{meetingId}/registrants/bulkInsert:
+    post:
+      operationId: batchRegisterMeetingRegistrants
+      summary: Cisco Webex Batch Register Meeting Registrants
+      description: Registers one or more people for a meeting with registration enabled. Supports bulk insertion of registrant details.
+      tags:
+      - Registrants
+      parameters:
+      - name: meetingId
+        in: path
+        required: true
+        description: Unique identifier for the meeting series.
+        schema:
+          type: string
+      - name: current
+        in: query
+        description: Whether to filter for the current scheduled meeting.
+        schema:
+          type: boolean
+      - name: hostEmail
+        in: query
+        description: Email address of the meeting host (admin use).
+        schema:
+          type: string
+          format: email
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                items:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/RegistrantInput'
+      responses:
+        '200':
+          description: Registrants created successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Registrant'
+  /meetings/{meetingId}/registrants/bulkDelete:
+    post:
+      operationId: batchDeleteMeetingRegistrants
+      summary: Cisco Webex Batch Delete Meeting Registrants
+      description: Deletes one or more registrants from a meeting with registration enabled.
+      tags:
+      - Registrants
+      parameters:
+      - name: meetingId
+        in: path
+        required: true
+        description: Unique identifier for the meeting series.
+        schema:
+          type: string
+      - name: current
+        in: query
+        description: Whether to filter for the current scheduled meeting.
+        schema:
+          type: boolean
+      - name: hostEmail
+        in: query
+        description: Email address of the meeting host (admin use).
+        schema:
+          type: string
+          format: email
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                registrants:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+      responses:
+        '204':
+          description: Registrants deleted successfully.
+components:
+  schemas:
+    RegistrantInput:
+      type: object
+      required:
+      - firstName
+      - lastName
+      - email
+      properties:
+        firstName:
+          type: string
+          description: First name of the registrant.
+        lastName:
+          type: string
+          description: Last name of the registrant.
+        email:
+          type: string
+          format: email
+          description: Email address of the registrant.
+        jobTitle:
+          type: string
+          description: Job title of the registrant.
+        companyName:
+          type: string
+          description: Company name of the registrant.
+        address1:
+          type: string
+          description: Address line 1.
+        city:
+          type: string
+          description: City.
+        state:
+          type: string
+          description: State or province.
+        zipCode:
+          type: string
+          description: Postal or zip code.
+        countryRegion:
+          type: string
+          description: Country or region.
+        phone:
+          type: string
+          description: Phone number.
+    Registrant:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the registrant.
+        status:
+          type: string
+          description: Registration status.
+          enum:
+          - pending
+          - approved
+          - rejected
+          - cancelled
+        firstName:
+          type: string
+          description: First name of the registrant.
+        lastName:
+          type: string
+          description: Last name of the registrant.
+        email:
+          type: string
+          format: email
+          description: Email address of the registrant.
+        jobTitle:
+          type: string
+          description: Job title of the registrant.
+        companyName:
+          type: string
+          description: Company name of the registrant.
+        registrationTime:
+          type: string
+          format: date-time
+          description: Time the registrant registered.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Webex API access token. Obtain via OAuth 2.0 authorization flow. Requires audit:events_read scope.

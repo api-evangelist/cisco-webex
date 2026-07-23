@@ -1,10 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Cisco Webex Roles API
-  description: >-
-    Retrieve roles available within a Webex organization. Roles define the
-    level of access and permissions granted to users, such as full
-    administrator or read-only administrator.
+  title: Cisco Webex Admin Audit Events Roles API
+  description: Access admin audit events for tracking administrative actions performed in Webex Control Hub. Available to full administrators for compliance monitoring and security auditing purposes.
   version: 1.0.0
   contact:
     name: Cisco Webex Developer Support
@@ -13,23 +10,21 @@ info:
     name: Cisco Webex API Terms of Service
     url: https://developer.webex.com/terms-of-service
 servers:
-  - url: https://webexapis.com/v1
-    description: Webex Production API
+- url: https://webexapis.com/v1
+  description: Webex Production API
 security:
-  - bearerAuth: []
+- bearerAuth: []
 tags:
-  - name: Roles
-    description: Operations for retrieving organizational roles
+- name: Roles
+  description: Operations for retrieving organizational roles
 paths:
   /roles:
     get:
       operationId: listRoles
       summary: Cisco Webex List Roles
-      description: >-
-        Lists all roles available in the organization. Must be called by
-        an admin user. Returns role names and unique identifiers.
+      description: Lists all roles available in the organization. Must be called by an admin user. Returns role names and unique identifiers.
       tags:
-        - Roles
+      - Roles
       responses:
         '200':
           description: Successful response with list of roles.
@@ -48,18 +43,16 @@ paths:
     get:
       operationId: getRoleDetails
       summary: Cisco Webex Get Role Details
-      description: >-
-        Shows details for a role by ID. Returns the role name and unique
-        identifier. Must be called by an admin user.
+      description: Shows details for a role by ID. Returns the role name and unique identifier. Must be called by an admin user.
       tags:
-        - Roles
+      - Roles
       parameters:
-        - name: roleId
-          in: path
-          required: true
-          description: Unique identifier for the role.
-          schema:
-            type: string
+      - name: roleId
+        in: path
+        required: true
+        description: Unique identifier for the role.
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response with role details.
@@ -70,13 +63,6 @@ paths:
         '404':
           description: Role not found.
 components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      description: >-
-        Webex API access token. Obtain via OAuth 2.0 authorization flow.
-        Requires spark-admin:roles_read scope.
   schemas:
     Role:
       type: object
@@ -87,3 +73,8 @@ components:
         name:
           type: string
           description: The name of the role.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Webex API access token. Obtain via OAuth 2.0 authorization flow. Requires audit:events_read scope.

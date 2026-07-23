@@ -1,10 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Cisco Webex Memberships API
-  description: >-
-    Manage room memberships representing a person's relationship to a room.
-    Use this API to list members of any room, create memberships to invite
-    users, and update or remove memberships.
+  title: Cisco Webex Admin Audit Events Memberships API
+  description: Access admin audit events for tracking administrative actions performed in Webex Control Hub. Available to full administrators for compliance monitoring and security auditing purposes.
   version: 1.0.0
   contact:
     name: Cisco Webex Developer Support
@@ -13,46 +10,44 @@ info:
     name: Cisco Webex API Terms of Service
     url: https://developer.webex.com/terms-of-service
 servers:
-  - url: https://webexapis.com/v1
-    description: Webex Production API
+- url: https://webexapis.com/v1
+  description: Webex Production API
 security:
-  - bearerAuth: []
+- bearerAuth: []
 tags:
-  - name: Memberships
-    description: Operations for managing room memberships
+- name: Memberships
+  description: Operations for managing room memberships
 paths:
   /memberships:
     get:
       operationId: listMemberships
       summary: Cisco Webex List Memberships
-      description: >-
-        Lists all room memberships. Filter by room ID, person ID, or person
-        email. Results are paginated and include membership status and roles.
+      description: Lists all room memberships. Filter by room ID, person ID, or person email. Results are paginated and include membership status and roles.
       tags:
-        - Memberships
+      - Memberships
       parameters:
-        - name: roomId
-          in: query
-          description: Filter memberships by room ID.
-          schema:
-            type: string
-        - name: personId
-          in: query
-          description: Filter memberships by person ID.
-          schema:
-            type: string
-        - name: personEmail
-          in: query
-          description: Filter memberships by person email address.
-          schema:
-            type: string
-            format: email
-        - name: max
-          in: query
-          description: Maximum number of memberships to return (default 100).
-          schema:
-            type: integer
-            default: 100
+      - name: roomId
+        in: query
+        description: Filter memberships by room ID.
+        schema:
+          type: string
+      - name: personId
+        in: query
+        description: Filter memberships by person ID.
+        schema:
+          type: string
+      - name: personEmail
+        in: query
+        description: Filter memberships by person email address.
+        schema:
+          type: string
+          format: email
+      - name: max
+        in: query
+        description: Maximum number of memberships to return (default 100).
+        schema:
+          type: integer
+          default: 100
       responses:
         '200':
           description: Successful response with list of memberships.
@@ -70,11 +65,9 @@ paths:
     post:
       operationId: createMembership
       summary: Cisco Webex Create a Membership
-      description: >-
-        Adds a person to a room. The person can be specified by person ID
-        or email address. Optionally set the person as a room moderator.
+      description: Adds a person to a room. The person can be specified by person ID or email address. Optionally set the person as a room moderator.
       tags:
-        - Memberships
+      - Memberships
       requestBody:
         required: true
         content:
@@ -98,18 +91,16 @@ paths:
     get:
       operationId: getMembershipDetails
       summary: Cisco Webex Get Membership Details
-      description: >-
-        Shows details for a membership by ID. Returns the membership
-        configuration including role and hidden status.
+      description: Shows details for a membership by ID. Returns the membership configuration including role and hidden status.
       tags:
-        - Memberships
+      - Memberships
       parameters:
-        - name: membershipId
-          in: path
-          required: true
-          description: Unique identifier for the membership.
-          schema:
-            type: string
+      - name: membershipId
+        in: path
+        required: true
+        description: Unique identifier for the membership.
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response with membership details.
@@ -122,18 +113,16 @@ paths:
     put:
       operationId: updateMembership
       summary: Cisco Webex Update a Membership
-      description: >-
-        Updates properties of a membership by ID. Allows changing the
-        moderator status and visibility of direct spaces.
+      description: Updates properties of a membership by ID. Allows changing the moderator status and visibility of direct spaces.
       tags:
-        - Memberships
+      - Memberships
       parameters:
-        - name: membershipId
-          in: path
-          required: true
-          description: Unique identifier for the membership.
-          schema:
-            type: string
+      - name: membershipId
+        in: path
+        required: true
+        description: Unique identifier for the membership.
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -154,32 +143,52 @@ paths:
     delete:
       operationId: deleteMembership
       summary: Cisco Webex Delete a Membership
-      description: >-
-        Deletes a membership by ID. The person is removed from the room and
-        can no longer access the room's content.
+      description: Deletes a membership by ID. The person is removed from the room and can no longer access the room's content.
       tags:
-        - Memberships
+      - Memberships
       parameters:
-        - name: membershipId
-          in: path
-          required: true
-          description: Unique identifier for the membership.
-          schema:
-            type: string
+      - name: membershipId
+        in: path
+        required: true
+        description: Unique identifier for the membership.
+        schema:
+          type: string
       responses:
         '204':
           description: Membership deleted successfully.
         '404':
           description: Membership not found.
 components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      description: >-
-        Webex API access token. Obtain via OAuth 2.0 authorization flow or
-        personal access token from developer.webex.com.
   schemas:
+    UpdateMembershipRequest:
+      type: object
+      required:
+      - isModerator
+      properties:
+        isModerator:
+          type: boolean
+          description: Whether the person is a room moderator.
+        isRoomHidden:
+          type: boolean
+          description: Whether to hide the direct space.
+    CreateMembershipRequest:
+      type: object
+      required:
+      - roomId
+      properties:
+        roomId:
+          type: string
+          description: The room ID to add the person to.
+        personId:
+          type: string
+          description: The person ID to add. Either personId or personEmail is required.
+        personEmail:
+          type: string
+          format: email
+          description: The email address of the person to add. Either personId or personEmail is required.
+        isModerator:
+          type: boolean
+          description: Whether the person is a room moderator.
     Membership:
       type: object
       properties:
@@ -212,8 +221,8 @@ components:
           type: string
           description: The type of room.
           enum:
-            - direct
-            - group
+          - direct
+          - group
         isMonitor:
           type: boolean
           description: Whether the member is a monitoring bot.
@@ -221,34 +230,8 @@ components:
           type: string
           format: date-time
           description: Date and time the membership was created.
-    CreateMembershipRequest:
-      type: object
-      required:
-        - roomId
-      properties:
-        roomId:
-          type: string
-          description: The room ID to add the person to.
-        personId:
-          type: string
-          description: The person ID to add. Either personId or personEmail is required.
-        personEmail:
-          type: string
-          format: email
-          description: >-
-            The email address of the person to add. Either personId or
-            personEmail is required.
-        isModerator:
-          type: boolean
-          description: Whether the person is a room moderator.
-    UpdateMembershipRequest:
-      type: object
-      required:
-        - isModerator
-      properties:
-        isModerator:
-          type: boolean
-          description: Whether the person is a room moderator.
-        isRoomHidden:
-          type: boolean
-          description: Whether to hide the direct space.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Webex API access token. Obtain via OAuth 2.0 authorization flow. Requires audit:events_read scope.

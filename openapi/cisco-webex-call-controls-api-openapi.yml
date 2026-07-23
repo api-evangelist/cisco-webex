@@ -1,10 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Cisco Webex Call Controls API
-  description: >-
-    Control active calls in Webex Calling including dial, answer, hold,
-    transfer, and pickup operations. Supports third-party call control for
-    building custom calling experiences and integrations.
+  title: Cisco Webex Admin Audit Events Call Controls API
+  description: Access admin audit events for tracking administrative actions performed in Webex Control Hub. Available to full administrators for compliance monitoring and security auditing purposes.
   version: 1.0.0
   contact:
     name: Cisco Webex Developer Support
@@ -13,23 +10,21 @@ info:
     name: Cisco Webex API Terms of Service
     url: https://developer.webex.com/terms-of-service
 servers:
-  - url: https://webexapis.com/v1
-    description: Webex Production API
+- url: https://webexapis.com/v1
+  description: Webex Production API
 security:
-  - bearerAuth: []
+- bearerAuth: []
 tags:
-  - name: Call Controls
-    description: Operations for controlling active calls
+- name: Call Controls
+  description: Operations for controlling active calls
 paths:
   /telephony/calls/dial:
     post:
       operationId: dial
       summary: Cisco Webex Dial
-      description: >-
-        Initiates an outbound call from the authenticated user's device.
-        The destination can be a phone number, SIP URI, or Webex person ID.
+      description: Initiates an outbound call from the authenticated user's device. The destination can be a phone number, SIP URI, or Webex person ID.
       tags:
-        - Call Controls
+      - Call Controls
       requestBody:
         required: true
         content:
@@ -37,7 +32,7 @@ paths:
             schema:
               type: object
               required:
-                - destination
+              - destination
               properties:
                 destination:
                   type: string
@@ -57,11 +52,9 @@ paths:
     post:
       operationId: answer
       summary: Cisco Webex Answer
-      description: >-
-        Answers an incoming call on the authenticated user's device. The
-        call ID must be provided to identify which call to answer.
+      description: Answers an incoming call on the authenticated user's device. The call ID must be provided to identify which call to answer.
       tags:
-        - Call Controls
+      - Call Controls
       requestBody:
         required: true
         content:
@@ -69,7 +62,7 @@ paths:
             schema:
               type: object
               required:
-                - callId
+              - callId
               properties:
                 callId:
                   type: string
@@ -83,11 +76,9 @@ paths:
     post:
       operationId: reject
       summary: Cisco Webex Reject
-      description: >-
-        Rejects an incoming call. The caller will hear a busy tone or be
-        redirected to voicemail depending on configuration.
+      description: Rejects an incoming call. The caller will hear a busy tone or be redirected to voicemail depending on configuration.
       tags:
-        - Call Controls
+      - Call Controls
       requestBody:
         required: true
         content:
@@ -95,7 +86,7 @@ paths:
             schema:
               type: object
               required:
-                - callId
+              - callId
               properties:
                 callId:
                   type: string
@@ -109,11 +100,9 @@ paths:
     post:
       operationId: hangup
       summary: Cisco Webex Hangup
-      description: >-
-        Ends an active call. Both parties are disconnected when the call
-        is terminated.
+      description: Ends an active call. Both parties are disconnected when the call is terminated.
       tags:
-        - Call Controls
+      - Call Controls
       requestBody:
         required: true
         content:
@@ -121,7 +110,7 @@ paths:
             schema:
               type: object
               required:
-                - callId
+              - callId
               properties:
                 callId:
                   type: string
@@ -135,11 +124,9 @@ paths:
     post:
       operationId: hold
       summary: Cisco Webex Hold
-      description: >-
-        Places an active call on hold. The other party hears hold music
-        while the call is held.
+      description: Places an active call on hold. The other party hears hold music while the call is held.
       tags:
-        - Call Controls
+      - Call Controls
       requestBody:
         required: true
         content:
@@ -147,7 +134,7 @@ paths:
             schema:
               type: object
               required:
-                - callId
+              - callId
               properties:
                 callId:
                   type: string
@@ -161,11 +148,9 @@ paths:
     post:
       operationId: resume
       summary: Cisco Webex Resume
-      description: >-
-        Resumes a held call. The call returns to an active state with
-        both parties connected.
+      description: Resumes a held call. The call returns to an active state with both parties connected.
       tags:
-        - Call Controls
+      - Call Controls
       requestBody:
         required: true
         content:
@@ -173,7 +158,7 @@ paths:
             schema:
               type: object
               required:
-                - callId
+              - callId
               properties:
                 callId:
                   type: string
@@ -187,11 +172,9 @@ paths:
     post:
       operationId: transfer
       summary: Cisco Webex Transfer
-      description: >-
-        Transfers an active call to another destination. Supports blind
-        transfer and consultative transfer when two calls are active.
+      description: Transfers an active call to another destination. Supports blind transfer and consultative transfer when two calls are active.
       tags:
-        - Call Controls
+      - Call Controls
       requestBody:
         required: true
         content:
@@ -199,7 +182,7 @@ paths:
             schema:
               type: object
               required:
-                - callId1
+              - callId1
               properties:
                 callId1:
                   type: string
@@ -219,11 +202,9 @@ paths:
     post:
       operationId: park
       summary: Cisco Webex Park
-      description: >-
-        Parks an active call at a call park extension. The call can be
-        retrieved from any device by dialing the park extension.
+      description: Parks an active call at a call park extension. The call can be retrieved from any device by dialing the park extension.
       tags:
-        - Call Controls
+      - Call Controls
       requestBody:
         required: true
         content:
@@ -231,7 +212,7 @@ paths:
             schema:
               type: object
               required:
-                - callId
+              - callId
               properties:
                 callId:
                   type: string
@@ -260,11 +241,9 @@ paths:
     post:
       operationId: retrieve
       summary: Cisco Webex Retrieve
-      description: >-
-        Retrieves a parked call by providing the park destination. The call
-        is connected to the authenticated user's device.
+      description: Retrieves a parked call by providing the park destination. The call is connected to the authenticated user's device.
       tags:
-        - Call Controls
+      - Call Controls
       requestBody:
         required: true
         content:
@@ -272,7 +251,7 @@ paths:
             schema:
               type: object
               required:
-                - destination
+              - destination
               properties:
                 destination:
                   type: string
@@ -290,11 +269,9 @@ paths:
     get:
       operationId: listCalls
       summary: Cisco Webex List Calls
-      description: >-
-        Lists all active calls for the authenticated user. Returns call
-        details including state, direction, and connected parties.
+      description: Lists all active calls for the authenticated user. Returns call details including state, direction, and connected parties.
       tags:
-        - Call Controls
+      - Call Controls
       responses:
         '200':
           description: Successful response with list of active calls.
@@ -313,18 +290,16 @@ paths:
     get:
       operationId: getCallDetails
       summary: Cisco Webex Get Call Details
-      description: >-
-        Shows details for an active call by call ID. Returns the current
-        call state, parties, and duration.
+      description: Shows details for an active call by call ID. Returns the current call state, parties, and duration.
       tags:
-        - Call Controls
+      - Call Controls
       parameters:
-        - name: callId
-          in: path
-          required: true
-          description: Unique identifier for the call.
-          schema:
-            type: string
+      - name: callId
+        in: path
+        required: true
+        description: Unique identifier for the call.
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response with call details.
@@ -335,13 +310,6 @@ paths:
         '404':
           description: Call not found.
 components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      description: >-
-        Webex API access token. Obtain via OAuth 2.0 authorization flow.
-        Requires spark:calls_write and spark:calls_read scopes.
   schemas:
     CallSession:
       type: object
@@ -356,29 +324,29 @@ components:
           type: string
           description: Current state of the call.
           enum:
-            - connecting
-            - alerting
-            - connected
-            - held
-            - remoteHeld
-            - disconnected
+          - connecting
+          - alerting
+          - connected
+          - held
+          - remoteHeld
+          - disconnected
         callType:
           type: string
           description: Type of call.
           enum:
-            - location
-            - organization
-            - external
-            - emergency
-            - repair
-            - other
+          - location
+          - organization
+          - external
+          - emergency
+          - repair
+          - other
         personality:
           type: string
           description: The role of the authenticated user in the call.
           enum:
-            - originator
-            - terminator
-            - clickToDialOriginator
+          - originator
+          - terminator
+          - clickToDialOriginator
         appearance:
           type: integer
           description: The call appearance value.
@@ -407,3 +375,8 @@ components:
         duration:
           type: integer
           description: Call duration in seconds.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Webex API access token. Obtain via OAuth 2.0 authorization flow. Requires audit:events_read scope.

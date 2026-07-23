@@ -1,10 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Cisco Webex Devices API
-  description: >-
-    Manage and control Webex devices and room systems. Provides endpoints
-    for listing, creating, and managing device configurations, activations,
-    and workspace assignments.
+  title: Cisco Webex Admin Audit Events Devices API
+  description: Access admin audit events for tracking administrative actions performed in Webex Control Hub. Available to full administrators for compliance monitoring and security auditing purposes.
   version: 1.0.0
   contact:
     name: Cisco Webex Developer Support
@@ -13,110 +10,107 @@ info:
     name: Cisco Webex API Terms of Service
     url: https://developer.webex.com/terms-of-service
 servers:
-  - url: https://webexapis.com/v1
-    description: Webex Production API
+- url: https://webexapis.com/v1
+  description: Webex Production API
 security:
-  - bearerAuth: []
+- bearerAuth: []
 tags:
-  - name: Devices
-    description: Operations for managing Webex devices
+- name: Devices
+  description: Operations for managing Webex devices
 paths:
   /devices:
     get:
       operationId: listDevices
       summary: Cisco Webex List Devices
-      description: >-
-        Lists all devices associated with the authenticated user or
-        organization. Supports filtering by person, workspace, display name,
-        product, and other criteria.
+      description: Lists all devices associated with the authenticated user or organization. Supports filtering by person, workspace, display name, product, and other criteria.
       tags:
-        - Devices
+      - Devices
       parameters:
-        - name: personId
-          in: query
-          description: Filter by person ID who owns the device.
-          schema:
-            type: string
-        - name: workspaceId
-          in: query
-          description: Filter by workspace ID where the device is assigned.
-          schema:
-            type: string
-        - name: displayName
-          in: query
-          description: Filter by device display name.
-          schema:
-            type: string
-        - name: product
-          in: query
-          description: Filter by device product name.
-          schema:
-            type: string
-        - name: type
-          in: query
-          description: Filter by device type.
-          schema:
-            type: string
-        - name: tag
-          in: query
-          description: Filter by device tag.
-          schema:
-            type: string
-        - name: connectionStatus
-          in: query
-          description: Filter by device connection status.
-          schema:
-            type: string
-            enum:
-              - connected
-              - disconnected
-              - connected_with_issues
-        - name: serial
-          in: query
-          description: Filter by device serial number.
-          schema:
-            type: string
-        - name: software
-          in: query
-          description: Filter by software version.
-          schema:
-            type: string
-        - name: upgradeChannel
-          in: query
-          description: Filter by upgrade channel.
-          schema:
-            type: string
-        - name: errorCode
-          in: query
-          description: Filter by error code.
-          schema:
-            type: string
-        - name: capability
-          in: query
-          description: Filter by device capability.
-          schema:
-            type: string
-        - name: permission
-          in: query
-          description: Filter by device permission.
-          schema:
-            type: string
-        - name: orgId
-          in: query
-          description: Filter by organization ID.
-          schema:
-            type: string
-        - name: start
-          in: query
-          description: Offset for pagination.
-          schema:
-            type: integer
-        - name: max
-          in: query
-          description: Maximum number of devices to return (default 100).
-          schema:
-            type: integer
-            default: 100
+      - name: personId
+        in: query
+        description: Filter by person ID who owns the device.
+        schema:
+          type: string
+      - name: workspaceId
+        in: query
+        description: Filter by workspace ID where the device is assigned.
+        schema:
+          type: string
+      - name: displayName
+        in: query
+        description: Filter by device display name.
+        schema:
+          type: string
+      - name: product
+        in: query
+        description: Filter by device product name.
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: Filter by device type.
+        schema:
+          type: string
+      - name: tag
+        in: query
+        description: Filter by device tag.
+        schema:
+          type: string
+      - name: connectionStatus
+        in: query
+        description: Filter by device connection status.
+        schema:
+          type: string
+          enum:
+          - connected
+          - disconnected
+          - connected_with_issues
+      - name: serial
+        in: query
+        description: Filter by device serial number.
+        schema:
+          type: string
+      - name: software
+        in: query
+        description: Filter by software version.
+        schema:
+          type: string
+      - name: upgradeChannel
+        in: query
+        description: Filter by upgrade channel.
+        schema:
+          type: string
+      - name: errorCode
+        in: query
+        description: Filter by error code.
+        schema:
+          type: string
+      - name: capability
+        in: query
+        description: Filter by device capability.
+        schema:
+          type: string
+      - name: permission
+        in: query
+        description: Filter by device permission.
+        schema:
+          type: string
+      - name: orgId
+        in: query
+        description: Filter by organization ID.
+        schema:
+          type: string
+      - name: start
+        in: query
+        description: Offset for pagination.
+        schema:
+          type: integer
+      - name: max
+        in: query
+        description: Maximum number of devices to return (default 100).
+        schema:
+          type: integer
+          default: 100
       responses:
         '200':
           description: Successful response with list of devices.
@@ -134,12 +128,9 @@ paths:
     post:
       operationId: createDevice
       summary: Cisco Webex Create a Device Activation Code
-      description: >-
-        Creates a device activation code for onboarding a new device to a
-        person or workspace. The activation code is used to register the
-        device with Webex.
+      description: Creates a device activation code for onboarding a new device to a person or workspace. The activation code is used to register the device with Webex.
       tags:
-        - Devices
+      - Devices
       requestBody:
         required: true
         content:
@@ -161,18 +152,16 @@ paths:
     get:
       operationId: getDeviceDetails
       summary: Cisco Webex Get Device Details
-      description: >-
-        Shows details for a device by ID. Returns configuration, status,
-        and metadata for the device.
+      description: Shows details for a device by ID. Returns configuration, status, and metadata for the device.
       tags:
-        - Devices
+      - Devices
       parameters:
-        - name: deviceId
-          in: path
-          required: true
-          description: Unique identifier for the device.
-          schema:
-            type: string
+      - name: deviceId
+        in: path
+        required: true
+        description: Unique identifier for the device.
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response with device details.
@@ -185,18 +174,16 @@ paths:
     put:
       operationId: updateDevice
       summary: Cisco Webex Update a Device
-      description: >-
-        Updates details for a device by ID. Allows modifying display name,
-        upgrade channel, and other device properties.
+      description: Updates details for a device by ID. Allows modifying display name, upgrade channel, and other device properties.
       tags:
-        - Devices
+      - Devices
       parameters:
-        - name: deviceId
-          in: path
-          required: true
-          description: Unique identifier for the device.
-          schema:
-            type: string
+      - name: deviceId
+        in: path
+        required: true
+        description: Unique identifier for the device.
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -217,31 +204,22 @@ paths:
     delete:
       operationId: deleteDevice
       summary: Cisco Webex Delete a Device
-      description: >-
-        Deletes a device by ID. The device is removed from the organization
-        and must be re-activated to rejoin.
+      description: Deletes a device by ID. The device is removed from the organization and must be re-activated to rejoin.
       tags:
-        - Devices
+      - Devices
       parameters:
-        - name: deviceId
-          in: path
-          required: true
-          description: Unique identifier for the device.
-          schema:
-            type: string
+      - name: deviceId
+        in: path
+        required: true
+        description: Unique identifier for the device.
+        schema:
+          type: string
       responses:
         '204':
           description: Device deleted successfully.
         '404':
           description: Device not found.
 components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      description: >-
-        Webex API access token. Obtain via OAuth 2.0 authorization flow or
-        personal access token from developer.webex.com.
   schemas:
     Device:
       type: object
@@ -275,9 +253,9 @@ components:
           type: string
           description: Current connection status.
           enum:
-            - connected
-            - disconnected
-            - connected_with_issues
+          - connected
+          - disconnected
+          - connected_with_issues
         product:
           type: string
           description: Product name of the device.
@@ -368,3 +346,8 @@ components:
           type: string
           format: date-time
           description: Expiration time for the activation code.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Webex API access token. Obtain via OAuth 2.0 authorization flow. Requires audit:events_read scope.

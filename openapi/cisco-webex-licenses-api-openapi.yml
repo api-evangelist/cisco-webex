@@ -1,10 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Cisco Webex Licenses API
-  description: >-
-    Manage and retrieve Webex licenses for an organization. Provides
-    endpoints to list available licenses, view license details, and assign
-    or modify license allocations for users.
+  title: Cisco Webex Admin Audit Events Licenses API
+  description: Access admin audit events for tracking administrative actions performed in Webex Control Hub. Available to full administrators for compliance monitoring and security auditing purposes.
   version: 1.0.0
   contact:
     name: Cisco Webex Developer Support
@@ -13,29 +10,27 @@ info:
     name: Cisco Webex API Terms of Service
     url: https://developer.webex.com/terms-of-service
 servers:
-  - url: https://webexapis.com/v1
-    description: Webex Production API
+- url: https://webexapis.com/v1
+  description: Webex Production API
 security:
-  - bearerAuth: []
+- bearerAuth: []
 tags:
-  - name: Licenses
-    description: Operations for managing Webex licenses
+- name: Licenses
+  description: Operations for managing Webex licenses
 paths:
   /licenses:
     get:
       operationId: listLicenses
       summary: Cisco Webex List Licenses
-      description: >-
-        Lists all licenses for the organization. Returns license name,
-        total units, consumed units, and subscription details.
+      description: Lists all licenses for the organization. Returns license name, total units, consumed units, and subscription details.
       tags:
-        - Licenses
+      - Licenses
       parameters:
-        - name: orgId
-          in: query
-          description: Filter by organization ID.
-          schema:
-            type: string
+      - name: orgId
+        in: query
+        description: Filter by organization ID.
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response with list of licenses.
@@ -54,38 +49,35 @@ paths:
     get:
       operationId: getLicenseDetails
       summary: Cisco Webex Get License Details
-      description: >-
-        Shows details for a license by ID. Includes unit consumption,
-        subscription details, and optionally the list of users assigned
-        to the license.
+      description: Shows details for a license by ID. Includes unit consumption, subscription details, and optionally the list of users assigned to the license.
       tags:
-        - Licenses
+      - Licenses
       parameters:
-        - name: licenseId
-          in: path
-          required: true
-          description: Unique identifier for the license.
-          schema:
-            type: string
-        - name: includeAssignedTo
-          in: query
-          description: Set to 'user' to include the list of users assigned to this license.
-          schema:
-            type: string
-            enum:
-              - user
-        - name: next
-          in: query
-          description: Pagination token for retrieving additional assigned users.
-          schema:
-            type: string
-        - name: limit
-          in: query
-          description: Maximum number of assigned users to return (default 300, max 300).
-          schema:
-            type: integer
-            default: 300
-            maximum: 300
+      - name: licenseId
+        in: path
+        required: true
+        description: Unique identifier for the license.
+        schema:
+          type: string
+      - name: includeAssignedTo
+        in: query
+        description: Set to 'user' to include the list of users assigned to this license.
+        schema:
+          type: string
+          enum:
+          - user
+      - name: next
+        in: query
+        description: Pagination token for retrieving additional assigned users.
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Maximum number of assigned users to return (default 300, max 300).
+        schema:
+          type: integer
+          default: 300
+          maximum: 300
       responses:
         '200':
           description: Successful response with license details.
@@ -99,12 +91,9 @@ paths:
     patch:
       operationId: assignLicensesToUsers
       summary: Cisco Webex Assign Licenses to Users
-      description: >-
-        Assigns licenses and attendee site URLs to existing users. Supports
-        bulk operations and partial success scenarios with 206 response
-        codes.
+      description: Assigns licenses and attendee site URLs to existing users. Supports bulk operations and partial success scenarios with 206 response codes.
       tags:
-        - Licenses
+      - Licenses
       requestBody:
         required: true
         content:
@@ -141,13 +130,6 @@ paths:
         '401':
           description: Unauthorized - invalid or missing access token.
 components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      description: >-
-        Webex API access token. Obtain via OAuth 2.0 authorization flow.
-        Requires spark-admin:licenses_read scope.
   schemas:
     License:
       type: object
@@ -179,33 +161,6 @@ components:
         siteType:
           type: string
           description: Type of the Webex site.
-    LicenseDetail:
-      allOf:
-        - $ref: '#/components/schemas/License'
-        - type: object
-          properties:
-            users:
-              type: array
-              description: Users assigned to this license.
-              items:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    description: Person ID.
-                  type:
-                    type: string
-                    description: User type.
-                    enum:
-                      - INTERNAL
-                      - EXTERNAL
-                  displayName:
-                    type: string
-                    description: Display name of the user.
-                  email:
-                    type: string
-                    format: email
-                    description: Email address of the user.
     LicenseAssignment:
       type: object
       properties:
@@ -225,7 +180,7 @@ components:
           items:
             type: object
             required:
-              - id
+            - id
             properties:
               id:
                 type: string
@@ -234,8 +189,8 @@ components:
                 type: string
                 description: Operation to perform.
                 enum:
-                  - add
-                  - remove
+                - add
+                - remove
                 default: add
               properties:
                 type: object
@@ -258,9 +213,41 @@ components:
               accountType:
                 type: string
                 enum:
-                  - attendee
+                - attendee
               operation:
                 type: string
                 enum:
-                  - add
-                  - remove
+                - add
+                - remove
+    LicenseDetail:
+      allOf:
+      - $ref: '#/components/schemas/License'
+      - type: object
+        properties:
+          users:
+            type: array
+            description: Users assigned to this license.
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: Person ID.
+                type:
+                  type: string
+                  description: User type.
+                  enum:
+                  - INTERNAL
+                  - EXTERNAL
+                displayName:
+                  type: string
+                  description: Display name of the user.
+                email:
+                  type: string
+                  format: email
+                  description: Email address of the user.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Webex API access token. Obtain via OAuth 2.0 authorization flow. Requires audit:events_read scope.

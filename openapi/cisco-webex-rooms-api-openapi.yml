@@ -1,10 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Cisco Webex Rooms API
-  description: >-
-    Create and manage Webex spaces (rooms) for collaboration. Rooms are
-    virtual meeting places where people post messages and collaborate, and
-    can be organized within teams.
+  title: Cisco Webex Admin Audit Events Rooms API
+  description: Access admin audit events for tracking administrative actions performed in Webex Control Hub. Available to full administrators for compliance monitoring and security auditing purposes.
   version: 1.0.0
   contact:
     name: Cisco Webex Developer Support
@@ -13,72 +10,69 @@ info:
     name: Cisco Webex API Terms of Service
     url: https://developer.webex.com/terms-of-service
 servers:
-  - url: https://webexapis.com/v1
-    description: Webex Production API
+- url: https://webexapis.com/v1
+  description: Webex Production API
 security:
-  - bearerAuth: []
+- bearerAuth: []
 tags:
-  - name: Rooms
-    description: Operations for managing Webex rooms (spaces)
+- name: Rooms
+  description: Operations for managing Webex rooms (spaces)
 paths:
   /rooms:
     get:
       operationId: listRooms
       summary: Cisco Webex List Rooms
-      description: >-
-        Lists rooms to which the authenticated user belongs. Supports
-        filtering by team, room type, and sorting options. Results are
-        paginated.
+      description: Lists rooms to which the authenticated user belongs. Supports filtering by team, room type, and sorting options. Results are paginated.
       tags:
-        - Rooms
+      - Rooms
       parameters:
-        - name: teamId
-          in: query
-          description: Filter rooms by team ID.
-          schema:
-            type: string
-        - name: type
-          in: query
-          description: Filter by room type.
-          schema:
-            type: string
-            enum:
-              - direct
-              - group
-        - name: orgPublicSpaces
-          in: query
-          description: Show organization public spaces.
-          schema:
-            type: boolean
-        - name: from
-          in: query
-          description: Filter rooms made public after this date and time.
-          schema:
-            type: string
-            format: date-time
-        - name: to
-          in: query
-          description: Filter rooms made public before this date and time.
-          schema:
-            type: string
-            format: date-time
-        - name: sortBy
-          in: query
-          description: Sort order for the results.
-          schema:
-            type: string
-            enum:
-              - id
-              - lastactivity
-              - created
-        - name: max
-          in: query
-          description: Maximum number of rooms to return (default 100, max 1000).
-          schema:
-            type: integer
-            default: 100
-            minimum: 1
-            maximum: 1000
+      - name: teamId
+        in: query
+        description: Filter rooms by team ID.
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: Filter by room type.
+        schema:
+          type: string
+          enum:
+          - direct
+          - group
+      - name: orgPublicSpaces
+        in: query
+        description: Show organization public spaces.
+        schema:
+          type: boolean
+      - name: from
+        in: query
+        description: Filter rooms made public after this date and time.
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        description: Filter rooms made public before this date and time.
+        schema:
+          type: string
+          format: date-time
+      - name: sortBy
+        in: query
+        description: Sort order for the results.
+        schema:
+          type: string
+          enum:
+          - id
+          - lastactivity
+          - created
+      - name: max
+        in: query
+        description: Maximum number of rooms to return (default 100, max 1000).
+        schema:
+          type: integer
+          default: 100
+          minimum: 1
+          maximum: 1000
       responses:
         '200':
           description: Successful response with list of rooms.
@@ -96,12 +90,9 @@ paths:
     post:
       operationId: createRoom
       summary: Cisco Webex Create a Room
-      description: >-
-        Creates a new room (space). The authenticated user is automatically
-        added as a member of the room. Rooms can optionally be associated
-        with a team.
+      description: Creates a new room (space). The authenticated user is automatically added as a member of the room. Rooms can optionally be associated with a team.
       tags:
-        - Rooms
+      - Rooms
       requestBody:
         required: true
         content:
@@ -123,18 +114,16 @@ paths:
     get:
       operationId: getRoomDetails
       summary: Cisco Webex Get Room Details
-      description: >-
-        Shows details for a room by ID. Only members of the room can view
-        room details.
+      description: Shows details for a room by ID. Only members of the room can view room details.
       tags:
-        - Rooms
+      - Rooms
       parameters:
-        - name: roomId
-          in: path
-          required: true
-          description: Unique identifier for the room.
-          schema:
-            type: string
+      - name: roomId
+        in: path
+        required: true
+        description: Unique identifier for the room.
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response with room details.
@@ -147,18 +136,16 @@ paths:
     put:
       operationId: updateRoom
       summary: Cisco Webex Update a Room
-      description: >-
-        Updates details for a room by ID. Only moderators of the room or
-        admins can update room properties.
+      description: Updates details for a room by ID. Only moderators of the room or admins can update room properties.
       tags:
-        - Rooms
+      - Rooms
       parameters:
-        - name: roomId
-          in: path
-          required: true
-          description: Unique identifier for the room.
-          schema:
-            type: string
+      - name: roomId
+        in: path
+        required: true
+        description: Unique identifier for the room.
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -179,19 +166,16 @@ paths:
     delete:
       operationId: deleteRoom
       summary: Cisco Webex Delete a Room
-      description: >-
-        Deletes a room by ID. Deleting a room also removes all messages,
-        memberships, and content within the room. This action cannot be
-        undone.
+      description: Deletes a room by ID. Deleting a room also removes all messages, memberships, and content within the room. This action cannot be undone.
       tags:
-        - Rooms
+      - Rooms
       parameters:
-        - name: roomId
-          in: path
-          required: true
-          description: Unique identifier for the room.
-          schema:
-            type: string
+      - name: roomId
+        in: path
+        required: true
+        description: Unique identifier for the room.
+        schema:
+          type: string
       responses:
         '204':
           description: Room deleted successfully.
@@ -201,19 +185,16 @@ paths:
     get:
       operationId: getRoomMeetingDetails
       summary: Cisco Webex Get Room Meeting Details
-      description: >-
-        Shows meeting details for a room such as the SIP address, meeting
-        URL, toll and toll-free dial-in numbers. Only available for group
-        rooms.
+      description: Shows meeting details for a room such as the SIP address, meeting URL, toll and toll-free dial-in numbers. Only available for group rooms.
       tags:
-        - Rooms
+      - Rooms
       parameters:
-        - name: roomId
-          in: path
-          required: true
-          description: Unique identifier for the room.
-          schema:
-            type: string
+      - name: roomId
+        in: path
+        required: true
+        description: Unique identifier for the room.
+        schema:
+          type: string
       responses:
         '200':
           description: Successful response with room meeting details.
@@ -224,13 +205,6 @@ paths:
         '404':
           description: Room not found.
 components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      description: >-
-        Webex API access token. Obtain via OAuth 2.0 authorization flow or
-        personal access token from developer.webex.com.
   schemas:
     Room:
       type: object
@@ -245,8 +219,8 @@ components:
           type: string
           description: The type of room.
           enum:
-            - direct
-            - group
+          - direct
+          - group
         isLocked:
           type: boolean
           description: Whether the room is moderated.
@@ -286,36 +260,10 @@ components:
           type: string
           format: date-time
           description: Date and time the room was created.
-    CreateRoomRequest:
-      type: object
-      required:
-        - title
-      properties:
-        title:
-          type: string
-          description: A user-friendly name for the room.
-        teamId:
-          type: string
-          description: The team ID to associate the room with.
-        classificationId:
-          type: string
-          description: The classification ID for the room.
-        isLocked:
-          type: boolean
-          description: Whether to enable moderation.
-        isPublic:
-          type: boolean
-          description: Whether the room is discoverable.
-        description:
-          type: string
-          description: The description of the room.
-        isAnnouncementOnly:
-          type: boolean
-          description: Whether only moderators can post.
     UpdateRoomRequest:
       type: object
       required:
-        - title
+      - title
       properties:
         title:
           type: string
@@ -366,3 +314,34 @@ components:
         callInTollNumber:
           type: string
           description: Toll dial-in number.
+    CreateRoomRequest:
+      type: object
+      required:
+      - title
+      properties:
+        title:
+          type: string
+          description: A user-friendly name for the room.
+        teamId:
+          type: string
+          description: The team ID to associate the room with.
+        classificationId:
+          type: string
+          description: The classification ID for the room.
+        isLocked:
+          type: boolean
+          description: Whether to enable moderation.
+        isPublic:
+          type: boolean
+          description: Whether the room is discoverable.
+        description:
+          type: string
+          description: The description of the room.
+        isAnnouncementOnly:
+          type: boolean
+          description: Whether only moderators can post.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Webex API access token. Obtain via OAuth 2.0 authorization flow. Requires audit:events_read scope.
