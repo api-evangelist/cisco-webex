@@ -3,7 +3,7 @@ overlay: 1.0.0
 info:
   title: API Evangelist enhancements for Cisco Webex Devices API
   version: 1.0.0
-extends: openapi/cisco-webex-devices-openapi.yml
+extends: openapi/cisco-webex-device-openapi.json
 actions:
 - target: $.info
   update:

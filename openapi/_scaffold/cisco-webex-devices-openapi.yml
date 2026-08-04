@@ -1,0 +1,370 @@
+openapi: 3.1.0
+info:
+  title: Cisco Webex Devices API
+  description: >-
+    Manage and control Webex devices and room systems. Provides endpoints
+    for listing, creating, and managing device configurations, activations,
+    and workspace assignments.
+  version: 1.0.0
+  contact:
+    name: Cisco Webex Developer Support
+    url: https://developer.webex.com/support
+  license:
+    name: Cisco Webex API Terms of Service
+    url: https://developer.webex.com/terms-of-service
+servers:
+  - url: https://webexapis.com/v1
+    description: Webex Production API
+security:
+  - bearerAuth: []
+tags:
+  - name: Devices
+    description: Operations for managing Webex devices
+paths:
+  /devices:
+    get:
+      operationId: listDevices
+      summary: Cisco Webex List Devices
+      description: >-
+        Lists all devices associated with the authenticated user or
+        organization. Supports filtering by person, workspace, display name,
+        product, and other criteria.
+      tags:
+        - Devices
+      parameters:
+        - name: personId
+          in: query
+          description: Filter by person ID who owns the device.
+          schema:
+            type: string
+        - name: workspaceId
+          in: query
+          description: Filter by workspace ID where the device is assigned.
+          schema:
+            type: string
+        - name: displayName
+          in: query
+          description: Filter by device display name.
+          schema:
+            type: string
+        - name: product
+          in: query
+          description: Filter by device product name.
+          schema:
+            type: string
+        - name: type
+          in: query
+          description: Filter by device type.
+          schema:
+            type: string
+        - name: tag
+          in: query
+          description: Filter by device tag.
+          schema:
+            type: string
+        - name: connectionStatus
+          in: query
+          description: Filter by device connection status.
+          schema:
+            type: string
+            enum:
+              - connected
+              - disconnected
+              - connected_with_issues
+        - name: serial
+          in: query
+          description: Filter by device serial number.
+          schema:
+            type: string
+        - name: software
+          in: query
+          description: Filter by software version.
+          schema:
+            type: string
+        - name: upgradeChannel
+          in: query
+          description: Filter by upgrade channel.
+          schema:
+            type: string
+        - name: errorCode
+          in: query
+          description: Filter by error code.
+          schema:
+            type: string
+        - name: capability
+          in: query
+          description: Filter by device capability.
+          schema:
+            type: string
+        - name: permission
+          in: query
+          description: Filter by device permission.
+          schema:
+            type: string
+        - name: orgId
+          in: query
+          description: Filter by organization ID.
+          schema:
+            type: string
+        - name: start
+          in: query
+          description: Offset for pagination.
+          schema:
+            type: integer
+        - name: max
+          in: query
+          description: Maximum number of devices to return (default 100).
+          schema:
+            type: integer
+            default: 100
+      responses:
+        '200':
+          description: Successful response with list of devices.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Device'
+        '401':
+          description: Unauthorized - invalid or missing access token.
+    post:
+      operationId: createDevice
+      summary: Cisco Webex Create a Device Activation Code
+      description: >-
+        Creates a device activation code for onboarding a new device to a
+        person or workspace. The activation code is used to register the
+        device with Webex.
+      tags:
+        - Devices
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDeviceRequest'
+      responses:
+        '200':
+          description: Device activation code created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceActivation'
+        '400':
+          description: Bad request - invalid input parameters.
+        '401':
+          description: Unauthorized - invalid or missing access token.
+  /devices/{deviceId}:
+    get:
+      operationId: getDeviceDetails
+      summary: Cisco Webex Get Device Details
+      description: >-
+        Shows details for a device by ID. Returns configuration, status,
+        and metadata for the device.
+      tags:
+        - Devices
+      parameters:
+        - name: deviceId
+          in: path
+          required: true
+          description: Unique identifier for the device.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with device details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+        '404':
+          description: Device not found.
+    put:
+      operationId: updateDevice
+      summary: Cisco Webex Update a Device
+      description: >-
+        Updates details for a device by ID. Allows modifying display name,
+        upgrade channel, and other device properties.
+      tags:
+        - Devices
+      parameters:
+        - name: deviceId
+          in: path
+          required: true
+          description: Unique identifier for the device.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDeviceRequest'
+      responses:
+        '200':
+          description: Device updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+        '400':
+          description: Bad request - invalid input parameters.
+        '404':
+          description: Device not found.
+    delete:
+      operationId: deleteDevice
+      summary: Cisco Webex Delete a Device
+      description: >-
+        Deletes a device by ID. The device is removed from the organization
+        and must be re-activated to rejoin.
+      tags:
+        - Devices
+      parameters:
+        - name: deviceId
+          in: path
+          required: true
+          description: Unique identifier for the device.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Device deleted successfully.
+        '404':
+          description: Device not found.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: >-
+        Webex API access token. Obtain via OAuth 2.0 authorization flow or
+        personal access token from developer.webex.com.
+  schemas:
+    Device:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the device.
+        displayName:
+          type: string
+          description: Display name of the device.
+        workspaceId:
+          type: string
+          description: Workspace ID the device is assigned to.
+        personId:
+          type: string
+          description: Person ID the device is assigned to.
+        orgId:
+          type: string
+          description: Organization ID the device belongs to.
+        capabilities:
+          type: array
+          description: List of device capabilities.
+          items:
+            type: string
+        permissions:
+          type: array
+          description: List of device permissions.
+          items:
+            type: string
+        connectionStatus:
+          type: string
+          description: Current connection status.
+          enum:
+            - connected
+            - disconnected
+            - connected_with_issues
+        product:
+          type: string
+          description: Product name of the device.
+        type:
+          type: string
+          description: Device type.
+        tags:
+          type: array
+          description: Tags assigned to the device.
+          items:
+            type: string
+        ip:
+          type: string
+          description: IP address of the device.
+        mac:
+          type: string
+          description: MAC address of the device.
+        serial:
+          type: string
+          description: Serial number of the device.
+        software:
+          type: string
+          description: Software version running on the device.
+        upgradeChannel:
+          type: string
+          description: Upgrade channel for the device.
+        primarySipUrl:
+          type: string
+          description: Primary SIP URL.
+        sipUrls:
+          type: array
+          description: SIP URLs for the device.
+          items:
+            type: string
+        errorCodes:
+          type: array
+          description: Error codes reported by the device.
+          items:
+            type: string
+        created:
+          type: string
+          format: date-time
+          description: Date and time the device was created.
+        firstSeen:
+          type: string
+          format: date-time
+          description: Date and time the device was first seen.
+        lastSeen:
+          type: string
+          format: date-time
+          description: Date and time the device was last seen.
+    CreateDeviceRequest:
+      type: object
+      properties:
+        personId:
+          type: string
+          description: Person ID to associate the device with.
+        workspaceId:
+          type: string
+          description: Workspace ID to associate the device with.
+        model:
+          type: string
+          description: Model of the device.
+    UpdateDeviceRequest:
+      type: object
+      properties:
+        displayName:
+          type: string
+          description: Updated display name for the device.
+        upgradeChannel:
+          type: string
+          description: Updated upgrade channel.
+        tags:
+          type: array
+          description: Updated tags for the device.
+          items:
+            type: string
+    DeviceActivation:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the device.
+        code:
+          type: string
+          description: Activation code for the device.
+        expiresAt:
+          type: string
+          format: date-time
+          description: Expiration time for the activation code.

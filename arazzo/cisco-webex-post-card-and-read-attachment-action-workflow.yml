@@ -13,10 +13,10 @@ info:
   version: 1.0.0
 sourceDescriptions:
 - name: messagingApi
-  url: ../openapi/cisco-webex-messaging-openapi.yml
+  url: ../openapi/cisco-webex-messaging-openapi.json
   type: openapi
 - name: attachmentActionsApi
-  url: ../openapi/cisco-webex-attachment-actions-openapi.yml
+  url: ../openapi/cisco-webex-messaging-openapi.json
   type: openapi
 workflows:
 - workflowId: post-card-and-read-attachment-action
@@ -52,7 +52,7 @@ workflows:
     description: >-
       Post a message carrying an adaptive card attachment into the room. The
       contentType identifies the payload as an adaptive card.
-    operationId: createMessage
+    operationId: "Create a Message"
     parameters:
     - name: Authorization
       in: header
@@ -73,7 +73,7 @@ workflows:
     description: >-
       Create a submit attachment action against the posted card message,
       carrying the user-provided input data.
-    operationId: createAttachmentAction
+    operationId: "Create an Attachment Action"
     parameters:
     - name: Authorization
       in: header
@@ -90,7 +90,7 @@ workflows:
       actionId: $response.body#/id
   - stepId: readAction
     description: Read the attachment action back to retrieve the captured inputs.
-    operationId: getAttachmentActionDetails
+    operationId: "Get Attachment Action Details"
     parameters:
     - name: Authorization
       in: header

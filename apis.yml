@@ -25,1264 +25,312 @@ type: Index
 access: 3rd-Party
 position: Consumer
 created: '2024-01-01'
-modified: '2026-06-20'
+modified: '2026-07-31'
 specificationVersion: '0.19'
 tags:
-  - Collaboration
-  - Communications
-  - Meetings
-  - Messaging
-  - Teams
-  - Video Conferencing
+- Collaboration
+- Communications
+- Meetings
+- Messaging
+- Teams
+- Video Conferencing
 apis:
-- aid: cisco-webex:cisco-webex-admin-audit-events-api
-  name: Cisco Webex Admin Audit Events API
-  description: Operations for accessing admin audit events
-  humanURL: https://developer.webex.com/docs/meetings
+- aid: cisco-webex:admin
+  name: Cisco Webex Administration API
+  description: >-
+    The Webex Administration API — 148 operations across 115 paths, from Cisco's published OpenAPI definition.
+  humanURL: https://developer.webex.com/docs
   baseURL: https://webexapis.com/v1
   tags:
-  - Admin Audit Events
+  - Service Apps
   properties:
   - type: OpenAPI
-    url: openapi/cisco-webex-admin-audit-events-api-openapi.yml
+    url: openapi/cisco-webex-admin-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/webex/webex-openapi-specs
   - type: Documentation
-    url: https://developer.webex.com/docs/meetings
-  - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
+    url: https://developer.webex.com/docs
   - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-- aid: cisco-webex:cisco-webex-admin-recordings-api
-  name: Cisco Webex Admin Recordings API
-  description: Admin and compliance officer operations for recordings
-  humanURL: https://developer.webex.com/docs/meetings
+    url: https://developer.webex.com/docs/getting-started
+  - type: Authentication
+    url: https://developer.webex.com/docs/integrations
+- aid: cisco-webex:broadworks
+  name: Cisco Webex BroadWorks API
+  description: >-
+    The Webex BroadWorks API — 19 operations across 11 paths, from Cisco's published OpenAPI definition.
+  humanURL: https://developer.webex.com/docs
   baseURL: https://webexapis.com/v1
   tags:
-  - Admin Recordings
+  - BroadWorks Workspaces
   properties:
   - type: OpenAPI
-    url: openapi/cisco-webex-admin-recordings-api-openapi.yml
+    url: openapi/cisco-webex-broadworks-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/webex/webex-openapi-specs
   - type: Documentation
-    url: https://developer.webex.com/docs/meetings
-  - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
+    url: https://developer.webex.com/docs
   - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-- aid: cisco-webex:cisco-webex-attachment-actions-api
-  name: Cisco Webex Attachment Actions API
-  description: Operations for managing adaptive card attachment actions
-  humanURL: https://developer.webex.com/docs/meetings
+    url: https://developer.webex.com/docs/getting-started
+  - type: Authentication
+    url: https://developer.webex.com/docs/integrations
+- aid: cisco-webex:cloud-calling
+  name: Cisco Webex Cloud Calling API
+  description: >-
+    The Webex Cloud Calling API — 1087 operations across 687 paths, from Cisco's published OpenAPI definition.
+  humanURL: https://developer.webex.com/docs
   baseURL: https://webexapis.com/v1
   tags:
-  - Attachment Actions
+  - AI Receptionist
+  - AI Receptionist for Webex Calling
+  - External Voicemail
+  - 'Features: Call Recording'
+  - User Call Settings (2/2)
+  - User Call Settings (3/3)
   properties:
   - type: OpenAPI
-    url: openapi/cisco-webex-attachment-actions-api-openapi.yml
+    url: openapi/cisco-webex-cloud-calling-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/webex/webex-openapi-specs
   - type: Documentation
-    url: https://developer.webex.com/docs/meetings
-  - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
+    url: https://developer.webex.com/docs
   - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-- aid: cisco-webex:cisco-webex-call-controls-api
-  name: Cisco Webex Call Controls API
-  description: Operations for controlling active calls
-  humanURL: https://developer.webex.com/docs/meetings
+    url: https://developer.webex.com/docs/getting-started
+  - type: Authentication
+    url: https://developer.webex.com/docs/integrations
+- aid: cisco-webex:contact-center
+  name: Cisco Webex Contact Center API
+  description: >-
+    The Webex Contact Center API — 448 operations across 327 paths, from Cisco's published OpenAPI definition.
+  humanURL: https://developer.webex.com/docs
   baseURL: https://webexapis.com/v1
   tags:
-  - Call Controls
+  - Agent Summaries
+  - Agents
+  - Callbacks
+  - Tasks
+  - DNC Management
+  - Campaign Group
+  - Contact List Management
   properties:
   - type: OpenAPI
-    url: openapi/cisco-webex-call-controls-api-openapi.yml
+    url: openapi/cisco-webex-contact-center-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/webex/webex-openapi-specs
   - type: Documentation
-    url: https://developer.webex.com/docs/meetings
-  - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
+    url: https://developer.webex.com/docs
   - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-- aid: cisco-webex:cisco-webex-converged-recordings-api
-  name: Cisco Webex Converged Recordings API
-  description: Operations for managing converged recordings
-  humanURL: https://developer.webex.com/docs/meetings
-  baseURL: https://webexapis.com/v1
-  tags:
-  - Converged Recordings
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-webex-converged-recordings-api-openapi.yml
-  - type: Documentation
-    url: https://developer.webex.com/docs/meetings
+    url: https://developer.webex.com/docs/getting-started
   - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
-  - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-- aid: cisco-webex:cisco-webex-devices-api
+    url: https://developer.webex.com/docs/integrations
+- aid: cisco-webex:device
   name: Cisco Webex Devices API
-  description: Operations for managing Webex devices
-  humanURL: https://developer.webex.com/docs/meetings
+  description: >-
+    The Webex Devices API — 101 operations across 67 paths, from Cisco's published OpenAPI definition.
+  humanURL: https://developer.webex.com/docs
   baseURL: https://webexapis.com/v1
   tags:
   - Devices
   properties:
   - type: OpenAPI
-    url: openapi/cisco-webex-devices-api-openapi.yml
-  - type: Documentation
-    url: https://developer.webex.com/docs/meetings
-  - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
-  - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-- aid: cisco-webex:cisco-webex-events-api
-  name: Cisco Webex Events API
-  description: Operations for accessing compliance events
-  humanURL: https://developer.webex.com/docs/meetings
-  baseURL: https://webexapis.com/v1
-  tags:
-  - Events
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-webex-events-api-openapi.yml
-  - type: Documentation
-    url: https://developer.webex.com/docs/meetings
-  - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
-  - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-- aid: cisco-webex:cisco-webex-licenses-api
-  name: Cisco Webex Licenses API
-  description: Operations for managing Webex licenses
-  humanURL: https://developer.webex.com/docs/meetings
-  baseURL: https://webexapis.com/v1
-  tags:
-  - Licenses
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-webex-licenses-api-openapi.yml
-  - type: Documentation
-    url: https://developer.webex.com/docs/meetings
-  - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
-  - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-- aid: cisco-webex:cisco-webex-meetings-api
-  name: Cisco Webex Meetings API
-  description: Operations for managing Webex meetings
-  humanURL: https://developer.webex.com/docs/meetings
-  baseURL: https://webexapis.com/v1
-  tags:
-  - Meetings
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-webex-meetings-api-openapi.yml
-  - type: Documentation
-    url: https://developer.webex.com/docs/meetings
-  - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
-  - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-- aid: cisco-webex:cisco-webex-memberships-api
-  name: Cisco Webex Memberships API
-  description: Operations for managing room memberships
-  humanURL: https://developer.webex.com/docs/meetings
-  baseURL: https://webexapis.com/v1
-  tags:
-  - Memberships
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-webex-memberships-api-openapi.yml
-  - type: Documentation
-    url: https://developer.webex.com/docs/meetings
-  - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
-  - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-- aid: cisco-webex:cisco-webex-messages-api
-  name: Cisco Webex Messages API
-  description: Operations for sending and managing messages
-  humanURL: https://developer.webex.com/docs/meetings
-  baseURL: https://webexapis.com/v1
-  tags:
-  - Messages
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-webex-messages-api-openapi.yml
-  - type: Documentation
-    url: https://developer.webex.com/docs/meetings
-  - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
-  - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-- aid: cisco-webex:cisco-webex-organizations-api
-  name: Cisco Webex Organizations API
-  description: Operations for managing organizations
-  humanURL: https://developer.webex.com/docs/meetings
-  baseURL: https://webexapis.com/v1
-  tags:
-  - Organizations
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-webex-organizations-api-openapi.yml
-  - type: Documentation
-    url: https://developer.webex.com/docs/meetings
-  - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
-  - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-- aid: cisco-webex:cisco-webex-people-api
-  name: Cisco Webex People API
-  description: Operations for managing people and user profiles
-  humanURL: https://developer.webex.com/docs/meetings
-  baseURL: https://webexapis.com/v1
-  tags:
-  - People
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-webex-people-api-openapi.yml
-  - type: Documentation
-    url: https://developer.webex.com/docs/meetings
-  - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
-  - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-- aid: cisco-webex:cisco-webex-recordings-api
-  name: Cisco Webex Recordings API
-  description: Operations for managing meeting recordings
-  humanURL: https://developer.webex.com/docs/meetings
-  baseURL: https://webexapis.com/v1
-  tags:
-  - Recordings
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-webex-recordings-api-openapi.yml
-  - type: Documentation
-    url: https://developer.webex.com/docs/meetings
-  - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
-  - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-- aid: cisco-webex:cisco-webex-registrants-api
-  name: Cisco Webex Registrants API
-  description: Operations for managing meeting registrants
-  humanURL: https://developer.webex.com/docs/meetings
-  baseURL: https://webexapis.com/v1
-  tags:
-  - Registrants
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-webex-registrants-api-openapi.yml
-  - type: Documentation
-    url: https://developer.webex.com/docs/meetings
-  - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
-  - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-- aid: cisco-webex:cisco-webex-roles-api
-  name: Cisco Webex Roles API
-  description: Operations for retrieving organizational roles
-  humanURL: https://developer.webex.com/docs/meetings
-  baseURL: https://webexapis.com/v1
-  tags:
-  - Roles
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-webex-roles-api-openapi.yml
-  - type: Documentation
-    url: https://developer.webex.com/docs/meetings
-  - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
-  - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-- aid: cisco-webex:cisco-webex-rooms-api
-  name: Cisco Webex Rooms API
-  description: Operations for managing Webex rooms (spaces)
-  humanURL: https://developer.webex.com/docs/meetings
-  baseURL: https://webexapis.com/v1
-  tags:
-  - Rooms
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-webex-rooms-api-openapi.yml
-  - type: Documentation
-    url: https://developer.webex.com/docs/meetings
-  - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
-  - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-- aid: cisco-webex:cisco-webex-team-memberships-api
-  name: Cisco Webex Team Memberships API
-  description: Operations for managing team memberships
-  humanURL: https://developer.webex.com/docs/meetings
-  baseURL: https://webexapis.com/v1
-  tags:
-  - Team Memberships
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-webex-team-memberships-api-openapi.yml
-  - type: Documentation
-    url: https://developer.webex.com/docs/meetings
-  - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
-  - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-- aid: cisco-webex:cisco-webex-teams-api
-  name: Cisco Webex Teams API
-  description: Operations for managing Webex teams
-  humanURL: https://developer.webex.com/docs/meetings
-  baseURL: https://webexapis.com/v1
-  tags:
-  - Teams
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-webex-teams-api-openapi.yml
-  - type: Documentation
-    url: https://developer.webex.com/docs/meetings
-  - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
-  - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-- aid: cisco-webex:cisco-webex-webhooks-api
-  name: Cisco Webex Webhooks API
-  description: Operations for managing webhooks
-  humanURL: https://developer.webex.com/docs/meetings
-  baseURL: https://webexapis.com/v1
-  tags:
-  - Webhooks
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-webex-webhooks-api-openapi.yml
-  - type: Documentation
-    url: https://developer.webex.com/docs/meetings
-  - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
-  - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-- aid: cisco-webex:cisco-webex-workspaces-api
-  name: Cisco Webex Workspaces API
-  description: Operations for managing workspaces
-  humanURL: https://developer.webex.com/docs/meetings
-  baseURL: https://webexapis.com/v1
-  tags:
-  - Workspaces
-  properties:
-  - type: OpenAPI
-    url: openapi/cisco-webex-workspaces-api-openapi.yml
-  - type: Documentation
-    url: https://developer.webex.com/docs/meetings
-  - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: Documentation
-    url: https://developer.webex.com/docs/messaging
-  - type: Webhooks
-    url: https://developer.webex.com/docs/webhooks
-  - type: GettingStarted
-    url: https://developer.webex.com/messaging/docs/getting-started
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/people
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/teams
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/rooms
-  - type: Documentation
-    url: https://developer.webex.com/docs/webhooks
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/devices
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/team-memberships
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/recordings
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/call-controls
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/attachment-actions
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/organizations
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/licenses
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/roles
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/workspaces
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/admin-audit-events
-  - type: Documentation
-    url: https://developer.webex.com/docs/api/v1/converged-recordings
-common:
-  - type: AgenticAccess
-    url: agentic-access/cisco-webex-agentic-access.yml
-  - type: DomainSecurity
-    url: security/cisco-webex-domain-security.yml
-  - type: Authentication
-    url: authentication/cisco-webex-authentication.yml
-  - type: PostmanWorkspace
-    url: https://www.postman.com/kinlaneapi/cisco-webex/overview
-  - type: Arazzo
-    url: arazzo/cisco-webex-add-person-to-team-and-team-room-workflow.yml
-    name: Cisco Webex Add Person to Team and a Team Room
-  - type: Arazzo
-    url: arazzo/cisco-webex-create-room-add-member-post-message-workflow.yml
-    name: Cisco Webex Create Room, Add Member, and Post Message
-  - type: Arazzo
-    url: arazzo/cisco-webex-create-team-and-team-room-workflow.yml
-    name: Cisco Webex Create Team and Team Room
-  - type: Arazzo
-    url: arazzo/cisco-webex-ensure-room-membership-workflow.yml
-    name: Cisco Webex Ensure Room Membership
-  - type: Arazzo
-    url: arazzo/cisco-webex-find-person-direct-message-workflow.yml
-    name: Cisco Webex Find Person and Send Direct Message
-  - type: Arazzo
-    url: arazzo/cisco-webex-post-card-and-read-attachment-action-workflow.yml
-    name: Cisco Webex Post an Adaptive Card and Read its Attachment Action
-  - type: Arazzo
-    url: arazzo/cisco-webex-provision-person-and-add-to-room-workflow.yml
-    name: Cisco Webex Provision a Person and Add to a Room
-  - type: Arazzo
-    url: arazzo/cisco-webex-register-messages-webhook-workflow.yml
-    name: Cisco Webex Register a Messages Webhook for a Room
-  - type: Arazzo
-    url: arazzo/cisco-webex-reply-in-thread-workflow.yml
-    name: Cisco Webex Post a Message and Reply in Thread
-  - type: Arazzo
-    url: arazzo/cisco-webex-schedule-meeting-and-notify-room-workflow.yml
-    name: Cisco Webex Schedule a Meeting and Notify a Room
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/webex
-  - type: Portal
-    url: https://developer.webex.com
-  - type: Documentation
-    url: https://developer.webex.com/docs/basics
+    url: openapi/cisco-webex-device-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/webex/webex-openapi-specs
+  - type: Documentation
+    url: https://developer.webex.com/docs
   - type: GettingStarted
     url: https://developer.webex.com/docs/getting-started
   - type: Authentication
-    url: https://developer.webex.com/docs/getting-started#authentication
-  - type: SDKs
-    url: https://developer.webex.com/docs/sdks
-  - type: ChangeLog
-    url: https://developer.webex.com/docs/api/changelog
-  - type: Blog
-    url: https://developer.webex.com/blog
-  - type: Support
-    url: https://developer.webex.com/support
-  - type: StatusPage
-    url: https://status.webex.com
-  - type: RateLimits
-    url: https://developer.webex.com/docs/api-rate-limits
-  - type: Community
-    url: https://community.cisco.com/t5/webex-developers/bd-p/4416j-disc-dev-webex
-  - type: TermsOfService
-    url: https://developer.webex.com/terms-of-service
-  - type: PrivacyPolicy
-    url: https://www.cisco.com/c/en/us/about/legal/privacy-full.html
-  - type: GitHubOrganization
-    url: https://github.com/webex
-  - type: Website
-    url: https://www.webex.com
-  - type: Login
-    url: https://developer.webex.com/login
-  - type: Signup
-    url: https://developer.webex.com/signup
-  - type: JSONLDContext
-    url: json-ld/cisco-webex-context.jsonld
-  - type: JSONSchema
-    url: json-schema/
-  - type: Spectral
-    url: rules/cisco-webex-rules.yml
-  - type: Packages
-    url: packages/cisco-webex-packages.yml
-  - type: WellKnown
-    url: well-known/cisco-webex-well-known.yml
-  - type: SecurityTxt
-    url: well-known/cisco-webex-security.txt
-  - type: MCPServer
-    url: mcp/cisco-webex-mcp.yml
-  - type: LLMsTxt
-    url: llms/cisco-webex-llms.txt
-  - type: Conformance
-    url: conformance/cisco-webex-conformance.yml
-  - type: ErrorCatalog
-    url: errors/cisco-webex-problem-types.yml
-  - type: Lifecycle
-    url: lifecycle/cisco-webex-lifecycle.yml
-  - type: OAuthScopes
-    url: scopes/cisco-webex-scopes.yml
-  - type: VulnerabilityDisclosure
-    url: security/cisco-webex-vulnerability-disclosure.yml
-  - type: TrustCenter
-    url: security/cisco-webex-trust-center.yml
-  - type: Sandbox
-    url: sandbox/cisco-webex-sandbox.yml
-  - type: Conventions
-    url: conventions/cisco-webex-conventions.yml
-  - type: ChangeLog
-    url: changelog/cisco-webex-changelog.yml
-  - type: Components
-    url: components/cisco-webex-components.yml
-  - type: DataModel
-    url: data-model/cisco-webex-data-model.yml
+    url: https://developer.webex.com/docs/integrations
+- aid: cisco-webex:meeting
+  name: Cisco Webex Meetings API
+  description: >-
+    The Webex Meetings API — 168 operations across 128 paths, from Cisco's published OpenAPI definition.
+  humanURL: https://developer.webex.com/docs
+  baseURL: https://webexapis.com/v1
+  tags:
+  - slidoSecurePremium
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-webex-meeting-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/webex/webex-openapi-specs
+  - type: Documentation
+    url: https://developer.webex.com/docs
+  - type: GettingStarted
+    url: https://developer.webex.com/docs/getting-started
+  - type: Authentication
+    url: https://developer.webex.com/docs/integrations
+- aid: cisco-webex:messaging
+  name: Cisco Webex Messaging API
+  description: >-
+    The Webex Messaging API — 63 operations across 36 paths, from Cisco's published OpenAPI definition.
+  humanURL: https://developer.webex.com/docs
+  baseURL: https://webexapis.com/v1
+  tags:
+  - Messaging
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-webex-messaging-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/webex/webex-openapi-specs
+  - type: Documentation
+    url: https://developer.webex.com/docs
+  - type: GettingStarted
+    url: https://developer.webex.com/docs/getting-started
+  - type: Authentication
+    url: https://developer.webex.com/docs/integrations
+- aid: cisco-webex:ucm
+  name: Cisco Webex Unified CM API
+  description: >-
+    The Webex Unified CM API — 1 operations across 1 paths, from Cisco's published OpenAPI definition.
+  humanURL: https://developer.webex.com/docs
+  baseURL: https://webexapis.com/v1
+  tags:
+  - Unified CM
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-webex-ucm-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/webex/webex-openapi-specs
+  - type: Documentation
+    url: https://developer.webex.com/docs
+  - type: GettingStarted
+    url: https://developer.webex.com/docs/getting-started
+  - type: Authentication
+    url: https://developer.webex.com/docs/integrations
+- aid: cisco-webex:wholesale
+  name: Cisco Webex Wholesale API
+  description: >-
+    The Webex Wholesale API — 18 operations across 10 paths, from Cisco's published OpenAPI definition.
+  humanURL: https://developer.webex.com/docs
+  baseURL: https://webexapis.com/v1
+  tags:
+  - Wholesale
+  properties:
+  - type: OpenAPI
+    url: openapi/cisco-webex-wholesale-openapi.json
+  - type: OpenAPI Source
+    url: https://github.com/webex/webex-openapi-specs
+  - type: Documentation
+    url: https://developer.webex.com/docs
+  - type: GettingStarted
+    url: https://developer.webex.com/docs/getting-started
+  - type: Authentication
+    url: https://developer.webex.com/docs/integrations
+common:
+- type: AgenticAccess
+  url: agentic-access/cisco-webex-agentic-access.yml
+- type: DomainSecurity
+  url: security/cisco-webex-domain-security.yml
+- type: Authentication
+  url: authentication/cisco-webex-authentication.yml
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/cisco-webex/overview
+- type: Arazzo
+  url: arazzo/cisco-webex-add-person-to-team-and-team-room-workflow.yml
+  name: Cisco Webex Add Person to Team and a Team Room
+- type: Arazzo
+  url: arazzo/cisco-webex-create-room-add-member-post-message-workflow.yml
+  name: Cisco Webex Create Room, Add Member, and Post Message
+- type: Arazzo
+  url: arazzo/cisco-webex-create-team-and-team-room-workflow.yml
+  name: Cisco Webex Create Team and Team Room
+- type: Arazzo
+  url: arazzo/cisco-webex-ensure-room-membership-workflow.yml
+  name: Cisco Webex Ensure Room Membership
+- type: Arazzo
+  url: arazzo/cisco-webex-find-person-direct-message-workflow.yml
+  name: Cisco Webex Find Person and Send Direct Message
+- type: Arazzo
+  url: arazzo/cisco-webex-post-card-and-read-attachment-action-workflow.yml
+  name: Cisco Webex Post an Adaptive Card and Read its Attachment Action
+- type: Arazzo
+  url: arazzo/cisco-webex-provision-person-and-add-to-room-workflow.yml
+  name: Cisco Webex Provision a Person and Add to a Room
+- type: Arazzo
+  url: arazzo/cisco-webex-register-messages-webhook-workflow.yml
+  name: Cisco Webex Register a Messages Webhook for a Room
+- type: Arazzo
+  url: arazzo/cisco-webex-reply-in-thread-workflow.yml
+  name: Cisco Webex Post a Message and Reply in Thread
+- type: Arazzo
+  url: arazzo/cisco-webex-schedule-meeting-and-notify-room-workflow.yml
+  name: Cisco Webex Schedule a Meeting and Notify a Room
+- type: LinkedIn
+  url: https://www.linkedin.com/company/webex
+- type: Portal
+  url: https://developer.webex.com
+- type: Documentation
+  url: https://developer.webex.com/docs/basics
+- type: GettingStarted
+  url: https://developer.webex.com/docs/getting-started
+- type: Authentication
+  url: https://developer.webex.com/docs/getting-started#authentication
+- type: SDKs
+  url: https://developer.webex.com/docs/sdks
+- type: ChangeLog
+  url: https://developer.webex.com/docs/api/changelog
+- type: Blog
+  url: https://developer.webex.com/blog
+- type: Support
+  url: https://developer.webex.com/support
+- type: StatusPage
+  url: https://status.webex.com
+- type: RateLimits
+  url: https://developer.webex.com/docs/api-rate-limits
+- type: Community
+  url: https://community.cisco.com/t5/webex-developers/bd-p/4416j-disc-dev-webex
+- type: TermsOfService
+  url: https://developer.webex.com/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.cisco.com/c/en/us/about/legal/privacy-full.html
+- type: GitHubOrganization
+  url: https://github.com/webex
+- type: Website
+  url: https://www.webex.com
+- type: Login
+  url: https://developer.webex.com/login
+- type: Signup
+  url: https://developer.webex.com/signup
+- type: JSONLDContext
+  url: json-ld/cisco-webex-context.jsonld
+- type: JSONSchema
+  url: json-schema/
+- type: Spectral
+  url: rules/cisco-webex-rules.yml
+- type: Packages
+  url: packages/cisco-webex-packages.yml
+- type: WellKnown
+  url: well-known/cisco-webex-well-known.yml
+- type: SecurityTxt
+  url: well-known/cisco-webex-security.txt
+- type: MCPServer
+  url: mcp/cisco-webex-mcp.yml
+- type: LLMsTxt
+  url: llms/cisco-webex-llms.txt
+- type: Conformance
+  url: conformance/cisco-webex-conformance.yml
+- type: ErrorCatalog
+  url: errors/cisco-webex-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/cisco-webex-lifecycle.yml
+- type: OAuthScopes
+  url: scopes/cisco-webex-scopes.yml
+- type: VulnerabilityDisclosure
+  url: security/cisco-webex-vulnerability-disclosure.yml
+- type: TrustCenter
+  url: security/cisco-webex-trust-center.yml
+- type: Sandbox
+  url: sandbox/cisco-webex-sandbox.yml
+- type: Conventions
+  url: conventions/cisco-webex-conventions.yml
+- type: ChangeLog
+  url: changelog/cisco-webex-changelog.yml
+- type: Components
+  url: components/cisco-webex-components.yml
+- type: DataModel
+  url: data-model/cisco-webex-data-model.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
-    url: https://developer.webex.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
+  url: https://developer.webex.com

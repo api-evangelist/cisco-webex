@@ -1,5 +1,47 @@
 # Cisco Webex (cisco-webex)
 
+<!-- API-EVANGELIST-PROVENANCE:BEGIN -->
+> ### About this repository
+>
+> **This is not our API.** This repository is an independent, third-party profile of a company's
+> **publicly available** API surface, maintained by [API Evangelist](https://apievangelist.com).
+> API Evangelist does not operate, host, resell, or support this company's APIs, and is not
+> affiliated with or endorsed by the company unless stated on the profile.
+>
+> **Where the information came from.** Everything here is assembled from material a member of the
+> public can reach with a browser and no credentials — the company's own website, developer portal
+> and documentation, the specifications it publishes for public use (OpenAPI, AsyncAPI, JSON Schema,
+> `apis.json`, `llms.txt` and similar), its public repositories, and its public status, pricing and
+> changelog pages. **Nothing here is obtained by breaching a system, defeating an access control, or
+> using credentials of any kind.**
+>
+> **The rating is an independent assessment.** The Kin Score and Agent Readiness rating are
+> independently calculated scores of a company's *public* API artifacts, produced by API Evangelist
+> against a published rubric. They are not certifications, endorsements, security assessments, or
+> audits, and they score published artifacts — not the quality, safety, or security of the software.
+>
+> **Corrections, re-scores, and removal are free.** No partnership, contract, or purchase is
+> required, and you do not need to justify the request.
+>
+> - **Something wrong?** Open an issue on this repository, or email
+>   [info@apievangelist.com](mailto:info@apievangelist.com).
+> - **Published something new?** Ask for a re-score and we will re-run the rating.
+> - **Want the listing taken down?** Say so and we will honor it. The profile is reduced to your
+>   company name, a factual description, and a link to your own site, and the company is recorded as
+>   **unrated** — never scored zero for having asked.
+>
+> **Response times.** Acknowledgement within **one business day**; removal or restriction within
+> **two business days**; corrections and re-scores within **five business days**.
+>
+> **On a security or compliance team?** Email
+> [info@apievangelist.com](mailto:info@apievangelist.com) with *security* in the subject line and
+> you will get a person, not a form. We will tell you exactly which public URLs this profile was
+> built from so your team can see the same surface we did, and we will take the listing down on
+> request while you work through it.
+>
+> Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
+<!-- API-EVANGELIST-PROVENANCE:END -->
+
 Cisco Webex is a comprehensive collaboration platform that provides video conferencing, team messaging, file sharing, and calling capabilities for businesses and teams. The Webex developer platform offers REST APIs, SDKs, and integrations for extending and automating collaboration workflows across meetings, messaging, calling, devices, administration, and contact center scenarios. Authentication uses OAuth 2.0 access tokens, personal access tokens, or service apps and all endpoints are served from the webexapis.com base.
 
 **APIs.json:** [https://raw.githubusercontent.com/api-evangelist/cisco-webex/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/cisco-webex/refs/heads/main/apis.yml)
@@ -44,7 +86,7 @@ Enables scheduling, managing, and controlling Webex meetings programmatically. P
 #### Properties
 
 - [Documentation](https://developer.webex.com/docs/meetings)
-- [OpenAPI](openapi/cisco-webex-meetings-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/cisco-webex-meeting-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/cisco-webex-meetings.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/cisco-webex-meetings.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 - [Authentication](https://developer.webex.com/docs/getting-started#authentication)
@@ -67,7 +109,7 @@ Send and receive messages, manage spaces and teams, and share files within the W
 #### Properties
 
 - [Documentation](https://developer.webex.com/docs/messaging)
-- [OpenAPI](openapi/cisco-webex-messaging-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/cisco-webex-messaging-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/cisco-webex-messaging.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/cisco-webex-messaging.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 - [Webhooks](https://developer.webex.com/docs/webhooks)
@@ -91,7 +133,7 @@ Access user profile information, manage contacts, and administer user accounts w
 #### Properties
 
 - [Documentation](https://developer.webex.com/docs/api/v1/people)
-- [OpenAPI](openapi/cisco-webex-people-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/cisco-webex-messaging-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/cisco-webex-people.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/cisco-webex-people.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
@@ -113,7 +155,7 @@ Create and manage teams and team memberships within Webex. Teams group people an
 #### Properties
 
 - [Documentation](https://developer.webex.com/docs/api/v1/teams)
-- [OpenAPI](openapi/cisco-webex-teams-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/cisco-webex-messaging-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/cisco-webex-teams.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/cisco-webex-teams.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
@@ -135,7 +177,7 @@ Create and manage Webex spaces (rooms) for collaboration. Rooms are virtual meet
 #### Properties
 
 - [Documentation](https://developer.webex.com/docs/api/v1/rooms)
-- [OpenAPI](openapi/cisco-webex-rooms-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/cisco-webex-messaging-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/cisco-webex-rooms.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/cisco-webex-rooms.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
@@ -157,7 +199,7 @@ Register webhooks to receive real-time HTTP callbacks when specific events occur
 #### Properties
 
 - [Documentation](https://developer.webex.com/docs/webhooks)
-- [OpenAPI](openapi/cisco-webex-webhooks-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/cisco-webex-messaging-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/cisco-webex-webhooks.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/cisco-webex-webhooks.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
@@ -179,7 +221,7 @@ Manage and control Webex devices and room systems. Provides endpoints for listin
 #### Properties
 
 - [Documentation](https://developer.webex.com/docs/api/v1/devices)
-- [OpenAPI](openapi/cisco-webex-devices-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/cisco-webex-device-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/cisco-webex-devices.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/cisco-webex-devices.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
@@ -201,7 +243,7 @@ Manage room memberships representing a person's relationship to a room. Use this
 #### Properties
 
 - [Documentation](https://developer.webex.com/docs/api/v1/memberships)
-- [OpenAPI](openapi/cisco-webex-memberships-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/cisco-webex-messaging-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/cisco-webex-memberships.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/cisco-webex-memberships.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
@@ -223,7 +265,7 @@ Manage team memberships representing a person's relationship to a team. Use this
 #### Properties
 
 - [Documentation](https://developer.webex.com/docs/api/v1/team-memberships)
-- [OpenAPI](openapi/cisco-webex-team-memberships-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/cisco-webex-messaging-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/cisco-webex-team-memberships.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/cisco-webex-team-memberships.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
@@ -245,7 +287,7 @@ Access events representing activities within a Webex organization such as messag
 #### Properties
 
 - [Documentation](https://developer.webex.com/docs/api/v1/events)
-- [OpenAPI](openapi/cisco-webex-events-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/cisco-webex-messaging-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/cisco-webex-events.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/cisco-webex-events.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
@@ -267,7 +309,7 @@ List and manage meeting recordings. Provides access to recording details, downlo
 #### Properties
 
 - [Documentation](https://developer.webex.com/docs/api/v1/recordings)
-- [OpenAPI](openapi/cisco-webex-recordings-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/cisco-webex-meeting-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/cisco-webex-recordings.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/cisco-webex-recordings.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
@@ -289,7 +331,7 @@ Control active calls in Webex Calling including dial, answer, hold, transfer, an
 #### Properties
 
 - [Documentation](https://developer.webex.com/docs/api/v1/call-controls)
-- [OpenAPI](openapi/cisco-webex-call-controls-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/cisco-webex-cloud-calling-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/cisco-webex-call-controls.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/cisco-webex-call-controls.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
@@ -311,7 +353,7 @@ Create and retrieve attachment actions for adaptive card interactions. Used with
 #### Properties
 
 - [Documentation](https://developer.webex.com/docs/api/v1/attachment-actions)
-- [OpenAPI](openapi/cisco-webex-attachment-actions-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/cisco-webex-messaging-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/cisco-webex-attachment-actions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/cisco-webex-attachment-actions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
@@ -333,7 +375,7 @@ Retrieve organization details for Webex administration. Provides access to organ
 #### Properties
 
 - [Documentation](https://developer.webex.com/docs/api/v1/organizations)
-- [OpenAPI](openapi/cisco-webex-organizations-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/cisco-webex-admin-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/cisco-webex-organizations.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/cisco-webex-organizations.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
@@ -355,7 +397,7 @@ Manage and retrieve Webex licenses for an organization. Provides endpoints to li
 #### Properties
 
 - [Documentation](https://developer.webex.com/docs/api/v1/licenses)
-- [OpenAPI](openapi/cisco-webex-licenses-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/cisco-webex-admin-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/cisco-webex-licenses.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/cisco-webex-licenses.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
@@ -377,7 +419,7 @@ Retrieve roles available within a Webex organization. Roles define the level of 
 #### Properties
 
 - [Documentation](https://developer.webex.com/docs/api/v1/roles)
-- [OpenAPI](openapi/cisco-webex-roles-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/cisco-webex-admin-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/cisco-webex-roles.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/cisco-webex-roles.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
@@ -399,7 +441,7 @@ Manage workspaces representing physical locations with Webex devices. Provides e
 #### Properties
 
 - [Documentation](https://developer.webex.com/docs/api/v1/workspaces)
-- [OpenAPI](openapi/cisco-webex-workspaces-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/cisco-webex-admin-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/cisco-webex-workspaces.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/cisco-webex-workspaces.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
@@ -421,7 +463,7 @@ Access admin audit events for tracking administrative actions performed in Webex
 #### Properties
 
 - [Documentation](https://developer.webex.com/docs/api/v1/admin-audit-events)
-- [OpenAPI](openapi/cisco-webex-admin-audit-events-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/cisco-webex-admin-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/cisco-webex-admin-audit-events.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/cisco-webex-admin-audit-events.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
@@ -443,7 +485,7 @@ Access converged recording capabilities across Webex Meetings and Webex Calling.
 #### Properties
 
 - [Documentation](https://developer.webex.com/docs/api/v1/converged-recordings)
-- [OpenAPI](openapi/cisco-webex-converged-recordings-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](openapi/cisco-webex-meeting-openapi.json) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
 - [Postman Collection](collections/cisco-webex-converged-recordings.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
 - [Open Collection](collections/cisco-webex-converged-recordings.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 

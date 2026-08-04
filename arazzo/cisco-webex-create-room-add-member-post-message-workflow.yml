@@ -12,13 +12,13 @@ info:
   version: 1.0.0
 sourceDescriptions:
 - name: roomsApi
-  url: ../openapi/cisco-webex-rooms-openapi.yml
+  url: ../openapi/cisco-webex-messaging-openapi.json
   type: openapi
 - name: membershipsApi
-  url: ../openapi/cisco-webex-memberships-openapi.yml
+  url: ../openapi/cisco-webex-messaging-openapi.json
   type: openapi
 - name: messagingApi
-  url: ../openapi/cisco-webex-messaging-openapi.yml
+  url: ../openapi/cisco-webex-messaging-openapi.json
   type: openapi
 workflows:
 - workflowId: create-room-add-member-post-message
@@ -52,7 +52,7 @@ workflows:
   steps:
   - stepId: createRoom
     description: Create a new group room (space) with the supplied title.
-    operationId: createRoom
+    operationId: "Create a Room"
     parameters:
     - name: Authorization
       in: header
@@ -70,7 +70,7 @@ workflows:
     description: >-
       Add the supplied person to the new room by email address, optionally as
       a moderator.
-    operationId: createMembership
+    operationId: "Create a Membership"
     parameters:
     - name: Authorization
       in: header
@@ -88,7 +88,7 @@ workflows:
       memberPersonId: $response.body#/personId
   - stepId: postMessage
     description: Post an opening markdown message into the new room.
-    operationId: createMessage
+    operationId: "Create a Message"
     parameters:
     - name: Authorization
       in: header

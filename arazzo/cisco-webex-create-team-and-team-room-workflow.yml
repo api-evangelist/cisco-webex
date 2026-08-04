@@ -11,13 +11,13 @@ info:
   version: 1.0.0
 sourceDescriptions:
 - name: teamsApi
-  url: ../openapi/cisco-webex-teams-openapi.yml
+  url: ../openapi/cisco-webex-messaging-openapi.json
   type: openapi
 - name: roomsApi
-  url: ../openapi/cisco-webex-rooms-openapi.yml
+  url: ../openapi/cisco-webex-messaging-openapi.json
   type: openapi
 - name: messagingApi
-  url: ../openapi/cisco-webex-messaging-openapi.yml
+  url: ../openapi/cisco-webex-messaging-openapi.json
   type: openapi
 workflows:
 - workflowId: create-team-and-team-room
@@ -51,7 +51,7 @@ workflows:
   steps:
   - stepId: createTeam
     description: Create a new team with the supplied name and description.
-    operationId: createTeam
+    operationId: "Create a Team"
     parameters:
     - name: Authorization
       in: header
@@ -70,7 +70,7 @@ workflows:
     description: >-
       Create a room associated with the new team by passing its teamId, so the
       room becomes part of the team.
-    operationId: createRoom
+    operationId: "Create a Room"
     parameters:
     - name: Authorization
       in: header
@@ -87,7 +87,7 @@ workflows:
       roomTeamId: $response.body#/teamId
   - stepId: announce
     description: Post an announcement message into the new team room.
-    operationId: createMessage
+    operationId: "Create a Message"
     parameters:
     - name: Authorization
       in: header

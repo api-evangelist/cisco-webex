@@ -11,7 +11,7 @@ info:
   version: 1.0.0
 sourceDescriptions:
 - name: messagingApi
-  url: ../openapi/cisco-webex-messaging-openapi.yml
+  url: ../openapi/cisco-webex-messaging-openapi.json
   type: openapi
 workflows:
 - workflowId: reply-in-thread
@@ -42,7 +42,7 @@ workflows:
   steps:
   - stepId: postParent
     description: Post the parent message into the room.
-    operationId: createMessage
+    operationId: "Create a Message"
     parameters:
     - name: Authorization
       in: header
@@ -60,7 +60,7 @@ workflows:
     description: >-
       Post a threaded reply that references the parent message via parentId so
       it appears under the parent in the thread.
-    operationId: createMessage
+    operationId: "Create a Message"
     parameters:
     - name: Authorization
       in: header

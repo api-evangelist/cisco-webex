@@ -11,30 +11,30 @@ description: >-
 entities:
   - name: Organization
     id: orgId
-    spec: openapi/cisco-webex-organizations-openapi.yml
+    spec: openapi/cisco-webex-admin-openapi.json
     notes: Top-level tenant. People, licenses, roles, workspaces, devices, and events all belong to an org.
   - name: Person
     id: personId
-    spec: openapi/cisco-webex-people-openapi.yml
+    spec: openapi/cisco-webex-messaging-openapi.json
     relationships:
       - {type: belongs_to, target: Organization, via: orgId}
       - {type: has_many, target: Role, via: roles}
       - {type: has_many, target: License, via: licenses}
   - name: Team
     id: teamId
-    spec: openapi/cisco-webex-teams-openapi.yml
+    spec: openapi/cisco-webex-messaging-openapi.json
     relationships:
       - {type: has_many, target: TeamMembership, via: teamId}
       - {type: has_many, target: Room, via: teamId}
   - name: TeamMembership
     id: id
-    spec: openapi/cisco-webex-team-memberships-openapi.yml
+    spec: openapi/cisco-webex-messaging-openapi.json
     relationships:
       - {type: belongs_to, target: Team, via: teamId}
       - {type: belongs_to, target: Person, via: personId}
   - name: Room
     id: roomId
-    spec: openapi/cisco-webex-rooms-openapi.yml
+    spec: openapi/cisco-webex-messaging-openapi.json
     notes: A room (space). May be team-scoped.
     relationships:
       - {type: belongs_to, target: Team, via: teamId}
@@ -42,13 +42,13 @@ entities:
       - {type: has_many, target: Message, via: roomId}
   - name: Membership
     id: id
-    spec: openapi/cisco-webex-memberships-openapi.yml
+    spec: openapi/cisco-webex-messaging-openapi.json
     relationships:
       - {type: belongs_to, target: Room, via: roomId}
       - {type: belongs_to, target: Person, via: personId}
   - name: Message
     id: id
-    spec: openapi/cisco-webex-messaging-openapi.yml
+    spec: openapi/cisco-webex-messaging-openapi.json
     relationships:
       - {type: belongs_to, target: Room, via: roomId}
       - {type: belongs_to, target: Person, via: personId}
@@ -56,71 +56,71 @@ entities:
       - {type: has_many, target: AttachmentAction, via: messageId}
   - name: AttachmentAction
     id: id
-    spec: openapi/cisco-webex-attachment-actions-openapi.yml
+    spec: openapi/cisco-webex-messaging-openapi.json
     relationships:
       - {type: belongs_to, target: Message, via: messageId}
       - {type: belongs_to, target: Person, via: personId}
   - name: Webhook
     id: id
-    spec: openapi/cisco-webex-webhooks-openapi.yml
+    spec: openapi/cisco-webex-messaging-openapi.json
     notes: Subscribes to resource/event pairs (e.g. messages/created), optionally filtered by roomId.
   - name: Meeting
     id: meetingId
-    spec: openapi/cisco-webex-meetings-openapi.yml
+    spec: openapi/cisco-webex-meeting-openapi.json
     relationships:
       - {type: belongs_to, target: Person, via: hostEmail, note: meeting host}
       - {type: has_many, target: Registrant, via: meetingId}
       - {type: has_many, target: Recording, via: meetingId}
   - name: Registrant
     id: registrantId
-    spec: openapi/cisco-webex-meetings-openapi.yml
+    spec: openapi/cisco-webex-meeting-openapi.json
     relationships:
       - {type: belongs_to, target: Meeting, via: meetingId}
   - name: Recording
     id: id
-    spec: openapi/cisco-webex-recordings-openapi.yml
+    spec: openapi/cisco-webex-meeting-openapi.json
     relationships:
       - {type: belongs_to, target: Meeting, via: meetingId}
   - name: ConvergedRecording
     id: id
-    spec: openapi/cisco-webex-converged-recordings-openapi.yml
+    spec: openapi/cisco-webex-meeting-openapi.json
     notes: Unified recording across Meetings and Calling.
   - name: Device
     id: id
-    spec: openapi/cisco-webex-devices-openapi.yml
+    spec: openapi/cisco-webex-device-openapi.json
     relationships:
       - {type: belongs_to, target: Organization, via: orgId}
       - {type: belongs_to, target: Workspace, via: workspaceId}
       - {type: belongs_to, target: Person, via: personId}
   - name: Workspace
     id: id
-    spec: openapi/cisco-webex-workspaces-openapi.yml
+    spec: openapi/cisco-webex-admin-openapi.json
     relationships:
       - {type: belongs_to, target: Organization, via: orgId}
       - {type: has_many, target: Device, via: workspaceId}
   - name: License
     id: id
-    spec: openapi/cisco-webex-licenses-openapi.yml
+    spec: openapi/cisco-webex-admin-openapi.json
     relationships:
       - {type: belongs_to, target: Organization, via: orgId}
   - name: Role
     id: id
-    spec: openapi/cisco-webex-roles-openapi.yml
+    spec: openapi/cisco-webex-admin-openapi.json
   - name: Event
     id: id
-    spec: openapi/cisco-webex-events-openapi.yml
+    spec: openapi/cisco-webex-messaging-openapi.json
     notes: Activity log entry; references actorId and the affected resource.
     relationships:
       - {type: belongs_to, target: Person, via: actorId}
   - name: AdminAuditEvent
     id: id
-    spec: openapi/cisco-webex-admin-audit-events-openapi.yml
+    spec: openapi/cisco-webex-admin-openapi.json
     relationships:
       - {type: belongs_to, target: Organization, via: orgId}
       - {type: belongs_to, target: Person, via: actorId}
   - name: CallSession
     id: callId
-    spec: openapi/cisco-webex-call-controls-openapi.yml
+    spec: openapi/cisco-webex-cloud-calling-openapi.json
     notes: Active Webex Calling session controlled via dial/answer/hold/transfer operations.
     relationships:
       - {type: belongs_to, target: Person, via: personId}

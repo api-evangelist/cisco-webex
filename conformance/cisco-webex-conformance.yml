@@ -35,7 +35,7 @@ standards:
     evidence: Rate limiting returns HTTP 429 with a Retry-After header (developer.webex.com/docs/api-rate-limits).
   - id: webhooks
     conforms: true
-    evidence: Webhooks API delivers real-time HTTP callbacks with HMAC-SHA1 signature validation (openapi/cisco-webex-webhooks-openapi.yml).
+    evidence: Webhooks API delivers real-time HTTP callbacks with HMAC-SHA1 signature validation (openapi/cisco-webex-messaging-openapi.json).
   - id: idempotency-key
     conforms: false
     evidence: No Idempotency-Key header convention is documented for POST requests.

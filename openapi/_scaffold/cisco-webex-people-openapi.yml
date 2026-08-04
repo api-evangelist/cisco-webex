@@ -1,0 +1,550 @@
+openapi: 3.1.0
+info:
+  title: Cisco Webex People API
+  description: >-
+    Access user profile information, manage contacts, and administer user
+    accounts within an organization. Supports listing, creating, updating,
+    and deleting people records.
+  version: 1.0.0
+  contact:
+    name: Cisco Webex Developer Support
+    url: https://developer.webex.com/support
+  license:
+    name: Cisco Webex API Terms of Service
+    url: https://developer.webex.com/terms-of-service
+servers:
+  - url: https://webexapis.com/v1
+    description: Webex Production API
+security:
+  - bearerAuth: []
+tags:
+  - name: People
+    description: Operations for managing people and user profiles
+paths:
+  /people:
+    get:
+      operationId: listPeople
+      summary: Cisco Webex List People
+      description: >-
+        Lists people in the organization. Supports filtering by email, display
+        name, ID, and organization. Results are paginated. Admin users can
+        list people across the organization.
+      tags:
+        - People
+      parameters:
+        - name: email
+          in: query
+          description: Filter by email address. Only exact matches are returned.
+          schema:
+            type: string
+            format: email
+        - name: displayName
+          in: query
+          description: Filter by display name. Supports partial matching.
+          schema:
+            type: string
+        - name: id
+          in: query
+          description: Filter by person ID. Supports up to 85 IDs, comma-separated.
+          schema:
+            type: string
+        - name: orgId
+          in: query
+          description: Filter by organization ID.
+          schema:
+            type: string
+        - name: callingData
+          in: query
+          description: Include Webex Calling user details in the response.
+          schema:
+            type: boolean
+            default: false
+        - name: locationId
+          in: query
+          description: Filter by location ID for Webex Calling users.
+          schema:
+            type: string
+        - name: max
+          in: query
+          description: Maximum number of people to return (default 100, max 1000).
+          schema:
+            type: integer
+            default: 100
+            maximum: 1000
+      responses:
+        '200':
+          description: Successful response with list of people.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Person'
+        '401':
+          description: Unauthorized - invalid or missing access token.
+    post:
+      operationId: createPerson
+      summary: Cisco Webex Create a Person
+      description: >-
+        Creates a new user account for the organization. Only admins can create
+        people. Newly created accounts require valid email addresses and can be
+        assigned licenses and roles.
+      tags:
+        - People
+      parameters:
+        - name: callingData
+          in: query
+          description: Include Webex Calling user details in the response.
+          schema:
+            type: boolean
+            default: false
+        - name: minResponse
+          in: query
+          description: Only return the person ID on success.
+          schema:
+            type: boolean
+            default: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePersonRequest'
+      responses:
+        '200':
+          description: Person created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+        '400':
+          description: Bad request - invalid input parameters.
+        '401':
+          description: Unauthorized - invalid or missing access token.
+  /people/me:
+    get:
+      operationId: getMyOwnDetails
+      summary: Cisco Webex Get My Own Details
+      description: >-
+        Shows the profile for the authenticated user. Use this to confirm
+        identity and retrieve your own person details.
+      tags:
+        - People
+      parameters:
+        - name: callingData
+          in: query
+          description: Include Webex Calling user details in the response.
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Successful response with the authenticated user profile.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+  /people/{personId}:
+    get:
+      operationId: getPersonDetails
+      summary: Cisco Webex Get Person Details
+      description: >-
+        Shows details for a person by ID. Certain fields may not be available
+        depending on the caller's relationship to the person and admin status.
+      tags:
+        - People
+      parameters:
+        - name: personId
+          in: path
+          required: true
+          description: Unique identifier for the person.
+          schema:
+            type: string
+        - name: callingData
+          in: query
+          description: Include Webex Calling user details in the response.
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Successful response with person details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+        '404':
+          description: Person not found.
+    put:
+      operationId: updatePerson
+      summary: Cisco Webex Update a Person
+      description: >-
+        Updates details for a person by ID. Only admins can update people.
+        Include all desired fields in the request body as the update replaces
+        the existing record.
+      tags:
+        - People
+      parameters:
+        - name: personId
+          in: path
+          required: true
+          description: Unique identifier for the person.
+          schema:
+            type: string
+        - name: callingData
+          in: query
+          description: Include Webex Calling user details in the response.
+          schema:
+            type: boolean
+            default: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatePersonRequest'
+      responses:
+        '200':
+          description: Person updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+        '400':
+          description: Bad request - invalid input parameters.
+        '404':
+          description: Person not found.
+    delete:
+      operationId: deletePerson
+      summary: Cisco Webex Delete a Person
+      description: >-
+        Removes a person from the system. Only admins can delete people. The
+        deleted person will lose access to Webex services.
+      tags:
+        - People
+      parameters:
+        - name: personId
+          in: path
+          required: true
+          description: Unique identifier for the person.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Person deleted successfully.
+        '404':
+          description: Person not found.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: >-
+        Webex API access token. Obtain via OAuth 2.0 authorization flow or
+        personal access token from developer.webex.com.
+  schemas:
+    Person:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the person.
+        emails:
+          type: array
+          description: Email addresses of the person.
+          items:
+            type: string
+            format: email
+        phoneNumbers:
+          type: array
+          description: Phone numbers of the person.
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                description: Phone number type.
+              value:
+                type: string
+                description: Phone number value.
+        sipAddresses:
+          type: array
+          description: SIP addresses of the person.
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              value:
+                type: string
+              primary:
+                type: boolean
+        extension:
+          type: string
+          description: Webex Calling extension number.
+        locationId:
+          type: string
+          description: Location ID for Webex Calling.
+        displayName:
+          type: string
+          description: Full name of the person.
+        nickName:
+          type: string
+          description: Nickname of the person.
+        firstName:
+          type: string
+          description: First name of the person.
+        lastName:
+          type: string
+          description: Last name of the person.
+        avatar:
+          type: string
+          format: uri
+          description: URL to the person's avatar image.
+        orgId:
+          type: string
+          description: Organization ID the person belongs to.
+        roles:
+          type: array
+          description: Roles assigned to the person.
+          items:
+            type: string
+        licenses:
+          type: array
+          description: Licenses assigned to the person.
+          items:
+            type: string
+        department:
+          type: string
+          description: Department of the person.
+        manager:
+          type: string
+          description: Manager name of the person.
+        managerId:
+          type: string
+          description: Person ID of the manager.
+        title:
+          type: string
+          description: Job title of the person.
+        addresses:
+          type: array
+          description: Physical addresses of the person.
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              streetAddress:
+                type: string
+              locality:
+                type: string
+              region:
+                type: string
+              postalCode:
+                type: string
+              country:
+                type: string
+        created:
+          type: string
+          format: date-time
+          description: Date and time the person was created.
+        lastModified:
+          type: string
+          format: date-time
+          description: Date and time the person was last modified.
+        timezone:
+          type: string
+          description: Time zone of the person.
+        lastActivity:
+          type: string
+          format: date-time
+          description: Date and time of the person's last activity.
+        siteUrls:
+          type: array
+          description: Webex site URLs associated with the person.
+          items:
+            type: string
+        status:
+          type: string
+          description: Current presence status.
+          enum:
+            - active
+            - call
+            - DoNotDisturb
+            - inactive
+            - meeting
+            - OutOfOffice
+            - pending
+            - presenting
+            - unknown
+        type:
+          type: string
+          description: Person type.
+          enum:
+            - person
+            - bot
+            - appuser
+        invitePending:
+          type: boolean
+          description: Whether the invite is pending acceptance.
+        loginEnabled:
+          type: boolean
+          description: Whether the person's login is enabled.
+    CreatePersonRequest:
+      type: object
+      required:
+        - emails
+      properties:
+        emails:
+          type: array
+          description: Email addresses for the person.
+          items:
+            type: string
+            format: email
+        phoneNumbers:
+          type: array
+          description: Phone numbers for the person.
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              value:
+                type: string
+        extension:
+          type: string
+          description: Webex Calling extension.
+        locationId:
+          type: string
+          description: Location ID for Webex Calling.
+        displayName:
+          type: string
+          description: Full name of the person.
+        firstName:
+          type: string
+          description: First name.
+        lastName:
+          type: string
+          description: Last name.
+        avatar:
+          type: string
+          format: uri
+          description: URL to the avatar image.
+        orgId:
+          type: string
+          description: Organization ID.
+        roles:
+          type: array
+          description: Roles to assign.
+          items:
+            type: string
+        licenses:
+          type: array
+          description: Licenses to assign.
+          items:
+            type: string
+        department:
+          type: string
+          description: Department.
+        manager:
+          type: string
+          description: Manager name.
+        managerId:
+          type: string
+          description: Person ID of the manager.
+        title:
+          type: string
+          description: Job title.
+        addresses:
+          type: array
+          description: Physical addresses.
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              streetAddress:
+                type: string
+              locality:
+                type: string
+              region:
+                type: string
+              postalCode:
+                type: string
+              country:
+                type: string
+        siteUrls:
+          type: array
+          description: Webex site URLs.
+          items:
+            type: string
+    UpdatePersonRequest:
+      type: object
+      properties:
+        emails:
+          type: array
+          items:
+            type: string
+            format: email
+        displayName:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        avatar:
+          type: string
+          format: uri
+        orgId:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+        licenses:
+          type: array
+          items:
+            type: string
+        department:
+          type: string
+        manager:
+          type: string
+        managerId:
+          type: string
+        title:
+          type: string
+        addresses:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              streetAddress:
+                type: string
+              locality:
+                type: string
+              region:
+                type: string
+              postalCode:
+                type: string
+              country:
+                type: string
+        phoneNumbers:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              value:
+                type: string
+        extension:
+          type: string
+        locationId:
+          type: string
+        loginEnabled:
+          type: boolean

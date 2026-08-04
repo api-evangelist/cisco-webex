@@ -12,10 +12,10 @@ info:
   version: 1.0.0
 sourceDescriptions:
 - name: peopleApi
-  url: ../openapi/cisco-webex-people-openapi.yml
+  url: ../openapi/cisco-webex-messaging-openapi.json
   type: openapi
 - name: messagingApi
-  url: ../openapi/cisco-webex-messaging-openapi.yml
+  url: ../openapi/cisco-webex-messaging-openapi.json
   type: openapi
 workflows:
 - workflowId: find-person-direct-message
@@ -44,7 +44,7 @@ workflows:
     description: >-
       Look up the person by exact email match. Only exact matches are
       returned, so at most one person is expected.
-    operationId: listPeople
+    operationId: "List People"
     parameters:
     - name: Authorization
       in: header
@@ -77,7 +77,7 @@ workflows:
     description: >-
       Send a 1:1 direct message to the resolved person, addressed by email
       via toPersonEmail.
-    operationId: createMessage
+    operationId: "Create a Message"
     parameters:
     - name: Authorization
       in: header

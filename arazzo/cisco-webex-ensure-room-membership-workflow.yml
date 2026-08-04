@@ -12,10 +12,10 @@ info:
   version: 1.0.0
 sourceDescriptions:
 - name: membershipsApi
-  url: ../openapi/cisco-webex-memberships-openapi.yml
+  url: ../openapi/cisco-webex-messaging-openapi.json
   type: openapi
 - name: messagingApi
-  url: ../openapi/cisco-webex-messaging-openapi.yml
+  url: ../openapi/cisco-webex-messaging-openapi.json
   type: openapi
 workflows:
 - workflowId: ensure-room-membership
@@ -47,7 +47,7 @@ workflows:
     description: >-
       List memberships for the room filtered by the person email to detect an
       existing membership.
-    operationId: listMemberships
+    operationId: "List Memberships"
     parameters:
     - name: Authorization
       in: header
@@ -78,7 +78,7 @@ workflows:
         type: jsonpath
   - stepId: addMembership
     description: Create the membership since the person is not yet in the room.
-    operationId: createMembership
+    operationId: "Create a Membership"
     parameters:
     - name: Authorization
       in: header
@@ -94,7 +94,7 @@ workflows:
       membershipId: $response.body#/id
   - stepId: postNotice
     description: Post a notice into the room announcing the new member.
-    operationId: createMessage
+    operationId: "Create a Message"
     parameters:
     - name: Authorization
       in: header

@@ -1,0 +1,409 @@
+openapi: 3.1.0
+info:
+  title: Cisco Webex Call Controls API
+  description: >-
+    Control active calls in Webex Calling including dial, answer, hold,
+    transfer, and pickup operations. Supports third-party call control for
+    building custom calling experiences and integrations.
+  version: 1.0.0
+  contact:
+    name: Cisco Webex Developer Support
+    url: https://developer.webex.com/support
+  license:
+    name: Cisco Webex API Terms of Service
+    url: https://developer.webex.com/terms-of-service
+servers:
+  - url: https://webexapis.com/v1
+    description: Webex Production API
+security:
+  - bearerAuth: []
+tags:
+  - name: Call Controls
+    description: Operations for controlling active calls
+paths:
+  /telephony/calls/dial:
+    post:
+      operationId: dial
+      summary: Cisco Webex Dial
+      description: >-
+        Initiates an outbound call from the authenticated user's device.
+        The destination can be a phone number, SIP URI, or Webex person ID.
+      tags:
+        - Call Controls
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - destination
+              properties:
+                destination:
+                  type: string
+                  description: Destination to dial (phone number, SIP URI, or person ID).
+      responses:
+        '200':
+          description: Call initiated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CallSession'
+        '400':
+          description: Bad request - invalid destination.
+        '401':
+          description: Unauthorized - invalid or missing access token.
+  /telephony/calls/answer:
+    post:
+      operationId: answer
+      summary: Cisco Webex Answer
+      description: >-
+        Answers an incoming call on the authenticated user's device. The
+        call ID must be provided to identify which call to answer.
+      tags:
+        - Call Controls
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - callId
+              properties:
+                callId:
+                  type: string
+                  description: The call ID to answer.
+      responses:
+        '204':
+          description: Call answered successfully.
+        '400':
+          description: Bad request - invalid call ID.
+  /telephony/calls/reject:
+    post:
+      operationId: reject
+      summary: Cisco Webex Reject
+      description: >-
+        Rejects an incoming call. The caller will hear a busy tone or be
+        redirected to voicemail depending on configuration.
+      tags:
+        - Call Controls
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - callId
+              properties:
+                callId:
+                  type: string
+                  description: The call ID to reject.
+      responses:
+        '204':
+          description: Call rejected successfully.
+        '400':
+          description: Bad request - invalid call ID.
+  /telephony/calls/hangup:
+    post:
+      operationId: hangup
+      summary: Cisco Webex Hangup
+      description: >-
+        Ends an active call. Both parties are disconnected when the call
+        is terminated.
+      tags:
+        - Call Controls
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - callId
+              properties:
+                callId:
+                  type: string
+                  description: The call ID to hang up.
+      responses:
+        '204':
+          description: Call ended successfully.
+        '400':
+          description: Bad request - invalid call ID.
+  /telephony/calls/hold:
+    post:
+      operationId: hold
+      summary: Cisco Webex Hold
+      description: >-
+        Places an active call on hold. The other party hears hold music
+        while the call is held.
+      tags:
+        - Call Controls
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - callId
+              properties:
+                callId:
+                  type: string
+                  description: The call ID to hold.
+      responses:
+        '204':
+          description: Call placed on hold successfully.
+        '400':
+          description: Bad request - invalid call ID.
+  /telephony/calls/resume:
+    post:
+      operationId: resume
+      summary: Cisco Webex Resume
+      description: >-
+        Resumes a held call. The call returns to an active state with
+        both parties connected.
+      tags:
+        - Call Controls
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - callId
+              properties:
+                callId:
+                  type: string
+                  description: The call ID to resume.
+      responses:
+        '204':
+          description: Call resumed successfully.
+        '400':
+          description: Bad request - invalid call ID.
+  /telephony/calls/transfer:
+    post:
+      operationId: transfer
+      summary: Cisco Webex Transfer
+      description: >-
+        Transfers an active call to another destination. Supports blind
+        transfer and consultative transfer when two calls are active.
+      tags:
+        - Call Controls
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - callId1
+              properties:
+                callId1:
+                  type: string
+                  description: The first call ID.
+                callId2:
+                  type: string
+                  description: The second call ID for consultative transfer.
+                destination:
+                  type: string
+                  description: Destination for blind transfer.
+      responses:
+        '204':
+          description: Call transferred successfully.
+        '400':
+          description: Bad request - invalid parameters.
+  /telephony/calls/park:
+    post:
+      operationId: park
+      summary: Cisco Webex Park
+      description: >-
+        Parks an active call at a call park extension. The call can be
+        retrieved from any device by dialing the park extension.
+      tags:
+        - Call Controls
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - callId
+              properties:
+                callId:
+                  type: string
+                  description: The call ID to park.
+                destination:
+                  type: string
+                  description: Park extension destination.
+                isGroupPark:
+                  type: boolean
+                  description: Whether to use group call park.
+      responses:
+        '200':
+          description: Call parked successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  callId:
+                    type: string
+                  parkedAgainst:
+                    type: string
+        '400':
+          description: Bad request - invalid parameters.
+  /telephony/calls/retrieve:
+    post:
+      operationId: retrieve
+      summary: Cisco Webex Retrieve
+      description: >-
+        Retrieves a parked call by providing the park destination. The call
+        is connected to the authenticated user's device.
+      tags:
+        - Call Controls
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - destination
+              properties:
+                destination:
+                  type: string
+                  description: Park extension to retrieve the call from.
+      responses:
+        '200':
+          description: Call retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CallSession'
+        '400':
+          description: Bad request - invalid parameters.
+  /telephony/calls:
+    get:
+      operationId: listCalls
+      summary: Cisco Webex List Calls
+      description: >-
+        Lists all active calls for the authenticated user. Returns call
+        details including state, direction, and connected parties.
+      tags:
+        - Call Controls
+      responses:
+        '200':
+          description: Successful response with list of active calls.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CallSession'
+        '401':
+          description: Unauthorized - invalid or missing access token.
+  /telephony/calls/{callId}:
+    get:
+      operationId: getCallDetails
+      summary: Cisco Webex Get Call Details
+      description: >-
+        Shows details for an active call by call ID. Returns the current
+        call state, parties, and duration.
+      tags:
+        - Call Controls
+      parameters:
+        - name: callId
+          in: path
+          required: true
+          description: Unique identifier for the call.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with call details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CallSession'
+        '404':
+          description: Call not found.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: >-
+        Webex API access token. Obtain via OAuth 2.0 authorization flow.
+        Requires spark:calls_write and spark:calls_read scopes.
+  schemas:
+    CallSession:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the call.
+        callId:
+          type: string
+          description: The call ID.
+        state:
+          type: string
+          description: Current state of the call.
+          enum:
+            - connecting
+            - alerting
+            - connected
+            - held
+            - remoteHeld
+            - disconnected
+        callType:
+          type: string
+          description: Type of call.
+          enum:
+            - location
+            - organization
+            - external
+            - emergency
+            - repair
+            - other
+        personality:
+          type: string
+          description: The role of the authenticated user in the call.
+          enum:
+            - originator
+            - terminator
+            - clickToDialOriginator
+        appearance:
+          type: integer
+          description: The call appearance value.
+        remoteParty:
+          type: object
+          description: Information about the remote party.
+          properties:
+            name:
+              type: string
+            number:
+              type: string
+            personId:
+              type: string
+            sipAddress:
+              type: string
+            callType:
+              type: string
+        startTime:
+          type: string
+          format: date-time
+          description: Time the call started.
+        answerTime:
+          type: string
+          format: date-time
+          description: Time the call was answered.
+        duration:
+          type: integer
+          description: Call duration in seconds.

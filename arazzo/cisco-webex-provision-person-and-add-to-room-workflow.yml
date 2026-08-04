@@ -12,13 +12,13 @@ info:
   version: 1.0.0
 sourceDescriptions:
 - name: peopleApi
-  url: ../openapi/cisco-webex-people-openapi.yml
+  url: ../openapi/cisco-webex-messaging-openapi.json
   type: openapi
 - name: membershipsApi
-  url: ../openapi/cisco-webex-memberships-openapi.yml
+  url: ../openapi/cisco-webex-messaging-openapi.json
   type: openapi
 - name: messagingApi
-  url: ../openapi/cisco-webex-messaging-openapi.yml
+  url: ../openapi/cisco-webex-messaging-openapi.json
   type: openapi
 workflows:
 - workflowId: provision-person-and-add-to-room
@@ -58,7 +58,7 @@ workflows:
     description: >-
       Create a new user account in the organization with the supplied email
       and display name.
-    operationId: createPerson
+    operationId: "Create a Person"
     parameters:
     - name: Authorization
       in: header
@@ -76,7 +76,7 @@ workflows:
       personId: $response.body#/id
   - stepId: addToRoom
     description: Add the newly created person to the room as a member.
-    operationId: createMembership
+    operationId: "Create a Membership"
     parameters:
     - name: Authorization
       in: header
@@ -92,7 +92,7 @@ workflows:
       membershipId: $response.body#/id
   - stepId: welcome
     description: Post a welcome message into the room for the new person.
-    operationId: createMessage
+    operationId: "Create a Message"
     parameters:
     - name: Authorization
       in: header

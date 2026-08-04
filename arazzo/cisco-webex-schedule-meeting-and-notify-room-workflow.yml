@@ -12,10 +12,10 @@ info:
   version: 1.0.0
 sourceDescriptions:
 - name: meetingsApi
-  url: ../openapi/cisco-webex-meetings-openapi.yml
+  url: ../openapi/cisco-webex-meeting-openapi.json
   type: openapi
 - name: messagingApi
-  url: ../openapi/cisco-webex-messaging-openapi.yml
+  url: ../openapi/cisco-webex-messaging-openapi.json
   type: openapi
 workflows:
 - workflowId: schedule-meeting-and-notify-room
@@ -75,7 +75,7 @@ workflows:
     description: >-
       Post a markdown message into the room that includes the meeting title
       and its browser join link.
-    operationId: createMessage
+    operationId: "Create a Message"
     parameters:
     - name: Authorization
       in: header

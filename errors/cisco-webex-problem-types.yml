@@ -42,7 +42,7 @@ problems:
     title: Conflict
     meaning: The request conflicts with current state (e.g. a membership already exists).
     remediation: Fetch current state before retrying; treat as idempotent success where appropriate.
-    observed_in: openapi/cisco-webex-memberships-openapi.yml#createMembership
+    observed_in: openapi/cisco-webex-messaging-openapi.json#createMembership
   - status: 429
     title: Too Many Requests
     meaning: Rate limit exceeded.

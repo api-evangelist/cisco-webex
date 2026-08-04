@@ -1,0 +1,361 @@
+openapi: 3.1.0
+info:
+  title: Cisco Webex Messaging API
+  description: >-
+    Send and receive messages, manage spaces and teams, and share files within
+    the Webex messaging platform. Supports rich text, file attachments, and
+    adaptive cards.
+  version: 1.0.0
+  contact:
+    name: Cisco Webex Developer Support
+    url: https://developer.webex.com/support
+  license:
+    name: Cisco Webex API Terms of Service
+    url: https://developer.webex.com/terms-of-service
+servers:
+  - url: https://webexapis.com/v1
+    description: Webex Production API
+security:
+  - bearerAuth: []
+tags:
+  - name: Messages
+    description: Operations for sending and managing messages
+paths:
+  /messages:
+    get:
+      operationId: listMessages
+      summary: Cisco Webex List Messages
+      description: >-
+        Lists all messages in a room. Each message includes content and metadata
+        about the message. The list sorts the messages in descending order by
+        creation date.
+      tags:
+        - Messages
+      parameters:
+        - name: roomId
+          in: query
+          required: true
+          description: Unique identifier for the room to list messages from.
+          schema:
+            type: string
+        - name: parentId
+          in: query
+          description: List messages that are replies to the specified parent message.
+          schema:
+            type: string
+        - name: mentionedPeople
+          in: query
+          description: >-
+            List messages where the specified person is mentioned. Use 'me' for
+            the authenticated user.
+          schema:
+            type: string
+        - name: before
+          in: query
+          description: List messages sent before a date and time in ISO 8601 format.
+          schema:
+            type: string
+            format: date-time
+        - name: beforeMessage
+          in: query
+          description: List messages sent before a specified message ID.
+          schema:
+            type: string
+        - name: max
+          in: query
+          description: Maximum number of messages to return (default 50, max 1000).
+          schema:
+            type: integer
+            default: 50
+            maximum: 1000
+      responses:
+        '200':
+          description: Successful response with list of messages.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized - invalid or missing access token.
+    post:
+      operationId: createMessage
+      summary: Cisco Webex Create a Message
+      description: >-
+        Posts a plain text, rich text, or card message to a room. Messages can
+        include file attachments and adaptive cards. The files parameter is
+        limited to one file per message.
+      tags:
+        - Messages
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMessageRequest'
+      responses:
+        '200':
+          description: Message created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '400':
+          description: Bad request - invalid input parameters.
+        '401':
+          description: Unauthorized - invalid or missing access token.
+  /messages/direct:
+    get:
+      operationId: listDirectMessages
+      summary: Cisco Webex List Direct Messages
+      description: >-
+        Lists all messages in a 1:1 (direct) room with another person. The
+        authenticated user must be a member of the direct conversation.
+      tags:
+        - Messages
+      parameters:
+        - name: personId
+          in: query
+          description: Person ID of the other participant in the direct conversation.
+          schema:
+            type: string
+        - name: personEmail
+          in: query
+          description: Email address of the other participant in the direct conversation.
+          schema:
+            type: string
+            format: email
+      responses:
+        '200':
+          description: Successful response with list of direct messages.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Message'
+  /messages/{messageId}:
+    get:
+      operationId: getMessageDetails
+      summary: Cisco Webex Get Message Details
+      description: >-
+        Shows details for a message by message ID. Specify the message ID in
+        the URI. The returned message includes all content and metadata.
+      tags:
+        - Messages
+      parameters:
+        - name: messageId
+          in: path
+          required: true
+          description: Unique identifier for the message.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with message details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '404':
+          description: Message not found.
+    put:
+      operationId: editMessage
+      summary: Cisco Webex Edit a Message
+      description: >-
+        Updates a message you have posted. Supports editing plain text and
+        markdown content. Cannot edit messages with files or attachments.
+        Maximum of 10 edits per message.
+      tags:
+        - Messages
+      parameters:
+        - name: messageId
+          in: path
+          required: true
+          description: Unique identifier for the message.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EditMessageRequest'
+      responses:
+        '200':
+          description: Message updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+        '400':
+          description: Bad request - invalid input parameters.
+        '404':
+          description: Message not found.
+    delete:
+      operationId: deleteMessage
+      summary: Cisco Webex Delete a Message
+      description: >-
+        Deletes a message by message ID. The deleted message will no longer be
+        visible in the room. Moderators can delete any message; others can only
+        delete their own.
+      tags:
+        - Messages
+      parameters:
+        - name: messageId
+          in: path
+          required: true
+          description: Unique identifier for the message.
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Message deleted successfully.
+        '404':
+          description: Message not found.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: >-
+        Webex API access token. Obtain via OAuth 2.0 authorization flow or
+        personal access token from developer.webex.com.
+  schemas:
+    Message:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the message.
+        parentId:
+          type: string
+          description: The parent message ID if this is a reply.
+        roomId:
+          type: string
+          description: The room ID of the message.
+        roomType:
+          type: string
+          description: The type of room.
+          enum:
+            - direct
+            - group
+        text:
+          type: string
+          description: The plain text content of the message.
+        markdown:
+          type: string
+          description: The message content in markdown format.
+        html:
+          type: string
+          description: The rendered HTML content of the message.
+        files:
+          type: array
+          description: Public URLs for files attached to the message.
+          items:
+            type: string
+            format: uri
+        personId:
+          type: string
+          description: The person ID of the message author.
+        personEmail:
+          type: string
+          format: email
+          description: The email address of the message author.
+        mentionedPeople:
+          type: array
+          description: People IDs of those mentioned in the message.
+          items:
+            type: string
+        mentionedGroups:
+          type: array
+          description: Group names mentioned in the message.
+          items:
+            type: string
+        attachments:
+          type: array
+          description: Card attachments on the message.
+          items:
+            type: object
+            properties:
+              contentType:
+                type: string
+                description: The content type of the attachment.
+              content:
+                type: object
+                description: Adaptive card content.
+        isVoiceClip:
+          type: boolean
+          description: Whether the message is a voice clip.
+        created:
+          type: string
+          format: date-time
+          description: The date and time the message was created.
+        updated:
+          type: string
+          format: date-time
+          description: The date and time the message was last updated.
+    CreateMessageRequest:
+      type: object
+      properties:
+        roomId:
+          type: string
+          description: The room ID for the message.
+        toPersonId:
+          type: string
+          description: Person ID to send a 1:1 message to.
+        toPersonEmail:
+          type: string
+          format: email
+          description: Email address to send a 1:1 message to.
+        parentId:
+          type: string
+          description: The parent message ID to reply to.
+        text:
+          type: string
+          description: Plain text message content (max 7439 bytes).
+          maxLength: 7439
+        markdown:
+          type: string
+          description: Markdown-formatted message content (max 7439 bytes).
+          maxLength: 7439
+        files:
+          type: array
+          description: Public URL to a file attachment (one per message).
+          items:
+            type: string
+            format: uri
+          maxItems: 1
+        attachments:
+          type: array
+          description: Card attachments with adaptive card content.
+          items:
+            type: object
+            properties:
+              contentType:
+                type: string
+              content:
+                type: object
+    EditMessageRequest:
+      type: object
+      required:
+        - roomId
+      properties:
+        roomId:
+          type: string
+          description: The room ID of the message.
+        text:
+          type: string
+          description: Updated plain text content (max 7439 bytes).
+          maxLength: 7439
+        markdown:
+          type: string
+          description: Updated markdown content (max 7439 bytes).
+          maxLength: 7439
