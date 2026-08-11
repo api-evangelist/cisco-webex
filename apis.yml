@@ -218,6 +218,8 @@ apis:
   - type: Authentication
     url: https://developer.webex.com/docs/integrations
 common:
+- type: Overlay
+  url: overlays/cisco-webex-admin-audit-events-overlay.yaml
 - type: AgenticAccess
   url: agentic-access/cisco-webex-agentic-access.yml
 - type: DomainSecurity
