@@ -1,11 +1,10 @@
 aid: cisco-webex
 name: Cisco Webex
-description: >-
-  Cisco Webex is a comprehensive collaboration platform that provides video conferencing, team messaging, file sharing,
-  and calling capabilities for businesses and teams. The Webex developer platform offers REST APIs, SDKs, and
-  integrations for extending and automating collaboration workflows across meetings, messaging, calling, devices,
-  administration, and contact center scenarios. Authentication uses OAuth 2.0 access tokens, personal access tokens, or
-  service apps and all endpoints are served from the webexapis.com base.
+description: Cisco Webex is a comprehensive collaboration platform that provides video conferencing, team messaging,
+  file sharing, and calling capabilities for businesses and teams. The Webex developer platform offers REST APIs,
+  SDKs, and integrations for extending and automating collaboration workflows across meetings, messaging, calling,
+  devices, administration, and contact center scenarios. Authentication uses OAuth 2.0 access tokens, personal access
+  tokens, or service apps and all endpoints are served from the webexapis.com base.
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -25,7 +24,7 @@ type: Index
 access: 3rd-Party
 position: Consumer
 created: '2024-01-01'
-modified: '2026-07-31'
+modified: '2026-08-19'
 specificationVersion: '0.23'
 tags:
 - Collaboration
@@ -37,8 +36,7 @@ tags:
 apis:
 - aid: cisco-webex:admin
   name: Cisco Webex Administration API
-  description: >-
-    The Webex Administration API — 148 operations across 115 paths, from Cisco's published OpenAPI definition.
+  description: The Webex Administration API — 148 operations across 115 paths, from Cisco's published OpenAPI definition.
   humanURL: https://developer.webex.com/docs
   baseURL: https://webexapis.com/v1
   tags:
@@ -56,8 +54,7 @@ apis:
     url: https://developer.webex.com/docs/integrations
 - aid: cisco-webex:broadworks
   name: Cisco Webex BroadWorks API
-  description: >-
-    The Webex BroadWorks API — 19 operations across 11 paths, from Cisco's published OpenAPI definition.
+  description: The Webex BroadWorks API — 19 operations across 11 paths, from Cisco's published OpenAPI definition.
   humanURL: https://developer.webex.com/docs
   baseURL: https://webexapis.com/v1
   tags:
@@ -75,8 +72,7 @@ apis:
     url: https://developer.webex.com/docs/integrations
 - aid: cisco-webex:cloud-calling
   name: Cisco Webex Cloud Calling API
-  description: >-
-    The Webex Cloud Calling API — 1087 operations across 687 paths, from Cisco's published OpenAPI definition.
+  description: The Webex Cloud Calling API — 1087 operations across 687 paths, from Cisco's published OpenAPI definition.
   humanURL: https://developer.webex.com/docs
   baseURL: https://webexapis.com/v1
   tags:
@@ -99,8 +95,7 @@ apis:
     url: https://developer.webex.com/docs/integrations
 - aid: cisco-webex:contact-center
   name: Cisco Webex Contact Center API
-  description: >-
-    The Webex Contact Center API — 448 operations across 327 paths, from Cisco's published OpenAPI definition.
+  description: The Webex Contact Center API — 448 operations across 327 paths, from Cisco's published OpenAPI definition.
   humanURL: https://developer.webex.com/docs
   baseURL: https://webexapis.com/v1
   tags:
@@ -124,8 +119,7 @@ apis:
     url: https://developer.webex.com/docs/integrations
 - aid: cisco-webex:device
   name: Cisco Webex Devices API
-  description: >-
-    The Webex Devices API — 101 operations across 67 paths, from Cisco's published OpenAPI definition.
+  description: The Webex Devices API — 101 operations across 67 paths, from Cisco's published OpenAPI definition.
   humanURL: https://developer.webex.com/docs
   baseURL: https://webexapis.com/v1
   tags:
@@ -143,8 +137,7 @@ apis:
     url: https://developer.webex.com/docs/integrations
 - aid: cisco-webex:meeting
   name: Cisco Webex Meetings API
-  description: >-
-    The Webex Meetings API — 168 operations across 128 paths, from Cisco's published OpenAPI definition.
+  description: The Webex Meetings API — 168 operations across 128 paths, from Cisco's published OpenAPI definition.
   humanURL: https://developer.webex.com/docs
   baseURL: https://webexapis.com/v1
   tags:
@@ -162,8 +155,7 @@ apis:
     url: https://developer.webex.com/docs/integrations
 - aid: cisco-webex:messaging
   name: Cisco Webex Messaging API
-  description: >-
-    The Webex Messaging API — 63 operations across 36 paths, from Cisco's published OpenAPI definition.
+  description: The Webex Messaging API — 63 operations across 36 paths, from Cisco's published OpenAPI definition.
   humanURL: https://developer.webex.com/docs
   baseURL: https://webexapis.com/v1
   tags:
@@ -181,8 +173,7 @@ apis:
     url: https://developer.webex.com/docs/integrations
 - aid: cisco-webex:ucm
   name: Cisco Webex Unified CM API
-  description: >-
-    The Webex Unified CM API — 1 operations across 1 paths, from Cisco's published OpenAPI definition.
+  description: The Webex Unified CM API — 1 operations across 1 paths, from Cisco's published OpenAPI definition.
   humanURL: https://developer.webex.com/docs
   baseURL: https://webexapis.com/v1
   tags:
@@ -200,8 +191,7 @@ apis:
     url: https://developer.webex.com/docs/integrations
 - aid: cisco-webex:wholesale
   name: Cisco Webex Wholesale API
-  description: >-
-    The Webex Wholesale API — 18 operations across 10 paths, from Cisco's published OpenAPI definition.
+  description: The Webex Wholesale API — 18 operations across 10 paths, from Cisco's published OpenAPI definition.
   humanURL: https://developer.webex.com/docs
   baseURL: https://webexapis.com/v1
   tags:
@@ -218,6 +208,12 @@ apis:
   - type: Authentication
     url: https://developer.webex.com/docs/integrations
 common:
+- type: ParentCompany
+  url: https://apis.io/providers/cisco/
+  name: Cisco
+  x-relationship: product
+  x-generated-by: cisco-family:2026-08-19
+  x-acquired: 2007
 - type: Overlay
   url: overlays/cisco-webex-admin-audit-events-overlay.yaml
 - type: AgenticAccess
@@ -332,7 +328,25 @@ common:
   url: components/cisco-webex-components.yml
 - type: DataModel
   url: data-model/cisco-webex-data-model.yml
+- type: Subsidiary
+  url: https://apis.io/providers/cisco-control-hub/
+  name: Cisco Control Hub
+  x-relationship: product
+  x-generated-by: cisco-family:2026-08-19
+- type: Subsidiary
+  url: https://apis.io/providers/cisco-expressway/
+  name: Cisco Expressway
+  x-relationship: product
+  x-generated-by: cisco-family:2026-08-19
+- type: Subsidiary
+  url: https://apis.io/providers/cisco-webex-meetings/
+  name: Cisco Webex Meetings
+  x-relationship: product
+  x-generated-by: cisco-family:2026-08-19
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
   url: https://developer.webex.com
+x-parent: cisco
+x-relationship: product
+x-acquired: 2007
